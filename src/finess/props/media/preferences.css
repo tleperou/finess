@@ -1,0 +1,16 @@
+@custom-media --motion (prefers-reduced-motion: no-preference);
+@custom-media --motionReduced (prefers-reduced-motion: reduce);
+
+@custom-media --opacity (prefers-reduced-transparency: no-preference);
+@custom-media --opacityReduced (prefers-reduced-transparency: reduce);
+
+@custom-media --data (prefers-reduced-data: no-preference);
+@custom-media --dataReduced (prefers-reduced-data: reduce);
+
+@custom-media --dark (prefers-color-scheme: dark);
+@custom-media --light (prefers-color-scheme: light);
+
+@custom-media --contrast (prefers-contrast: more);
+@custom-media --contrastReduced (prefers-contrast: less);
+
+@custom-media --colorsForced (forced-colors: active);

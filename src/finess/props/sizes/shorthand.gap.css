@@ -1,0 +1,63 @@
+@import './base.css';
+
+:where(html) {
+  /* row and column gaps */
+
+  --size-gap-1: var(--size-block-1) var(--size-inline-1);
+  --size-gap-2: var(--size-block-2) var(--size-inline-2);
+  --size-gap-3: var(--size-block-3) var(--size-inline-3);
+  --size-gap-4: var(--size-block-4) var(--size-inline-4);
+  --size-gap-5: var(--size-block-5) var(--size-inline-5);
+
+  --gap-1: var(--size-block-1) var(--size-inline-1);
+  --gap-2: var(--size-block-2) var(--size-inline-2);
+  --gap-3: var(--size-block-3) var(--size-inline-3);
+  --gap-4: var(--size-block-4) var(--size-inline-4);
+  --gap-5: var(--size-block-5) var(--size-inline-5);
+
+  --g-1: var(--size-block-1) var(--size-inline-1);
+  --g-2: var(--size-block-2) var(--size-inline-2);
+  --g-3: var(--size-block-3) var(--size-inline-3);
+  --g-4: var(--size-block-4) var(--size-inline-4);
+  --g-5: var(--size-block-5) var(--size-inline-5);
+
+  /* row */
+
+  --size-row-gap-1: var(--size-inline-1);
+  --size-row-gap-2: var(--size-inline-2);
+  --size-row-gap-3: var(--size-inline-3);
+  --size-row-gap-4: var(--size-inline-4);
+  --size-row-gap-5: var(--size-inline-5);
+
+  --row-gap-1: var(--size-inline-1);
+  --row-gap-2: var(--size-inline-2);
+  --row-gap-3: var(--size-inline-3);
+  --row-gap-4: var(--size-inline-4);
+  --row-gap-5: var(--size-inline-5);
+
+  --rg-1: var(--size-inline-1);
+  --rg-2: var(--size-inline-2);
+  --rg-3: var(--size-inline-3);
+  --rg-4: var(--size-inline-4);
+  --rg-5: var(--size-inline-5);
+
+  /* column gap */
+
+  --size-column-gap-1: var(--size-column-1);
+  --size-column-gap-2: var(--size-column-2);
+  --size-column-gap-3: var(--size-column-3);
+  --size-column-gap-4: var(--size-column-4);
+  --size-column-gap-5: var(--size-column-5);
+
+  --column-gap-1: var(--size-column-1);
+  --column-gap-2: var(--size-column-2);
+  --column-gap-3: var(--size-column-3);
+  --column-gap-4: var(--size-column-4);
+  --column-gap-5: var(--size-column-5);
+
+  --cg-1: var(--size-column-1);
+  --cg-2: var(--size-column-2);
+  --cg-3: var(--size-column-3);
+  --cg-4: var(--size-column-4);
+  --cg-5: var(--size-column-5);
+}

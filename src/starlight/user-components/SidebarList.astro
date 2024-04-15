@@ -1,0 +1,58 @@
+---
+interface Link {
+  type: 'link'
+  label: string
+  href: string
+  isCurrent: boolean
+  badge: unknown | undefined
+  attrs: Record<string, string | number | boolean | undefined>
+}
+
+interface Group {
+  type: 'group'
+  label: string
+  entries: (Link | Group)[]
+  collapsed: boolean
+  badge: unknown | undefined
+}
+
+type SidebarEntry = Link | Group
+
+interface Props {
+  sidebar: SidebarEntry[] | any[]
+  nested?: boolean
+}
+
+const { sidebar, nested } = Astro.props
+---
+
+<ul>
+  {
+    sidebar.map(entry => (
+      <li>
+        {entry.type === 'link' ? (
+          <a
+            href={entry.href}
+            aria-current={entry.isCurrent && 'page'}
+            class:list={[{ large: !nested }, entry.attrs.class]}
+            {...entry.attrs}
+          >
+            {entry.label}
+            {entry.badge && <> (badge)</>}
+          </a>
+        ) : (
+          <details>
+            <summary>
+              {entry.label}
+              {entry.badge && <>(badge)</>}
+            </summary>
+            <Astro.self
+              sidebar={entry.entries}
+              nested
+            />
+          </details>
+        )}
+      </li>
+    ))
+  }
+</ul>

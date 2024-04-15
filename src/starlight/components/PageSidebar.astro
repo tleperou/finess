@@ -1,0 +1,13 @@
+---
+import type { Props } from '@astrojs/starlight/props'
+
+import TableOfContents from '../user-components/TableOfContents.astro'
+---
+
+{
+  Astro.props.toc && (
+    <>
+      <TableOfContents {...Astro.props} />
+    </>
+  )
+}

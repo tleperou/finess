@@ -1,0 +1,5 @@
+:where(html) {
+  --font-weight-1: thin;
+  --font-weight-2: normal;
+  --font-weight-3: bold;
+}

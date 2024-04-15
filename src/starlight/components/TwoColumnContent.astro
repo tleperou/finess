@@ -1,0 +1,13 @@
+---
+import type { Props } from '@astrojs/starlight/props'
+---
+
+{
+  Astro.props.toc && (
+    <aside>
+      <slot name="right-sidebar" />
+    </aside>
+  )
+}
+
+<slot />

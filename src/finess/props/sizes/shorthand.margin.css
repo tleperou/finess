@@ -1,0 +1,63 @@
+@import './base.css';
+
+:where(html) {
+  /* margin block and inline */
+
+  --size-margin-1: var(--size-block-1) var(--size-inline-1);
+  --size-margin-2: var(--size-block-2) var(--size-inline-2);
+  --size-margin-3: var(--size-block-3) var(--size-inline-3);
+  --size-margin-4: var(--size-block-4) var(--size-inline-4);
+  --size-margin-5: var(--size-block-5) var(--size-inline-5);
+
+  --margin-1: var(--size-block-1) var(--size-inline-1);
+  --margin-2: var(--size-block-2) var(--size-inline-2);
+  --margin-3: var(--size-block-3) var(--size-inline-3);
+  --margin-4: var(--size-block-4) var(--size-inline-4);
+  --margin-5: var(--size-block-5) var(--size-inline-5);
+
+  --m-1: var(--size-block-1) var(--size-inline-1);
+  --m-2: var(--size-block-2) var(--size-inline-2);
+  --m-3: var(--size-block-3) var(--size-inline-3);
+  --m-4: var(--size-block-4) var(--size-inline-4);
+  --m-5: var(--size-block-5) var(--size-inline-5);
+
+  /* margin block */
+
+  --size-margin-block-1: var(--size-block-1);
+  --size-margin-block-2: var(--size-block-2);
+  --size-margin-block-3: var(--size-block-3);
+  --size-margin-block-4: var(--size-block-4);
+  --size-margin-block-5: var(--size-block-5);
+
+  --margin-block-1: var(--size-block-1);
+  --margin-block-2: var(--size-block-2);
+  --margin-block-3: var(--size-block-3);
+  --margin-block-4: var(--size-block-4);
+  --margin-block-5: var(--size-block-5);
+
+  --mb-1: var(--size-block-1);
+  --mb-2: var(--size-block-2);
+  --mb-3: var(--size-block-3);
+  --mb-4: var(--size-block-4);
+  --mb-5: var(--size-block-5);
+
+  /* margin inline */
+
+  --size-margin-inline-1: var(--size-inline-1);
+  --size-margin-inline-2: var(--size-inline-2);
+  --size-margin-inline-3: var(--size-inline-3);
+  --size-margin-inline-4: var(--size-inline-4);
+  --size-margin-inline-5: var(--size-inline-5);
+
+  --margin-inline-1: var(--size-inline-1);
+  --margin-inline-2: var(--size-inline-2);
+  --margin-inline-3: var(--size-inline-3);
+  --margin-inline-4: var(--size-inline-4);
+  --margin-inline-5: var(--size-inline-5);
+
+  --mi-1: var(--size-inline-1);
+  --mi-2: var(--size-inline-2);
+  --mi-3: var(--size-inline-3);
+  --mi-4: var(--size-inline-4);
+  --mi-5: var(--size-inline-5);
+}

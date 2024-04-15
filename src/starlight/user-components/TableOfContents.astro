@@ -1,0 +1,17 @@
+---
+import TableOfContentsList from './TableOfContentsList.astro'
+import type { Props } from '@astrojs/starlight/props'
+
+const { labels, toc } = Astro.props
+---
+
+{
+  toc && (
+    <aside>
+      <h2>{labels['tableOfContents.onThisPage']}</h2>
+      <nav>
+        <TableOfContentsList toc={toc.items} />
+      </nav>
+    </aside>
+  )
+}

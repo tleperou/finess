@@ -1,0 +1,26 @@
+---
+const { hasSidebar } = Astro.props
+---
+
+<header>
+  <slot name="header" />
+</header>
+
+{
+  hasSidebar && (
+    <aside>
+      <slot name="sidebar" />
+    </aside>
+  )
+}
+
+<slot />
+
+<style>
+  header {
+    border: 1px solid red;
+
+    padding: var(--padding-1);
+    margin: var(--margin-1);
+  }
+</style>

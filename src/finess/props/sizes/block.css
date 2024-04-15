@@ -1,0 +1,64 @@
+@import './base.css';
+@import './../media.css';
+
+/*
+ * Mutate globally. Allow easy theming.
+ */
+:where(html) {
+  --size-block-coefficient: 1;
+}
+
+/* 
+ * Preserve consistant spacings through different 
+ * screen ratios. Prevent over spacing on landscape.
+ */
+:where(html) {
+  --size-block-ratio: 5 / 3;
+
+  @media (--portrait) {
+    --size-block-ratio: 1;
+  }
+}
+
+:where(html) {
+  --size-block-1: calc(
+    var(--size-block-coefficient) *
+      clamp(
+        var(--size-1),
+        calc(2vh * var(--size-block-ratio)),
+        calc(var(--size-1) * 1.65)
+      )
+  );
+  --size-block-2: calc(
+    var(--size-block-coefficient) *
+      clamp(
+        var(--size-2),
+        calc(4vh * var(--size-block-ratio)),
+        calc(var(--size-2) * 1.65)
+      )
+  );
+  --size-block-3: calc(
+    var(--size-block-coefficient) *
+      clamp(
+        var(--size-3),
+        calc(7vh * var(--size-block-ratio)),
+        calc(var(--size-3) * 1.65)
+      )
+  );
+  --size-block-4: calc(
+    var(--size-block-coefficient) *
+      clamp(
+        var(--size-4),
+        calc(20vh * var(--size-block-ratio)),
+        calc(var(--size-4) * 1.65)
+      )
+  );
+  --size-block-5: calc(
+    var(--size-block-coefficient) *
+      clamp(
+        var(--size-5),
+        calc(40vh * var(--size-block-ratio)),
+        calc(var(--size-5) * 1.65)
+      )
+  );
+}

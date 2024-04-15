@@ -1,0 +1,19 @@
+---
+import type { Props } from '@astrojs/starlight/props'
+
+const { labels, lang, lastUpdated } = Astro.props
+---
+
+{
+  lastUpdated && (
+    <p>
+      {labels['page.lastUpdated']}{' '}
+      <time datetime={lastUpdated.toISOString()}>
+        {lastUpdated.toLocaleDateString(lang, {
+          dateStyle: 'medium',
+          timeZone: 'UTC',
+        })}
+      </time>
+    </p>
+  )
+}

@@ -1,0 +1,11 @@
+:where(html) {
+  --layer-background-1: -1;
+  --layer-background-2: -2;
+  --layer-background-3: -3;
+  --layer-background-important: -2147483647;
+
+  --layer-foreground-1: 1;
+  --layer-foreground-2: 2;
+  --layer-foreground-3: 3;
+  --layer-foreground-important: 2147483647;
+}

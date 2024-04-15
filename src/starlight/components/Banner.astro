@@ -1,0 +1,14 @@
+---
+import type { Props } from '@astrojs/starlight/props'
+
+const { banner } = Astro.props.entry.data
+---
+
+{
+  banner && (
+    <section
+      role="banner"
+      set:html={banner.content}
+    />
+  )
+}

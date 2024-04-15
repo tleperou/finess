@@ -1,0 +1,32 @@
+---
+import type { MarkdownHeading } from 'astro'
+
+interface TocItem extends MarkdownHeading {
+  children: TocItem[]
+}
+
+interface Props {
+  toc: TocItem[]
+  depth?: number
+  isMobile?: boolean
+}
+
+const { toc, isMobile = false, depth = 0 } = Astro.props
+---
+
+<ul>
+  {
+    toc.map(heading => (
+      <li>
+        <a href={'#' + heading.slug}>{heading.text}</a>
+        {heading.children.length > 0 && (
+          <Astro.self
+            toc={heading.children}
+            depth={depth + 1}
+            isMobile={isMobile}
+          />
+        )}
+      </li>
+    ))
+  }
+</ul>

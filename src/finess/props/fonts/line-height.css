@@ -1,0 +1,6 @@
+:where(html) {
+  --font-line-height-0: 0.95;
+  --font-line-height-1: 1.15;
+  --font-line-height-2: 1.5;
+  --font-line-height-3: 2;
+}

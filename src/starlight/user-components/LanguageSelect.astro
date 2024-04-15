@@ -1,0 +1,37 @@
+---
+import config from 'virtual:starlight/user-config'
+import { localizedUrl } from '../utils/localizedUrl'
+import type { Props } from '@astrojs/starlight/props'
+
+const { labels } = Astro.props
+---
+
+{
+  config.isMultilingual && (
+    <select-lang aria-label={labels['languageSelect.accessibleLabel']}>
+      {Object.entries(config.locales).map(([code, locale]) => (
+        <option
+          value={localizedUrl(Astro.url, code).pathname}
+          selected={code === Astro.props.locale}
+        >
+          {/* @ts-expect-error lack's lack of type */}
+          {locale!.label}
+        </option>
+      ))}
+    </select-lang>
+  )
+}
+
+<script>
+  class StarlightLanguageSelect extends HTMLSelectElement {
+    constructor() {
+      super()
+      this.addEventListener('change', e => {
+        if (e.currentTarget instanceof HTMLSelectElement) {
+          window.location.pathname = e.currentTarget.value
+        }
+      })
+    }
+  }
+  customElements.define('select-lang', StarlightLanguageSelect)
+</script>

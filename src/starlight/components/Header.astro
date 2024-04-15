@@ -1,0 +1,20 @@
+---
+import config from 'virtual:starlight/user-config'
+import type { Props } from '@astrojs/starlight/props'
+
+import LanguageSelect from '../user-components/LanguageSelect.astro'
+import Search from 'virtual:starlight/components/Search'
+import SiteTitle from '../user-components/SiteTitle.astro'
+import SocialIcons from '../user-components/SocialIcons.astro'
+import ThemeSelect from '../user-components/ThemeSelect.astro'
+
+const shouldRenderSearch =
+  config.pagefind ||
+  config.components.Search !== '@astrojs/starlight/components/Search.astro'
+---
+
+<SiteTitle {...Astro.props} />
+{shouldRenderSearch && <Search {...Astro.props} />}
+<SocialIcons {...Astro.props} />
+<ThemeSelect {...Astro.props} />
+<LanguageSelect {...Astro.props} />

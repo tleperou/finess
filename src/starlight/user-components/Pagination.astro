@@ -1,0 +1,37 @@
+---
+import type { Props } from '@astrojs/starlight/props'
+
+const { labels, pagination } = Astro.props
+const { prev, next } = pagination
+---
+
+{
+  pagination && (
+    <>
+      {prev && (
+        <a
+          href={prev.href}
+          rel="prev"
+        >
+          <span>
+            {labels['page.previousLink']}
+            <br />
+            <span class="link-title">{prev.label}</span>
+          </span>
+        </a>
+      )}
+      {next && (
+        <a
+          href={next.href}
+          rel="next"
+        >
+          <span>
+            {labels['page.nextLink']}
+            <br />
+            <span class="link-title">{next.label}</span>
+          </span>
+        </a>
+      )}
+    </>
+  )
+}

@@ -1,0 +1,64 @@
+@import './base.css';
+@import './../media.css';
+
+/*
+ * Mutate globally. Allow easy theming.
+ */
+:where(html) {
+  --size-inline-coefficient: 1;
+}
+
+/* 
+ * Preserve consistant spacings through different 
+ * screen ratios. Prevent over spacing on landscape.
+ */
+:where(html) {
+  --size-inline-ratio: 1;
+
+  @media (--landscape) {
+    --size-inline-ratio: 5 / 3;
+  }
+}
+
+:where(html) {
+  --size-inline-1: calc(
+    var(--size-inline-coefficient) *
+      clamp(
+        var(--size-1),
+        calc(2vw * var(--size-inline-ratio)),
+        calc(var(--size-1) * 1.65)
+      )
+  );
+  --size-inline-2: calc(
+    var(--size-inline-coefficient) *
+      clamp(
+        var(--size-2),
+        calc(4vw * var(--size-inline-ratio)),
+        calc(var(--size-2) * 1.65)
+      )
+  );
+  --size-inline-3: calc(
+    var(--size-inline-coefficient) *
+      clamp(
+        var(--size-3),
+        calc(7vw * var(--size-inline-ratio)),
+        calc(var(--size-3) * 1.65)
+      )
+  );
+  --size-inline-4: calc(
+    var(--size-inline-coefficient) *
+      clamp(
+        var(--size-4),
+        calc(20vw * var(--size-inline-ratio)),
+        calc(var(--size-4) * 1.65)
+      )
+  );
+  --size-inline-5: calc(
+    var(--size-inline-coefficient) *
+      clamp(
+        var(--size-5),
+        calc(40vw * var(--size-inline-ratio)),
+        calc(var(--size-5) * 1.65)
+      )
+  );
+}
