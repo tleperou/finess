@@ -1,5 +1,3 @@
-@import './base.css';
-
 :where(html) {
   --size-viewport-sm: 501px;
   --size-viewport-md: 1201px;

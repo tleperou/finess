@@ -1,0 +1,61 @@
+:where(html) {
+  /* margin block and inline */
+
+  --space-margin-1: var(--space-block-1) var(--space-inline-1);
+  --space-margin-2: var(--space-block-2) var(--space-inline-2);
+  --space-margin-3: var(--space-block-3) var(--space-inline-3);
+  --space-margin-4: var(--space-block-4) var(--space-inline-4);
+  --space-margin-5: var(--space-block-5) var(--space-inline-5);
+
+  --margin-1: var(--space-block-1) var(--space-inline-1);
+  --margin-2: var(--space-block-2) var(--space-inline-2);
+  --margin-3: var(--space-block-3) var(--space-inline-3);
+  --margin-4: var(--space-block-4) var(--space-inline-4);
+  --margin-5: var(--space-block-5) var(--space-inline-5);
+
+  --m-1: var(--space-block-1) var(--space-inline-1);
+  --m-2: var(--space-block-2) var(--space-inline-2);
+  --m-3: var(--space-block-3) var(--space-inline-3);
+  --m-4: var(--space-block-4) var(--space-inline-4);
+  --m-5: var(--space-block-5) var(--space-inline-5);
+
+  /* margin block */
+
+  --space-margin-block-1: var(--space-block-1);
+  --space-margin-block-2: var(--space-block-2);
+  --space-margin-block-3: var(--space-block-3);
+  --space-margin-block-4: var(--space-block-4);
+  --space-margin-block-5: var(--space-block-5);
+
+  --margin-block-1: var(--space-block-1);
+  --margin-block-2: var(--space-block-2);
+  --margin-block-3: var(--space-block-3);
+  --margin-block-4: var(--space-block-4);
+  --margin-block-5: var(--space-block-5);
+
+  --mb-1: var(--space-block-1);
+  --mb-2: var(--space-block-2);
+  --mb-3: var(--space-block-3);
+  --mb-4: var(--space-block-4);
+  --mb-5: var(--space-block-5);
+
+  /* margin inline */
+
+  --space-margin-inline-1: var(--space-inline-1);
+  --space-margin-inline-2: var(--space-inline-2);
+  --space-margin-inline-3: var(--space-inline-3);
+  --space-margin-inline-4: var(--space-inline-4);
+  --space-margin-inline-5: var(--space-inline-5);
+
+  --margin-inline-1: var(--space-inline-1);
+  --margin-inline-2: var(--space-inline-2);
+  --margin-inline-3: var(--space-inline-3);
+  --margin-inline-4: var(--space-inline-4);
+  --margin-inline-5: var(--space-inline-5);
+
+  --mi-1: var(--space-inline-1);
+  --mi-2: var(--space-inline-2);
+  --mi-3: var(--space-inline-3);
+  --mi-4: var(--space-inline-4);
+  --mi-5: var(--space-inline-5);
+}

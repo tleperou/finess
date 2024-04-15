@@ -19,19 +19,23 @@ tableOfContents:
 
 ### Weight
 
-## Sizes
+## Spacings
 
-Sizes vary with screen's size. `block` for its height and `inline` for its width.
+Spacings vary with screen's size. `block` for its height and `inline` for its width.
 
 ### Block
 
 ### Inline
 
-### Gap
+### Shorthands
 
-### Margin
+#### Gap
 
-### Padding
+#### Margin
+
+#### Padding
+
+## Sizes
 
 ### Viewport
 
