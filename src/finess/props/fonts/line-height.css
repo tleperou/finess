@@ -1,6 +1,47 @@
+@import './../media/media.css';
+
+/*
+ * Mutate globally. Allow easy theming.
+ */
 :where(html) {
-  --font-line-height-0: 0.95;
-  --font-line-height-1: 1.15;
-  --font-line-height-2: 1.5;
-  --font-line-height-3: 2;
+  --font-line-height-coefficient: 1;
+}
+
+:where(html) {
+  /* private props */
+  --_lh-0: 0.95em;
+  --_lh-1: 1.35em;
+  --_lh-2: 1.5em;
+  --_lh-3: 2em;
+  /* << */
+
+  --font-line-height-0: calc(
+    var(--font-line-height-coefficient) *
+      clamp(var(--_lh-0), calc(2vh), calc(var(--_lh-0) * 1.35))
+  );
+
+  --font-line-height-1: calc(
+    var(--font-line-height-coefficient) *
+      clamp(var(--_lh-1), calc(4vh), calc(var(--_lh-1) * 1.35))
+  );
+
+  --font-line-height-2: calc(
+    var(--font-line-height-coefficient) *
+      clamp(var(--_lh-2), calc(6vh), calc(var(--_lh-2) * 1.35))
+  );
+
+  --font-line-height-3: calc(
+    var(--font-line-height-coefficient) *
+      clamp(var(--_lh-3), calc(9vh), calc(var(--_lh-3) * 1.35))
+  );
+
+  --line-height-0: var(--font-line-height-0);
+  --line-height-1: var(--font-line-height-1);
+  --line-height-2: var(--font-line-height-2);
+  --line-height-3: var(--font-line-height-3);
+
+  --lh-0: var(--font-line-height-0);
+  --lh-1: var(--font-line-height-1);
+  --lh-2: var(--font-line-height-2);
+  --lh-3: var(--font-line-height-3);
 }

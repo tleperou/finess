@@ -1,13 +1,6 @@
 @import './block.css';
+@import './gap.css';
 @import './inline.css';
-@import './shorthand.gap.css';
-@import './shorthand.margin.css';
-@import './shorthand.padding.css';
-
-:where(html) {
-  --space-1: 1rem;
-  --space-2: 1.65rem;
-  --space-3: 2.85rem;
-  --space-4: 6rem;
-  --space-5: 15rem;
-}
+@import './margin.css';
+@import './padding.css';
+@import './space.css';

@@ -1,6 +1,7 @@
-@import './colors.css';
-@import './fonts.css';
-@import './layers.css';
+@import './fonts/fonts.css';
 @import './media/media.css';
-@import './ratios.css';
 @import './spacings/spacings.css';
+
+/* @import './layers.css'; */
+/* @import './ratios.css'; */
+/* @import './colors.css'; */

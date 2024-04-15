@@ -1,0 +1,15 @@
+:where(html) {
+  --font-family-sans: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+    Cantarell, Noto Sans, sans-serif;
+  --font-family-serif: ui-serif, serif;
+  --font-family-mono: Dank Mono, Operator Mono, Inconsolata, Fira Mono,
+    ui-monospace, SF Mono, Monaco, Droid Sans Mono, Source Code Pro, monospace;
+
+  --font-sans: var(--font-family-sans);
+  --font-serif: var(--font-family-serif);
+  --font-mono: var(--font-family-mono);
+
+  --sans: var(--font-family-sans);
+  --serif: var(--font-family-serif);
+  --mono: var(--font-family-mono);
+}

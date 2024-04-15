@@ -1,0 +1,7 @@
+:where(html) {
+  --space-1: 1rem;
+  --space-2: 1.65rem;
+  --space-3: 2.85rem;
+  --space-4: 6rem;
+  --space-5: 15rem;
+}
