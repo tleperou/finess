@@ -18,7 +18,7 @@ const { hasSidebar } = Astro.props
 
 <style>
   header {
-    border: 1px solid red;
+    border: 1px solid #ff0000;
 
     padding: var(--padding-1);
     margin: var(--margin-1);
@@ -27,5 +27,11 @@ const { hasSidebar } = Astro.props
     font-size: var(--font-size-1);
     line-height: var(--line-height-1);
     letter-spacing: var(--letter-spacing-1);
+
+    z-index: var(--z-index-1);
+
+    &&:before {
+      z-index: var(--z-index-01);
+    }
   }
 </style>
