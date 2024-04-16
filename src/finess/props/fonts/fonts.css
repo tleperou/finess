@@ -1,5 +1,5 @@
-@import './font-family.css';
-@import './font-size.css';
-@import './letter-spacing.css';
-@import './line-height.css';
-@import './weight.css';
+@import './fonts.font-family.css';
+@import './fonts.font-size.css';
+@import './fonts.font-weight.css';
+@import './fonts.letter-spacing.css';
+@import './fonts.line-height.css';

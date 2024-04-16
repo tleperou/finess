@@ -1,6 +1,1 @@
-@import './sizes/block.css';
-@import './sizes/inline.css';
-@import './sizes/shorthand.gap.css';
-@import './sizes/shorthand.margin.css';
-@import './sizes/shorthand.padding.css';
-@import './sizes/viewport.css';
+@import './sizes.viewport.css';

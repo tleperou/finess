@@ -1,6 +1,6 @@
-@import './block.css';
-@import './gap.css';
-@import './inline.css';
-@import './margin.css';
-@import './padding.css';
-@import './space.css';
+@import './spacings.block.css';
+@import './spacings.gap.css';
+@import './spacings.inline.css';
+@import './spacings.margin.css';
+@import './spacings.padding.css';
+@import './spacings.space.css';
