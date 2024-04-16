@@ -1,7 +1,5 @@
 @import './font-family.css';
 @import './font-size.css';
+@import './letter-spacing.css';
 @import './line-height.css';
-
-/* @import './alias.letter-spacing.css';
-@import './alias.line-height.css';
-@import './weight.css'; */
+@import './weight.css';

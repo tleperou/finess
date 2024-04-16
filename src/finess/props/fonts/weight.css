@@ -1,5 +1,6 @@
 :where(html) {
-  --font-weight-1: thin;
-  --font-weight-2: normal;
-  --font-weight-3: bold;
+  --font-weight-0: lighter;
+  --font-weight-1: normal;
+  --font-weight-2: bold;
+  --font-weight-3: 900;
 }
