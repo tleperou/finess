@@ -12,7 +12,7 @@
    * 1. user (--color-surface)
    * 2. hdr
    * 3. system
-   * 3. default
+   * 4. default
   */
 
   /* 
@@ -63,7 +63,7 @@
   }
 
   @media (--hdr-light) {
-    --color-surface-default: red;
+    --color-surface-default: var(--color-surface-mix-p3);
     --color-surface-mix: var(--color-surface-default-p3);
   }
 

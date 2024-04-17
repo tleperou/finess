@@ -2,18 +2,33 @@
 const { hasSidebar } = Astro.props
 ---
 
-<header>
-  <!-- <slot name="header" /> -->
-
-  <p>--surface-1</p>
+<!-- <slot name="header" /> -->
+<header class="surface-1">
+  <p>--color-surface-1</p>
   <div class="surface-2">
-    <p>--surface-2</p>
+    <p>--color-surface-2</p>
     <div class="surface-3">
-      <p>--surface-3</p>
+      <p>--color-surface-3</p>
       <div class="surface-4">
-        <p>--surface-4</p>
+        <p>--color-surface-4</p>
         <div class="surface-5">
-          <p>--surface-5</p>
+          <p>--color-surface-5</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<header class="neutral-1">
+  <p>--color-neutral-1</p>
+  <div class="neutral-2">
+    <p>--color-neutral-2</p>
+    <div class="neutral-3">
+      <p>--color-neutral-3</p>
+      <div class="neutral-4">
+        <p>--color-neutral-4</p>
+        <div class="neutral-5">
+          <p>--color-neutral-5</p>
         </div>
       </div>
     </div>
@@ -36,11 +51,16 @@ const { hasSidebar } = Astro.props
 
     /* --color-surface: color(display-p3 0 0.0001 0.01);
     --color-surface-mix: lightblue; */
+
+    /* --color-neutral: red;
+    --color-neutral-mix: pink; */
   }
   header {
-    /* colors */
+    /* colors surface */
 
-    background-color: var(--color-surface-1);
+    &.surface-1 {
+      background-color: var(--color-surface-1);
+    }
 
     & div {
       padding: var(--padding-1);
@@ -62,7 +82,28 @@ const { hasSidebar } = Astro.props
     & div.surface-5 {
       background-color: var(--color-surface-5);
     }
-    /* border: 1px solid var(--color-surface-1); */
+
+    /* color neutral */
+
+    &.neutral-1 {
+      background-color: var(--color-neutral-1);
+    }
+
+    & div.neutral-2 {
+      background-color: var(--color-neutral-2);
+    }
+
+    & div.neutral-3 {
+      background-color: var(--color-neutral-3);
+    }
+
+    & div.neutral-4 {
+      background-color: var(--color-neutral-4);
+    }
+
+    & div.neutral-5 {
+      background-color: var(--color-neutral-5);
+    }
 
     /* spacings */
 
