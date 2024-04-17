@@ -1,0 +1,94 @@
+@import './../media/media.prefers.css';
+@import './utils.css';
+
+:where(html) {
+  /* 
+   * The only public color `negative`
+   * to customise the color palette is:
+   * 
+   * --color-negative
+   *
+   * In the order of priority: 
+   * 1. user (--color-negative)
+   * 2. hdr
+   * 3. default
+  */
+
+  /* 
+   * defaults are used when neither --color-negative 
+   * is set or <color-system> isn't supported
+   * https://developer.mozilla.org/en-US/docs/Web/CSS/system-color
+   */
+
+  --color-negative-default-hex: #470000;
+  --color-negative-mix-hex: lightpink;
+  --color-negative-default-p3: color(display-p3 0.25 0 0);
+  --color-negative-mix-p3: color(display-p3 0.96 0.73 0.76);
+
+  /* 
+   * dark (default)
+   */
+
+  --color-negative-default: var(--color-negative-default-hex);
+  --color-negative-mix: var(--color-negative-mix-hex);
+  --color-negative-contrast: 3;
+  --color-negative-mode: in oklch shorter hue;
+
+  @media (--hdr) {
+    --color-negative-default: var(--color-negative-default-p3);
+    --color-negative-mix: var(--color-negative-mix-p3);
+  }
+
+  @media (--contrast-reduced) {
+    --color-negative-contrast: 0.35 !important;
+  }
+
+  /* light */
+
+  @media (--light) {
+    --color-negative-default: var(--color-negative-mix-hex);
+    --color-negative-mix: var(--color-negative-default-hex);
+    --color-negative-contrast: 3;
+  }
+
+  @media (--hdr-light) {
+    --color-negative-default: var(--color-negative-mix-p3);
+    --color-negative-mix: var(--color-negative-default-p3);
+  }
+
+  @media (--light-contrast-reduced) {
+    --color-negative-contrast: 0.85 !important;
+  }
+
+  /* color negative definitions */
+
+  --color-negative-1: color-mix(
+    var(--color-negative-mode),
+    var(--color-negative, var(--color-negative-default)),
+    calc(0.1% * var(--color-negative-contrast)) var(--color-negative-mix)
+  );
+
+  --color-negative-2: color-mix(
+    var(--color-negative-mode),
+    var(--color-negative-1),
+    calc(7.25% * var(--color-negative-contrast)) var(--color-negative-mix)
+  );
+
+  --color-negative-3: color-mix(
+    var(--color-negative-mode),
+    var(--color-negative-1),
+    calc(15% * var(--color-negative-contrast)) var(--color-negative-mix)
+  );
+
+  --color-negative-4: color-mix(
+    var(--color-negative-mode),
+    var(--color-negative-1),
+    calc(25% * var(--color-negative-contrast)) var(--color-negative-mix)
+  );
+
+  --color-negative-5: color-mix(
+    var(--color-negative-mode),
+    var(--color-negative-1),
+    calc(33% * var(--color-negative-contrast)) var(--color-negative-mix)
+  );
+}

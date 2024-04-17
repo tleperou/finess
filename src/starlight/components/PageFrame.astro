@@ -51,6 +51,22 @@ const { hasSidebar } = Astro.props
   </div>
 </header>
 
+<header class="negative-1">
+  <p>--color-negative-1</p>
+  <div class="negative-2">
+    <p>--color-negative-2</p>
+    <div class="negative-3">
+      <p>--color-negative-3</p>
+      <div class="negative-4">
+        <p>--color-negative-4</p>
+        <div class="negative-5">
+          <p>--color-negative-5</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
 {
   hasSidebar && (
     <aside>
@@ -141,6 +157,28 @@ const { hasSidebar } = Astro.props
 
     & div.positive-5 {
       background-color: var(--color-positive-5);
+    }
+
+    /* color negative */
+
+    &.negative-1 {
+      background-color: var(--color-negative-1);
+    }
+
+    & div.negative-2 {
+      background-color: var(--color-negative-2);
+    }
+
+    & div.negative-3 {
+      background-color: var(--color-negative-3);
+    }
+
+    & div.negative-4 {
+      background-color: var(--color-negative-4);
+    }
+
+    & div.negative-5 {
+      background-color: var(--color-negative-5);
     }
 
     /* spacings */
