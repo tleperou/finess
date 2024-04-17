@@ -22,9 +22,9 @@
    */
 
   --color-surface-default-hex: #121210;
-  --color-surface-mix-hex: #f8fafb;
+  --color-surface-mix-hex: lightgray;
   --color-surface-default-p3: color(display-p3 0.070588 0.070588 0.062745 / 1);
-  --color-surface-mix-p3: color(display-p3 0.972549 0.980392 0.984314 / 1);
+  --color-surface-mix-p3: color(display-p3 0.83 0.83 0.83);
 
   /* 
    * dark (default)
