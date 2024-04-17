@@ -2,42 +2,23 @@
 @import './utils.css';
 
 :where(html) {
-  /* 
-   * The only public color `positive`
-   * to customise the color palette is:
-   * 
-   * --color-positive
-   *
-   * In the order of priority: 
-   * 1. user (--color-positive)
-   * 2. hdr
-   * 3. default
-  */
+  --color-positive-contrast: 3;
+  --color-positive-default-hex: color-mix(
+    var(--color-positive-mode),
+    black,
+    38% forestgreen
+  );
+  --color-positive-mix-hex: color-mix(
+    var(--color-positive-mode),
+    seagreen,
+    35% darkgreen
+  );
+  --color-positive-mode: in oklch shorter hue;
 
-  /* 
-   * defaults are used when neither --color-positive 
-   * is set or <color-system> isn't supported
-   * https://developer.mozilla.org/en-US/docs/Web/CSS/system-color
-   */
-
-  --color-positive-default-hex: #000d00;
-  --color-positive-mix-hex: lightgreen;
-  --color-positive-default-p3: color(display-p3 0 0.05 0.0001);
-  --color-positive-mix-p3: color(display-p3 0.7 0.98 0.6);
-
-  /* 
-   * dark (default)
-   */
+  /* dark (default) */
 
   --color-positive-default: var(--color-positive-default-hex);
   --color-positive-mix: var(--color-positive-mix-hex);
-  --color-positive-contrast: 3;
-  --color-positive-mode: in oklch shorter hue;
-
-  @media (--hdr) {
-    --color-positive-default: var(--color-positive-default-p3);
-    --color-positive-mix: var(--color-positive-mix-p3);
-  }
 
   @media (--contrast-reduced) {
     --color-positive-contrast: 0.35 !important;
@@ -46,18 +27,22 @@
   /* light */
 
   @media (--light) {
-    --color-positive-default: var(--color-positive-mix-hex);
-    --color-positive-mix: var(--color-positive-default-hex);
     --color-positive-contrast: 3;
-  }
-
-  @media (--hdr-light) {
-    --color-positive-default: var(--color-positive-mix-p3);
-    --color-positive-mix: var(--color-positive-default-p3);
+    --color-positive-mix-hex: color-mix(
+      var(--color-positive-mode),
+      70% black,
+      lightgreen
+    );
+    --color-positive-default-hex: color-mix(
+      var(--color-positive-mode),
+      65% palegreen,
+      35% lemonchiffon
+    );
+    --color-positive-contrast: 1.35;
   }
 
   @media (--light-contrast-reduced) {
-    --color-positive-contrast: 0.85 !important;
+    --color-positive-contrast: 0.35 !important;
   }
 
   /* color positive definitions */

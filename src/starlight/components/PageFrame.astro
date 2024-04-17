@@ -2,70 +2,49 @@
 const { hasSidebar } = Astro.props
 ---
 
-<!-- <slot name="header" /> -->
-<header class="surface-1">
-  <p>--color-surface-1</p>
-  <div class="surface-2">
-    <p>--color-surface-2</p>
-    <div class="surface-3">
-      <p>--color-surface-3</p>
-      <div class="surface-4">
-        <p>--color-surface-4</p>
-        <div class="surface-5">
-          <p>--color-surface-5</p>
-        </div>
-      </div>
-    </div>
-  </div>
+<header>
+  <slot name="header" />
 </header>
 
-<header class="neutral-1">
-  <p>--color-neutral-1</p>
-  <div class="neutral-2">
-    <p>--color-neutral-2</p>
-    <div class="neutral-3">
-      <p>--color-neutral-3</p>
-      <div class="neutral-4">
-        <p>--color-neutral-4</p>
-        <div class="neutral-5">
-          <p>--color-neutral-5</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
+<div>
+  <p class="surface-1">--color-surface-1</p>
+  <p class="surface-2">--color-surface-2</p>
+  <p class="surface-3">--color-surface-3</p>
+  <p class="surface-4">--color-surface-4</p>
+  <p class="surface-5">--color-surface-5</p>
+</div>
 
-<header class="positive-1">
-  <p>--color-positive-1</p>
-  <div class="positive-2">
-    <p>--color-positive-2</p>
-    <div class="positive-3">
-      <p>--color-positive-3</p>
-      <div class="positive-4">
-        <p>--color-positive-4</p>
-        <div class="positive-5">
-          <p>--color-positive-5</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
+<div>
+  <p class="neutral-1">--color-neutral-1</p>
+  <p class="neutral-2">--color-neutral-2</p>
+  <p class="neutral-3">--color-neutral-3</p>
+  <p class="neutral-4">--color-neutral-4</p>
+  <p class="neutral-5">--color-neutral-5</p>
+</div>
 
-<header class="negative-1">
-  <p>--color-negative-1</p>
-  <div class="negative-2">
-    <p>--color-negative-2</p>
-    <div class="negative-3">
-      <p>--color-negative-3</p>
-      <div class="negative-4">
-        <p>--color-negative-4</p>
-        <div class="negative-5">
-          <p>--color-negative-5</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
+<div>
+  <p class="negative-1">--color-negative-1</p>
+  <p class="negative-2">--color-negative-2</p>
+  <p class="negative-3">--color-negative-3</p>
+  <p class="negative-4">--color-negative-4</p>
+  <p class="negative-5">--color-negative-5</p>
+</div>
+
+<div>
+  <p class="positive-1">--color-positive-1</p>
+  <p class="positive-2">--color-positive-2</p>
+  <p class="positive-3">--color-positive-3</p>
+  <p class="positive-4">--color-positive-4</p>
+  <p class="positive-5">--color-positive-5</p>
+</div>
+
+<div>
+  <p class="accent-1">--color-accent-1</p>
+  <p class="accent-2">--color-accent-2</p>
+  <p class="accent-3">--color-accent-3</p>
+  <p class="accent-4">--color-accent-4</p>
+  <p class="accent-5">--color-accent-5</p>
+</div>
 
 {
   hasSidebar && (
@@ -78,6 +57,7 @@ const { hasSidebar } = Astro.props
 <slot />
 
 <style>
+  @import './../../finess/props/media/media.css';
   :global(html) {
     /* overrides */
 
@@ -86,101 +66,132 @@ const { hasSidebar } = Astro.props
 
     /* --color-neutral: red;
     --color-neutral-mix: pink; */
+
+    & body {
+      background-color: Canvas;
+      color: CanvasText;
+
+      @media (--light) {
+        background-color: CanvasText;
+        color: Canvas;
+      }
+    }
   }
+  /* colors surface */
+
+  .surface-1 {
+    background-color: var(--color-surface-1);
+  }
+
+  div {
+    padding: var(--padding-1);
+  }
+
+  .surface-2 {
+    background-color: var(--color-surface-2);
+  }
+
+  .surface-3 {
+    background-color: var(--color-surface-3);
+  }
+
+  .surface-4 {
+    background-color: var(--color-surface-4);
+  }
+
+  .surface-5 {
+    background-color: var(--color-surface-5);
+  }
+
+  /* color neutral */
+
+  .neutral-1 {
+    background-color: var(--color-neutral-1);
+  }
+
+  .neutral-2 {
+    background-color: var(--color-neutral-2);
+  }
+
+  .neutral-3 {
+    background-color: var(--color-neutral-3);
+  }
+
+  .neutral-4 {
+    background-color: var(--color-neutral-4);
+  }
+
+  .neutral-5 {
+    background-color: var(--color-neutral-5);
+  }
+
+  /* color positive */
+
+  .positive-1 {
+    background-color: var(--color-positive-1);
+  }
+
+  .positive-2 {
+    background-color: var(--color-positive-2);
+  }
+
+  .positive-3 {
+    background-color: var(--color-positive-3);
+  }
+
+  .positive-4 {
+    background-color: var(--color-positive-4);
+  }
+
+  .positive-5 {
+    background-color: var(--color-positive-5);
+  }
+
+  /* color negative */
+
+  .negative-1 {
+    background-color: var(--color-negative-1);
+  }
+
+  .negative-2 {
+    background-color: var(--color-negative-2);
+  }
+
+  .negative-3 {
+    background-color: var(--color-negative-3);
+  }
+
+  .negative-4 {
+    background-color: var(--color-negative-4);
+  }
+
+  .negative-5 {
+    background-color: var(--color-negative-5);
+  }
+
+  /* color accent */
+
+  .accent-1 {
+    background-color: var(--color-accent-1);
+  }
+
+  .accent-2 {
+    background-color: var(--color-accent-2);
+  }
+
+  .accent-3 {
+    background-color: var(--color-accent-3);
+  }
+
+  .accent-4 {
+    background-color: var(--color-accent-4);
+  }
+
+  .accent-5 {
+    background-color: var(--color-accent-5);
+  }
+
   header {
-    /* colors surface */
-
-    &.surface-1 {
-      background-color: var(--color-surface-1);
-    }
-
-    & div {
-      padding: var(--padding-1);
-      margin-block-start: var(--space-block-1);
-    }
-
-    & div.surface-2 {
-      background-color: var(--color-surface-2);
-    }
-
-    & div.surface-3 {
-      background-color: var(--color-surface-3);
-    }
-
-    & div.surface-4 {
-      background-color: var(--color-surface-4);
-    }
-
-    & div.surface-5 {
-      background-color: var(--color-surface-5);
-    }
-
-    /* color neutral */
-
-    &.neutral-1 {
-      background-color: var(--color-neutral-1);
-    }
-
-    & div.neutral-2 {
-      background-color: var(--color-neutral-2);
-    }
-
-    & div.neutral-3 {
-      background-color: var(--color-neutral-3);
-    }
-
-    & div.neutral-4 {
-      background-color: var(--color-neutral-4);
-    }
-
-    & div.neutral-5 {
-      background-color: var(--color-neutral-5);
-    }
-
-    /* color positive */
-
-    &.positive-1 {
-      background-color: var(--color-positive-1);
-    }
-
-    & div.positive-2 {
-      background-color: var(--color-positive-2);
-    }
-
-    & div.positive-3 {
-      background-color: var(--color-positive-3);
-    }
-
-    & div.positive-4 {
-      background-color: var(--color-positive-4);
-    }
-
-    & div.positive-5 {
-      background-color: var(--color-positive-5);
-    }
-
-    /* color negative */
-
-    &.negative-1 {
-      background-color: var(--color-negative-1);
-    }
-
-    & div.negative-2 {
-      background-color: var(--color-negative-2);
-    }
-
-    & div.negative-3 {
-      background-color: var(--color-negative-3);
-    }
-
-    & div.negative-4 {
-      background-color: var(--color-negative-4);
-    }
-
-    & div.negative-5 {
-      background-color: var(--color-negative-5);
-    }
-
     /* spacings */
 
     padding: var(--padding-1);

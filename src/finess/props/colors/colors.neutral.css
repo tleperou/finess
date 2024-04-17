@@ -2,28 +2,18 @@
 @import './utils.css';
 
 :where(html) {
-  /* 
-   * The only public color `neutral`
-   * to customise the color palette is:
-   * 
-   * --color-neutral
-   *
-   * In the order of priority: 
-   * 1. user (--color-neutral)
-   * 2. hdr
-   * 3. default
-  */
-
-  /* 
-   * defaults are used when neither --color-neutral 
-   * is set or <color-system> isn't supported
-   * https://developer.mozilla.org/en-US/docs/Web/CSS/system-color
-   */
-
-  --color-neutral-default-hex: #040415;
-  --color-neutral-mix-hex: lightblue;
-  --color-neutral-default-p3: color(display-p3 0.02 0.02 0.08);
-  --color-neutral-mix-p3: color(display-p3 0.71 0.84 0.89);
+  --color-neutral-contrast: 3;
+  --color-neutral-default-hex: color-mix(
+    var(--color-neutral-mode),
+    65% black,
+    cornflowerblue
+  );
+  --color-neutral-mix-hex: color-mix(
+    var(--color-neutral-mode),
+    black,
+    85% cornflowerblue
+  );
+  --color-neutral-mode: in oklch shorter hue;
 
   /* 
    * dark (default)
@@ -31,13 +21,6 @@
 
   --color-neutral-default: var(--color-neutral-default-hex);
   --color-neutral-mix: var(--color-neutral-mix-hex);
-  --color-neutral-contrast: 3;
-  --color-neutral-mode: in oklch shorter hue;
-
-  @media (--hdr) {
-    --color-neutral-default: var(--color-neutral-default-p3);
-    --color-neutral-mix: var(--color-neutral-mix-p3);
-  }
 
   @media (--contrast-reduced) {
     --color-neutral-contrast: 0.35 !important;
@@ -46,14 +29,17 @@
   /* light */
 
   @media (--light) {
-    --color-neutral-default: var(--color-neutral-mix-hex);
-    --color-neutral-mix: var(--color-neutral-default-hex);
-    --color-neutral-contrast: 3;
-  }
-
-  @media (--hdr-light) {
-    --color-neutral-default: var(--color-neutral-mix-p3);
-    --color-neutral-mix: var(--color-neutral-default-p3);
+    --color-neutral-mix-hex: color-mix(
+      var(--color-neutral-mode),
+      black,
+      35% cornflowerblue
+    );
+    --color-neutral-default-hex: color-mix(
+      var(--color-neutral-mode),
+      lightcyan,
+      7% cornflowerblue
+    );
+    --color-neutral-contrast: 1.55;
   }
 
   @media (--light-contrast-reduced) {

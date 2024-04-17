@@ -2,29 +2,18 @@
 @import './utils.css';
 
 :where(html) {
-  /* 
-   * The only public color `surface`
-   * to customise the color palette is:
-   * 
-   * --color-surface
-   *
-   * In the order of priority: 
-   * 1. user (--color-surface)
-   * 2. hdr
-   * 3. system
-   * 4. default
-  */
-
-  /* 
-   * defaults are used when neither --color-surface 
-   * is set or <color-system> isn't supported
-   * https://developer.mozilla.org/en-US/docs/Web/CSS/system-color
-   */
-
-  --color-surface-default-hex: #121210;
-  --color-surface-mix-hex: lightgray;
-  --color-surface-default-p3: color(display-p3 0.070588 0.070588 0.062745 / 1);
-  --color-surface-mix-p3: color(display-p3 0.83 0.83 0.83);
+  --color-surface-contrast: 3;
+  --color-surface-default-hex: color-mix(
+    var(--color-surface-mode),
+    65% black,
+    dimgray
+  );
+  --color-surface-mix-hex: color-mix(
+    var(--color-surface-mode),
+    35% slategray,
+    dimgray
+  );
+  --color-surface-mode: in oklch shorter hue;
 
   /* 
    * dark (default)
@@ -32,21 +21,22 @@
 
   --color-surface-default: var(--color-surface-default-hex);
   --color-surface-mix: var(--color-surface-mix-hex);
-  --color-surface-contrast: 3;
-  --color-surface-mode: in oklch shorter hue;
-
-  @media (--hdr) {
-    --color-surface-default: var(--color-surface-default-p3);
-    --color-surface-mix: var(--color-surface-mix-p3);
-  }
 
   @supports (color: Canvas) and (color: CanvasText) {
-    --color-surface-default: Canvas;
-    --color-surface-mix: CanvasText;
+    --color-surface-default-hex: color-mix(
+      var(--color-surface-mode),
+      8% dimgray,
+      Canvas
+    );
+    --color-surface-mix-hex: color-mix(
+      var(--color-surface-mode),
+      dimgray,
+      10% CanvasText
+    );
   }
 
   @media (--contrast-reduced) {
-    --color-surface-contrast: 1;
+    --color-surface-contrast: 1 !important;
   }
 
   /* light */
@@ -54,21 +44,24 @@
   @media (--light) {
     --color-surface-default: var(--color-surface-mix-hex);
     --color-surface-mix: var(--color-surface-default-hex);
-    --color-surface-contrast: 3;
+    --color-surface-contrast: 1.65;
 
-    @supports (color: Canvas) {
-      --color-surface-default: CanvasText;
-      --color-surface-mix: Canvas;
+    @supports (color: Canvas) and (color: CanvasText) {
+      --color-surface-default-hex: color-mix(
+        var(--color-surface-mode),
+        15% black,
+        65% Canvas
+      );
+      --color-surface-mix-hex: color-mix(
+        var(--color-surface-mode),
+        15% darkgray,
+        CanvasText
+      );
     }
   }
 
-  @media (--hdr-light) {
-    --color-surface-default: var(--color-surface-mix-p3);
-    --color-surface-mix: var(--color-surface-default-p3);
-  }
-
   @media (--light-contrast-reduced) {
-    --color-surface-contrast: 3.35;
+    --color-surface-contrast: 3.35 !important;
   }
 
   /* color surface definitions */
