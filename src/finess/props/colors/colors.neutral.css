@@ -40,7 +40,7 @@
   }
 
   @media (--contrast-reduced) {
-    --color-neutral-contrast: 1;
+    --color-neutral-contrast: 0.35 !important;
   }
 
   /* light */
@@ -57,7 +57,7 @@
   }
 
   @media (--light-contrast-reduced) {
-    --color-neutral-contrast: 3.35;
+    --color-neutral-contrast: 0.85 !important;
   }
 
   /* color neutral definitions */

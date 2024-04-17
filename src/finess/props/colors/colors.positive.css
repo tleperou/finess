@@ -1,0 +1,94 @@
+@import './../media/media.prefers.css';
+@import './utils.css';
+
+:where(html) {
+  /* 
+   * The only public color `positive`
+   * to customise the color palette is:
+   * 
+   * --color-positive
+   *
+   * In the order of priority: 
+   * 1. user (--color-positive)
+   * 2. hdr
+   * 3. default
+  */
+
+  /* 
+   * defaults are used when neither --color-positive 
+   * is set or <color-system> isn't supported
+   * https://developer.mozilla.org/en-US/docs/Web/CSS/system-color
+   */
+
+  --color-positive-default-hex: #040415;
+  --color-positive-mix-hex: lightblue;
+  --color-positive-default-p3: color(display-p3 0.02 0.02 0.08);
+  --color-positive-mix-p3: color(display-p3 0.71 0.84 0.89);
+
+  /* 
+   * dark (default)
+   */
+
+  --color-positive-default: var(--color-positive-default-hex);
+  --color-positive-mix: var(--color-positive-mix-hex);
+  --color-positive-contrast: 3;
+  --color-positive-mode: in oklch shorter hue;
+
+  @media (--hdr) {
+    --color-positive-default: var(--color-positive-default-p3);
+    --color-positive-mix: var(--color-positive-mix-p3);
+  }
+
+  @media (--contrast-reduced) {
+    --color-positive-contrast: 1;
+  }
+
+  /* light */
+
+  @media (--light) {
+    --color-positive-default: var(--color-positive-mix-hex);
+    --color-positive-mix: var(--color-positive-default-hex);
+    --color-positive-contrast: 3;
+  }
+
+  @media (--hdr-light) {
+    --color-positive-default: var(--color-positive-mix-p3);
+    --color-positive-mix: var(--color-positive-default-p3);
+  }
+
+  @media (--light-contrast-reduced) {
+    --color-positive-contrast: 3.35;
+  }
+
+  /* color positive definitions */
+
+  --color-positive-1: color-mix(
+    var(--color-positive-mode),
+    var(--color-positive, var(--color-positive-default)),
+    calc(0.1% * var(--color-positive-contrast)) var(--color-positive-mix)
+  );
+
+  --color-positive-2: color-mix(
+    var(--color-positive-mode),
+    var(--color-positive-1),
+    calc(7.25% * var(--color-positive-contrast)) var(--color-positive-mix)
+  );
+
+  --color-positive-3: color-mix(
+    var(--color-positive-mode),
+    var(--color-positive-1),
+    calc(15% * var(--color-positive-contrast)) var(--color-positive-mix)
+  );
+
+  --color-positive-4: color-mix(
+    var(--color-positive-mode),
+    var(--color-positive-1),
+    calc(25% * var(--color-positive-contrast)) var(--color-positive-mix)
+  );
+
+  --color-positive-5: color-mix(
+    var(--color-positive-mode),
+    var(--color-positive-1),
+    calc(33% * var(--color-positive-contrast)) var(--color-positive-mix)
+  );
+}
