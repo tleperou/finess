@@ -3,7 +3,21 @@ const { hasSidebar } = Astro.props
 ---
 
 <header>
-  <slot name="header" />
+  <!-- <slot name="header" /> -->
+
+  <p>--surface-1</p>
+  <div class="surface-2">
+    <p>--surface-2</p>
+    <div class="surface-3">
+      <p>--surface-3</p>
+      <div class="surface-4">
+        <p>--surface-4</p>
+        <div class="surface-5">
+          <p>--surface-5</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </header>
 
 {
@@ -17,8 +31,40 @@ const { hasSidebar } = Astro.props
 <slot />
 
 <style>
+  :global(html) {
+    /* overrides */
+
+    /* --color-surface: color(display-p3 0 0.0001 0.01);
+    --color-surface-mix: lightblue; */
+  }
   header {
-    border: 1px solid #ff0000;
+    /* colors */
+
+    background-color: var(--color-surface-1);
+
+    & div {
+      padding: var(--padding-1);
+      margin-block-start: var(--space-block-1);
+    }
+
+    & div.surface-2 {
+      background-color: var(--color-surface-2);
+    }
+
+    & div.surface-3 {
+      background-color: var(--color-surface-3);
+    }
+
+    & div.surface-4 {
+      background-color: var(--color-surface-4);
+    }
+
+    & div.surface-5 {
+      background-color: var(--color-surface-5);
+    }
+    /* border: 1px solid var(--color-surface-1); */
+
+    /* spacings */
 
     padding: var(--padding-1);
     margin: var(--margin-1);
@@ -30,7 +76,8 @@ const { hasSidebar } = Astro.props
 
     z-index: var(--z-index-1);
 
-    &&:before {
+    /* layers */
+    &::before {
       z-index: var(--z-index-01);
     }
   }

@@ -1,3 +1,1 @@
-:where(body) {
-  --color-1: red;
-}
+@import './colors.surface.css';
