@@ -20,10 +20,10 @@
    * https://developer.mozilla.org/en-US/docs/Web/CSS/system-color
    */
 
-  --color-positive-default-hex: #040415;
-  --color-positive-mix-hex: lightblue;
-  --color-positive-default-p3: color(display-p3 0.02 0.02 0.08);
-  --color-positive-mix-p3: color(display-p3 0.71 0.84 0.89);
+  --color-positive-default-hex: #000d00;
+  --color-positive-mix-hex: lightgreen;
+  --color-positive-default-p3: color(display-p3 0 0.05 0.0001);
+  --color-positive-mix-p3: color(display-p3 0.7 0.98 0.6);
 
   /* 
    * dark (default)
@@ -40,7 +40,7 @@
   }
 
   @media (--contrast-reduced) {
-    --color-positive-contrast: 1;
+    --color-positive-contrast: 0.35 !important;
   }
 
   /* light */
@@ -57,7 +57,7 @@
   }
 
   @media (--light-contrast-reduced) {
-    --color-positive-contrast: 3.35;
+    --color-positive-contrast: 0.85 !important;
   }
 
   /* color positive definitions */
