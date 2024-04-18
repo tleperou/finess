@@ -1,4 +1,4 @@
-:where(html) {
+:where(*) {
   --ratio-square: 1;
   --ratio-landscape: 16/9;
   --ratio-portrait: 3/4;

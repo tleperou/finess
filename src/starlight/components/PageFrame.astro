@@ -6,44 +6,56 @@ const { hasSidebar } = Astro.props
   <slot name="header" />
 </header>
 
-<div>
+<details>
+  <summary>Surface</summary>
   <p class="surface-1">--color-surface-1</p>
   <p class="surface-2">--color-surface-2</p>
   <p class="surface-3">--color-surface-3</p>
   <p class="surface-4">--color-surface-4</p>
   <p class="surface-5">--color-surface-5</p>
-</div>
+</details>
 
-<div>
+<details>
+  <summary>Neutral</summary>
   <p class="neutral-1">--color-neutral-1</p>
   <p class="neutral-2">--color-neutral-2</p>
   <p class="neutral-3">--color-neutral-3</p>
   <p class="neutral-4">--color-neutral-4</p>
   <p class="neutral-5">--color-neutral-5</p>
-</div>
+</details>
 
-<div>
+<details>
+  <summary>Negative</summary>
   <p class="negative-1">--color-negative-1</p>
   <p class="negative-2">--color-negative-2</p>
   <p class="negative-3">--color-negative-3</p>
   <p class="negative-4">--color-negative-4</p>
   <p class="negative-5">--color-negative-5</p>
-</div>
+</details>
 
-<div>
+<details>
+  <summary>Positive</summary>
   <p class="positive-1">--color-positive-1</p>
   <p class="positive-2">--color-positive-2</p>
   <p class="positive-3">--color-positive-3</p>
   <p class="positive-4">--color-positive-4</p>
   <p class="positive-5">--color-positive-5</p>
-</div>
+</details>
 
-<div>
+<details>
+  <summary>Accent</summary>
   <p class="accent-1">--color-accent-1</p>
   <p class="accent-2">--color-accent-2</p>
   <p class="accent-3">--color-accent-3</p>
   <p class="accent-4">--color-accent-4</p>
   <p class="accent-5">--color-accent-5</p>
+</details>
+
+<div class="ex">
+  <div>
+    <strong>Notification</strong>: Enail sent with success.
+    <button [data-ok]>Undo</button>
+  </div>
 </div>
 
 {
@@ -58,14 +70,26 @@ const { hasSidebar } = Astro.props
 
 <style>
   @import './../../finess/props/media/media.css';
+
+  div .ex > div {
+    --space-multiplier: 1;
+
+    background-color: var(--color-positive-1);
+    border: 3px solid var(--color-positive-2);
+    border-radius: 8px;
+    padding: var(--padding-1);
+    max-width: fit-content;
+    color: var(--color-positive-4-on);
+  }
+
+  button {
+  }
+
   :global(html) {
     /* overrides */
 
     /* --color-surface: color(display-p3 0 0.0001 0.01);
     --color-surface-mix: lightblue; */
-
-    /* --color-neutral: red;
-    --color-neutral-mix: pink; */
 
     & body {
       background-color: Canvas;
@@ -77,118 +101,139 @@ const { hasSidebar } = Astro.props
       }
     }
   }
+
+  div {
+    --space-multiplier: 1;
+
+    margin-block-start: var(--margin-block-1);
+  }
+
+  p {
+    --color-border: color-mix(in hsl longer hue, var(--color), 6.5% white);
+
+    display: flex;
+    align-items: center;
+    column-gap: var(--column-gap-1);
+    padding-inline: var(--padding-inline-1);
+
+    &::before {
+      content: '';
+      height: var(--line-height-1);
+      aspect-ratio: var(--ratio-square);
+      background-color: var(--color);
+      border-radius: var(--border-radius-2);
+      border: var(--border-1) solid var(--color-border);
+    }
+  }
+
   /* colors surface */
 
   .surface-1 {
-    background-color: var(--color-surface-1);
-  }
-
-  div {
-    padding: var(--padding-1);
+    --color: var(--color-surface-1);
   }
 
   .surface-2 {
-    background-color: var(--color-surface-2);
+    --color: var(--color-surface-2);
   }
 
   .surface-3 {
-    background-color: var(--color-surface-3);
+    --color: var(--color-surface-3);
   }
 
   .surface-4 {
-    background-color: var(--color-surface-4);
+    --color: var(--color-surface-4);
   }
 
   .surface-5 {
-    background-color: var(--color-surface-5);
+    --color: var(--color-surface-5);
   }
 
   /* color neutral */
 
   .neutral-1 {
-    background-color: var(--color-neutral-1);
+    --color: var(--color-neutral-1);
   }
 
   .neutral-2 {
-    background-color: var(--color-neutral-2);
+    --color: var(--color-neutral-2);
   }
 
   .neutral-3 {
-    background-color: var(--color-neutral-3);
+    --color: var(--color-neutral-3);
   }
 
   .neutral-4 {
-    background-color: var(--color-neutral-4);
+    --color: var(--color-neutral-4);
   }
 
   .neutral-5 {
-    background-color: var(--color-neutral-5);
+    --color: var(--color-neutral-5);
   }
 
   /* color positive */
 
   .positive-1 {
-    background-color: var(--color-positive-1);
+    --color: var(--color-positive-1);
   }
 
   .positive-2 {
-    background-color: var(--color-positive-2);
+    --color: var(--color-positive-2);
   }
 
   .positive-3 {
-    background-color: var(--color-positive-3);
+    --color: var(--color-positive-3);
   }
 
   .positive-4 {
-    background-color: var(--color-positive-4);
+    --color: var(--color-positive-4);
   }
 
   .positive-5 {
-    background-color: var(--color-positive-5);
+    --color: var(--color-positive-5);
   }
 
   /* color negative */
 
   .negative-1 {
-    background-color: var(--color-negative-1);
+    --color: var(--color-negative-1);
   }
 
   .negative-2 {
-    background-color: var(--color-negative-2);
+    --color: var(--color-negative-2);
   }
 
   .negative-3 {
-    background-color: var(--color-negative-3);
+    --color: var(--color-negative-3);
   }
 
   .negative-4 {
-    background-color: var(--color-negative-4);
+    --color: var(--color-negative-4);
   }
 
   .negative-5 {
-    background-color: var(--color-negative-5);
+    --color: var(--color-negative-5);
   }
 
   /* color accent */
 
   .accent-1 {
-    background-color: var(--color-accent-1);
+    --color: var(--color-accent-1);
   }
 
   .accent-2 {
-    background-color: var(--color-accent-2);
+    --color: var(--color-accent-2);
   }
 
   .accent-3 {
-    background-color: var(--color-accent-3);
+    --color: var(--color-accent-3);
   }
 
   .accent-4 {
-    background-color: var(--color-accent-4);
+    --color: var(--color-accent-4);
   }
 
   .accent-5 {
-    background-color: var(--color-accent-5);
+    --color: var(--color-accent-5);
   }
 
   header {

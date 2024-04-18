@@ -1,4 +1,4 @@
-:where(html) {
+:where(*) {
   --size-viewport-sm: 501px;
   --size-viewport-md: 1201px;
   --size-viewport-lg: 1401px;
