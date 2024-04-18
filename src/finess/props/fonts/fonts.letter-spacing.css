@@ -1,17 +1,26 @@
 @import './../media/media.css';
 
 /*
- * Mutate globally. Allow easy theming.
+ * Mutate globally.
  */
-:where(html) {
+:root {
   --font-letter-spacing-coefficient: 1;
+}
+
+/* 
+ * Mutate per elements.
+ */
+:where(*) {
+  --font-letter-spacing-coefficient: var(
+    --global-font-letter-spacing-coefficient
+  );
 }
 
 /* 
  * Preserve consistant letter spacing through different 
  * screen ratios. Prevent over spacing on portrait.
  */
-:where(html) {
+:where(*) {
   --font-letter-spacing-ratio: 1;
 
   @media (--landscape) {
@@ -19,7 +28,7 @@
   }
 }
 
-:where(html) {
+:where(*) {
   /* private props */
   --_ls-0: -0.05em;
   --_ls-1: 0.025em;
