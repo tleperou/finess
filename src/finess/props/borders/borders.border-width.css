@@ -1,0 +1,5 @@
+:where(html) {
+  --border-1: thin;
+  --border-2: medium;
+  --border-3: thick;
+}
