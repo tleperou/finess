@@ -1,1 +1,9 @@
 @import './props/props.css';
+
+:root {
+  --global-space-multiplier: 1;
+  --global-font-multiplier: 1;
+
+  /* --global-font-letter-spacing-coefficient: 1;
+  --global-font-line-height-coefficient: 1; */
+}

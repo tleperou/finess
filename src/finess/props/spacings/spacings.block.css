@@ -1,17 +1,17 @@
 @import './../media/media.css';
 
-/*
- * Mutate globally. Allow easy theming.
+/* 
+ * Mutate per elements.
  */
-:where(html) {
-  --space-block-coefficient: 1;
+:where(*) {
+  --space-block-multiplier: var(--space-multiplier);
 }
 
 /* 
  * Preserve consistant spacings through different 
  * screen ratios. Prevent over spacing on landscape.
  */
-:where(html) {
+:where(*) {
   --space-block-ratio: 5 / 3;
 
   @media (--portrait) {
@@ -19,45 +19,34 @@
   }
 }
 
-:where(html) {
-  --space-block-1: calc(
-    var(--space-block-coefficient) *
-      clamp(
-        var(--space-1),
-        calc(2vh * var(--space-block-ratio)),
-        calc(var(--space-1) * 1.65)
-      )
+:where(*) {
+  --space-block-1: clamp(
+    var(--space-1),
+    calc(2vh * var(--space-block-ratio)),
+    calc(var(--space-1) * 1.65)
   );
-  --space-block-2: calc(
-    var(--space-block-coefficient) *
-      clamp(
-        var(--space-2),
-        calc(4vh * var(--space-block-ratio)),
-        calc(var(--space-2) * 1.65)
-      )
+
+  --space-block-2: clamp(
+    var(--space-2),
+    calc(4vh * var(--space-block-ratio)),
+    calc(var(--space-2) * 1.65)
   );
-  --space-block-3: calc(
-    var(--space-block-coefficient) *
-      clamp(
-        var(--space-3),
-        calc(7vh * var(--space-block-ratio)),
-        calc(var(--space-3) * 1.65)
-      )
+
+  --space-block-3: clamp(
+    var(--space-3),
+    calc(7vh * var(--space-block-ratio)),
+    calc(var(--space-3) * 1.65)
   );
-  --space-block-4: calc(
-    var(--space-block-coefficient) *
-      clamp(
-        var(--space-4),
-        calc(20vh * var(--space-block-ratio)),
-        calc(var(--space-4) * 1.65)
-      )
+
+  --space-block-4: clamp(
+    var(--space-4),
+    calc(20vh * var(--space-block-ratio)),
+    calc(var(--space-4) * 1.65)
   );
-  --space-block-5: calc(
-    var(--space-block-coefficient) *
-      clamp(
-        var(--space-5),
-        calc(40vh * var(--space-block-ratio)),
-        calc(var(--space-5) * 1.65)
-      )
+
+  --space-block-5: clamp(
+    var(--space-5),
+    calc(40vh * var(--space-block-ratio)),
+    calc(var(--space-5) * 1.65)
   );
 }

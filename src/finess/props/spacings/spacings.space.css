@@ -1,7 +1,15 @@
-:where(html) {
-  --space-1: 1rem;
-  --space-2: 1.65rem;
-  --space-3: 2.85rem;
-  --space-4: 6rem;
-  --space-5: 15rem;
+:root {
+  --global-space-multiplier: 1;
+}
+
+:where(*) {
+  --space-multiplier: var(--global-space-multiplier);
+}
+
+:where(*) {
+  --space-1: calc(0.35em * var(--space-multiplier));
+  --space-2: calc(0.85em * var(--space-multiplier));
+  --space-3: calc(1.65em * var(--space-multiplier));
+  --space-4: calc(3em * var(--space-multiplier));
+  --space-5: calc(5.65em * var(--space-multiplier));
 }

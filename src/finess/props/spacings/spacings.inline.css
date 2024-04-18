@@ -1,17 +1,17 @@
 @import './../media/media.css';
 
-/*
- * Mutate globally. Allow easy theming.
+/* 
+ * Mutate per elements.
  */
-:where(html) {
-  --space-inline-coefficient: 1;
+:where(*) {
+  --space-inline-multiplier: var(--space-multiplier);
 }
 
 /* 
  * Preserve consistant spacings through different 
  * screen ratios. Prevent over spacing on landscape.
  */
-:where(html) {
+:where(*) {
   --space-inline-ratio: 1;
 
   @media (--landscape) {
@@ -19,9 +19,9 @@
   }
 }
 
-:where(html) {
+:where(*) {
   --space-inline-1: calc(
-    var(--space-inline-coefficient) *
+    var(--space-inline-multiplier) *
       clamp(
         var(--space-1),
         calc(2vw * var(--space-inline-ratio)),
@@ -29,7 +29,7 @@
       )
   );
   --space-inline-2: calc(
-    var(--space-inline-coefficient) *
+    var(--space-inline-multiplier) *
       clamp(
         var(--space-2),
         calc(4vw * var(--space-inline-ratio)),
@@ -37,7 +37,7 @@
       )
   );
   --space-inline-3: calc(
-    var(--space-inline-coefficient) *
+    var(--space-inline-multiplier) *
       clamp(
         var(--space-3),
         calc(7vw * var(--space-inline-ratio)),
@@ -45,7 +45,7 @@
       )
   );
   --space-inline-4: calc(
-    var(--space-inline-coefficient) *
+    var(--space-inline-multiplier) *
       clamp(
         var(--space-4),
         calc(20vw * var(--space-inline-ratio)),
@@ -53,7 +53,7 @@
       )
   );
   --space-inline-5: calc(
-    var(--space-inline-coefficient) *
+    var(--space-inline-multiplier) *
       clamp(
         var(--space-5),
         calc(40vw * var(--space-inline-ratio)),

@@ -1,4 +1,4 @@
-:where(html) {
+:where(*) {
   /* margin block and inline */
 
   --space-margin-1: var(--space-block-1) var(--space-inline-1);

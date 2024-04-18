@@ -1,4 +1,4 @@
-:where(html) {
+:where(*) {
   /* row and column gaps */
 
   --space-gap-1: var(--space-block-1) var(--space-inline-1);
@@ -41,21 +41,21 @@
 
   /* column gap */
 
-  --space-column-gap-1: var(--space-column-1);
-  --space-column-gap-2: var(--space-column-2);
-  --space-column-gap-3: var(--space-column-3);
-  --space-column-gap-4: var(--space-column-4);
-  --space-column-gap-5: var(--space-column-5);
+  --space-column-gap-1: var(--space-block-1);
+  --space-column-gap-2: var(--space-block-2);
+  --space-column-gap-3: var(--space-block-3);
+  --space-column-gap-4: var(--space-block-4);
+  --space-column-gap-5: var(--space-block-5);
 
-  --column-gap-1: var(--space-column-1);
-  --column-gap-2: var(--space-column-2);
-  --column-gap-3: var(--space-column-3);
-  --column-gap-4: var(--space-column-4);
-  --column-gap-5: var(--space-column-5);
+  --column-gap-1: var(--space-block-1);
+  --column-gap-2: var(--space-block-2);
+  --column-gap-3: var(--space-block-3);
+  --column-gap-4: var(--space-block-4);
+  --column-gap-5: var(--space-block-5);
 
-  --cg-1: var(--space-column-1);
-  --cg-2: var(--space-column-2);
-  --cg-3: var(--space-column-3);
-  --cg-4: var(--space-column-4);
-  --cg-5: var(--space-column-5);
+  --cg-1: var(--space-block-1);
+  --cg-2: var(--space-block-2);
+  --cg-3: var(--space-block-3);
+  --cg-4: var(--space-block-4);
+  --cg-5: var(--space-block-5);
 }
