@@ -1,7 +1,7 @@
 @import './../media/media.prefers.css';
 @import './utils.css';
 
-:where(html) {
+:where(*) {
   --color-accent-contrast: 3;
   --color-accent-default-hex: color-mix(in oklch, 50% black, 60% dodgerblue);
   --color-accent-mix-hex: color-mix(in oklch, 55% royalblue, 25% lightskyblue);

@@ -1,7 +1,7 @@
 @import './../media/media.prefers.css';
 @import './utils.css';
 
-:where(html) {
+:where(*) {
   --color-surface-contrast: 3;
   --color-surface-default-hex: color-mix(
     var(--color-surface-mode),

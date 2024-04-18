@@ -1,7 +1,7 @@
 @import './../media/media.prefers.css';
 @import './utils.css';
 
-:where(html) {
+:where(*) {
   --color-neutral-contrast: 3;
   --color-neutral-default-hex: color-mix(
     var(--color-neutral-mode),

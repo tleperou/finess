@@ -1,7 +1,7 @@
 @import './../media/media.prefers.css';
 @import './utils.css';
 
-:where(html) {
+:where(*) {
   --color-positive-contrast: 3;
   --color-positive-default-hex: color-mix(
     var(--color-positive-mode),
@@ -27,18 +27,17 @@
   /* light */
 
   @media (--light) {
-    --color-positive-contrast: 3;
+    --color-positive-contrast: 1.65;
     --color-positive-mix-hex: color-mix(
       var(--color-positive-mode),
-      70% black,
-      lightgreen
+      15% black,
+      darkgreen
     );
     --color-positive-default-hex: color-mix(
       var(--color-positive-mode),
-      65% palegreen,
-      35% lemonchiffon
+      15% lemonchiffon,
+      35% palegreen
     );
-    --color-positive-contrast: 1.35;
   }
 
   @media (--light-contrast-reduced) {
