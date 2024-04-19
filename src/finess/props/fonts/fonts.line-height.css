@@ -1,15 +1,8 @@
-/*
- * Mutate globally.
- */
-:root {
-  --global-font-line-height-coefficient: 1;
-}
-
 /* 
  * Mutate per elements.
  */
 :where(*) {
-  --font-line-height-coefficient: var(--global-font-line-height-coefficient);
+  --font-line-height-coefficient: var(--global-font-multiplier);
 }
 
 /* 
@@ -25,13 +18,6 @@
 }
 
 :where(*) {
-  /* private props */
-  --_lh-0: 0.85em;
-  --_lh-1: 1.15em;
-  --_lh-2: 1.5em;
-  --_lh-3: 2em;
-  /* << */
-
   --font-line-height-0: calc(
     var(--font-line-height-coefficient) *
       clamp(

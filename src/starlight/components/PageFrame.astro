@@ -7,7 +7,14 @@ const { hasSidebar } = Astro.props
 </header>
 
 <details>
-  <summary>Surface</summary>
+  <summary>
+    <h2>Surface</h2>
+    <span class="surface-1"><small>A<span>a</span></small></span>
+    <span class="surface-2"></span>
+    <span class="surface-3"></span>
+    <span class="surface-4"></span>
+    <span class="surface-5"></span>
+  </summary>
   <p class="surface-1">--color-surface-1</p>
   <p class="surface-2">--color-surface-2</p>
   <p class="surface-3">--color-surface-3</p>
@@ -16,7 +23,14 @@ const { hasSidebar } = Astro.props
 </details>
 
 <details>
-  <summary>Neutral</summary>
+  <summary>
+    <h2>Neutral</h2>
+    <span class="neutral-1"><small>A<span>a</span></small></span>
+    <span class="neutral-2"></span>
+    <span class="neutral-3"></span>
+    <span class="neutral-4"></span>
+    <span class="neutral-5"></span>
+  </summary>
   <p class="neutral-1">--color-neutral-1</p>
   <p class="neutral-2">--color-neutral-2</p>
   <p class="neutral-3">--color-neutral-3</p>
@@ -25,7 +39,14 @@ const { hasSidebar } = Astro.props
 </details>
 
 <details>
-  <summary>Negative</summary>
+  <summary>
+    <h2>Negative</h2>
+    <span class="negative-1"><small>A<span>a</span></small></span>
+    <span class="negative-2"></span>
+    <span class="negative-3"></span>
+    <span class="negative-4"></span>
+    <span class="negative-5"></span>
+  </summary>
   <p class="negative-1">--color-negative-1</p>
   <p class="negative-2">--color-negative-2</p>
   <p class="negative-3">--color-negative-3</p>
@@ -34,7 +55,14 @@ const { hasSidebar } = Astro.props
 </details>
 
 <details>
-  <summary>Positive</summary>
+  <summary>
+    <h2>Positive</h2>
+    <span class="positive-1"><small>A<span>a</span></small></span>
+    <span class="positive-2"></span>
+    <span class="positive-3"></span>
+    <span class="positive-4"></span>
+    <span class="positive-5"></span>
+  </summary>
   <p class="positive-1">--color-positive-1</p>
   <p class="positive-2">--color-positive-2</p>
   <p class="positive-3">--color-positive-3</p>
@@ -43,7 +71,14 @@ const { hasSidebar } = Astro.props
 </details>
 
 <details>
-  <summary>Accent</summary>
+  <summary>
+    <h2>Accent</h2>
+    <span class="accent-1"><small>A<span>a</span></small></span>
+    <span class="accent-2"></span>
+    <span class="accent-3"></span>
+    <span class="accent-4"></span>
+    <span class="accent-5"></span>
+  </summary>
   <p class="accent-1">--color-accent-1</p>
   <p class="accent-2">--color-accent-2</p>
   <p class="accent-3">--color-accent-3</p>
@@ -95,10 +130,10 @@ const { hasSidebar } = Astro.props
       background-color: Canvas;
       color: CanvasText;
 
-      @media (--light) {
+      /* @media (--light) {
         background-color: CanvasText;
         color: Canvas;
-      }
+      } */
     }
   }
 
@@ -109,15 +144,62 @@ const { hasSidebar } = Astro.props
   }
 
   p {
+    --space-multiplier: 0.65;
     --color-border: color-mix(in hsl longer hue, var(--color), 6.5% white);
 
     display: flex;
     align-items: center;
     column-gap: var(--column-gap-1);
-    padding-inline: var(--padding-inline-1);
+    padding: var(--padding-1);
+  }
 
-    &::before {
-      content: '';
+  p::before {
+    content: '';
+    height: var(--line-height-1);
+    aspect-ratio: var(--ratio-square);
+    background-color: var(--color);
+    border-radius: var(--border-radius-2);
+    border: var(--border-1) solid var(--color-border);
+  }
+
+  details {
+    border-block-start: var(--border-1) solid var(--color-surface-3);
+    padding-inline: var(--padding-1);
+
+    &[open] summary {
+      /* display: flex; */
+      border-block-end: var(--border-1) solid var(--color-surface-3);
+    }
+
+    & p {
+      border-block-end: var(--border-1) solid
+        color-mix(in hsl longer hue, var(--color-surface-2), 35% transparent);
+    }
+  }
+
+  summary {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    /* display: grid;
+    grid-template-columns: 1fr repeat(5, var(--line-height-1));
+    column-gap: var(--column-gap-1);
+    align-items: center; */
+
+    & h2 {
+      display: contents;
+      margin-inline-end: auto;
+    }
+
+    & > span {
+      --color-border: color-mix(in hsl longer hue, var(--color), 6.5% white);
+
+      display: grid;
+      place-content: center;
+
+      background-color: var(--color);
+
       height: var(--line-height-1);
       aspect-ratio: var(--ratio-square);
       background-color: var(--color);

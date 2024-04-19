@@ -3,3 +3,20 @@
 @import './fonts.font-weight.css';
 @import './fonts.letter-spacing.css';
 @import './fonts.line-height.css';
+
+:root {
+  --global-font-multiplier: 1;
+}
+
+:where(*) {
+  --font-multiplier: var(--global-font-multiplier);
+}
+
+:where(*) {
+  /* private props */
+  --_lh-0: calc(0.85em * var(--font-multiplier));
+  --_lh-1: calc(1.15em * var(--font-multiplier));
+  --_lh-2: calc(1.5em * var(--font-multiplier));
+  --_lh-3: calc(2em * var(--font-multiplier));
+  /* << */
+}
