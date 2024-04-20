@@ -4,3 +4,5 @@
   (prefers-color-scheme: light) and (color-gamut: p3);
 
 @custom-media --light-contrast-reduced (--light) and (--contrast-reduced);
+
+@custom-media --light-contrast (--light) and (--contrast);

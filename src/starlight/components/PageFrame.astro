@@ -130,10 +130,10 @@ const { hasSidebar } = Astro.props
       background-color: Canvas;
       color: CanvasText;
 
-      /* @media (--light) {
+      @media (--light) {
         background-color: CanvasText;
         color: Canvas;
-      } */
+      }
     }
   }
 
@@ -153,13 +153,15 @@ const { hasSidebar } = Astro.props
     padding: var(--padding-1);
   }
 
-  p::before {
-    content: '';
+  p {
+    background-color: var(--color);
+
+    /* content: '';
     height: var(--line-height-1);
     aspect-ratio: var(--ratio-square);
     background-color: var(--color);
     border-radius: var(--border-radius-2);
-    border: var(--border-1) solid var(--color-border);
+    border: var(--border-1) solid var(--color-border); */
   }
 
   details {
