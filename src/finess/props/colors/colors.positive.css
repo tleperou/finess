@@ -4,25 +4,48 @@
 /* public */
 
 :where(html) {
-  --color-positive-mode: in oklch shorter hue;
-  --color-positive-dark: #004100;
-  --color-positive-dark-contrast: #002b00;
-  --color-positive-light: #d6f1db;
-  --color-positive-contrast: 35;
-
-  @media (--hdr) {
-    --color-positive-dark: color(display-p3 0.01 0.25 0.01);
-    --color-positive-dark-contrast: color(display-p3 0.0541 0.1655 0.023);
-    --color-positive-light: color(display-p3 0.8587 0.9404 0.8655);
-  }
+  --color-positive: color(display-p3 0.01 0.25 0.01);
+  --color-positive-hex: #004100;
 }
 
-/* computed */
+/* default */
 
 :where(html) {
+  --color-positive-mode: in oklch shorter hue;
+  --color-positive-default: color(display-p3 0.01 0.25 0.01);
+  --color-positive-default-hex: #004100;
+  --color-positive-contrast: 30;
   --color-positive-contrast-calc: calc(
     var(--color-positive-contrast) / 100 * 1%
   );
+}
+
+/* base colors */
+
+:where(html) {
+  --color-positive-dark: color-mix(
+    in oklab,
+    var(--color-positive-hex, var(--color-positive-default-hex)),
+    1% black
+  );
+  --color-positive-light: color-mix(
+    in oklab,
+    1% var(--color-positive-hex, var(--color-positive-default-hex)),
+    white
+  );
+
+  @media (--hdr) {
+    --color-positive-dark: color-mix(
+      in oklab,
+      var(--color-positive, var(--color-positive-default)),
+      1% black
+    );
+    --color-positive-light: color-mix(
+      in oklab,
+      1% var(--color-positive, var(--color-positive-default)),
+      white
+    );
+  }
 }
 
 /* dark (default) */
@@ -32,12 +55,16 @@
   --color-positive-end: var(--color-positive-light);
 
   @media (--contrast) {
-    --color-positive-contrast: 45;
-    --color-positive-start: var(--color-positive-dark-contrast);
+    --color-positive-contrast: 40;
+    --color-positive-start: color-mix(
+      in oklab,
+      var(--color-positive, var(--color-positive-default)),
+      25% black
+    );
   }
 
   @media (--contrast-reduced) {
-    --color-positive-contrast: 15;
+    --color-positive-contrast: 7;
   }
 }
 
@@ -51,7 +78,7 @@
   }
 
   @media (--light-contrast) {
-    --color-positive-contrast: 57;
+    --color-positive-contrast: 64;
   }
 
   @media (--light-contrast-reduced) {

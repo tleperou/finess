@@ -1,6 +1,8 @@
 @import './props/props.css';
 
 :root {
+  color-scheme: light dark;
+
   --global-space-multiplier: 1;
   --global-font-multiplier: 1;
 

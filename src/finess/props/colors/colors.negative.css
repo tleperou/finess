@@ -4,25 +4,48 @@
 /* public */
 
 :where(html) {
-  --color-negative-mode: in oklch shorter hue;
-  --color-negative-dark: #7d1a1a;
-  --color-negative-dark-contrast: #210101;
-  --color-negative-light: #fff5f5;
-  --color-negative-contrast: 35;
-
-  @media (--hdr) {
-    --color-negative-dark: color(display-p3 0.4498 0.1371 0.1212);
-    --color-negative-dark-contrast: color(display-p3 0.1156 0.01 0.007);
-    --color-negative-light: color(display-p3 0.9932 0.9621 0.9615);
-  }
+  --color-negative: color(display-p3 0.4498 0.1371 0.1212);
+  --color-negative-hex: #7d1a1a;
 }
 
-/* computed */
+/* default */
 
 :where(html) {
+  --color-negative-mode: in oklch shorter hue;
+  --color-negative-default: color(display-p3 0.4498 0.1371 0.1212);
+  --color-negative-default-hex: #7d1a1a;
+  --color-negative-contrast: 30;
   --color-negative-contrast-calc: calc(
     var(--color-negative-contrast) / 100 * 1%
   );
+}
+
+/* base colors */
+
+:where(html) {
+  --color-negative-dark: color-mix(
+    in oklab,
+    var(--color-negative-hex, var(--color-negative-default-hex)),
+    1% black
+  );
+  --color-negative-light: color-mix(
+    in oklab,
+    1% var(--color-negative-hex, var(--color-negative-default-hex)),
+    white
+  );
+
+  @media (--hdr) {
+    --color-negative-dark: color-mix(
+      in oklab,
+      var(--color-negative, var(--color-negative-default)),
+      1% black
+    );
+    --color-negative-light: color-mix(
+      in oklab,
+      1% var(--color-negative, var(--color-negative-default)),
+      white
+    );
+  }
 }
 
 /* dark (default) */
@@ -32,12 +55,16 @@
   --color-negative-end: var(--color-negative-light);
 
   @media (--contrast) {
-    --color-negative-contrast: 45;
-    --color-negative-start: var(--color-negative-dark-contrast);
+    --color-negative-contrast: 40;
+    --color-negative-start: color-mix(
+      in oklab,
+      var(--color-negative, var(--color-negative-default)),
+      25% black
+    );
   }
 
   @media (--contrast-reduced) {
-    --color-negative-contrast: 15;
+    --color-negative-contrast: 7;
   }
 }
 

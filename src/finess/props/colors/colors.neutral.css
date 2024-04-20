@@ -4,23 +4,46 @@
 /* public */
 
 :where(html) {
-  --color-neutral-mode: in oklch shorter hue;
-  --color-neutral-dark: #053038;
-  --color-neutral-dark-contrast: #01181c;
-  --color-neutral-light: #e3fafc;
-  --color-neutral-contrast: 35;
-
-  @media (--hdr) {
-    --color-neutral-dark: color(display-p3 0.0757 0.1848 0.215);
-    --color-neutral-dark-contrast: color(display-p3 0.0235 0.0922 0.1079);
-    --color-neutral-light: color(display-p3 0.9074 0.9774 0.9858);
-  }
+  --color-neutral: color(display-p3 0.0757 0.1848 0.215);
+  --color-neutral-hex: #053038;
 }
 
-/* computed */
+/* default */
 
 :where(html) {
+  --color-neutral-mode: in oklch shorter hue;
+  --color-neutral-default: color(display-p3 0.0757 0.1848 0.215);
+  --color-neutral-default-hex: #053038;
+  --color-neutral-contrast: 30;
   --color-neutral-contrast-calc: calc(var(--color-neutral-contrast) / 100 * 1%);
+}
+
+/* base colors */
+
+:where(html) {
+  --color-neutral-dark: color-mix(
+    in oklab,
+    var(--color-neutral-hex, var(--color-neutral-default-hex)),
+    1% black
+  );
+  --color-neutral-light: color-mix(
+    in oklab,
+    1% var(--color-neutral-hex, var(--color-neutral-default-hex)),
+    white
+  );
+
+  @media (--hdr) {
+    --color-neutral-dark: color-mix(
+      in oklab,
+      var(--color-neutral, var(--color-neutral-default)),
+      1% black
+    );
+    --color-neutral-light: color-mix(
+      in oklab,
+      1% var(--color-neutral, var(--color-neutral-default)),
+      white
+    );
+  }
 }
 
 /* dark (default) */
@@ -30,12 +53,16 @@
   --color-neutral-end: var(--color-neutral-light);
 
   @media (--contrast) {
-    --color-neutral-contrast: 45;
-    --color-neutral-start: var(--color-neutral-dark-contrast);
+    --color-neutral-contrast: 40;
+    --color-neutral-start: color-mix(
+      in oklab,
+      var(--color-neutral, var(--color-neutral-default)),
+      25% black
+    );
   }
 
   @media (--contrast-reduced) {
-    --color-neutral-contrast: 15;
+    --color-neutral-contrast: 7;
   }
 }
 
@@ -49,7 +76,7 @@
   }
 
   @media (--light-contrast) {
-    --color-neutral-contrast: 57;
+    --color-neutral-contrast: 64;
   }
 
   @media (--light-contrast-reduced) {
