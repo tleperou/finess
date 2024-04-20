@@ -1,88 +1,124 @@
 @import './../media/media.prefers.css';
 @import './utils.css';
 
-:where(*) {
-  --color-accent-contrast: 3;
-  --color-accent-default-hex: color-mix(in oklch, 50% black, 60% dodgerblue);
-  --color-accent-mix-hex: color-mix(in oklch, 55% royalblue, 25% lightskyblue);
+/* public */
+
+:where(html) {
+  --color-accent: AccentColor;
+  --color-accent-hex: AccentColor;
+}
+
+/* default */
+
+:where(html) {
   --color-accent-mode: in oklch shorter hue;
-
-  /* dark (default) */
-
-  --color-accent-default: var(--color-accent-default-hex);
-  --color-accent-mix: var(--color-accent-mix-hex);
+  --color-accent-default: color(display-p3 0.1417 0.1865 0.461);
+  --color-accent-default-hex: #21307a;
+  --color-accent-contrast: 30;
+  --color-accent-contrast-calc: calc(var(--color-accent-contrast) / 100 * 1%);
 
   @supports (color: AccentColor) {
-    --color-accent-default: color-mix(
-      var(--color-accent-mode),
-      65% black,
-      AccentColor
+    --color-accent: AccentColor;
+    --color-accent-hex: AccentColor;
+  }
+}
+
+/* base colors */
+
+:where(html) {
+  --color-accent-dark: color-mix(
+    in oklab,
+    var(--color-accent-hex, var(--color-accent-default-hex)),
+    35% black
+  );
+  --color-accent-light: color-mix(
+    in oklab,
+    10% var(--color-accent-hex, var(--color-accent-default-hex)),
+    white
+  );
+
+  @media (--hdr) {
+    --color-accent-dark: color-mix(
+      in oklab,
+      var(--color-accent, var(--color-accent-default-hex)),
+      35% black
     );
-    --color-accent-mix: color-mix(
-      var(--color-accent-mode),
-      15% black,
-      AccentColor
+    --color-accent-light: color-mix(
+      in oklab,
+      10% var(--color-accent, var(--color-accent-default-hex)),
+      white
+    );
+  }
+}
+
+/* dark (default) */
+
+:where(html) {
+  --color-accent-start: var(--color-accent-dark);
+  --color-accent-end: var(--color-accent-light);
+
+  @media (--contrast) {
+    --color-accent-contrast: 40;
+    --color-accent-start: color-mix(
+      in oklab,
+      var(--color-accent, var(--color-accent-default)),
+      50% black
     );
   }
 
   @media (--contrast-reduced) {
-    --color-accent-contrast: 0.35 !important;
+    --color-accent-contrast: 7;
+  }
+}
+
+/* light */
+
+:where(html) {
+  @media (--light) {
+    --color-accent-contrast: 55;
+    --color-accent-start: var(--color-accent-light);
+    --color-accent-end: var(--color-accent-dark);
   }
 
-  /* light */
-
-  @media (--light) {
-    --color-accent-default: var(--color-accent-mix-hex);
-    --color-accent-mix: var(--color-accent-default-hex);
-    --color-accent-contrast: 3;
-
-    @supports (color: AccentColor) {
-      --color-accent-default: color-mix(
-        var(--color-accent-mode),
-        transparent,
-        9% AccentColor
-      );
-      --color-accent-mix: color-mix(
-        var(--color-accent-mode),
-        6% transparent,
-        AccentColor
-      );
-    }
+  @media (--light-contrast) {
+    --color-accent-contrast: 64;
   }
 
   @media (--light-contrast-reduced) {
-    --color-accent-contrast: 0.85 !important;
+    --color-accent-contrast: 15;
   }
+}
 
-  /* accent colors */
+/* colors */
 
+:where(html) {
   --color-accent-1: color-mix(
     var(--color-accent-mode),
-    var(--color-accent, var(--color-accent-default)),
-    calc(0.1% * var(--color-accent-contrast)) var(--color-accent-mix)
+    var(--color-accent-start),
+    calc(var(--color-accent-contrast-calc)) var(--color-accent-end)
   );
 
   --color-accent-2: color-mix(
     var(--color-accent-mode),
     var(--color-accent-1),
-    calc(7.25% * var(--color-accent-contrast)) var(--color-accent-mix)
+    calc(20 * var(--color-accent-contrast-calc)) var(--color-accent-end)
   );
 
   --color-accent-3: color-mix(
     var(--color-accent-mode),
     var(--color-accent-1),
-    calc(15% * var(--color-accent-contrast)) var(--color-accent-mix)
+    calc(40 * var(--color-accent-contrast-calc)) var(--color-accent-end)
   );
 
   --color-accent-4: color-mix(
     var(--color-accent-mode),
     var(--color-accent-1),
-    calc(25% * var(--color-accent-contrast)) var(--color-accent-mix)
+    calc(60 * var(--color-accent-contrast-calc)) var(--color-accent-end)
   );
 
   --color-accent-5: color-mix(
     var(--color-accent-mode),
     var(--color-accent-1),
-    calc(33% * var(--color-accent-contrast)) var(--color-accent-mix)
+    calc(100 * var(--color-accent-contrast-calc)) var(--color-accent-end)
   );
 }
