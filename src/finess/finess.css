@@ -1,4 +1,6 @@
+@import './components/components.css';
 @import './props/props.css';
+@import './icons.css';
 
 :root {
   color-scheme: light dark;
