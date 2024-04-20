@@ -1,98 +1,92 @@
 @import './../media/media.prefers.css';
 @import './utils.css';
 
-:where(*) {
-  --color-surface-contrast: 3;
-  --color-surface-default-hex: color-mix(
-    var(--color-surface-mode),
-    65% black,
-    dimgray
-  );
-  --color-surface-mix-hex: color-mix(
-    var(--color-surface-mode),
-    35% slategray,
-    dimgray
-  );
+/* public */
+
+:where(html) {
   --color-surface-mode: in oklch shorter hue;
+  --color-surface-dark: #121210;
+  --color-surface-dark-contrast: #080807;
+  --color-surface-light: #f8fafb;
+  --color-surface-contrast: 35;
 
-  /* 
-   * dark (default)
-   */
+  @media (--hdr) {
+    --color-surface-dark: color(display-p3 0.0706 0.0706 0.0635);
+    --color-surface-dark-contrast: color(display-p3 0.0314 0.0314 0.0273);
+    --color-surface-light: color(display-p3 0.9731 0.9804 0.9848);
+  }
+}
 
-  --color-surface-default: var(--color-surface-default-hex);
-  --color-surface-mix: var(--color-surface-mix-hex);
+/* computed */
 
-  @supports (color: Canvas) and (color: CanvasText) {
-    --color-surface-default-hex: color-mix(
-      var(--color-surface-mode),
-      8% dimgray,
-      Canvas
-    );
-    --color-surface-mix-hex: color-mix(
-      var(--color-surface-mode),
-      dimgray,
-      10% CanvasText
-    );
+:where(html) {
+  --color-surface-contrast-calc: calc(var(--color-surface-contrast) / 100 * 1%);
+}
+
+/* dark (default) */
+
+:where(html) {
+  --color-surface-start: var(--color-surface-dark);
+  --color-surface-end: var(--color-surface-light);
+
+  @media (--contrast) {
+    --color-surface-contrast: 45;
+    --color-surface-start: var(--color-surface-dark-contrast);
   }
 
   @media (--contrast-reduced) {
-    --color-surface-contrast: 1 !important;
+    --color-surface-contrast: 15;
+  }
+}
+
+/* light */
+
+:where(html) {
+  @media (--light) {
+    --color-surface-contrast: 55;
+    --color-surface-start: var(--color-surface-light);
+    --color-surface-end: var(--color-surface-dark);
   }
 
-  /* light */
-
-  @media (--light) {
-    --color-surface-default: var(--color-surface-mix-hex);
-    --color-surface-mix: var(--color-surface-default-hex);
-    --color-surface-contrast: 1.65;
-
-    @supports (color: Canvas) and (color: CanvasText) {
-      --color-surface-default-hex: color-mix(
-        var(--color-surface-mode),
-        15% black,
-        65% Canvas
-      );
-      --color-surface-mix-hex: color-mix(
-        var(--color-surface-mode),
-        15% darkgray,
-        CanvasText
-      );
-    }
+  @media (--light-contrast) {
+    --color-surface-contrast: 57;
   }
 
   @media (--light-contrast-reduced) {
-    --color-surface-contrast: 3.35 !important;
+    --color-surface-contrast: 15;
   }
+}
 
-  /* color surface definitions */
+/* colors */
 
+:where(html) {
   --color-surface-1: color-mix(
     var(--color-surface-mode),
-    var(--color-surface, var(--color-surface-default)),
-    calc(0.1% * var(--color-surface-contrast)) var(--color-surface-mix)
+    var(--color-surface-start),
+    calc(var(--color-surface-contrast-calc)) var(--color-surface-end)
   );
 
   --color-surface-2: color-mix(
     var(--color-surface-mode),
     var(--color-surface-1),
-    calc(7.25% * var(--color-surface-contrast)) var(--color-surface-mix)
+    calc(20 * var(--color-surface-contrast-calc)) var(--color-surface-end)
   );
 
   --color-surface-3: color-mix(
     var(--color-surface-mode),
     var(--color-surface-1),
-    calc(15% * var(--color-surface-contrast)) var(--color-surface-mix)
+    calc(40 * var(--color-surface-contrast-calc)) var(--color-surface-end)
   );
 
   --color-surface-4: color-mix(
     var(--color-surface-mode),
     var(--color-surface-1),
-    calc(25% * var(--color-surface-contrast)) var(--color-surface-mix)
+    calc(60 * var(--color-surface-contrast-calc)) var(--color-surface-end)
   );
 
   --color-surface-5: color-mix(
     var(--color-surface-mode),
     var(--color-surface-1),
-    calc(33% * var(--color-surface-contrast)) var(--color-surface-mix)
+    calc(100 * var(--color-surface-contrast-calc)) var(--color-surface-end)
   );
 }
