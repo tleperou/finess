@@ -1,80 +1,94 @@
 @import './../media/media.prefers.css';
 @import './utils.css';
 
-:where(*) {
-  --color-negative-contrast: 3;
-  --color-negative-default-hex: color-mix(
-    var(--color-negative-mode),
-    60% maroon,
-    black
-  );
-  --color-negative-mix-hex: color-mix(
-    var(--color-negative-mode),
-    65% indianred,
-    firebrick
-  );
+/* public */
+
+:where(html) {
   --color-negative-mode: in oklch shorter hue;
+  --color-negative-dark: #7d1a1a;
+  --color-negative-dark-contrast: #210101;
+  --color-negative-light: #fff5f5;
+  --color-negative-contrast: 35;
 
-  /* 
-   * dark (default)
-   */
+  @media (--hdr) {
+    --color-negative-dark: color(display-p3 0.4498 0.1371 0.1212);
+    --color-negative-dark-contrast: color(display-p3 0.1156 0.01 0.007);
+    --color-negative-light: color(display-p3 0.9932 0.9621 0.9615);
+  }
+}
 
-  --color-negative-default: var(--color-negative-default-hex);
-  --color-negative-mix: var(--color-negative-mix-hex);
+/* computed */
 
-  @media (--contrast-reduced) {
-    --color-negative-contrast: 0.35 !important;
+:where(html) {
+  --color-negative-contrast-calc: calc(
+    var(--color-negative-contrast) / 100 * 1%
+  );
+}
+
+/* dark (default) */
+
+:where(html) {
+  --color-negative-start: var(--color-negative-dark);
+  --color-negative-end: var(--color-negative-light);
+
+  @media (--contrast) {
+    --color-negative-contrast: 45;
+    --color-negative-start: var(--color-negative-dark-contrast);
   }
 
-  /* light */
+  @media (--contrast-reduced) {
+    --color-negative-contrast: 15;
+  }
+}
 
+/* light */
+
+:where(html) {
   @media (--light) {
-    --color-negative-default-hex: color-mix(
-      var(--color-negative-mode),
-      8% firebrick,
-      white
-    );
-    --color-negative-mix-hex: color-mix(
-      var(--color-negative-mode),
-      85% maroon,
-      darkred
-    );
-    --color-negative-contrast: 1.65;
+    --color-negative-contrast: 55;
+    --color-negative-start: var(--color-negative-light);
+    --color-negative-end: var(--color-negative-dark);
+  }
+
+  @media (--light-contrast) {
+    --color-negative-contrast: 64;
   }
 
   @media (--light-contrast-reduced) {
-    --color-negative-contrast: 0.65 !important;
+    --color-negative-contrast: 15;
   }
+}
 
-  /* color negative definitions */
+/* colors */
 
+:where(html) {
   --color-negative-1: color-mix(
     var(--color-negative-mode),
-    var(--color-negative, var(--color-negative-default)),
-    calc(0.1% * var(--color-negative-contrast)) var(--color-negative-mix)
+    var(--color-negative-start),
+    calc(var(--color-negative-contrast-calc)) var(--color-negative-end)
   );
 
   --color-negative-2: color-mix(
     var(--color-negative-mode),
     var(--color-negative-1),
-    calc(7.25% * var(--color-negative-contrast)) var(--color-negative-mix)
+    calc(20 * var(--color-negative-contrast-calc)) var(--color-negative-end)
   );
 
   --color-negative-3: color-mix(
     var(--color-negative-mode),
     var(--color-negative-1),
-    calc(15% * var(--color-negative-contrast)) var(--color-negative-mix)
+    calc(40 * var(--color-negative-contrast-calc)) var(--color-negative-end)
   );
 
   --color-negative-4: color-mix(
     var(--color-negative-mode),
     var(--color-negative-1),
-    calc(25% * var(--color-negative-contrast)) var(--color-negative-mix)
+    calc(60 * var(--color-negative-contrast-calc)) var(--color-negative-end)
   );
 
   --color-negative-5: color-mix(
     var(--color-negative-mode),
     var(--color-negative-1),
-    calc(33% * var(--color-negative-contrast)) var(--color-negative-mix)
+    calc(100 * var(--color-negative-contrast-calc)) var(--color-negative-end)
   );
 }
