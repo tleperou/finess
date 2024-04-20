@@ -1,80 +1,119 @@
 @import './../media/media.prefers.css';
 @import './utils.css';
 
-:where(*) {
-  --color-neutral-contrast: 3;
-  --color-neutral-default-hex: color-mix(
-    var(--color-neutral-mode),
-    65% black,
-    cornflowerblue
-  );
-  --color-neutral-mix-hex: color-mix(
-    var(--color-neutral-mode),
-    black,
-    85% cornflowerblue
-  );
+/* public */
+
+:where(html) {
+  --color-neutral: color(display-p3 0.0757 0.1848 0.215);
+  --color-neutral-hex: #053038;
+}
+
+/* default */
+
+:where(html) {
   --color-neutral-mode: in oklch shorter hue;
+  --color-neutral-default: color(display-p3 0.0757 0.1848 0.215);
+  --color-neutral-default-hex: #053038;
+  --color-neutral-contrast: 30;
+  --color-neutral-contrast-calc: calc(var(--color-neutral-contrast) / 100 * 1%);
+}
 
-  /* 
-   * dark (default)
-   */
+/* base colors */
 
-  --color-neutral-default: var(--color-neutral-default-hex);
-  --color-neutral-mix: var(--color-neutral-mix-hex);
+:where(html) {
+  --color-neutral-dark: color-mix(
+    in oklab,
+    var(--color-neutral-hex, var(--color-neutral-default-hex)),
+    1% black
+  );
+  --color-neutral-light: color-mix(
+    in oklab,
+    1% var(--color-neutral-hex, var(--color-neutral-default-hex)),
+    white
+  );
 
-  @media (--contrast-reduced) {
-    --color-neutral-contrast: 0.35 !important;
+  @media (--hdr) {
+    --color-neutral-dark: color-mix(
+      in oklab,
+      var(--color-neutral, var(--color-neutral-default)),
+      1% black
+    );
+    --color-neutral-light: color-mix(
+      in oklab,
+      1% var(--color-neutral, var(--color-neutral-default)),
+      white
+    );
+  }
+}
+
+/* dark (default) */
+
+:where(html) {
+  --color-neutral-start: var(--color-neutral-dark);
+  --color-neutral-end: var(--color-neutral-light);
+
+  @media (--contrast) {
+    --color-neutral-contrast: 40;
+    --color-neutral-start: color-mix(
+      in oklab,
+      var(--color-neutral, var(--color-neutral-default)),
+      25% black
+    );
   }
 
-  /* light */
+  @media (--contrast-reduced) {
+    --color-neutral-contrast: 7;
+  }
+}
 
+/* light */
+
+:where(html) {
   @media (--light) {
-    --color-neutral-mix-hex: color-mix(
-      var(--color-neutral-mode),
-      black,
-      35% cornflowerblue
-    );
-    --color-neutral-default-hex: color-mix(
-      var(--color-neutral-mode),
-      lightcyan,
-      7% cornflowerblue
-    );
-    --color-neutral-contrast: 1.55;
+    --color-neutral-contrast: 55;
+    --color-neutral-start: var(--color-neutral-light);
+    --color-neutral-end: var(--color-neutral-dark);
+  }
+
+  @media (--light-contrast) {
+    --color-neutral-contrast: 64;
   }
 
   @media (--light-contrast-reduced) {
-    --color-neutral-contrast: 0.85 !important;
+    --color-neutral-contrast: 15;
   }
+}
 
-  /* color neutral definitions */
+/* colors */
 
+:where(html) {
   --color-neutral-1: color-mix(
     var(--color-neutral-mode),
-    var(--color-neutral, var(--color-neutral-default)),
-    calc(0.1% * var(--color-neutral-contrast)) var(--color-neutral-mix)
+    var(--color-neutral-start),
+    calc(var(--color-neutral-contrast-calc)) var(--color-neutral-end)
   );
 
   --color-neutral-2: color-mix(
     var(--color-neutral-mode),
     var(--color-neutral-1),
-    calc(7.25% * var(--color-neutral-contrast)) var(--color-neutral-mix)
+    calc(20 * var(--color-neutral-contrast-calc)) var(--color-neutral-end)
   );
 
   --color-neutral-3: color-mix(
     var(--color-neutral-mode),
     var(--color-neutral-1),
-    calc(15% * var(--color-neutral-contrast)) var(--color-neutral-mix)
+    calc(40 * var(--color-neutral-contrast-calc)) var(--color-neutral-end)
   );
 
   --color-neutral-4: color-mix(
     var(--color-neutral-mode),
     var(--color-neutral-1),
-    calc(25% * var(--color-neutral-contrast)) var(--color-neutral-mix)
+    calc(60 * var(--color-neutral-contrast-calc)) var(--color-neutral-end)
   );
 
   --color-neutral-5: color-mix(
     var(--color-neutral-mode),
     var(--color-neutral-1),
-    calc(33% * var(--color-neutral-contrast)) var(--color-neutral-mix)
+    calc(100 * var(--color-neutral-contrast-calc)) var(--color-neutral-end)
   );
 }
