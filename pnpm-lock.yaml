@@ -28,6 +28,9 @@ dependencies:
     version: 5.4.5
 
 devDependencies:
+  '@csstools/postcss-global-data':
+    specifier: ^2.1.1
+    version: 2.1.1(postcss@8.4.38)
   autoprefixer:
     specifier: ^10.4.19
     version: 10.4.19(postcss@8.4.38)
@@ -599,6 +602,15 @@ packages:
       '@csstools/css-color-parser': 1.6.3(@csstools/css-parser-algorithms@2.6.1)(@csstools/css-tokenizer@2.2.4)
       '@csstools/css-parser-algorithms': 2.6.1(@csstools/css-tokenizer@2.2.4)
       '@csstools/css-tokenizer': 2.2.4
+      postcss: 8.4.38
+    dev: true
+
+  /@csstools/postcss-global-data@2.1.1(postcss@8.4.38):
+    resolution: {integrity: sha512-tihdBLogY2G5jgUSu2jKSEVeOcnWqsz6k7UmPM7+ezhuV9FP5MIyX35Hc/YvqipQLRNsfBj9wRkBvsE7k1GM8A==}
+    engines: {node: ^14 || ^16 || >=18}
+    peerDependencies:
+      postcss: ^8.4
+    dependencies:
       postcss: 8.4.38
     dev: true
 

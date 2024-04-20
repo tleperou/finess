@@ -1,0 +1,59 @@
+@import './../../icons.css';
+
+:where(details) {
+  border-block: var(--border-1) solid var(--color-surface-3);
+  border-radius: var(--border-radius-1);
+
+  & > * {
+    padding-inline: var(--padding-1);
+  }
+
+  &[open] summary {
+    border-block-end: var(--border-1) solid var(--color-surface-3);
+
+    &::after {
+      transform: scaleY(-1);
+      -webkit-transform: scaleY(-1);
+    }
+  }
+
+  &:has(+ &) {
+    border-block-end-color: transparent;
+  }
+}
+
+:where(details > summary) {
+  position: relative;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+
+  /* hide native marker */
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+  &::marker {
+    display: none;
+  }
+
+  &::-moz-list-bullet {
+    list-style-type: none;
+  }
+
+  /* add custom marker */
+
+  &::after {
+    content: '';
+    width: 32px;
+    height: 32px;
+    margin-inline-start: auto;
+    mask: var(--icon-chevron-down-32px);
+    background-color: currentColor;
+
+    scale: 0.5;
+    transition: transform 235ms ease-out;
+  }
+}
