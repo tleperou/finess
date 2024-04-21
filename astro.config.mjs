@@ -5,8 +5,7 @@ import { locales } from './config/locales';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://tleperou.github.io',
-	base: 'finess',
+	site: 'https://finess.dev',
 	integrations: [
 		starlight({
 			title: 'Finess docs',
