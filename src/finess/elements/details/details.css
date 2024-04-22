@@ -4,11 +4,11 @@
   border-block: var(--border-1) solid var(--color-surface-3);
   border-radius: var(--border-radius-1);
 
-  & > * {
+  &:where(> *) {
     padding-inline: var(--padding-1);
   }
 
-  &[open] summary {
+  &:where([open] summary) {
     border-block-end: var(--border-1) solid var(--color-surface-3);
 
     &::after {
@@ -17,7 +17,7 @@
     }
   }
 
-  &:has(+ &) {
+  &:where(:has(+ &)) {
     border-block-end-color: transparent;
   }
 }

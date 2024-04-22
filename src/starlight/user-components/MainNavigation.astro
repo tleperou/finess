@@ -4,7 +4,7 @@ import IconNavigation from './icons/icon-navigation.astro'
 ---
 
 <main-navigation>
-  <details>
+  <details open>
     <summary aria-label="main navigation">
       <IconNavigation class="open" />
       <IconDismiss class="close" />
@@ -95,7 +95,9 @@ import IconNavigation from './icons/icon-navigation.astro'
   }
 
   details {
+    z-index: var(--z-index-2);
     max-block-size: max-content;
+    border-color: transparent;
 
     @media (--breakpoint-sm-only) {
       grid-area: heading;

@@ -19,6 +19,10 @@ import type { Props } from '@astrojs/starlight/props'
   .scroller {
     overflow: auto;
     inline-size: 100%;
+    scroll-padding: var(--block-size-1);
+
+    /* fix stacking context with sticky position */
+    isolation: isolate;
 
     &:global(main) {
       flex-grow: 1;
@@ -46,5 +50,9 @@ import type { Props } from '@astrojs/starlight/props'
     position: sticky;
     top: 0;
     min-inline-size: var(--inline-size-2);
+
+    &:global(details) {
+      border-color: transparent;
+    }
   }
 </style>

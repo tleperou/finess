@@ -162,6 +162,7 @@ title: Colors
 
       display: flex;
       column-gap: var(--column-gap-1);
+      padding-inline-end: var(--padding-inline-4);
 
       & > span {
         --color-border: color-mix(
