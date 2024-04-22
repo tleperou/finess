@@ -1,7 +1,24 @@
 ---
 import type { Props } from '@astrojs/starlight/props'
+import IconDocEdit from './icons/icon-doc-edit.astro'
 
 const { editUrl, labels } = Astro.props
 ---
 
-{editUrl && <a href={editUrl}>{labels['page.editLink']}</a>}
+{
+  editUrl && (
+    <a href={editUrl}>
+      <IconDocEdit />
+      {labels['page.editLink']}
+    </a>
+  )
+}
+
+<style>
+  a {
+    display: flex;
+    align-items: center;
+    column-gap: var(--column-gap-1);
+    max-width: max-content
+  }
+</style>

@@ -1,6 +1,7 @@
 ---
 import project from 'virtual:starlight/project-context'
 import type { Props } from '@astrojs/starlight/props'
+import IconSearch from './../user-components/icons/icon-search.astro'
 
 const { labels } = Astro.props
 
@@ -24,6 +25,7 @@ const pagefindTranslations = {
     data-open-modal
     disabled
   >
+    <IconSearch />
     {labels['search.label']}
   </button>
 
@@ -40,6 +42,35 @@ const pagefindTranslations = {
     }
   </dialog>
 </site-search>
+
+<style>
+  button[data-open-modal] {
+    display: flex;
+    align-items: center;
+    column-gap: var(--column-gap-1);
+    background-color: transparent;
+    width: 100%;
+    max-width: 35ch;
+
+    border-radius: var(--border-radius-2);
+    padding-inline: var(--padding-inline-1);
+    border: var(--border-width-1) solid var(--color-surface-3);
+    cursor: pointer;
+
+    transition: scale ease-out 120ms;
+
+    &:hover,
+    &:focus {
+      border-color: var(--color-accent-1);
+      scale: 1.0165;
+    }
+
+    &:focus-visible {
+      outline-offset: 0.35em;
+      outline-radius: 0px;
+    }
+  }
+</style>
 
 <script>
   class SiteSearch extends HTMLElement {

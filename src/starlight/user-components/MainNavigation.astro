@@ -1,0 +1,159 @@
+---
+import IconDismiss from './icons/icon-dismiss.astro'
+import IconNavigation from './icons/icon-navigation.astro'
+---
+
+<main-navigation>
+  <details open>
+    <summary aria-label="main navigation">
+      <IconNavigation class="open" />
+      <IconDismiss class="close" />
+    </summary>
+    <nav>
+      <slot />
+    </nav>
+  </details>
+</main-navigation>
+
+<script>
+  class MainNavigation extends HTMLElement {
+    wasMobile = false
+    isMobile = false
+    trigger = this.querySelector('summary')!
+    details = this.querySelector('details')!
+
+    constructor() {
+      super()
+      this.addEventListener('keyup', e => this.onEscape(e))
+      this.addEventListener('keydown', e => this.onFocus(e))
+      this.trigger.addEventListener('click', e => this.setToggle())
+      window.addEventListener('resize', () => this.onResize())
+    }
+
+    connectedCallback() {
+      this.onResize()
+    }
+
+    onResize() {
+      // @todo use custom media
+      // @warn shall match css breakpoint
+      this.isMobile = window.matchMedia('(0px <= width <= 501px)').matches
+
+      if (!this.isMobile) {
+        this.details.toggleAttribute('open', true)
+      } else if (!this.wasMobile && this.isMobile) {
+        this.details.toggleAttribute('open', false)
+      }
+
+      this.wasMobile = this.isMobile
+    }
+
+    onEscape(e: KeyboardEvent) {
+      if (e.code === 'Escape') {
+        this.setToggle(false)
+        this.details.toggleAttribute('open', false)
+        this.trigger.focus()
+      }
+    }
+
+    onFocus(e: KeyboardEvent) {
+      if (!this.isMobile || e.code !== 'Tab') {
+        return
+      }
+
+      const s = 'details[open] > ul li  a[href]:not([disabled]), summary'
+      const els = [...this.querySelectorAll<HTMLAnchorElement>(s)]
+      const first = els.at(0)
+      const last = els.at(-1)
+
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          last?.focus()
+          e.preventDefault()
+        }
+      } else if (document.activeElement === last) {
+        first?.focus()
+        e.preventDefault()
+      }
+    }
+
+    setToggle(toggled?: boolean) {
+      document.body.toggleAttribute('data-mobile-main-navigation-on', toggled)
+    }
+  }
+
+  customElements.define('main-navigation', MainNavigation)
+</script>
+
+<style>
+  :global(bodu[data-mobile-main-navigation-on]) {
+    overflow: hidden;
+  }
+
+  main-navigation {
+    display: contents;
+  }
+
+  details {
+    z-index: var(--z-index-2);
+    max-block-size: max-content;
+    border-color: transparent;
+
+    @media (--breakpoint-sm-only) {
+      grid-area: heading;
+      margin-inline-start: auto;
+
+      & .close {
+        display: none;
+      }
+
+      &:not([open]) {
+        font-size: var(--font-size-2);
+        inline-size: var(--line-height-2);
+        block-size: var(--line-height-2);
+      }
+
+      &[open] {
+        max-block-size: initial;
+        position: fixed;
+        inset: 0;
+        z-index: var(--z-index-important);
+        background-color: var(--color-surface-1);
+
+        & .close {
+          display: block;
+        }
+
+        & .open {
+          display: none;
+        }
+
+        & summary {
+          border-color: transparent;
+        }
+      }
+    }
+
+    & summary {
+      pointer-events: none;
+      display: none;
+
+      @media (--breakpoint-sm-only) {
+        pointer-events: initial;
+        display: block;
+        padding: 0;
+        display: flex;
+        place-content: center;
+        margin-inline-start: auto;
+
+        font-size: var(--font-size-2);
+        inline-size: var(--line-height-2);
+        block-size: var(--line-height-2);
+
+        &::after {
+          content: none;
+        }
+      }
+    }
+  }
+</style>

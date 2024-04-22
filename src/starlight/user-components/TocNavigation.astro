@@ -1,0 +1,234 @@
+---
+import TocNavigationList from './TocNavigationList.astro'
+import type { Props } from '@astrojs/starlight/props'
+
+const { labels, toc } = Astro.props
+---
+
+{
+  toc && (
+    <toc-navigation>
+      <details open>
+        <summary>
+          <span class="trigger">
+            <span>{labels['tableOfContents.onThisPage']}</span>
+          </span>
+          <span data-current />
+        </summary>
+        <nav>
+          <TocNavigationList toc={toc.items} />
+        </nav>
+      </details>
+    </toc-navigation>
+  )
+}
+
+<script>
+  customElements.define(
+    'toc-navigation',
+    class TocNavigation extends HTMLElement {
+      minH = parseInt(this.dataset.minH || '2', 10)
+      maxH = parseInt(this.dataset.maxH || '3', 10)
+
+      get current() {
+        return this.querySelector<HTMLAnchorElement>('a[aria-current="true"]')
+      }
+
+      set current(link: HTMLAnchorElement | null) {
+        if (link === this.current) return
+        if (this.current) this.current.removeAttribute('aria-current')
+        link?.setAttribute('aria-current', 'true')
+        const curr = this.querySelector<HTMLAnchorElement>('[data-current]')!
+        curr.innerText = link?.textContent || ''
+        this.current = link
+      }
+
+      wasMobile = false
+      isMobile = false
+      trigger = this.querySelector('summary')!
+      details = this.querySelector('details')!
+      links = [...this.querySelectorAll<HTMLAnchorElement>(`a[href]`)]
+
+      constructor() {
+        super()
+        window.addEventListener('resize', () => this.onResize())
+        this.addEventListener('click', e => this.onNavigate(e))
+        this.trackAnchor()
+      }
+
+      connectedCallback() {
+        this.onResize()
+      }
+
+      onResize() {
+        // @todo use custom media
+        // @warn shall match css breakpoint
+        this.isMobile = window.matchMedia('(0px <= width <= 501px)').matches
+
+        if (!this.isMobile) {
+          this.details.toggleAttribute('open', true)
+        } else if (!this.wasMobile && this.isMobile) {
+          this.details.toggleAttribute('open', false)
+        }
+
+        this.wasMobile = this.isMobile
+      }
+
+      onNavigate(e: Event) {
+        const target = e.target as HTMLAnchorElement
+        if (this.links.indexOf(target) < 0) {
+          return
+        }
+        this.details.toggleAttribute('open', false)
+      }
+
+      // the following comes from Starlink source
+
+      trackAnchor() {
+        /** All the links in the table of contents. */
+        const links = [...this.querySelectorAll('a')]
+
+        /** Test if an element is a table-of-contents heading. */
+        const isHeading = (el: Element): el is HTMLHeadingElement => {
+          if (el instanceof HTMLHeadingElement) {
+            // Special case for page title h1
+            if (el.id === '_top') return true
+            // Check the heading level is within the user-configured limits for the ToC
+            const level = el.tagName[1]
+            if (level) {
+              const int = parseInt(level, 10)
+              if (int >= this.minH && int <= this.maxH) return true
+            }
+          }
+          return false
+        }
+
+        /** Walk up the DOM to find the nearest heading. */
+        const getElementHeading = (
+          el: Element | null
+        ): HTMLHeadingElement | null => {
+          if (!el) return null
+          const origin = el
+          while (el) {
+            if (isHeading(el)) return el
+            // Assign the previous sibling’s last, most deeply nested child to el.
+            el = el.previousElementSibling
+            while (el?.lastElementChild) {
+              el = el.lastElementChild
+            }
+            // Look for headings amongst siblings.
+            const h = getElementHeading(el)
+            if (h) return h
+          }
+          // Walk back up the parent.
+          return getElementHeading(origin.parentElement)
+        }
+
+        /** Handle intersections and set the current link to the heading for the current intersection. */
+        const setCurrent: IntersectionObserverCallback = entries => {
+          for (const { isIntersecting, target } of entries) {
+            if (!isIntersecting) continue
+            const heading = getElementHeading(target)
+            if (!heading) continue
+            const link = links.find(
+              link => link.hash === '#' + encodeURIComponent(heading.id)
+            )
+            if (link) {
+              this.current = link
+              break
+            }
+          }
+        }
+
+        // Observe elements with an `id` (most likely headings) and their siblings.
+        // Also observe direct children of `.content` to include elements before
+        // the first heading.
+        const toObserve = document.querySelectorAll(
+          'main [id], main [id] ~ *, main .content > *'
+        )
+
+        let observer: IntersectionObserver | undefined
+        const observe = () => {
+          if (observer) observer.disconnect()
+          observer = new IntersectionObserver(setCurrent, {
+            rootMargin: this.getRootMargin(),
+          })
+          toObserve.forEach(h => observer!.observe(h))
+        }
+        observe()
+
+        const onIdle = window.requestIdleCallback || (cb => setTimeout(cb, 1))
+        let timeout: NodeJS.Timeout
+        window.addEventListener('resize', () => {
+          // Disable intersection observer while window is resizing.
+          if (observer) observer.disconnect()
+          clearTimeout(timeout)
+          timeout = setTimeout(() => onIdle(observe), 200)
+        })
+      }
+
+      private getRootMargin(): `-${number}px 0% ${number}px` {
+        // magic number to estimate the offets of the elements
+        return `-200px 0% -500px`
+      }
+    }
+  )
+</script>
+
+<style>
+  toc-navigation > details {
+    background-color: var(--color-surface-1);
+    position: sticky;
+    top: 0;
+
+    /* fix spacing off the top */
+    margin-block-start: -1px;
+  }
+
+  toc-navigation > details summary {
+    padding: var(--padding-1);
+    display: flex;
+    column-gap: var(--column-gap-2);
+
+    @media (--breakpoint-sm-only) {
+      & .trigger {
+        display: flex;
+        align-items: center;
+        padding-inline-start: var(--padding-inline-1);
+        border: 1px solid var(--color-surface-3);
+        border-radius: var(--border-radius-2);
+        width: max-content;
+
+        &::after {
+          content: '';
+          width: 32px;
+          height: 32px;
+          margin-inline-start: auto;
+          mask: var(--icon-chevron-inline-end-32px);
+          background-color: currentColor;
+
+          scale: 0.5;
+          transition: transform 235ms ease-out;
+        }
+
+        & span {
+          inline-size: max-content;
+        }
+      }
+    }
+
+    & [data-current] {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      @media (--breakpoint-sm-n-above) {
+        display: none;
+      }
+    }
+
+    &::after {
+      content: none;
+    }
+  }
+</style>

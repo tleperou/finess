@@ -1,5 +1,7 @@
 ---
 import type { Props } from '@astrojs/starlight/props'
+import IconChevronEnd from './icons/icon-chevron-end.astro'
+import IconChevronStart from './icons/icon-chevron-start.astro'
 
 const { labels, pagination } = Astro.props
 const { prev, next } = pagination
@@ -7,17 +9,15 @@ const { prev, next } = pagination
 
 {
   pagination && (
-    <>
+    <div>
       {prev && (
         <a
           href={prev.href}
           rel="prev"
         >
-          <span>
-            {labels['page.previousLink']}
-            <br />
-            <span class="link-title">{prev.label}</span>
-          </span>
+          <IconChevronStart aria-hidden="true" />
+          <small>{labels['page.previousLink']}</small>
+          {prev.label}
         </a>
       )}
       {next && (
@@ -25,13 +25,51 @@ const { prev, next } = pagination
           href={next.href}
           rel="next"
         >
-          <span>
-            {labels['page.nextLink']}
-            <br />
-            <span class="link-title">{next.label}</span>
-          </span>
+          <IconChevronEnd aria-hidden="true" />
+          <small>{labels['page.nextLink']}</small>
+          {next.label}
         </a>
       )}
-    </>
+    </div>
   )
 }
+
+<style>
+  div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--column-gap-1);
+    margin-block-start: var(--margin-block-3);
+  }
+
+  a {
+    display: grid;
+    column-gap: var(--column-gap-1);
+    font-size: var(--font-size-2);
+    padding: var(--padding-1);
+    border: var(--border-width-1) solid var(--color-surface-3);
+    border-radius: var(--border-radius-1);
+    line-height: var(--line-height-1);
+    text-decoration: none;
+  }
+
+  a:first-of-type {
+    grid-template-columns: [icon] auto [link] 1fr;
+  }
+
+  a:last-of-type {
+    text-align: end;
+    grid-template-columns: [link] 1fr [icon] auto;
+  }
+
+  small {
+    font-size: var(--font-size-1);
+    font-weight: var(--font-weight-1);
+  }
+
+  svg {
+    grid-area: icon;
+    grid-row: 1 / 3;
+    margin-block: auto;
+  }
+</style>
