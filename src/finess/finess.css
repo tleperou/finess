@@ -1,13 +1,18 @@
-@import './components/components.css';
+@import './elements/elements.css';
 @import './props/props.css';
 @import './icons.css';
+@import './reset.css';
 
 :root {
   color-scheme: light dark;
 
   --global-space-multiplier: 1;
   --global-font-multiplier: 1;
+}
 
-  /* --global-font-letter-spacing-coefficient: 1;
-  --global-font-line-height-coefficient: 1; */
+:where(html) {
+  font-family: var(--font-sans);
+  font-size: var(--font-space-1);
+  font-weight: var(--font-weight-1);
+  font-size: var(--font-size-1);
 }

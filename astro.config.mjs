@@ -12,10 +12,13 @@ export default defineConfig({
 			social: {
 				github: 'https://github.com/tleperou/finess',
 			},
-			customCss: ['./src/finess/finess.css'],
+			customCss: ['./src/finess/finess.css', './src/styles.css'],
 			components,
 			defaultLocale: 'en',
 			locales,
+			editLink: {
+				baseUrl: 'https://github.com/tleperou/finess/edit/main/',
+			},
 		}),
 	],
 });
