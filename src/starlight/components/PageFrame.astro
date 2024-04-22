@@ -1,4 +1,6 @@
 ---
+import MainNavigation from '../user-components/MainNavigation.astro'
+
 const { hasSidebar } = Astro.props
 ---
 
@@ -9,9 +11,9 @@ const { hasSidebar } = Astro.props
 
   {
     hasSidebar && (
-      <nav>
+      <MainNavigation class="main-navigation">
         <slot name="sidebar" />
-      </nav>
+      </MainNavigation>
     )
   }
 
@@ -21,30 +23,47 @@ const { hasSidebar } = Astro.props
 <style>
   div {
     display: grid;
-    grid-template-columns: 300px 1fr;
-    grid-template-rows: auto 1fr;
     column-gap: var(--column-gap-2);
+    grid-template-columns: var(--inline-size-3) 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      'heading heading'
+      'sidebar main';
 
     max-block-size: 100dvh;
+
+    @media (--breakpoint-sm-only) {
+      column-gap: 0;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+      grid-template-areas:
+        'heading sidebar'
+        'main main';
+    }
   }
 
   header {
+    grid-area: heading;
+
     display: flex;
     align-items: center;
     grid-column: 1 / -1;
     grid-row: 1;
     column-gap: var(--column-gap-2);
     padding: var(--padding-1);
-    margin: var(--margin-1);
-  }
-
-  nav {
-    grid-column: 1;
-    grid-row: 2;
   }
 
   main {
+    grid-area: main;
+
     grid-column: 2;
+    grid-row: 2;
+  }
+
+  .main-navigation {
+    grid-area: sidebar;
+
+    grid-column: 1;
     grid-row: 2;
   }
 </style>

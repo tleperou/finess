@@ -1,13 +1,7 @@
 ---
 import type { Props } from '@astrojs/starlight/props'
 
-import TableOfContents from '../user-components/TableOfContents.astro'
+import TocNavigation from '../user-components/TocNavigation.astro'
 ---
 
-{
-  Astro.props.toc && (
-    <>
-      <TableOfContents {...Astro.props} />
-    </>
-  )
-}
+{Astro.props.toc && <TocNavigation {...Astro.props} />}

@@ -5,7 +5,6 @@ import type { Props } from '@astrojs/starlight/props'
 import LanguageSelect from '../user-components/LanguageSelect.astro'
 import Search from 'virtual:starlight/components/Search'
 import ThemeSelect from '../user-components/ThemeSelect.astro'
-
 import IconGithub from './../user-components/icons/icon-github.astro'
 
 type Platform = keyof NonNullable<typeof config.social>
@@ -21,7 +20,7 @@ const github = links.find(([platform]) => platform === 'github') || ({} as any)
   </a>
 </h1>
 
-<menu role="menubar">
+<menu role="menu">
   {
     config.pagefind && (
       <li>
@@ -52,7 +51,11 @@ const github = links.find(([platform]) => platform === 'github') || ({} as any)
   h1 {
     font-size: var(--font-size-1);
     font-weight: var(--font-weight-1);
-    min-width: calc(300px - 2 * var(--space-block-1));
+    min-inline-size: calc(var(--inline-size-3) - 2 * var(--space-block-1));
+
+    @media (--breakpoint-sm-only) {
+      min-inline-size: initial;
+    }
 
     & a {
       text-decoration: none;
@@ -63,7 +66,7 @@ const github = links.find(([platform]) => platform === 'github') || ({} as any)
     display: flex;
     align-items: center;
     column-gap: var(--column-gap-1);
-    max-inline-size: 900px;
+    max-inline-size: var(--inline-size-5);
     inline-size: 100%;
     margin-inline: auto;
 
@@ -73,8 +76,12 @@ const github = links.find(([platform]) => platform === 'github') || ({} as any)
 
     & li:first-child {
       flex-grow: 1;
-      max-width: calc(100% - 300px);
+      max-inline-size: calc(100% - var(--inline-size-3));
       margin-inline-end: auto;
+    }
+
+    @media (--breakpoint-sm-only) {
+      display: none;
     }
   }
 

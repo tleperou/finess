@@ -4,8 +4,6 @@ import type { Props } from '@astrojs/starlight/props'
 
 <div class="scroller">
   <section>
-    <slot />
-
     {
       Astro.props.toc && (
         <aside>
@@ -13,6 +11,7 @@ import type { Props } from '@astrojs/starlight/props'
         </aside>
       )
     }
+    <slot />
   </section>
 </div>
 
@@ -24,20 +23,28 @@ import type { Props } from '@astrojs/starlight/props'
     &:global(main) {
       flex-grow: 1;
       width: 100%;
+
+      @media (--breakpoint-sm-n-above) {
+        order: -1;
+      }
     }
   }
 
   section {
-    max-inline-size: 900px;
+    max-inline-size: var(--inline-size-5);
     inline-size: 100%;
     margin-inline: auto;
     display: flex;
+
+    @media (--breakpoint-sm-only) {
+      flex-direction: column;
+    }
   }
 
   aside {
+    z-index: var(--z-index-1);
     position: sticky;
     top: 0;
-    padding: var(--padding-2);
-    min-width: 300px;
+    min-inline-size: var(--inline-size-2);
   }
 </style>
