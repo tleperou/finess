@@ -1,19 +1,10 @@
 @import './../media/media.css';
 
-/*
- * Mutate globally.
- */
-:root {
-  --font-letter-spacing-coefficient: 1;
-}
-
 /* 
  * Mutate per elements.
  */
 :where(*) {
-  --font-letter-spacing-coefficient: var(
-    --global-font-letter-spacing-coefficient
-  );
+  --font-letter-spacing-coefficient: var(--global-font-multiplier);
 }
 
 /* 

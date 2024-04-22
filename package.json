@@ -19,7 +19,10 @@
     "typescript": "^5.4.5"
   },
   "devDependencies": {
+    "@csstools/postcss-global-data": "^2.1.1",
+    "@types/node": "20",
     "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
     "postcss-csso": "^6.0.1",
     "postcss-preset-env": "^9.5.6"
   }

@@ -1,4 +1,8 @@
 :where(html) {
+  --border-width-1: thin;
+  --border-width-2: medium;
+  --border-width-3: thick;
+
   --border-1: thin;
   --border-2: medium;
   --border-3: thick;

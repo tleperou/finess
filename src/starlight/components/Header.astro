@@ -4,17 +4,90 @@ import type { Props } from '@astrojs/starlight/props'
 
 import LanguageSelect from '../user-components/LanguageSelect.astro'
 import Search from 'virtual:starlight/components/Search'
-import SiteTitle from '../user-components/SiteTitle.astro'
-import SocialIcons from '../user-components/SocialIcons.astro'
 import ThemeSelect from '../user-components/ThemeSelect.astro'
+import IconGithub from './../user-components/icons/icon-github.astro'
 
-const shouldRenderSearch =
-  config.pagefind ||
-  config.components.Search !== '@astrojs/starlight/components/Search.astro'
+type Platform = keyof NonNullable<typeof config.social>
+type SocialConfig = NonNullable<NonNullable<typeof config.social>[Platform]>
+const links = Object.entries(config.social || {}) as [Platform, SocialConfig][]
+
+const github = links.find(([platform]) => platform === 'github') || ({} as any)
 ---
 
-<SiteTitle {...Astro.props} />
-{shouldRenderSearch && <Search {...Astro.props} />}
-<SocialIcons {...Astro.props} />
-<ThemeSelect {...Astro.props} />
-<LanguageSelect {...Astro.props} />
+<h1>
+  <a href={`/${Astro.props.locale}` || '/'}>
+    {config.title}
+  </a>
+</h1>
+
+<menu role="menu">
+  {
+    config.pagefind && (
+      <li>
+        <Search {...Astro.props} />
+      </li>
+    )
+  }
+
+  {
+    github && (
+      <li class="socials">
+        <a
+          rel="me"
+          title="Repository on Github"
+          href={github[1]?.url}
+        >
+          <IconGithub aria-label="Github icon" />
+        </a>
+      </li>
+    )
+  }
+
+  <li><ThemeSelect {...Astro.props} /></li>
+  <li><LanguageSelect {...Astro.props} /></li>
+</menu>
+
+<style>
+  h1 {
+    font-size: var(--font-size-1);
+    font-weight: var(--font-weight-1);
+    min-inline-size: calc(var(--inline-size-3) - 2 * var(--space-block-1));
+
+    @media (--breakpoint-sm-only) {
+      min-inline-size: initial;
+    }
+
+    & a {
+      text-decoration: none;
+    }
+  }
+
+  menu {
+    display: flex;
+    align-items: center;
+    column-gap: var(--column-gap-1);
+    max-inline-size: var(--inline-size-5);
+    inline-size: 100%;
+    margin-inline: auto;
+
+    /* reset */
+    list-style: none;
+    padding-inline-start: inherit;
+
+    & li:first-child {
+      flex-grow: 1;
+      max-inline-size: calc(100% - var(--inline-size-3));
+      margin-inline-end: auto;
+    }
+
+    @media (--breakpoint-sm-only) {
+      display: none;
+    }
+  }
+
+  .socials a {
+    display: block;
+    aspect-ratio: var(--aspect-ratio-square);
+    font-size: var(--line-height-1);
+  }
+</style>

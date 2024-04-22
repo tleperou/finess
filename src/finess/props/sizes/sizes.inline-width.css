@@ -1,0 +1,7 @@
+:where(body) {
+  --inline-size-1: 15rch;
+  --inline-size-2: 23rch;
+  --inline-size-3: 35rch;
+  --inline-size-4: 55rch;
+  --inline-size-5: 90rch;
+}
