@@ -4,8 +4,8 @@
 /* public */
 
 :where(html) {
-  --color-accent: AccentColor;
-  --color-accent-hex: AccentColor;
+  --color-accent: color(display-p3 0.1417 0.1865 0.461);
+  --color-accent-hex: #21307a;
 }
 
 /* default */
