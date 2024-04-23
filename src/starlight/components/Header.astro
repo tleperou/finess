@@ -53,10 +53,12 @@ const github = links.find(([platform]) => platform === 'github') || ({} as any)
     line-height: var(--line-height-2);
     font-weight: var(--font-weight-1);
     min-inline-size: calc(var(--inline-size-3) - 2 * var(--space-block-1));
+    padding-inline: var(--padding-inline-1);
 
     @media (--breakpoint-sm-only) {
       z-index: var(--z-index-3);
       min-inline-size: initial;
+      max-inline-size: max-content;
     }
 
     & a {
@@ -82,20 +84,17 @@ const github = links.find(([platform]) => platform === 'github') || ({} as any)
       inline-size: initial;
       margin-inline-end: calc(var(--line-height-2) + var(--space-inline-3));
     }
-
-    :global(body:not([data-mobile-main-navigation-on])) {
-      @media (--breakpoint-sm-n-above) {
-        & li:first-child {
-          flex-grow: 1;
-          max-inline-size: calc(100% - var(--inline-size-3));
-          margin-inline-end: auto;
-        }
-      }
-    }
   }
 
   :global(body:not([data-mobile-main-navigation-on])) {
     & menu {
+      @media (--breakpoint-sm-n-above) {
+        & li:first-child {
+          width: 100%;
+          max-inline-size: calc(100% - var(--inline-size-2));
+          margin-inline-end: auto;
+        }
+      }
       @media (--breakpoint-sm-only) {
         & :not(.search) {
           display: none;

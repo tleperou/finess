@@ -52,29 +52,13 @@ const pagefindTranslations = {
     width: 100%;
     max-width: 35ch;
 
-    padding-inline: var(--padding-inline-1);
-    border-color: transparent;
-    cursor: pointer;
-
-    transition: scale ease-out 120ms;
-
-    &:hover,
-    &:focus {
-      border-color: var(--color-accent-1);
-      scale: 1.0165;
-    }
-
-    &:focus-visible {
-      outline-offset: 0.35em;
-      outline-radius: 0px;
-    }
-
     @media (--breakpoint-sm-only) {
       display: flex;
       place-content: center;
       font-size: var(--font-size-2);
       height: var(--line-height-2);
       width: var(--line-height-2);
+      border-color: transparent;
 
       & span {
         display: none;

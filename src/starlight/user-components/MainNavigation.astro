@@ -41,6 +41,7 @@ import IconNavigation from './icons/icon-navigation.astro'
 
       if (!this.isMobile) {
         this.details.toggleAttribute('open', true)
+        this.setToggle(false)
       } else if (!this.wasMobile && this.isMobile) {
         this.details.toggleAttribute('open', false)
       }
@@ -61,7 +62,7 @@ import IconNavigation from './icons/icon-navigation.astro'
         return
       }
 
-      const s = 'details[open] > ul li  a[href]:not([disabled]), summary'
+      const s = `details[open] > ul li a[href]:not([disabled]), details[open] summary`
       const els = [...this.querySelectorAll<HTMLAnchorElement>(s)]
       const first = els.at(0)
       const last = els.at(-1)
