@@ -24,9 +24,9 @@
   --layer-foreground-important: 2147483647;
 
   --z-index-1: var(--layer-foreground-1);
-  --z-index-2: var(--layer-foreground-1);
-  --z-index-3: var(--layer-foreground-1);
-  --z-index-important: var(--layer-foreground-1);
+  --z-index-2: var(--layer-foreground-2);
+  --z-index-3: var(--layer-foreground-3);
+  --z-index-important: var(--layer-foreground-important);
 
   --z-1: var(--layer-foreground-1);
   --z-2: var(--layer-foreground-2);

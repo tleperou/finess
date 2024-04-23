@@ -1,4 +1,4 @@
-@import './../../icons.css';
+@import './../icons.css';
 
 :where(details) {
   border-block: var(--border-1) solid var(--color-surface-3);
@@ -28,6 +28,12 @@
 
   display: flex;
   align-items: center;
+
+  &:focus-visible {
+    outline-offset: 0.35em;
+    outline-radius: 0px;
+    outline-color: var(--color-accent-5);
+  }
 
   /* hide native marker */
 

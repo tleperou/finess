@@ -1,0 +1,22 @@
+:where(button) {
+  border-radius: var(--border-radius-2);
+  padding-inline: var(--padding-inline-1);
+  border: var(--border-width-1) solid var(--color-surface-3);
+  cursor: pointer;
+
+  height: var(--line-height-3);
+
+  transition: scale ease-out 120ms;
+
+  &:hover,
+  &:focus {
+    border-color: var(--color-accent-1);
+    scale: 1.0165;
+  }
+
+  &:focus-visible {
+    outline-offset: 0.35em;
+    outline-radius: 0px;
+    outline-color: var(--color-accent-5);
+  }
+}

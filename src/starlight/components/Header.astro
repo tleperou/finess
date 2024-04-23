@@ -20,10 +20,10 @@ const github = links.find(([platform]) => platform === 'github') || ({} as any)
   </a>
 </h1>
 
-<menu role="menu">
+<menu>
   {
     config.pagefind && (
-      <li>
+      <li class="search">
         <Search {...Astro.props} />
       </li>
     )
@@ -49,16 +49,22 @@ const github = links.find(([platform]) => platform === 'github') || ({} as any)
 
 <style>
   h1 {
-    font-size: var(--font-size-1);
+    font-size: var(--font-size-2);
+    line-height: var(--line-height-2);
     font-weight: var(--font-weight-1);
     min-inline-size: calc(var(--inline-size-3) - 2 * var(--space-block-1));
+    padding-inline: var(--padding-inline-1);
 
     @media (--breakpoint-sm-only) {
+      z-index: var(--z-index-3);
       min-inline-size: initial;
+      max-inline-size: max-content;
     }
 
     & a {
       text-decoration: none;
+      white-space: nowrap;
+      font-size: var(--font-size-1);
     }
   }
 
@@ -72,16 +78,41 @@ const github = links.find(([platform]) => platform === 'github') || ({} as any)
 
     /* reset */
     list-style: none;
-    padding-inline-start: inherit;
-
-    & li:first-child {
-      flex-grow: 1;
-      max-inline-size: calc(100% - var(--inline-size-3));
-      margin-inline-end: auto;
-    }
+    padding-inline-start: 0;
 
     @media (--breakpoint-sm-only) {
-      display: none;
+      inline-size: initial;
+      margin-inline-end: calc(var(--line-height-2) + var(--space-inline-3));
+    }
+  }
+
+  :global(body:not([data-mobile-main-navigation-on])) {
+    & menu {
+      @media (--breakpoint-sm-n-above) {
+        & li:first-child {
+          width: 100%;
+          max-inline-size: calc(100% - var(--inline-size-2));
+          margin-inline-end: auto;
+        }
+      }
+      @media (--breakpoint-sm-only) {
+        & :not(.search) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  :global(body[data-mobile-main-navigation-on]) {
+    @media (--breakpoint-sm-only) {
+      & menu {
+        z-index: var(--z-index-3);
+        position: fixed;
+        inset: auto 0 0 0;
+        place-content: center;
+        margin: auto;
+        padding-inline-start: 0;
+      }
     }
   }
 

@@ -41,6 +41,7 @@ import IconNavigation from './icons/icon-navigation.astro'
 
       if (!this.isMobile) {
         this.details.toggleAttribute('open', true)
+        this.setToggle(false)
       } else if (!this.wasMobile && this.isMobile) {
         this.details.toggleAttribute('open', false)
       }
@@ -61,7 +62,7 @@ import IconNavigation from './icons/icon-navigation.astro'
         return
       }
 
-      const s = 'details[open] > ul li  a[href]:not([disabled]), summary'
+      const s = `details[open] > ul li a[href]:not([disabled]), details[open] summary`
       const els = [...this.querySelectorAll<HTMLAnchorElement>(s)]
       const first = els.at(0)
       const last = els.at(-1)
@@ -86,7 +87,7 @@ import IconNavigation from './icons/icon-navigation.astro'
 </script>
 
 <style>
-  :global(bodu[data-mobile-main-navigation-on]) {
+  :global(body[data-mobile-main-navigation-on]) {
     overflow: hidden;
   }
 
@@ -98,8 +99,11 @@ import IconNavigation from './icons/icon-navigation.astro'
     z-index: var(--z-index-2);
     max-block-size: max-content;
     border-color: transparent;
+    padding: var(--padding-1);
 
     @media (--breakpoint-sm-only) {
+      display: grid;
+      grid-template-rows: auto 1fr;
       grid-area: heading;
       margin-inline-start: auto;
 
@@ -107,18 +111,15 @@ import IconNavigation from './icons/icon-navigation.astro'
         display: none;
       }
 
-      &:not([open]) {
-        font-size: var(--font-size-2);
-        inline-size: var(--line-height-2);
-        block-size: var(--line-height-2);
-      }
-
       &[open] {
-        max-block-size: initial;
         position: fixed;
         inset: 0;
-        z-index: var(--z-index-important);
+        max-block-size: initial;
+        z-index: var(--z-index-2);
         background-color: var(--color-surface-1);
+        padding-block-end: calc(
+          var(--line-height-2) + var(--space-block-1) * 2
+        );
 
         & .close {
           display: block;
@@ -129,7 +130,13 @@ import IconNavigation from './icons/icon-navigation.astro'
         }
 
         & summary {
-          border-color: transparent;
+          z-index: var(--z-index-1);
+          position: sticky;
+          top: 0;
+        }
+
+        & nav {
+          overflow: auto;
         }
       }
     }
@@ -140,11 +147,15 @@ import IconNavigation from './icons/icon-navigation.astro'
 
       @media (--breakpoint-sm-only) {
         pointer-events: initial;
-        display: block;
-        padding: 0;
         display: flex;
+        padding: 0;
         place-content: center;
         margin-inline-start: auto;
+
+        background-color: var(--color-surface-5);
+
+        border-radius: var(--border-radius-round);
+        border: var(--border-width-1) solid var(--color-surface-3);
 
         font-size: var(--font-size-2);
         inline-size: var(--line-height-2);
