@@ -29,30 +29,39 @@ const { sidebar, nested } = Astro.props
 <ul>
   {
     sidebar.map(entry => (
-      <li>
+      <>
         {entry.type === 'link' ? (
-          <a
-            href={entry.href}
-            aria-current={entry.isCurrent && 'page'}
-            class:list={[{ large: !nested }, entry.attrs.class]}
-            {...entry.attrs}
-          >
-            {entry.label}
-            {entry.badge && <> (badge)</>}
-          </a>
-        ) : (
-          <details>
-            <summary>
+          <li>
+            <a
+              href={entry.href}
+              aria-current={entry.isCurrent && 'page'}
+              class:list={[{ large: !nested }, entry.attrs.class]}
+              {...entry.attrs}
+            >
               {entry.label}
-              {entry.badge && <>(badge)</>}
-            </summary>
-            <Astro.self
-              sidebar={entry.entries}
-              nested
-            />
-          </details>
+              {entry.badge && <> (badge)</>}
+            </a>
+          </li>
+        ) : (
+          <>
+            <li role="separator">
+              <hr />
+            </li>
+            <li>
+              <details open>
+                <summary>
+                  {entry.label}
+                  {entry.badge && <>(badge)</>}
+                </summary>
+                <Astro.self
+                  sidebar={entry.entries}
+                  nested
+                />
+              </details>
+            </li>
+          </>
         )}
-      </li>
+      </>
     ))
   }
 </ul>

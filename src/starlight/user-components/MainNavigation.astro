@@ -9,7 +9,7 @@ import IconNavigation from './icons/icon-navigation.astro'
       <IconNavigation class="open" />
       <IconDismiss class="close" />
     </summary>
-    <nav>
+    <nav aria-orientation="vertical">
       <slot />
     </nav>
   </details>
@@ -87,6 +87,11 @@ import IconNavigation from './icons/icon-navigation.astro'
 </script>
 
 <style>
+  details :global(details),
+  details :global(details summary) {
+    border-color: transparent !important;
+  }
+
   :global(body[data-mobile-main-navigation-on]) {
     overflow: hidden;
   }
@@ -100,6 +105,8 @@ import IconNavigation from './icons/icon-navigation.astro'
     max-block-size: max-content;
     border-color: transparent;
     padding: var(--padding-1);
+
+    border-inline-end: var(--border-width-1) solid var(--color-surface-3);
 
     @media (--breakpoint-sm-only) {
       display: grid;

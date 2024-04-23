@@ -130,3 +130,19 @@
     calc(100 * var(--color-surface-contrast-calc)) var(--color-surface-end)
   );
 }
+
+/*  */
+
+:where(html) {
+  --color-surface-on-1: color-mix(
+    var(--color-surface-mode),
+    1% var(--color-surface-1),
+    var(--color-surface-end)
+  );
+
+  --color-surface-on-2: color-mix(
+    var(--color-surface-mode),
+    15% var(--color-surface-1),
+    var(--color-surface-end)
+  );
+}
