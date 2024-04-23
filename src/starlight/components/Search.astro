@@ -25,8 +25,8 @@ const pagefindTranslations = {
     data-open-modal
     disabled
   >
-    <IconSearch />
-    {labels['search.label']}
+    <IconSearch aria-label={labels['search.label']} />
+    <span aria-hidden="true">{labels['search.label']}</span>
   </button>
 
   <dialog aria-label={labels['search.label']}>
@@ -52,22 +52,17 @@ const pagefindTranslations = {
     width: 100%;
     max-width: 35ch;
 
-    border-radius: var(--border-radius-2);
-    padding-inline: var(--padding-inline-1);
-    border: var(--border-width-1) solid var(--color-surface-3);
-    cursor: pointer;
+    @media (--breakpoint-sm-only) {
+      display: flex;
+      place-content: center;
+      font-size: var(--font-size-2);
+      height: var(--line-height-2);
+      width: var(--line-height-2);
+      border-color: transparent;
 
-    transition: scale ease-out 120ms;
-
-    &:hover,
-    &:focus {
-      border-color: var(--color-accent-1);
-      scale: 1.0165;
-    }
-
-    &:focus-visible {
-      outline-offset: 0.35em;
-      outline-radius: 0px;
+      & span {
+        display: none;
+      }
     }
   }
 </style>

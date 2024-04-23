@@ -38,10 +38,11 @@ import type { Props } from '@astrojs/starlight/props'
     max-inline-size: var(--inline-size-5);
     inline-size: 100%;
     margin-inline: auto;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr var(--inline-size-2);
 
     @media (--breakpoint-sm-only) {
-      flex-direction: column;
+      grid-template-columns: 1fr;
     }
   }
 
@@ -49,7 +50,6 @@ import type { Props } from '@astrojs/starlight/props'
     z-index: var(--z-index-1);
     position: sticky;
     top: 0;
-    min-inline-size: var(--inline-size-2);
 
     &:global(details) {
       border-color: transparent;

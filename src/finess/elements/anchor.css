@@ -1,0 +1,7 @@
+:where(a[href]) {
+  &:focus-visible {
+    outline-offset: 0.35em;
+    outline-radius: 0px;
+    outline-color: var(--color-accent-5);
+  }
+}
