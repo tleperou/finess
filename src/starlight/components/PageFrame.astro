@@ -35,7 +35,7 @@ const { hasSidebar } = Astro.props
     @media (--breakpoint-sm-only) {
       column-gap: 0;
       grid-template-columns: 1fr;
-      grid-template-rows: 1fr;
+      grid-template-rows: auto 1fr;
       grid-template-areas:
         'heading sidebar'
         'main main';
@@ -51,6 +51,10 @@ const { hasSidebar } = Astro.props
     grid-row: 1;
     column-gap: var(--column-gap-2);
     padding: var(--padding-1);
+
+    @media (--breakpoint-sm-only) {
+      justify-content: space-between;
+    }
   }
 
   main {
