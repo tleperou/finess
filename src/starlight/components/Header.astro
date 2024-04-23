@@ -55,6 +55,8 @@ const github = links.find(([platform]) => platform === 'github') || ({} as any)
     min-inline-size: calc(var(--inline-size-3) - 2 * var(--space-block-1));
     padding-inline: var(--padding-inline-1);
 
+    padding-block: var(--padding-1);
+
     @media (--breakpoint-sm-only) {
       z-index: var(--z-index-3);
       min-inline-size: initial;
