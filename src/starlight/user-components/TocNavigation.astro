@@ -10,12 +10,12 @@ const { labels, toc } = Astro.props
     <toc-navigation>
       <details open>
         <summary>
-          <span class="trigger">
+          <h2 class="trigger">
             <span>{labels['tableOfContents.onThisPage']}</span>
-          </span>
+          </h2>
           <span data-current />
         </summary>
-        <nav>
+        <nav aria-orientation="vertical">
           <TocNavigationList toc={toc.items} />
         </nav>
       </details>
@@ -79,6 +79,11 @@ const { labels, toc } = Astro.props
         if (this.links.indexOf(target) < 0) {
           return
         }
+
+        if (!this.isMobile) {
+          return
+        }
+
         this.details.toggleAttribute('open', false)
       }
 
@@ -189,9 +194,10 @@ const { labels, toc } = Astro.props
     padding: var(--padding-1);
     display: flex;
     column-gap: var(--column-gap-2);
+    border-color: transparent;
 
     @media (--breakpoint-sm-only) {
-      & .trigger {
+      & h2 {
         display: flex;
         align-items: center;
         padding-inline-start: var(--padding-inline-1);
@@ -230,5 +236,9 @@ const { labels, toc } = Astro.props
     &::after {
       content: none;
     }
+  }
+
+  toc-navigation nav {
+    padding-inline: var(--padding-inline-1);
   }
 </style>

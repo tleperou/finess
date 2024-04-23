@@ -31,8 +31,51 @@ const { toc, isMobile = false, depth = 0 } = Astro.props
   }
 </ul>
 
-<style>
-  [aria-current] {
-    font-weight: var(--font-weight-3);
+<style define:vars={{ depth }}>
+  ul {
+    padding-inline-start: calc(1rem * var(--depth));
+  }
+
+  ul li a {
+    display: flex;
+    align-items: center;
+    column-gap: var(--column-gap-1);
+    color: var(--color-surface-on-2);
+
+    &,
+    &[aria-current],
+    &:hover {
+      background-color: transparent;
+    }
+
+    &:hover::before {
+      background-color: color-mix(
+        in oklch,
+        35% var(--color-accent-1),
+        transparent
+      );
+    }
+
+    &:hover,
+    &:focus {
+      color: var(--color-surface-on-1);
+    }
+
+    &::before {
+      display: block;
+      content: '';
+      width: 0.65ch;
+      height: var(--line-height-1);
+      background-color: transparent;
+      border-radius: var(--border-radius-2);
+    }
+
+    &[aria-current] {
+      font-weight: var(--font-weight-3);
+
+      &::before {
+        background-color: var(--color-accent-1);
+      }
+    }
   }
 </style>

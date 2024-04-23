@@ -15,7 +15,7 @@
   }
 
   &:focus-visible {
-    outline-offset: 0.35em;
+    outline-offset: var(--border-width-2);
     outline-radius: 0px;
     outline-color: var(--color-accent-5);
   }

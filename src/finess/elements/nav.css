@@ -1,0 +1,50 @@
+:where(nav[aria-orientation='vertical']) {
+  padding-inline: calc(var(--space-inline-1) * 2);
+
+  & :where(ul) {
+    list-style: none;
+    padding-inline-start: initial;
+
+    & li + li,
+    & summary {
+      margin-block-end: calc(var(--margin-block-1) * 0.35);
+    }
+
+    & li a {
+      display: block;
+
+      &:where(:hover),
+      &:where(:focus) {
+        background-color: color-mix(
+          in oklch,
+          var(--color-accent-2),
+          85% transparent
+        );
+      }
+    }
+
+    & li a,
+    & li summary {
+      color: currentColor;
+      text-decoration: none;
+      padding-inline: var(--padding-2);
+      border-radius: var(--border-radius-round);
+      margin-inline: calc(var(--space-inline-1) * -2);
+      line-height: var(--line-height-2);
+      border: 1px solid transparent;
+
+      &:where([aria-current]) {
+        background-color: var(--color-accent-1);
+      }
+    }
+
+    & li summary {
+      font-weight: var(--font-weight-2);
+    }
+
+    & li[role='separator'] {
+      padding-block: var(--padding-block-1);
+      visibility: hidden;
+    }
+  }
+}

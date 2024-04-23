@@ -50,7 +50,8 @@ const { hasSidebar } = Astro.props
     grid-column: 1 / -1;
     grid-row: 1;
     column-gap: var(--column-gap-2);
-    padding-block: var(--padding-1);
+
+    border-block-end: var(--border-width-1) solid var(--color-surface-3);
 
     @media (--breakpoint-sm-only) {
       grid-template-columns: auto 1fr;
