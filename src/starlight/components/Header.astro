@@ -49,18 +49,19 @@ const github = links.find(([platform]) => platform === 'github') || ({} as any)
 
 <style>
   h1 {
-    font-size: var(--font-size-2);
+    font-size: var(--font-size-1);
     line-height: var(--line-height-2);
     font-weight: var(--font-weight-1);
-    min-inline-size: calc(var(--inline-size-3) - 2 * var(--space-block-1));
     padding-inline: var(--padding-inline-1);
-
-    padding-block: var(--padding-1);
+    padding-block: var(--padding-block-1);
+    border: 1px solid transparent;
+    padding-inline-start: calc(var(--padding-inline-1) * 2);
 
     @media (--breakpoint-sm-only) {
       z-index: var(--z-index-3);
       min-inline-size: initial;
       max-inline-size: max-content;
+      padding-block: var(--padding-block-2);
     }
 
     & a {
@@ -81,6 +82,10 @@ const github = links.find(([platform]) => platform === 'github') || ({} as any)
     /* reset */
     list-style: none;
     padding-inline-start: 0;
+
+    @media (--breakpoint-sm-n-above) {
+      padding-inline-end: var(--padding-inline-2);
+    }
 
     @media (--breakpoint-sm-only) {
       inline-size: initial;
