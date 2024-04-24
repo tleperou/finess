@@ -17,15 +17,14 @@ import type { Props } from '@astrojs/starlight/props'
 
 <style>
   .scroller {
-    overflow: auto;
     inline-size: 100%;
     scroll-padding: var(--block-size-1);
 
     &:global(main) {
-      flex-grow: 1;
       width: 100%;
+      padding-inline: var(--padding-inline-1);
 
-      @media (--breakpoint-sm-n-above) {
+      @media (--breakpoint-md-n-above) {
         order: -1;
       }
     }
@@ -34,12 +33,14 @@ import type { Props } from '@astrojs/starlight/props'
   section {
     max-inline-size: var(--inline-size-5);
     inline-size: 100%;
+    min-block-size: 100%;
     margin-inline: auto;
     display: grid;
     grid-template-columns: 1fr var(--inline-size-2);
 
-    @media (--breakpoint-sm-only) {
+    @media (--breakpoint-md-only) {
       grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr;
     }
   }
 
@@ -50,6 +51,15 @@ import type { Props } from '@astrojs/starlight/props'
 
     &:global(details) {
       border-color: transparent;
+    }
+
+    @media (--breakpoint-md-only) {
+      border-block-end: var(--border-width-1) solid var(--color-surface-3);
+    }
+
+    @media (--breakpoint-md-n-above) {
+      border-inline-start: var(--border-width-1) solid var(--color-surface-3);
+      padding-inline: var(--padding-inline-1);
     }
   }
 </style>

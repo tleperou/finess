@@ -101,16 +101,21 @@ import IconNavigation from './icons/icon-navigation.astro'
   }
 
   details {
+    overflow: auto;
     z-index: var(--z-index-2);
     max-block-size: max-content;
     border-color: transparent;
-    padding: var(--padding-1);
-
     border-inline-end: var(--border-width-1) solid var(--color-surface-3);
 
+    @media (--breakpoint-sm-n-above) {
+      padding-block: var(--padding-block-1);
+      padding-inline: var(--padding-inline-1);
+    }
+
     @media (--breakpoint-sm-only) {
-      display: grid;
-      grid-template-rows: auto 1fr;
+      grid-template-rows:
+        calc((var(--line-height-1) + var(--padding-block-2) * 2) - 1px)
+        1fr;
       grid-area: heading;
       margin-inline-start: auto;
 
@@ -119,6 +124,7 @@ import IconNavigation from './icons/icon-navigation.astro'
       }
 
       &[open] {
+        display: grid;
         position: fixed;
         inset: 0;
         max-block-size: initial;
@@ -140,10 +146,16 @@ import IconNavigation from './icons/icon-navigation.astro'
           z-index: var(--z-index-1);
           position: sticky;
           top: 0;
+          margin-inline-end: var(--margin-inline-1);
+          margin-inline-start: auto;
         }
 
         & nav {
-          overflow: auto;
+          /* align perfectly .. */
+          margin-block-start: calc(var(--padding-block-1) + 0.5px);
+          padding-block-start: var(--padding-block-1);
+          border-block-start: var(--border-width-1) solid var(--color-surface-3);
+          padding-inline: calc(3 * var(--padding-inline-1));
         }
       }
     }
@@ -157,10 +169,10 @@ import IconNavigation from './icons/icon-navigation.astro'
         display: flex;
         padding: 0;
         place-content: center;
-        margin-inline-start: auto;
+        margin-inline-end: var(--margin-inline-1);
+        margin-block-start: var(--margin-block-1);
 
         background-color: var(--color-surface-5);
-
         border-radius: var(--border-radius-round);
         border: var(--border-width-1) solid var(--color-surface-3);
 

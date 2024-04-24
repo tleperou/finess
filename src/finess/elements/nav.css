@@ -27,7 +27,7 @@
     & li summary {
       color: currentColor;
       text-decoration: none;
-      padding-inline: var(--padding-2);
+      padding-inline: var(--padding-1);
       border-radius: var(--border-radius-round);
       margin-inline: calc(var(--space-inline-1) * -2);
       line-height: var(--line-height-2);

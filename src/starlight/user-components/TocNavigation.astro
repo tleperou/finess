@@ -63,7 +63,7 @@ const { labels, toc } = Astro.props
       onResize() {
         // @todo use custom media
         // @warn shall match css breakpoint
-        this.isMobile = window.matchMedia('(0px <= width <= 501px)').matches
+        this.isMobile = window.matchMedia('(0px <= width <= 1201px)').matches
 
         if (!this.isMobile) {
           this.details.toggleAttribute('open', true)
@@ -181,13 +181,14 @@ const { labels, toc } = Astro.props
 </script>
 
 <style>
-  toc-navigation > details {
-    background-color: var(--color-surface-1);
-    position: sticky;
-    top: 0;
+  toc-navigation {
+    display: contents;
 
-    /* fix spacing off the top */
-    margin-block-start: -1px;
+    & > details {
+      background-color: Canvas;
+      position: sticky;
+      top: 0;
+    }
   }
 
   toc-navigation > details summary {
@@ -196,7 +197,7 @@ const { labels, toc } = Astro.props
     column-gap: var(--column-gap-2);
     border-color: transparent;
 
-    @media (--breakpoint-sm-only) {
+    @media (--breakpoint-md-only) {
       & h2 {
         display: flex;
         align-items: center;
@@ -230,7 +231,7 @@ const { labels, toc } = Astro.props
       overflow: hidden;
       text-overflow: ellipsis;
 
-      @media (--breakpoint-sm-n-above) {
+      @media (--breakpoint-md-n-above) {
         display: none;
       }
     }
