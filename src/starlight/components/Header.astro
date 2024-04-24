@@ -78,10 +78,8 @@ const github = links.find(([platform]) => platform === 'github') || ({} as any)
     max-inline-size: var(--inline-size-5);
     inline-size: 100%;
     margin-inline: auto;
-
-    /* reset */
+    padding-inline-start: var(--padding-inline-1);
     list-style: none;
-    padding-inline-start: 0;
 
     @media (--breakpoint-sm-n-above) {
       padding-inline-end: var(--padding-inline-2);

@@ -181,10 +181,14 @@ const { labels, toc } = Astro.props
 </script>
 
 <style>
-  toc-navigation > details {
-    background-color: var(--color-surface-1);
-    position: sticky;
-    top: 0;
+  toc-navigation {
+    display: contents;
+
+    & > details {
+      background-color: Canvas;
+      position: sticky;
+      top: 0;
+    }
   }
 
   toc-navigation > details summary {
