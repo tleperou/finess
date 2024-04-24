@@ -23,14 +23,15 @@ const { hasSidebar } = Astro.props
 <style>
   div {
     display: grid;
-    column-gap: var(--column-gap-2);
-    grid-template-columns: var(--inline-size-3) 1fr;
+    grid-template-columns:
+      clamp(var(--inline-size-1), 35vw, var(--inline-size-2))
+      1fr;
     grid-template-rows: auto 1fr;
     grid-template-areas:
       'heading heading'
       'sidebar main';
 
-    max-block-size: 100dvh;
+    min-block-size: 100dvh;
 
     @media (--breakpoint-sm-only) {
       column-gap: 0;
@@ -45,11 +46,12 @@ const { hasSidebar } = Astro.props
   header {
     grid-area: heading;
     display: grid;
-    grid-template-columns: var(--inline-size-3) 1fr;
+    grid-template-columns:
+      clamp(var(--inline-size-1), 35vw, var(--inline-size-2))
+      1fr;
     align-items: center;
     grid-column: 1 / -1;
     grid-row: 1;
-    column-gap: var(--column-gap-2);
 
     border-block-end: var(--border-width-1) solid var(--color-surface-3);
 
@@ -59,11 +61,24 @@ const { hasSidebar } = Astro.props
     }
   }
 
+  /* :global(body:not([data-mobile-main-navigation-on])) {
+    @media (--breakpoint-md-n-above) {
+      & header {
+        z-index: var(--z-index-3);
+        background-color: var(--color-surface-1);
+        position: sticky;
+        top: 0;
+      }
+    }
+  } */
+
   main {
     grid-area: main;
 
     grid-column: 2;
     grid-row: 2;
+
+    padding-inline: var(--padding-inline-1);
   }
 
   .main-navigation {

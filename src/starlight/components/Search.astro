@@ -50,7 +50,9 @@ const pagefindTranslations = {
     column-gap: var(--column-gap-1);
     background-color: transparent;
     width: 100%;
-    max-width: 35ch;
+    inline-size: 100%;
+    max-inline-size: var(--inline-size-2);
+    min-inline-size: max-content;
 
     @media (--breakpoint-sm-only) {
       display: flex;
