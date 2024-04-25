@@ -43,14 +43,22 @@ const { prev, next } = pagination
   }
 
   a {
+    --space-multiplier: 0.65;
+
     display: grid;
     column-gap: var(--column-gap-1);
     font-size: var(--font-size-2);
-    padding: var(--padding-1);
+    padding: var(--padding-2);
     border: var(--border-width-1) solid var(--color-surface-3);
     border-radius: var(--border-radius-1);
     line-height: var(--line-height-1);
     text-decoration: none;
+    color: var(--color-on-surface-1);
+
+    &:hover,
+    &:focus {
+      border-color: var(--color-on-surface-1);
+    }
   }
 
   a:first-of-type {
@@ -63,8 +71,10 @@ const { prev, next } = pagination
   }
 
   small {
-    font-size: var(--font-size-1);
+    line-height: var(--line-height-0);
+    font-size: var(--font-size-0);
     font-weight: var(--font-weight-1);
+    color: var(--color-on-surface-2);
   }
 
   svg {
