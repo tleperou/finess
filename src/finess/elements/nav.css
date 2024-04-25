@@ -16,7 +16,7 @@
       &:where(:hover),
       &:where(:focus) {
         background-color: color-mix(
-          in oklch,
+          in oklab,
           var(--color-accent-2),
           85% transparent
         );
