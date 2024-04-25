@@ -1,5 +1,26 @@
 :where(a[href]) {
-  &:focus-visible {
+  color: color-mix(
+    in oklab,
+    var(--color-on-accent-1),
+    35% var(--color-on-surface-1)
+  );
+
+  text-decoration-color: currentColor;
+  text-decoration-thickness: 0.1em;
+  text-underline-offset: 0.165em;
+
+  transition: all ease-out var(--transition-timing-1);
+
+  &:where(:hover),
+  &:where(:focus) {
+    color: color-mix(
+      in oklab,
+      var(--color-on-accent-1),
+      85% var(--color-on-surface-1)
+    );
+  }
+
+  &:where(:focus-visible) {
     outline-offset: var(--border-width-2);
     outline-radius: 0px;
     outline-color: var(--color-accent-5);

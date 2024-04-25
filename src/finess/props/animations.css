@@ -1,0 +1,11 @@
+:where(html) {
+  --transition-timing-1: 20ms;
+  --transition-timing-2: 60ms;
+  --transition-timing-3: 120ms;
+
+  @media (--motion) {
+    --transition-timing-1: 80ms;
+    --transition-timing-2: 180ms;
+    --transition-timing-3: 260ms;
+  }
+}
