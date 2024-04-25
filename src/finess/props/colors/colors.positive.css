@@ -119,3 +119,15 @@
     calc(100 * var(--color-positive-contrast-calc)) var(--color-positive-end)
   );
 }
+
+/* color on */
+
+:where(html) {
+  --color-on-positive-1: var(--color-positive-start);
+
+  --color-on-positive-2: color-mix(
+    var(--color-positive-mode),
+    var(--color-on-positive-1),
+    25% transparent
+  );
+}

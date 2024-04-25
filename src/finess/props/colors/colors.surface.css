@@ -131,18 +131,14 @@
   );
 }
 
-/*  */
+/* color on */
 
 :where(html) {
-  --color-surface-on-1: color-mix(
-    var(--color-surface-mode),
-    1% var(--color-surface-1),
-    var(--color-surface-end)
-  );
+  --color-on-surface-1: var(--color-surface-end);
 
-  --color-surface-on-2: color-mix(
+  --color-on-surface-2: color-mix(
     var(--color-surface-mode),
-    15% var(--color-surface-1),
-    var(--color-surface-end)
+    var(--color-on-surface-1),
+    25% transparent
   );
 }

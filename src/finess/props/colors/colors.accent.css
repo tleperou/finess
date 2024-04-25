@@ -122,3 +122,15 @@
     calc(100 * var(--color-accent-contrast-calc)) var(--color-accent-end)
   );
 }
+
+/* color on */
+
+:where(html) {
+  --color-on-accent-1: var(--color-accent);
+
+  --color-on-accent-2: color-mix(
+    var(--color-accent-mode),
+    var(--color-on-accent-1),
+    25% transparent
+  );
+}
