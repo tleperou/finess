@@ -1,4 +1,4 @@
-:where(button) {
+:where(input[type='text']) {
   border-radius: var(--border-radius-2);
   padding-inline: var(--padding-inline-1);
   border: var(--border-width-1) solid var(--color-surface-3);
@@ -16,8 +16,7 @@
     border-color: var(--color-on-surface-2);
   }
 
-  &:focus-visible,
-  &:active {
+  &:focus-visible {
     outline-offset: var(--border-width-2);
     outline-radius: 0px;
     outline-color: var(--color-on-surface-1);

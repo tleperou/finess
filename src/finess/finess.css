@@ -1,7 +1,7 @@
+@import './reset.css';
 @import './elements/elements.css';
 @import './props/props.css';
 @import './icons.css';
-@import './reset.css';
 
 :root {
   color-scheme: light dark;

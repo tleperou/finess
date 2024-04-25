@@ -1,0 +1,23 @@
+@import './../props/media/media.devices.css';
+
+:where(dialog) {
+  inline-size: clamp(var(--inline-size-3), 65vw, var(--inline-size-4));
+  padding: var(--padding-1);
+  margin-inline: auto;
+  border: var(--border-width-1) solid var(--color-surface-3);
+  border-radius: var(--border-radius-2);
+  box-shadow: var(--box-shadow-1);
+
+  &::backdrop {
+    background-color: var(--color-surface-1);
+    opacity: 0.95;
+
+    @media (--opacity) {
+      opacity: 0.65;
+    }
+  }
+
+  @media (--breakpoint-sm-only) {
+    inline-size: calc(100% - 2 * var(--margin-inline-1));
+  }
+}
