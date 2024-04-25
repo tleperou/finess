@@ -26,7 +26,7 @@ import IconNavigation from './icons/icon-navigation.astro'
       super()
       this.addEventListener('keyup', e => this.onEscape(e))
       this.addEventListener('keydown', e => this.onFocus(e))
-      this.trigger.addEventListener('click', e => this.setToggle())
+      this.trigger.addEventListener('click', () => this.setToggle())
       window.addEventListener('resize', () => this.onResize())
     }
 

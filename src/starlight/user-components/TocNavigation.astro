@@ -220,6 +220,13 @@ const { labels, toc } = Astro.props
         width: max-content;
         font-size: 1rem;
         font-weight: var(--font-weight-1);
+        transition: scale ease-out var(--transition-timing-2);
+
+        &:hover,
+        &:focus {
+          scale: 1.0165;
+          border-color: var(--color-on-surface-2);
+        }
 
         &::after {
           content: '';
@@ -228,9 +235,7 @@ const { labels, toc } = Astro.props
           margin-inline-start: auto;
           mask: var(--icon-chevron-inline-end-32px);
           background-color: currentColor;
-
           scale: 0.5;
-          transition: transform 235ms ease-out;
         }
 
         & span {

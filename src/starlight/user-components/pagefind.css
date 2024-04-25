@@ -1,0 +1,107 @@
+.pagefind-ui__form {
+  display: grid;
+  row-gap: var(--row-gap-2);
+  grid-template-columns: 1fr max-content;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    'input clear'
+    'result result';
+  max-block-size: 90vw;
+
+  & a {
+    text-decoration: none;
+
+    &::after {
+      content: '';
+      inset: 0;
+      position: absolute;
+    }
+  }
+}
+
+.pagefind-ui__result-inner > .pagefind-ui__result-title {
+  position: relative;
+  padding-block: 0;
+  line-height: var(--line-height-3);
+  font-weight: var(--font-weight-2);
+}
+
+.pagefind-ui__result-inner > .pagefind-ui__result-title:has(a:hover),
+.pagefind-ui__result-nested:has(a:hover) {
+  outline: var(--border-width-1) solid var(--color-on-surface-1);
+  outline-offset: 0.1165em;
+  scale: 1.0165;
+  transition: scale ease-out var(--transition-timing-1);
+}
+
+.pagefind-ui__result-inner {
+  display: flex;
+  flex-direction: column;
+  row-gap: calc(var(--row-gap-1) * 0.35);
+
+  & > * {
+    padding: var(--padding-1);
+    background-color: var(--color-surface-1);
+    border-radius: var(--border-radius-1);
+  }
+}
+
+.pagefind-ui__search-input {
+  grid-area: input;
+  grid-column: 1 / -1;
+  padding-inline-start: var(--padding-inline-1);
+
+  &:hover + .pagefind-ui__search-clear,
+  &:focus + .pagefind-ui__search-clear {
+    border-color: var(--color-accent-1);
+    scale: 1.0165;
+    outline-color: transparent;
+    border-color: transparent;
+  }
+}
+
+.pagefind-ui__search-clear {
+  grid-area: clear;
+  block-size: auto;
+  background-color: transparent;
+  border-color: transparent;
+  z-index: var(--z-index-2);
+
+  &:hover,
+  &:focus {
+    border-color: var(--color-accent-1);
+    scale: 1.0165;
+  }
+}
+
+.pagefind-ui__drawer {
+  grid-area: result;
+}
+
+.pagefind-ui__results {
+  list-style: none;
+  padding-inline-start: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.pagefind-ui__result-nested {
+  position: relative;
+  padding-inline-start: var(--padding-inline-2);
+}
+
+.pagefind-ui__message {
+  font-size: var(--font-size-0);
+  margin-block: var(--margin-block-1);
+  color: var(--color-on-surface-2);
+}
+
+.pagefind-ui__result-title a {
+  color: var(--color-on-surface-1);
+  font-weight: var(--font-weight-2);
+}
+
+.pagefind-ui__result-excerpt {
+  color: var(--color-on-surface-2);
+  font-size: var(--font-size-0);
+}
