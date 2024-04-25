@@ -76,6 +76,11 @@ const { labels, toc } = Astro.props
 
       onNavigate(e: Event) {
         const target = e.target as HTMLAnchorElement
+        if (!this.isMobile && target.closest('summary')) {
+          e.preventDefault()
+          return
+        }
+
         if (this.links.indexOf(target) < 0) {
           return
         }
@@ -200,6 +205,10 @@ const { labels, toc } = Astro.props
     display: flex;
     column-gap: var(--column-gap-2);
     border-color: transparent;
+
+    @media (--breakpoint-md-n-above) {
+      cursor: text;
+    }
 
     @media (--breakpoint-md-only) {
       & h2 {
