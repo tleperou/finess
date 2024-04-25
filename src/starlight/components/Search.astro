@@ -3,6 +3,8 @@ import project from 'virtual:starlight/project-context'
 import type { Props } from '@astrojs/starlight/props'
 import IconSearch from './../user-components/icons/icon-search.astro'
 
+import './../user-components/pagefind.css'
+
 const { labels } = Astro.props
 
 const isDev = import.meta.env.DEV
@@ -21,30 +23,29 @@ const pagefindTranslations = {
   data-translations={JSON.stringify(pagefindTranslations)}
   data-strip-trailing-slash={project.trailingSlash === 'never'}
 >
-  <button
-    data-open-modal
-    disabled
-  >
+  <button class="trigger">
     <IconSearch aria-label={labels['search.label']} />
-    <span aria-hidden="true">{labels['search.label']}</span>
+    <span>{labels['search.label']}</span>
+    <kbd>/</kbd>
   </button>
 
   <dialog aria-label={labels['search.label']}>
-    <button data-close-modal>
-      {labels['search.cancelLabel']}
-    </button>
-    {
-      isDev ? (
-        <pre>{labels['search.devWarning']}</pre>
-      ) : (
-        <div id="starlight__search" />
-      )
-    }
+    <form
+      method="dialog"
+      class="sr-only"
+    >
+      <button type="submit">
+        {labels['search.cancelLabel']}
+      </button>
+    </form>
+
+    {isDev && <pre>{labels['search.devWarning']}</pre>}
+    <div id="starlight__search"></div>
   </dialog>
 </site-search>
 
 <style>
-  button[data-open-modal] {
+  button.trigger {
     display: flex;
     align-items: center;
     column-gap: var(--column-gap-1);
@@ -52,7 +53,23 @@ const pagefindTranslations = {
     width: 100%;
     inline-size: 100%;
     max-inline-size: var(--inline-size-2);
+    color: var(--color-on-surface-2);
     min-inline-size: max-content;
+
+    & kbd {
+      --space-multiplier: 0.35;
+      background-color: var(--color-surface-2);
+      padding-inline: var(--padding-inline-2);
+      border-radius: var(--border-radius-1);
+      margin-inline-start: auto;
+      font-size: var(--font-size-0);
+      border: var(--border-width-1) solid var(--color-surface-3);
+    }
+
+    &:hover,
+    &:focus {
+      color: var(--color-on-surface-1);
+    }
 
     @media (--breakpoint-sm-only) {
       display: flex;
@@ -62,114 +79,156 @@ const pagefindTranslations = {
       width: var(--line-height-2);
       border-color: transparent;
 
-      & span {
+      & span,
+      & kbg {
         display: none;
       }
     }
   }
+
+  site-search {
+    display: contents;
+  }
+
+  dialog {
+    /* margin-inline: auto; */
+    margin-block-start: 3vh;
+    background-color: var(--color-surface-2);
+  }
+
+  :global(#starlight__search) {
+    --pagefind-ui-primary: var(--color-accent-5);
+    --pagefind-ui-text: var(--color-on-surface-1);
+    --pagefind-ui-font: var(--font-sans);
+    --pagefind-ui-background: transparent;
+    --pagefind-ui-border: var(--color-surface-3);
+    --pagefind-ui-border-width: var(--border-width-1);
+    --sl-search-cancel-space: var(--space-inline-3);
+  }
+
+  :global(body[data-search-modal-open]) {
+    overflow: hidden;
+  }
 </style>
 
 <script>
-  class SiteSearch extends HTMLElement {
-    constructor() {
-      super()
-      const openBtn = this.querySelector<HTMLButtonElement>(
-        'button[data-open-modal]'
-      )!
-      const closeBtn = this.querySelector<HTMLButtonElement>(
-        'button[data-close-modal]'
-      )!
-      const dialog = this.querySelector('dialog')!
-      const dialogFrame = this.querySelector('.dialog-frame')!
+  customElements.define(
+    'site-search',
+    class SiteSearch extends HTMLElement {
+      dialog = this.querySelector<HTMLDialogElement>('dialog')!
+      trigger = this.querySelector<HTMLButtonElement>('.trigger')!
 
-      /** Close the modal if a user clicks on a link or outside of the modal. */
-      const onClick = (event: MouseEvent) => {
-        const isLink = 'href' in (event.target || {})
-        if (
-          isLink ||
-          (document.body.contains(event.target as Node) &&
-            !dialogFrame.contains(event.target as Node))
-        ) {
-          closeModal()
-        }
+      constructor() {
+        super()
+
+        this.addEventListener('click', e => this.onClose(e))
+        this.trigger.addEventListener('click', e => this.onOpen(e))
+        this.dialog.addEventListener('close', () => this.cleanup())
+        window.addEventListener('keydown', e => this.onShortcuts(e))
+        window.addEventListener('DOMContentLoaded', () => this.onSearch())
       }
 
-      const openModal = (event?: MouseEvent) => {
-        dialog.showModal()
+      onOpen(event: MouseEvent | KeyboardEvent) {
+        event.stopPropagation()
         document.body.toggleAttribute('data-search-modal-open', true)
-        this.querySelector('input')?.focus()
-        event?.stopPropagation()
-        window.addEventListener('click', onClick)
+        this.dialog.showModal()
       }
 
-      const closeModal = () => dialog.close()
-
-      openBtn.addEventListener('click', openModal)
-      openBtn.disabled = false
-      closeBtn.addEventListener('click', closeModal)
-
-      dialog.addEventListener('close', () => {
-        document.body.toggleAttribute('data-search-modal-open', false)
-        window.removeEventListener('click', onClick)
-      })
-
-      // Listen for `/`, `ctrl + k`, and `cmd + k` keyboard shortcuts.
-      window.addEventListener('keydown', e => {
-        const isInput =
-          document.activeElement instanceof HTMLElement &&
-          (['input', 'select', 'textarea'].includes(
-            document.activeElement.tagName.toLowerCase()
-          ) ||
-            document.activeElement.isContentEditable)
-        if ((e.metaKey === true || e.ctrlKey === true) && e.key === 'k') {
-          dialog.open ? closeModal() : openModal()
-          e.preventDefault()
-        } else if (e.key === '/' && !dialog.open && !isInput) {
-          openModal()
-          e.preventDefault()
+      onClose(e?: MouseEvent) {
+        if (e && !this.clickedOutside(e) && !this.clickedResult(e)) {
+          return
         }
-      })
 
-      let translations = {}
-      try {
-        translations = JSON.parse(this.dataset.translations || '{}')
-      } catch {}
+        this.dialog.close()
+      }
 
-      const shouldStrip = this.dataset.stripTrailingSlash !== undefined
-      const stripTrailingSlash = (path: string) =>
-        path.replace(/(.)\/(#.*)?$/, '$1$2')
-      const formatURL = shouldStrip
-        ? stripTrailingSlash
-        : (path: string) => path
+      cleanup() {
+        document.body.toggleAttribute('data-search-modal-open', false)
+      }
 
-      window.addEventListener('DOMContentLoaded', () => {
+      onShortcuts(e: KeyboardEvent) {
+        const el = document.activeElement
+        const isInput = el instanceof HTMLInputElement && el.isContentEditable
+        const slash = e.key === '/'
+        const k = (e.metaKey || e.ctrlKey) && e.key === 'k'
+
+        if (isInput) {
+          return
+        }
+
+        if (!k && !slash) {
+          return
+        }
+
+        this.dialog.open ? this.onClose() : this.onOpen(e)
+        e.preventDefault()
+      }
+
+      clickedOutside(e: MouseEvent) {
+        const target = e.target as HTMLElement
+        const rect = target?.getBoundingClientRect()
+        return (
+          rect.left > e.clientX ||
+          rect.right < e.clientX ||
+          rect.top > e.clientY ||
+          rect.bottom < e.clientY
+        )
+      }
+
+      clickedResult(e: MouseEvent) {
+        const target = e.target as HTMLElement
+        return target instanceof HTMLAnchorElement
+      }
+
+      onSearch() {
         if (import.meta.env.DEV) return
+
+        let translations = {}
+        try {
+          translations = JSON.parse(this.dataset.translations || '{}')
+        } catch {}
+
+        const shouldStrip = this.dataset.stripTrailingSlash !== undefined
+
+        function stripTrailingSlash(path: string) {
+          return path.replace(/(.)\/(#.*)?$/, '$1$2')
+        }
+
+        function noopFormat(path: string) {
+          return path
+        }
+
+        const formatURL = shouldStrip ? stripTrailingSlash : noopFormat
+        const bundlePath = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/pagefind/`
+
+        function processResult(result: {
+          url: string
+          sub_results: { url: string }[]
+        }) {
+          result.url = formatURL(result.url)
+          result.sub_results = result.sub_results.map(sub_result => {
+            sub_result.url = formatURL(sub_result.url)
+            return sub_result
+          })
+        }
+
         const onIdle = window.requestIdleCallback || (cb => setTimeout(cb, 1))
         onIdle(async () => {
           // @ts-expect-error — Missing types for @pagefind/default-ui package.
           const { PagefindUI } = await import('@pagefind/default-ui')
           new PagefindUI({
+            autofocus: true,
             element: '#starlight__search',
             baseUrl: import.meta.env.BASE_URL,
-            bundlePath:
-              import.meta.env.BASE_URL.replace(/\/$/, '') + '/pagefind/',
+            bundlePath,
             showImages: false,
             translations,
             showSubResults: true,
-            processResult: (result: {
-              url: string
-              sub_results: Array<{ url: string }>
-            }) => {
-              result.url = formatURL(result.url)
-              result.sub_results = result.sub_results.map(sub_result => {
-                sub_result.url = formatURL(sub_result.url)
-                return sub_result
-              })
-            },
+            resetStyles: true,
+            processResult,
           })
         })
-      })
+      }
     }
-  }
-  customElements.define('site-search', SiteSearch)
+  )
 </script>
