@@ -193,10 +193,6 @@ const { labels, toc } = Astro.props
       background-color: Canvas;
       position: sticky;
       top: 0;
-
-      @media (--breakpoint-md-only) {
-        padding-inline-start: var(--padding-inline-1);
-      }
     }
   }
 
@@ -260,6 +256,6 @@ const { labels, toc } = Astro.props
   }
 
   toc-navigation nav {
-    padding-inline: var(--padding-inline-1);
+    padding-inline-start: var(--padding-inline-1);
   }
 </style>
