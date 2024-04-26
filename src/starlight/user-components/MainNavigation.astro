@@ -156,6 +156,10 @@ import IconNavigation from './icons/icon-navigation.astro'
           padding-block-start: var(--padding-block-1);
           border-block-start: var(--border-width-1) solid var(--color-surface-3);
           padding-inline: calc(3 * var(--padding-inline-1));
+
+          @media (--breakpoint-sm-only) {
+            overflow: auto;
+          }
         }
       }
     }
