@@ -24,6 +24,18 @@
   padding-block: 0;
   line-height: var(--line-height-3);
   font-weight: var(--font-weight-2);
+  display: flex;
+  align-items: center;
+  column-gap: var(column-gap-1);
+
+  &::before {
+    content: '';
+    width: 32px;
+    height: 32px;
+    mask: var(--icon-document-bullet-list-16px-regular);
+    background-color: currentColor;
+    scale: 0.5;
+  }
 }
 
 .pagefind-ui__result-inner > .pagefind-ui__result-title:has(a:hover),
@@ -32,17 +44,27 @@
   outline-offset: 0.1165em;
   scale: 1.0165;
   transition: scale ease-out var(--transition-timing-1);
+  z-index: var(--z-index-2);
 }
 
 .pagefind-ui__result-inner {
   display: flex;
   flex-direction: column;
-  row-gap: calc(var(--row-gap-1) * 0.35);
+  row-gap: calc(var(--row-gap-1) * 0.15);
 
   & > * {
     padding: var(--padding-1);
     background-color: var(--color-surface-1);
-    border-radius: var(--border-radius-1);
+
+    &:first-child {
+      border-start-start-radius: var(--border-radius-1);
+      border-start-end-radius: var(--border-radius-1);
+    }
+
+    &:last-child {
+      border-end-start-radius: var(--border-radius-1);
+      border-end-end-radius: var(--border-radius-1);
+    }
   }
 }
 
