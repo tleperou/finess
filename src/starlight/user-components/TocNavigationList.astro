@@ -33,7 +33,7 @@ const { toc, isMobile = false, depth = 0 } = Astro.props
 
 <style define:vars={{ depth }}>
   ul {
-    padding-inline-start: calc(var(--inline-padding-1) * var(--depth));
+    padding-inline-start: calc(var(--padding-inline-1) * var(--depth));
   }
 
   ul li a {

@@ -21,11 +21,19 @@ import type { Props } from '@astrojs/starlight/props'
     scroll-padding: var(--block-size-1);
 
     &:global(main) {
-      width: 100%;
+      inline-size: 100%;
       padding-inline: var(--padding-inline-1);
+      /* set manually size cause code blocks break through */
+      max-inline-size: calc(
+        100vw - clamp(var(--inline-size-1), 35vw, var(--inline-size-2))
+      );
 
       @media (--breakpoint-md-n-above) {
         order: -1;
+      }
+
+      @media (--breakpoint-sm-only) {
+        max-inline-size: 100vw;
       }
     }
   }
