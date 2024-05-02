@@ -19,22 +19,38 @@ body {
 
 main h2 {
   margin-block-start: var(--margin-block-3);
+
+  & + p {
+    margin-block-end: var(--margin-block-2);
+    color: var(--color-on-surface-2);
+  }
 }
 
 main h3 {
-  margin-block: var(--margin-block-start-2);
-}
+  margin-block-start: var(--margin-block-3);
+  margin-block-end: var(--margin-block-1);
 
-main h2 + p {
-  margin-block-end: var(--margin-block-2);
+  & + p + details {
+    margin-block-start: var(--margin-block-3);
+  }
 }
 
 main summary h4 {
   font-weight: var(--font-weight-1);
 }
 
+main p:has(+ details) {
+  color: var(--color-on-surface-2);
+}
+
 main code {
+  --space-multiplier: 0.5;
+
   font-family: var(--font-mono);
+  background-color: var(--color-surface-2);
+  padding-inline: var(--padding-inline-1);
+  padding-block: var(--padding-block-1);
+  border-radius: var(--border-radius-1);
 }
 
 /* custom details */
@@ -48,6 +64,14 @@ main details {
   }
 
   &:not([open]):hover > * {
+    scale: 1.01;
+  }
+}
+
+main ul li {
+  transition: scale ease-out var(--transition-timing-3);
+
+  &:hover {
     scale: 1.01;
   }
 }
@@ -66,10 +90,6 @@ main details ul li {
   display: flex;
   border-block-start: var(--border-width-1) solid var(--color-surface-2);
   color: var(--color-on-surface-1);
-
-  &:has(span) {
-    column-gap: var(--column-gap-1);
-  }
 
   &:hover {
     background-color: var(--color-surface-2);

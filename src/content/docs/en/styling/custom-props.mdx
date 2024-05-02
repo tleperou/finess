@@ -7,12 +7,12 @@ tableOfContents:
   maxHeadingLevel: 2
 ---
 
+## Borders
+
 import BorderWidth from './../../../../starlight/fragments/custom-props/borders/borders.widths.astro'
 import BorderRadius from './../../../../starlight/fragments/custom-props/borders/borders.radius.astro'
 
-## Borders
-
-### Widths
+### `border-width`
 
 <BorderWidth>
   <p slot="block">The `border-block-width` CSS property defines the width of the logical block borders of an element, which maps to a physical border width depending on the element's writing mode, directionality, and text orientation.</p>
@@ -20,17 +20,57 @@ import BorderRadius from './../../../../starlight/fragments/custom-props/borders
   <p slot="shorthand">The `border-width` [shorthand](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties) CSS property sets the width of an element's border.</p>
 </BorderWidth>
 
-### Radius
+### `border-radius`
 
 <BorderRadius>
   <p slot="shorthand">The `border-radius` CSS property rounds the corners of an element's outer border edge. You can set a single radius to make circular corners, or two radii to make elliptical corners.</p>
 </BorderRadius>
 
+## Fonts
+
+Font properties priotize the preferences of the user and its operating system. They vary according the size of the viewport in the respect of the [WCAG SC 1.4.4](https://www.w3.org/WAI/WCAG21/Understanding/resize-text.html) accessibility rules.
+
+import FontFamilies from './../../../../starlight/fragments/custom-props/fonts/fonts.font-family.astro'
+import FontSizes from './../../../../starlight/fragments/custom-props/fonts/fonts.font-size.astro'
+import FontWeight from './../../../../starlight/fragments/custom-props/fonts/fonts.font-weight.astro'
+import LetterSpacing from './../../../../starlight/fragments/custom-props/fonts/fonts.letter-spacing.astro'
+import LineHeight from './../../../../starlight/fragments/custom-props/fonts/fonts.line-height.astro'
+
+### `font-family`
+
+The `font-family` CSS property specifies a prioritized list of one or more font family names and/or generic family names for the selected element.
+
+<FontFamilies />
+
+### `font-size`
+
+The `font-size` CSS property sets the size of the font relatively to the dimensions of the viewport.
+
+<FontSizes />
+
+### `font-weight`
+
+The `font-weight` CSS property sets the weight (or boldness) of the font. The weights available depend on the [`font-family`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family) that is currently set.
+
+<FontWeight />
+
+### `letter-spacing`
+
+The `letter-spacing` CSS property sets the horizontal spacing behavior between text characters.
+
+<LetterSpacing />
+
+### `line-height`
+
+The `line-height` CSS property sets the height of a line box. It's commonly used to set the distance between lines of text. On block-level elements, it specifies the minimum height of line boxes within the element.
+
+<LineHeight />
+
+## Spacings
+
 import Gaps from './../../../../starlight/fragments/custom-props/spacings/spacings.gaps.astro'
 import Margins from './../../../../starlight/fragments/custom-props/spacings/spacings.margins.astro'
 import Paddings from './../../../../starlight/fragments/custom-props/spacings/spacings.paddings.astro'
-
-## Spacings
 
 Spacings are relative to the element's [`font-size`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-size) and [`line-height`](https://developer.mozilla.org/en-US/docs/Web/CSS/line-height) based upon the average glyph's dimensions. It also vary with the height, width and orientation of the viewport.
 
