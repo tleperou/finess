@@ -10,9 +10,11 @@
   --global-font-multiplier: 1;
 }
 
-:where(html) {
+:where(html, body) {
   font-family: var(--font-sans);
   font-size: var(--font-space-1);
   font-weight: var(--font-weight-1);
   font-size: var(--font-size-1);
+  color: var(--color-on-surface-1);
+  background-color: var(--color-surface-1);
 }

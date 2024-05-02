@@ -1,4 +1,30 @@
+/* overrides of starlight styles */
+
+h1,
+h2,
+h3 {
+  color: var(--color-on-surface-1);
+  padding-block: var(--padding-block-1);
+}
+
+h2 + p {
+  margin-block-end: var(--margin-block-2);
+}
+
+details + h3 {
+  margin-block-start: var(--margin-block-1);
+}
+
+code {
+  font-family: var(--font-mono);
+}
+
+html,
 body {
-  background-color: Canvas;
-  color: CanvasText;
+  font-family: var(--font-sans);
+  font-size: var(--font-space-1);
+  font-weight: var(--font-weight-1);
+  font-size: var(--font-size-1);
+  color: var(--color-on-surface-1);
+  background-color: var(--color-surface-1);
 }

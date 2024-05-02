@@ -37,8 +37,6 @@ const { toc, isMobile = false, depth = 0 } = Astro.props
   }
 
   ul li a {
-    --space-multiplier: 0.5;
-
     display: flex;
     align-items: center;
     column-gap: var(--column-gap-1);
@@ -71,6 +69,7 @@ const { toc, isMobile = false, depth = 0 } = Astro.props
       height: var(--line-height-1);
       background-color: transparent;
       border-radius: var(--border-radius-2);
+      margin-inline-start: var(--margin-inline-1);
     }
 
     &[aria-current] {

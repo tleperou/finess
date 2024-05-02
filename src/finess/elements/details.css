@@ -8,7 +8,7 @@
     padding-inline: var(--padding-1);
   }
 
-  &:where([open]) > summary {
+  &:where([open]) summary {
     border-block-end: var(--border-width-1) solid var(--color-surface-3);
 
     &::after {

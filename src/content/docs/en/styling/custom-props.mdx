@@ -1,0 +1,40 @@
+---
+title: Custom props
+description: A guide in my new Starlight docs site.
+editUrl: https://urltoedit.com
+tableOfContents:
+  minHeadingLevel: 2
+  maxHeadingLevel: 2
+---
+
+import Gaps from './../../../../starlight/fragments/custom-props/spacings-gaps.astro'
+import Margins from './../../../../starlight/fragments/custom-props/spacings-margins.astro'
+import Paddings from './../../../../starlight/fragments/custom-props/spacings-paddings.astro'
+
+## Spacings
+
+Spacings are relative to the element's [`font-size`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-size) and [`line-height`](https://developer.mozilla.org/en-US/docs/Web/CSS/line-height) based upon the average glyph's dimensions. It also vary with the height, width and orientation of the viewport.
+
+### Gaps
+
+<Gaps>
+  <p slot="row">The [`row-gap`](https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap) CSS property sets the size of the gap between an element's rows.</p>
+  <p slot="column">The [`column-gap`](https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap) CSS property sets the size of the gap between an element's columns.</p>
+  <p slot="shorthand">The <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap"><code>row-gap</code></a> CSS property sets the size of the gap between an element's rows.</p>
+</Gaps>
+
+### Marings
+
+<Margins>
+  <p slot="block">The margin-block CSS [shorthand property](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties) defines the logical block start and end margins of an element, which maps to physical margins depending on the element's writing mode, directionality, and text orientation.</p>
+  <p slot="inline">The margin-inline CSS [shorthand property](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties) is a shorthand property that defines both the logical inline start and end margins of an element, which maps to physical margins depending on the element's writing mode, directionality, and text orientation.</p>
+  <p slot="shorthand">The margin CSS shorthand property sets the [margin area](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#margin_area) on all four sides of an element.</p>
+</Margins>
+
+### Paddings
+
+<Paddings>
+  <p slot="inline">The padding-inline CSS [shorthand property](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties) defines the logical inline start and end padding of an element, which maps to physical padding properties depending on the element's writing mode, directionality, and text orientation.</p>
+  <p slot="block">The padding-block CSS [shorthand property](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties) defines the logical block start and end padding of an element, which maps to physical padding properties depending on the element's writing mode, directionality, and text orientation.</p>
+  <p slot="shorthand">The padding CSS shorthand property sets the [shorthand property](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties) padding area on all four sides of an element at once. between an element's rows and columns.</p>
+</Paddings>

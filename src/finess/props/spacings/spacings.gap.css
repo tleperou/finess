@@ -1,31 +1,9 @@
 :where(*) {
-  /* row and column gaps */
-
-  --space-gap-1: var(--space-block-1) var(--space-inline-1);
-  --space-gap-2: var(--space-block-2) var(--space-inline-2);
-  --space-gap-3: var(--space-block-3) var(--space-inline-3);
-  --space-gap-4: var(--space-block-4) var(--space-inline-4);
-  --space-gap-5: var(--space-block-5) var(--space-inline-5);
-
   --gap-1: var(--space-block-1) var(--space-inline-1);
   --gap-2: var(--space-block-2) var(--space-inline-2);
   --gap-3: var(--space-block-3) var(--space-inline-3);
   --gap-4: var(--space-block-4) var(--space-inline-4);
   --gap-5: var(--space-block-5) var(--space-inline-5);
-
-  --g-1: var(--space-block-1) var(--space-inline-1);
-  --g-2: var(--space-block-2) var(--space-inline-2);
-  --g-3: var(--space-block-3) var(--space-inline-3);
-  --g-4: var(--space-block-4) var(--space-inline-4);
-  --g-5: var(--space-block-5) var(--space-inline-5);
-
-  /* row */
-
-  --space-row-gap-1: var(--space-inline-1);
-  --space-row-gap-2: var(--space-inline-2);
-  --space-row-gap-3: var(--space-inline-3);
-  --space-row-gap-4: var(--space-inline-4);
-  --space-row-gap-5: var(--space-inline-5);
 
   --row-gap-1: var(--space-inline-1);
   --row-gap-2: var(--space-inline-2);
@@ -33,29 +11,9 @@
   --row-gap-4: var(--space-inline-4);
   --row-gap-5: var(--space-inline-5);
 
-  --rg-1: var(--space-inline-1);
-  --rg-2: var(--space-inline-2);
-  --rg-3: var(--space-inline-3);
-  --rg-4: var(--space-inline-4);
-  --rg-5: var(--space-inline-5);
-
-  /* column gap */
-
-  --space-column-gap-1: var(--space-block-1);
-  --space-column-gap-2: var(--space-block-2);
-  --space-column-gap-3: var(--space-block-3);
-  --space-column-gap-4: var(--space-block-4);
-  --space-column-gap-5: var(--space-block-5);
-
-  --column-gap-1: var(--space-block-1);
+  --column-gap-1: var(--space-inline-1);
   --column-gap-2: var(--space-block-2);
   --column-gap-3: var(--space-block-3);
   --column-gap-4: var(--space-block-4);
   --column-gap-5: var(--space-block-5);
-
-  --cg-1: var(--space-block-1);
-  --cg-2: var(--space-block-2);
-  --cg-3: var(--space-block-3);
-  --cg-4: var(--space-block-4);
-  --cg-5: var(--space-block-5);
 }

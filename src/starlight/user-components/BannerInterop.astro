@@ -1,9 +1,4 @@
 ---
-interface Props {
-  title: string
-}
-const props = Astro.props
-
 import IconBrowserChrome from './icons/icon-browser-chrome.astro'
 import IconBrowserEdge from './icons/icon-browser-edge.astro'
 import IconBrowserFirefox from './icons/icon-browser-firefox.astro'
@@ -13,8 +8,7 @@ import IconCheckmark from './icons/icon-checkmark.astro'
 
 <details>
   <summary>
-    <h2>{props.title}</h2>
-
+    <h2>Interop 2022</h2>
     <ul>
       <li>
         <IconBrowserChrome />
@@ -33,18 +27,33 @@ import IconCheckmark from './icons/icon-checkmark.astro'
     </ul>
   </summary>
   <p>
-    <slot />
+    Since April 2024, this feature works across the latest devices and browser
+    versions. This feature might not work in older devices or browsers.
   </p>
+  <ul
+    role="list"
+    aria-orientation="horizontal"
+  >
+    <li><a href="#">Learn more</a></li>
+    <li><a href="#">See full compatibility</a></li>
+    <li><a href="#">Report feedback</a></li>
+  </ul>
 </details>
 
 <style>
   details {
-    background-color: var(--color-neutral-2);
-    border-color: var(--color-neutral-3);
+    --banner-color-1: var(--color-neutral-1);
+    --banner-color-2: var(--color-neutral-2);
+    --banner-color-3: var(--color-neutral-3);
+
+    background-color: var(--banner-color-2);
+    border-color: var(--banner-color-3);
     border-radius: var(--border-radius-2);
 
     & summary {
-      border-color: var(--color-neutral-2);
+      display: flex;
+      flex-wrap: wrap;
+      border-color: var(--banner-color-2);
 
       &::after {
         margin-inline-start: var(--margin-inline-1);
@@ -52,48 +61,55 @@ import IconCheckmark from './icons/icon-checkmark.astro'
     }
 
     & > * {
-      padding: var(--padding-1);
+      margin: var(--padding-1);
+    }
+
+    & ul {
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: var(--column-gap-2);
     }
   }
 
-  ul,
-  li {
-    display: flex;
-    align-items: center;
-  }
-
-  ul {
-    list-style: none;
-    padding-inline-start: 0;
-    column-gap: var(--margin-inline-1);
-    margin-inline-start: auto;
-
+  details summary {
+    & ul,
     & li {
-      --space-multiplier: 0.5;
-      padding: var(--padding-block-1) var(--padding-inline-2);
-      background-color: var(--color-neutral-1);
-      border-radius: var(--border-radius-round);
+      display: flex;
+      align-items: center;
     }
-  }
 
-  svg {
-    inline-size: 2rem;
-    block-size: auto;
-    aspect-ratio: var(--aspect-ratio-square);
-  }
+    & ul {
+      list-style: none;
+      padding-inline-start: 0;
+      column-gap: var(--margin-inline-1);
+      margin-inline-start: auto;
 
-  svg:nth-child(even) {
-    /* z-index: var(--z-index-background-1); */
-    border: var(--border-width-2) solid var(--color-neutral-1);
-    background-color: var(--color-neutral-1);
-    border-radius: var(--border-radius-round);
-    margin-inline-start: calc(-1.165 * var(--margin-inline-1));
-  }
+      & li {
+        --space-multiplier: 0.5;
+        padding: var(--padding-block-1) var(--padding-inline-2);
+        background-color: var(--banner-color-1);
+        border-radius: var(--border-radius-round);
+      }
+    }
 
-  svg:not(:nth-child(even)) {
-    border-radius: var(--border-radius-round);
-    background-color: var(--color-neutral-1);
-    border: var(--border-width-2) solid var(--color-neutral-1);
-    z-index: 3;
+    & svg {
+      inline-size: 2rem;
+      block-size: auto;
+      aspect-ratio: var(--aspect-ratio-square);
+    }
+
+    & svg:nth-child(even) {
+      border: var(--border-width-2) solid var(--banner-color-1);
+      background-color: var(--banner-color-1);
+      border-radius: var(--border-radius-round);
+      margin-inline-start: calc(-1.165 * var(--margin-inline-1));
+    }
+
+    & svg:not(:nth-child(even)) {
+      z-index: var(--z-index-1);
+      border-radius: var(--border-radius-round);
+      background-color: var(--banner-color-1);
+      border: var(--border-width-2) solid var(--banner-color-1);
+    }
   }
 </style>

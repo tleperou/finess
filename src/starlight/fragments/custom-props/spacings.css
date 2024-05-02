@@ -1,0 +1,25 @@
+.spacings :where(summary, li) {
+  padding-inline: var(--padding-inline-1);
+  padding-block: var(--padding-block-1);
+}
+
+.spacings p {
+  padding: var(--padding-block-2) var(--padding-inline-1);
+  color: var(--color-on-surface-2);
+}
+
+.spacings ul li {
+  display: flex;
+  column-gap: var(--column-gap-1);
+  border-block-start: var(--border-1) solid var(--color-surface-2);
+  color: var(--color-on-surface-1);
+
+  &:hover {
+    background-color: var(--color-surface-2);
+  }
+
+  & span {
+    color: var(--color-on-surface-2);
+    margin-inline-start: auto;
+  }
+}
