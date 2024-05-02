@@ -1,11 +1,11 @@
 @import './../icons.css';
 
 :where(details) {
-  border-block: var(--border-1) solid var(--color-surface-3);
+  border-block: var(--border-width-1) solid var(--color-surface-3);
   border-radius: var(--border-radius-1);
 
   &:where(> *) {
-    padding-inline: var(--padding-1);
+    padding-inline: var(--padding-inline-1);
   }
 
   &:where([open]) summary {

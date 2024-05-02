@@ -1,8 +1,16 @@
----
-import './spacings.css'
----
+<details class="spacings">
+  <summary><h4>--margin-<code>{`{1-5}`}</code></h4></summary>
+  <slot name="shorthand" />
+  <ul role="list">
+    <li>--margin-1</li>
+    <li>--margin-2</li>
+    <li>--margin-3</li>
+    <li>--margin-4</li>
+    <li>--margin-5</li>
+  </ul>
+</details>
 
-<details class="spacings margin-block">
+<details class="margin-block">
   <summary><h4>--margin-block-<code>{`{1-5}`}</code></h4></summary>
   <slot name="block" />
   <ul role="list">
@@ -24,7 +32,7 @@ import './spacings.css'
   </ul>
 </details>
 
-<details class="spacings margin-inline">
+<details class="margin-inline">
   <summary><h4>--margin-inline-<code>{`{1-5}`}</code></h4></summary>
   <slot name="inline" />
   <ul role="list">
@@ -46,14 +54,20 @@ import './spacings.css'
   </ul>
 </details>
 
-<details class="spacings">
-  <summary><h4>--margin-<code>{`{1-5}`}</code></h4></summary>
-  <slot name="shorthand" />
+<details>
+  <summary>
+    <h4 class="muted">And all flow-relative mappings</h4>
+  </summary>
   <ul role="list">
-    <li>--margin-1</li>
-    <li>--margin-2</li>
-    <li>--margin-3</li>
-    <li>--margin-4</li>
-    <li>--margin-5</li>
+    <li>--margin-inline-start-<code>{`{1-5}`}</code></li>
+    <li>--margin-inline-end-<code>{`{1-5}`}</code></li>
+    <li>--margin-block-start-<code>{`{1-5}`}</code></li>
+    <li>--margin-block-end-<code>{`{1-5}`}</code></li>
   </ul>
 </details>
+
+<style>
+  .muted {
+    color: var(--color-on-surface-2);
+  }
+</style>

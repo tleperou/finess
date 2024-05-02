@@ -7,9 +7,28 @@ tableOfContents:
   maxHeadingLevel: 2
 ---
 
-import Gaps from './../../../../starlight/fragments/custom-props/spacings-gaps.astro'
-import Margins from './../../../../starlight/fragments/custom-props/spacings-margins.astro'
-import Paddings from './../../../../starlight/fragments/custom-props/spacings-paddings.astro'
+import BorderWidth from './../../../../starlight/fragments/custom-props/borders/borders.widths.astro'
+import BorderRadius from './../../../../starlight/fragments/custom-props/borders/borders.radius.astro'
+
+## Borders
+
+### Widths
+
+<BorderWidth>
+  <p slot="block">The `border-block-width` CSS property defines the width of the logical block borders of an element, which maps to a physical border width depending on the element's writing mode, directionality, and text orientation.</p>
+  <p slot="inline">The `border-inline-width` CSS property defines the width of the logical inline borders of an element, which maps to a physical border width depending on the element's writing mode, directionality, and text orientation.</p>
+  <p slot="shorthand">The `border-width` [shorthand](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties) CSS property sets the width of an element's border.</p>
+</BorderWidth>
+
+### Radius
+
+<BorderRadius>
+  <p slot="shorthand">The `border-radius` CSS property rounds the corners of an element's outer border edge. You can set a single radius to make circular corners, or two radii to make elliptical corners.</p>
+</BorderRadius>
+
+import Gaps from './../../../../starlight/fragments/custom-props/spacings/spacings.gaps.astro'
+import Margins from './../../../../starlight/fragments/custom-props/spacings/spacings.margins.astro'
+import Paddings from './../../../../starlight/fragments/custom-props/spacings/spacings.paddings.astro'
 
 ## Spacings
 
