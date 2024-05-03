@@ -20,11 +20,32 @@ import BorderRadius from './../../../../starlight/fragments/custom-props/borders
   <p slot="shorthand">The `border-width` [shorthand](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties) CSS property sets the width of an element's border.</p>
 </BorderWidth>
 
+#### Usage
+
+```css
+code {
+  border-width: var(--border-width-1);
+}
+
+/* or within shortand */
+code {
+  border: var(--border-width-1) solid var(--color-neutral-1);
+}
+```
+
 ### `border-radius`
 
 <BorderRadius>
   <p slot="shorthand">The `border-radius` CSS property rounds the corners of an element's outer border edge. You can set a single radius to make circular corners, or two radii to make elliptical corners.</p>
 </BorderRadius>
+
+#### Usage
+
+```css
+code {
+  border-radius: var(--border-radius-1);
+}
+```
 
 ## Fonts
 
@@ -42,11 +63,27 @@ The `font-family` CSS property specifies a prioritized list of one or more font 
 
 <FontFamilies />
 
+#### Usage
+
+```css
+code {
+  font-family: var(--font-mono);
+}
+```
+
 ### `font-size`
 
 The `font-size` CSS property sets the size of the font relatively to the dimensions of the viewport.
 
 <FontSizes />
+
+#### Usage
+
+```css
+code {
+  font-size: var(--font-size-1);
+}
+```
 
 ### `font-weight`
 
@@ -54,17 +91,52 @@ The `font-weight` CSS property sets the weight (or boldness) of the font. The we
 
 <FontWeight />
 
+#### Usage
+
+```css
+code {
+  font-weight: var(--font-weight-1);
+}
+```
+
 ### `letter-spacing`
 
 The `letter-spacing` CSS property sets the horizontal spacing behavior between text characters.
 
 <LetterSpacing />
 
+#### Usage
+
+```css
+code {
+  letter-spacing: var(--letter-spacing-1);
+}
+```
+
+
 ### `line-height`
 
 The `line-height` CSS property sets the height of a line box. It's commonly used to set the distance between lines of text. On block-level elements, it specifies the minimum height of line boxes within the element.
 
 <LineHeight />
+
+#### Usage
+
+```css
+code {
+  line-height: var(--line-height-1);
+}
+```
+
+## Layers
+
+import Layers from './../../../../starlight/fragments/custom-props/layers/layer.z-index.astro'
+
+### `z-index`
+
+The `z-index` CSS property sets the z-order of a [positioned](https://developer.mozilla.org/en-US/docs/Web/CSS/position) element and its descendants or flex and grid items
+
+<Layers />
 
 ## Spacings
 
@@ -74,7 +146,7 @@ import Paddings from './../../../../starlight/fragments/custom-props/spacings/sp
 
 Spacings are relative to the element's [`font-size`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-size) and [`line-height`](https://developer.mozilla.org/en-US/docs/Web/CSS/line-height) based upon the average glyph's dimensions. It also vary with the height, width and orientation of the viewport.
 
-### Gaps
+### `gap`
 
 <Gaps>
   <p slot="row">The [`row-gap`](https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap) CSS property sets the size of the gap between an element's rows.</p>
@@ -82,7 +154,7 @@ Spacings are relative to the element's [`font-size`](https://developer.mozilla.o
   <p slot="shorthand">The <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap"><code>row-gap</code></a> CSS property sets the size of the gap between an element's rows.</p>
 </Gaps>
 
-### Marings
+### `margin`
 
 <Margins>
   <p slot="block">The margin-block CSS [shorthand property](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties) defines the logical block start and end margins of an element, which maps to physical margins depending on the element's writing mode, directionality, and text orientation.</p>
@@ -90,7 +162,7 @@ Spacings are relative to the element's [`font-size`](https://developer.mozilla.o
   <p slot="shorthand">The margin CSS shorthand property sets the [margin area](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#margin_area) on all four sides of an element.</p>
 </Margins>
 
-### Paddings
+### `padding`
 
 <Paddings>
   <p slot="inline">The padding-inline CSS [shorthand property](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties) defines the logical inline start and end padding of an element, which maps to physical padding properties depending on the element's writing mode, directionality, and text orientation.</p>

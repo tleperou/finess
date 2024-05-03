@@ -38,8 +38,13 @@ const { prev, next } = pagination
   div {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: var(--column-gap-1);
+    column-gap: var(--column-gap-2);
     margin-block-start: var(--margin-block-3);
+
+    @media (--breakpoint-sm-only) {
+      row-gap: var(--column-gap-2);
+      grid-template-columns: 1fr;
+    }
   }
 
   a {
@@ -48,7 +53,7 @@ const { prev, next } = pagination
     display: grid;
     column-gap: var(--column-gap-1);
     font-size: var(--font-size-2);
-    padding: var(--padding-2);
+    padding: var(--padding-block-3) var(--padding-inline-2);
     border: var(--border-width-1) solid var(--color-surface-3);
     border-radius: var(--border-radius-1);
     line-height: var(--line-height-1);

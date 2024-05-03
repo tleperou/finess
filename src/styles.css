@@ -35,6 +35,14 @@ main h3 {
   }
 }
 
+main h4:has(+ .expressive-code) {
+  margin-block: var(--margin-block-2);
+}
+
+main .expressive-code {
+  margin-block-start: var(--margin-block-1);
+}
+
 main summary h4 {
   font-weight: var(--font-weight-1);
 }
