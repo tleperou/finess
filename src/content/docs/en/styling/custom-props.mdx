@@ -88,9 +88,13 @@ import LineHeight from './../../../../starlight/fragments/custom-props/fonts/fon
 
 #### Usage
 
-```css
+```css {2}
 code {
   font-family: var(--font-family-mono);
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-1);
+  letter-spacing: var(--letter-spacing-1);
+  line-height: var(--line-height-1);
 }
 ```
 
@@ -104,9 +108,13 @@ code {
 
 #### Usage
 
-```css
+```css {3}
 code {
+  font-family: var(--font-family-mono);
   font-size: var(--font-size-1);
+  font-weight: var(--font-weight-1);
+  letter-spacing: var(--letter-spacing-1);
+  line-height: var(--line-height-1);
 }
 ```
 
@@ -118,9 +126,13 @@ code {
 
 #### Usage
 
-```css
+```css {4}
 code {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-1);
   font-weight: var(--font-weight-1);
+  letter-spacing: var(--letter-spacing-1);
+  line-height: var(--line-height-1);
 }
 ```
 
@@ -132,9 +144,13 @@ The `letter-spacing` CSS property sets the horizontal spacing behavior between t
 
 #### Usage
 
-```css
+```css {5}
 code {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-1);
   letter-spacing: var(--letter-spacing-1);
+  line-height: var(--line-height-1);
 }
 ```
 
@@ -147,8 +163,12 @@ code {
 
 #### Usage
 
-```css
+```css {6}
 code {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-1);
+  letter-spacing: var(--letter-spacing-1);
   line-height: var(--line-height-1);
 }
 ```
@@ -162,6 +182,34 @@ import Layers from './../../../../starlight/fragments/custom-props/layers/layer.
 The `z-index` CSS property sets the z-order of a [positioned](https://developer.mozilla.org/en-US/docs/Web/CSS/position) element and its descendants or flex and grid items
 
 <Layers />
+
+#### Usage
+
+```css {11,15, 20}
+.hero {
+  display: grid;
+  place-content: center;
+
+  & > * {
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  & h2 {
+    z-index: var(--z-index-1);
+  }
+
+  & picture {
+    z-index: var(--z-index--1);
+  }
+}
+
+.my-modal {
+  z-index: var(--z-index-max);
+}
+```
+
+<aside><p>Interested in using `z-index-max`? Consider using [`top-layer`](https://developer.mozilla.org/en-US/docs/Glossary/Top_layer) when possible.</p></aside>
 
 ## Media queries
 
@@ -183,7 +231,7 @@ import MediaQueryBreakpoint from './../../../../starlight/fragments/custom-props
 
 #### Usage
 
-```css
+```css {4}
 :root {
   --my-color: #21307a;
 
@@ -199,7 +247,7 @@ import MediaQueryBreakpoint from './../../../../starlight/fragments/custom-props
 
 #### Usage
 
-```css
+```css {4}
 :root {
   --transition-timing-1: 200ms;
 
@@ -219,7 +267,7 @@ import MediaQueryBreakpoint from './../../../../starlight/fragments/custom-props
 
 #### Usage
 
-```css
+```css {5}
 .my-layout {
   display: grid;
   grid-template-columns: `1fr`;
@@ -242,6 +290,38 @@ import Ratios from './../../../../starlight/fragments/custom-props/ratios/ratios
 
 <aside><p>At least one of the box's sizes needs to be `auto` in order for `aspect-ratio` to have any effect.</p></aside>
 
+#### Usage
+
+```css {3}
+.avatar {
+  inline-size: var(--inline-size-2);
+  aspect-ratio: var(--aspect-ratio-square);
+  border-radius: var(--border-radius-round);
+}
+```
+
+## Sizes
+
+import Sizes from './../../../../starlight/fragments/custom-props/sizes/sizes.astro'
+
+<Sizes />
+
+#### Usage
+
+```css
+.layout {
+  display: grid;
+  grid-template-columns:
+    [main-nav] var(--inline-size-5)
+    [content] 1fr
+    [table-of-content] var(--inline-size-3);
+  grid-template-rows:
+    [header] var(--block-size-3)
+    [content] 1fr
+    [footer] auto;
+}
+```
+
 ## Spacings
 
 import Gaps from './../../../../starlight/fragments/custom-props/spacings/spacings.gaps.astro'
@@ -262,16 +342,18 @@ Spacings are relative to the element's [`font-size`](https://developer.mozilla.o
 
 #### Usage
 
-```css
+```css {6,12,18,19}
 /* as a shorthand */
 .card {
   display: grid;
+  aspect-ratio: var(--aspect-ratio-portrait);
+  inline-size: auto;
   gap: var(--gap-1);
 }
 
 /* equivalent of */
 .card {
-  display: grid;
+  /* ... */
   gap: var(--column-gap-1) var(--row-gap-1);
 }
 
@@ -291,7 +373,7 @@ Spacings are relative to the element's [`font-size`](https://developer.mozilla.o
 
 #### Usage
 
-```css
+```css {3,8,13,15}
 /* as a shorthand */
 .avatar {
   margin: var(--margin-2);
@@ -318,7 +400,7 @@ Spacings are relative to the element's [`font-size`](https://developer.mozilla.o
 
 #### Usage
 
-```css
+```css {3,8,13,15}
 /* as a shorthand */
 blockquote {
   padding: var(--padding-1);
