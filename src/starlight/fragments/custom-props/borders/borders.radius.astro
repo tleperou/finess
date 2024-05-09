@@ -1,10 +1,8 @@
-<details>
-  <summary>
-    <h4>
-      --border-radius-{`{1-4}`}
-    </h4>
+<details open>
+  <summary class="sr-only">
+    --border-radius-{`{1-4}`}
   </summary>
-  <slot name="shortand" />
+  <slot name="shorthand" />
   <ul role="list">
     <li>
       --border-radius-1
@@ -23,21 +21,19 @@
       <span>1.35em</span>
     </li>
     <li>
-      --border-radius-5 or round
+      --border-radius-round
       <span>1e5px</span>
     </li>
   </ul>
 </details>
 
 <details>
-  <summary>
-    <h4 class="muted">And all flow-relative mappings</h4>
-  </summary>
+  <summary class="muted">Logical properties</summary>
   <ul role="list">
-    <li>--border-start-start-radius-{`{1-4/round}`}</li>
-    <li>--border-start-end-radius-{`{1-4/round}`}</li>
-    <li>--border-end-start-radius-{`{1-4/round}`}</li>
-    <li>--border-end-end-radius-{`{1-4/round}`}</li>
+    <li>--border-start-start-radius-{`{1-4, round}`}</li>
+    <li>--border-start-end-radius-{`{1-4, round}`}</li>
+    <li>--border-end-start-radius-{`{1-4, round}`}</li>
+    <li>--border-end-end-radius-{`{1-4, round}`}</li>
   </ul>
 </details>
 

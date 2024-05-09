@@ -58,6 +58,10 @@
     margin-inline-start: auto;
     mask: var(--icon-chevron-block-end-32px);
     background-color: currentColor;
+    /* 32px / 2 (half) / 2 (scale) */
+    margin-block-start: -6px;
+    position: relative;
+    top: 4px;
 
     scale: 0.5;
     transition: transform 235ms ease-out;

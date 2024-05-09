@@ -1,5 +1,49 @@
-<details class="spacings">
-  <summary><h4>--margin-{`{1-5}`}</h4></summary>
+<details>
+  <summary>--margin-block-{`{1-5}`}</summary>
+  <slot name="block" />
+  <ul role="list">
+    <li>
+      --margin-block-1 <span>0.35 ~ {(0.35 * 1.65).toFixed(2)} ex</span>
+    </li>
+    <li>
+      --margin-block-2<span>0.85 ~ {(0.85 * 1.65).toFixed(2)} ex</span>
+    </li>
+    <li>
+      --margin-block-3<span>1.65 ~ {(1.65 * 1.65).toFixed(2)} ex</span>
+    </li>
+    <li>
+      --margin-block-5<span>3.15 ~ {(3.15 * 1.65).toFixed(2)} ex</span>
+    </li>
+    <li>
+      --margin-block-6<span>5.65 ~ {(5 ^ (5 * 1.65)).toFixed(2)} ex</span>
+    </li>
+  </ul>
+</details>
+
+<details>
+  <summary>--margin-inline-{`{1-5}`}</summary>
+  <slot name="inline" />
+  <ul role="list">
+    <li>
+      --margin-block-1 <span>0.35 ~ {(0.35 * 1.65).toFixed(2)} ch</span>
+    </li>
+    <li>
+      --margin-block-2<span>0.85 ~ {(0.85 * 1.65).toFixed(2)} ch</span>
+    </li>
+    <li>
+      --margin-block-3<span>1.65 ~ {(1.65 * 1.65).toFixed(2)} ch</span>
+    </li>
+    <li>
+      --margin-block-5<span>3.15 ~ {(3.15 * 1.65).toFixed(2)} ch</span>
+    </li>
+    <li>
+      --margin-block-6<span>5.65 ~ {(5 ^ (5 * 1.65)).toFixed(2)} ch</span>
+    </li>
+  </ul>
+</details>
+
+<details>
+  <summary>--margin-{`{1-5}`}</summary>
   <slot name="shorthand" />
   <ul role="list">
     <li>--margin-1</li>
@@ -9,65 +53,3 @@
     <li>--margin-5</li>
   </ul>
 </details>
-
-<details class="margin-block">
-  <summary><h4>--margin-block-{`{1-5}`}</h4></summary>
-  <slot name="block" />
-  <ul role="list">
-    <li style="--margin: var(--margin-block-1)">
-      --margin-block-1 <span>0.35 ~ {(0.35 * 1.65).toFixed(2)} ex</span>
-    </li>
-    <li style="--margin: var(--margin-block-2)">
-      --margin-block-2<span>0.35 ~ {(0.35 * 1.65).toFixed(2)} ex</span>
-    </li>
-    <li style="--margin: var(--margin-block-3)">
-      --margin-block-3<span>0.35 ~ {(0.35 * 1.65).toFixed(2)} ex</span>
-    </li>
-    <li style="--margin: var(--margin-block-4)">
-      --margin-block-5<span>0.35 ~ {(0.35 * 1.65).toFixed(2)} ex</span>
-    </li>
-    <li style="--margin: var(--margin-block-5)">
-      --margin-block-6<span>0.35 ~ {(0.35 * 1.65).toFixed(2)} ex</span>
-    </li>
-  </ul>
-</details>
-
-<details class="margin-inline">
-  <summary><h4>--margin-inline-{`{1-5}`}</h4></summary>
-  <slot name="inline" />
-  <ul role="list">
-    <li style="--margin: var(--margin-inline-1)">
-      --margin-inline-1 <span>0.35 ~ {(0.35 * 1.65).toFixed(2)} ch</span>
-    </li>
-    <li style="--margin: var(--margin-inline-2)">
-      --margin-inline-2 <span>0.85 ~ {(0.85 * 1.65).toFixed(2)} ch</span>
-    </li>
-    <li style="--margin: var(--margin-inline-3)">
-      --margin-inline-3 <span>1.65 ~ {(1.65 * 1.65).toFixed(2)} ch</span>
-    </li>
-    <li style="--margin: var(--margin-inline-4)">
-      --margin-inline-4 <span>3.15 ~ {(3.15 * 1.65).toFixed(2)} ch</span>
-    </li>
-    <li style="--margin: var(--margin-inline-5)">
-      --margin-inline-5 <span>5.65 ~ {(5.65 * 1.65).toFixed(2)} ch</span>
-    </li>
-  </ul>
-</details>
-
-<details>
-  <summary>
-    <h4 class="muted">And all flow-relative mappings</h4>
-  </summary>
-  <ul role="list">
-    <li>--margin-inline-start-{`{1-5}`}</li>
-    <li>--margin-inline-end-{`{1-5}`}</li>
-    <li>--margin-block-start-{`{1-5}`}</li>
-    <li>--margin-block-end-{`{1-5}`}</li>
-  </ul>
-</details>
-
-<style>
-  .muted {
-    color: var(--color-on-surface-2);
-  }
-</style>

@@ -7,6 +7,8 @@ tableOfContents:
   maxHeadingLevel: 2
 ---
 
+Finess provides [`custom properties`](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) to build consistent components with any framework. They map many of the css properties and leverage CSS features while taking into account both accessiblity and user's preferences.
+
 ## Borders
 
 import BorderWidth from './../../../../starlight/fragments/custom-props/borders/borders.widths.astro'
@@ -14,30 +16,45 @@ import BorderRadius from './../../../../starlight/fragments/custom-props/borders
 
 ### `border-width`
 
-<BorderWidth>
-  <p slot="block">The `border-block-width` CSS property defines the width of the logical block borders of an element, which maps to a physical border width depending on the element's writing mode, directionality, and text orientation.</p>
-  <p slot="inline">The `border-inline-width` CSS property defines the width of the logical inline borders of an element, which maps to a physical border width depending on the element's writing mode, directionality, and text orientation.</p>
-  <p slot="shorthand">The `border-width` [shorthand](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties) CSS property sets the width of an element's border.</p>
-</BorderWidth>
+<blockquote>The `border-width` [shorthand](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties) CSS property sets the width of an element's border. <cite>[MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/border-width)</cite></blockquote>
+
+<BorderWidth />
+
+<aside><p>`border-width` sets all flow-relative values, so specify the logical property (eg. `border-inline-width`) when used as a single unit. [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values)</p></aside>
 
 #### Usage
 
 ```css
-code {
+/* block and inline shorthand */
+blockquote {
   border-width: var(--border-width-1);
 }
 
-/* or within shortand */
-code {
-  border: var(--border-width-1) solid var(--color-neutral-1);
+/* is the equivalent of */
+blockquote {
+  border-width: var(--border-block-width-1) var(--border-inline-width-1);
+}
+
+/* as a single unit */
+blockquote {
+  border-inline-start-style: solid;
+  border-inline-start-color: var(--color-neutral-1);
+  border-inline-width: var(--border-inline-width-3);
+}
+
+blockquote {
+  /* ... */
+  border-inline-start-width: var(--border-inline-width-3);
 }
 ```
 
 ### `border-radius`
 
-<BorderRadius>
-  <p slot="shorthand">The `border-radius` CSS property rounds the corners of an element's outer border edge. You can set a single radius to make circular corners, or two radii to make elliptical corners.</p>
-</BorderRadius>
+<blockquote>The `border-radius` CSS property rounds the corners of an element's outer border edge. <cite>[MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius)</cite></blockquote>
+
+<BorderRadius />
+
+<aside><p>`border-radius` sets all flow-relative values, so specify the logical property (eg. `border-start-start-radius`) when used as a single unit. [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values)</p></aside>
 
 #### Usage
 
@@ -45,11 +62,15 @@ code {
 code {
   border-radius: var(--border-radius-1);
 }
+
+/* as a single unit */
+
+code {
+  border-start-start-radius: var(--border-start-end-radius-1);
+}
 ```
 
 ## Fonts
-
-Font properties priotize the preferences of the user and its operating system. They vary according the size of the viewport in the respect of the [WCAG SC 1.4.4](https://www.w3.org/WAI/WCAG21/Understanding/resize-text.html) accessibility rules.
 
 import FontFamilies from './../../../../starlight/fragments/custom-props/fonts/fonts.font-family.astro'
 import FontSizes from './../../../../starlight/fragments/custom-props/fonts/fonts.font-size.astro'
@@ -59,7 +80,9 @@ import LineHeight from './../../../../starlight/fragments/custom-props/fonts/fon
 
 ### `font-family`
 
-The `font-family` CSS property specifies a prioritized list of one or more font family names and/or generic family names for the selected element.
+<blockquote>
+  The `font-family` CSS property specifies a prioritized list of one or more font family names and/or generic family names for the selected element <cite>[MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family)</cite>
+</blockquote>
 
 <FontFamilies />
 
@@ -67,15 +90,17 @@ The `font-family` CSS property specifies a prioritized list of one or more font 
 
 ```css
 code {
-  font-family: var(--font-mono);
+  font-family: var(--font-family-mono);
 }
 ```
 
 ### `font-size`
 
-The `font-size` CSS property sets the size of the font relatively to the dimensions of the viewport.
+<blockquote>The `font-size` CSS property sets the size of the font relatively to the dimensions of the viewport. <cite>[MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/font-size)</cite></blockquote>
 
 <FontSizes />
+
+<aside><p>The typography is fluid, that means the `font-size` varies with the viewport's size – in the respect of the [WCAG SC 1.4.4](https://www.w3.org/WAI/WCAG21/Understanding/resize-text.html).</p></aside>
 
 #### Usage
 
@@ -87,7 +112,7 @@ code {
 
 ### `font-weight`
 
-The `font-weight` CSS property sets the weight (or boldness) of the font. The weights available depend on the [`font-family`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family) that is currently set.
+<blockquote>The `font-weight` CSS property sets the weight (or boldness) of the font. The weights available depend on the [`font-family`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family) that is currently set. <cite>[MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight)</cite></blockquote>
 
 <FontWeight />
 
@@ -116,7 +141,7 @@ code {
 
 ### `line-height`
 
-The `line-height` CSS property sets the height of a line box. It's commonly used to set the distance between lines of text. On block-level elements, it specifies the minimum height of line boxes within the element.
+<blockquote>The `line-height` CSS property sets the height of a line box. It's commonly used to set the distance between lines of text. On block-level elements, it specifies the minimum height of line boxes within the element. <cite>[MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/line-height)</cite></blockquote>
 
 <LineHeight />
 
@@ -138,6 +163,73 @@ The `z-index` CSS property sets the z-order of a [positioned](https://developer.
 
 <Layers />
 
+## Media queries
+
+import MediaQueryDevice from './../../../../starlight/fragments/custom-props/media/media.device.astro'
+import MediaQueryPrefers from './../../../../starlight/fragments/custom-props/media/media.prefers.astro'
+import MediaQueryBreakpoint from './../../../../starlight/fragments/custom-props/media/media.breakpoints.astro'
+
+<blockquote>
+  <p>Media queries allow you to apply CSS styles depending on a device's media type, features and user preferences. Many custom props already leverage the media queries <cite>[MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries)</cite></p>
+</blockquote>
+
+<aside>
+  Using media queries requires `custom-media` syntax, available with this [PostCSS plugin](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-custom-media).
+</aside>
+
+### Device
+
+<MediaQueryDevice />
+
+#### Usage
+
+```css
+:root {
+  --my-color: #21307a;
+
+  @media (--hdr) {
+    --my-color: color(display-p3 0.1417 0.1865 0.461)
+  }
+}
+```
+
+### User preferences
+
+<MediaQueryPrefers />
+
+#### Usage
+
+```css
+:root {
+  --transition-timing-1: 200ms;
+
+  @media (--mation-reduced) {
+    --transition-timing-1: 60ms;
+  }
+}
+```
+
+<aside>
+  This is the way [`--transition-timing-{1-3}`](#transition-timing) and [`--opacity-{1-3}`](#opacity) are taking advantage of the user preferences.
+</aside>
+
+### Breakpoints
+
+<MediaQueryBreakpoint />
+
+#### Usage
+
+```css
+.my-layout {
+  display: grid;
+  grid-template-columns: `1fr`;
+
+  @media (--breakpoint-md-n-above) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+```
+
 ## Spacings
 
 import Gaps from './../../../../starlight/fragments/custom-props/spacings/spacings.gaps.astro'
@@ -148,24 +240,87 @@ Spacings are relative to the element's [`font-size`](https://developer.mozilla.o
 
 ### `gap`
 
+<aside><p>`gap` sets all flow-relative values, so specify `row-gap` and `column-gap` when used as a single unit.</p></aside>
+
 <Gaps>
   <p slot="row">The [`row-gap`](https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap) CSS property sets the size of the gap between an element's rows.</p>
   <p slot="column">The [`column-gap`](https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap) CSS property sets the size of the gap between an element's columns.</p>
   <p slot="shorthand">The <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap"><code>row-gap</code></a> CSS property sets the size of the gap between an element's rows.</p>
 </Gaps>
 
+#### Usage
+
+```css
+/* as a shorthand */
+.card {
+  display: grid;
+  gap: var(--gap-1);
+}
+
+/* equivalent of */
+.card {
+  display: grid;
+  gap: var(--column-gap-1) var(--row-gap-1);
+}
+
+/* as a single value */
+.card {
+  display: grid;
+  row-gap: var(--row-gap-1);
+  column-gap: var(--column-gap-3);
+}
+```
+
 ### `margin`
 
-<Margins>
-  <p slot="block">The margin-block CSS [shorthand property](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties) defines the logical block start and end margins of an element, which maps to physical margins depending on the element's writing mode, directionality, and text orientation.</p>
-  <p slot="inline">The margin-inline CSS [shorthand property](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties) is a shorthand property that defines both the logical inline start and end margins of an element, which maps to physical margins depending on the element's writing mode, directionality, and text orientation.</p>
-  <p slot="shorthand">The margin CSS shorthand property sets the [margin area](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#margin_area) on all four sides of an element.</p>
-</Margins>
+<aside><p>`margin` sets all flow-relative values, so specify the logical property (eg. `margin-inline`) when used as a single unit. [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values)</p></aside>
+
+<Margins />
+
+#### Usage
+
+```css
+/* as a shorthand */
+.avatar {
+  margin: var(--margin-2);
+}
+
+/* equivalent of */
+.avatar {
+  margin: var(--margin-block-2) var(--margin-inline-2);
+}
+
+/* as a single value */
+.avatar {
+  margin-inline: var(--margin-inline-1);
+  /* or */
+  margin-inline-start: var(--margin-inline-1);
+}
+```
 
 ### `padding`
 
-<Paddings>
-  <p slot="inline">The padding-inline CSS [shorthand property](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties) defines the logical inline start and end padding of an element, which maps to physical padding properties depending on the element's writing mode, directionality, and text orientation.</p>
-  <p slot="block">The padding-block CSS [shorthand property](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties) defines the logical block start and end padding of an element, which maps to physical padding properties depending on the element's writing mode, directionality, and text orientation.</p>
-  <p slot="shorthand">The padding CSS shorthand property sets the [shorthand property](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties) padding area on all four sides of an element at once. between an element's rows and columns.</p>
-</Paddings>
+<aside><p>`padding` sets all flow-relative values, so specify the logical property (eg. `padding-inline`) when used as a single unit. [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values)</p></aside>
+
+<Paddings />
+
+#### Usage
+
+```css
+/* as a shorthand */
+blockquote {
+  padding: var(--padding-1);
+}
+
+/* equivalent to */
+blockquote {
+  padding: var(--padding-block-1) var(--padding-inline-1);
+}
+
+/* as a single value */
+blockquote {
+  padding-inline: var(--padding-inline-1);
+  /* or */
+  padding-inline-start: var(--padding-inline-1);
+}
+```
