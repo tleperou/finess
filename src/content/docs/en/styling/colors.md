@@ -140,7 +140,7 @@ title: Colors
   & p::before {
     content: '';
     height: var(--line-height-1);
-    aspect-ratio: var(--ratio-square);
+    aspect-ratio: var(--aspect-ratio-square);
     background-color: var(--color);
     border-radius: var(--border-radius-2);
     border: var(--border-width-1) solid var(--color-border);
@@ -177,7 +177,7 @@ title: Colors
         background-color: var(--color);
 
         height: var(--line-height-1);
-        aspect-ratio: var(--ratio-square);
+        aspect-ratio: var(--aspect-ratio-square);
         background-color: var(--color);
         border-radius: var(--border-radius-2);
         border: var(--border-width-1) solid var(--color-border);
