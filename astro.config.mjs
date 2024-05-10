@@ -1,7 +1,9 @@
-import starlight from '@astrojs/starlight'
-import { defineConfig } from 'astro/config'
-import { components } from './config/components'
+import { defineConfig } from 'astro/config';
+import { components } from './config/components';
 import { locales } from './config/locales';
+
+import starlight from '@astrojs/starlight';
+import alpinejs from "@astrojs/alpinejs";
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,15 +12,16 @@ export default defineConfig({
 		starlight({
 			title: 'Finess docs',
 			social: {
-				github: 'https://github.com/tleperou/finess',
+				github: 'https://github.com/tleperou/finess'
 			},
 			customCss: ['./src/finess/finess.css', './src/styles.css'],
 			components,
 			defaultLocale: 'en',
 			locales,
 			editLink: {
-				baseUrl: 'https://github.com/tleperou/finess/edit/main/',
-			},
+				baseUrl: 'https://github.com/tleperou/finess/edit/main/'
+			}
 		}),
-	],
+		alpinejs()
+	]
 });

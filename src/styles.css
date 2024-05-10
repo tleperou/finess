@@ -33,7 +33,14 @@ main {
   --sidebars-inline-size: calc(
     var(--finess-sidebar-inline-size) + var(--finess-sidebar-inline-size)
   );
-  max-inline-size: calc(100vw - var(--sidebars-inline-size));
+
+  @media (--breakpoint-sm-only) {
+    max-inline-size: calc(100vw - var(--finess-sidebar-inline-size));
+  }
+
+  @media (--breakpoint-lg-only) {
+    max-inline-size: calc(100vw - var(--sidebars-inline-size));
+  }
 }
 
 main h1 {
@@ -115,10 +122,10 @@ main aside {
 /* custom details */
 
 main details {
-  transition: scale ease-out var(--transition-timing-2);
+  transition: scale ease-out var(--transition-duration-2);
 
   &[open] > * {
-    transition-timing-function: var(--transition-timing-3);
+    transition-timing-function: var(--transition-duration-3);
     scale: 1.015;
   }
 
@@ -143,10 +150,10 @@ main details {
 main ul li {
   display: flex;
   color: var(--color-on-surface-1);
-  transition: scale ease-out var(--transition-timing-3),
-    border-radius ease-out var(--transition-timing-2);
+  transition: scale ease-out var(--transition-duration-3),
+    border-radius linear var(--transition-duration-2);
   position: relative;
-  border-radius: var(--border-radius-round);
+  border-radius: var(--border-radius-4);
 
   &:hover {
     background-color: var(--color-surface-2);

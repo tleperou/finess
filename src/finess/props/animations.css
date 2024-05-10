@@ -1,11 +1,15 @@
 :where(html) {
-  --transition-timing-1: 20ms;
-  --transition-timing-2: 60ms;
-  --transition-timing-3: 120ms;
+  --animation-duration-1: 20ms;
+  --animation-duration-2: 60ms;
+  --animation-duration-3: 120ms;
+
+  --transition-duration-1: var(--animation-duration-1);
+  --transition-duration-2: var(--animation-duration-2);
+  --transition-duration-3: var(--animation-duration-3);
 
   @media (--motion) {
-    --transition-timing-1: 80ms;
-    --transition-timing-2: 180ms;
-    --transition-timing-3: 260ms;
+    --animation-duration-1: 80ms;
+    --animation-duration-2: 180ms;
+    --animation-duration-3: 260ms;
   }
 }
