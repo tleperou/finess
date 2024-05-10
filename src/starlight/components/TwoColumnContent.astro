@@ -43,7 +43,7 @@ import type { Props } from '@astrojs/starlight/props'
     display: grid;
     grid-template-columns: 1fr var(--finess-toc-inline-size);
 
-    @media (--breakpoint-md-only) {
+    @media (--breakpoint-sm-only) {
       grid-template-columns: 1fr;
       grid-template-rows: auto 1fr;
     }
@@ -55,7 +55,7 @@ import type { Props } from '@astrojs/starlight/props'
     top: 0;
 
     &:global(details) {
-      border-color: transparent;
+      border-color-block-start: transparent;
     }
 
     @media (--breakpoint-md-only) {

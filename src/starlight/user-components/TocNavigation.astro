@@ -204,11 +204,11 @@ const { labels, toc } = Astro.props
     column-gap: var(--column-gap-2);
     border-color: transparent;
 
-    @media (--breakpoint-md-n-above) {
+    @media (--breakpoint-md-n-below) {
       cursor: text;
     }
 
-    @media (--breakpoint-md-only) {
+    @media (--breakpoint-md-n-below) {
       & h2 {
         display: flex;
         align-items: center;

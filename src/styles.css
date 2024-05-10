@@ -12,8 +12,10 @@ body {
 h1,
 h2,
 h3 {
-  color: var(--color-on-surface-1);
-  padding-block: var(--padding-block-1);
+  @media (--breakpoint-sm-b-avove) {
+    color: var(--color-on-surface-1);
+    padding-block: var(--padding-block-1);
+  }
 }
 
 html,
@@ -48,7 +50,11 @@ main h1 {
 }
 
 main h2 {
-  margin-block-start: var(--margin-block-4);
+  margin-block-start: var(--margin-block-3);
+
+  @media (--md-n-above) {
+    margin-block-start: var(--margin-block-4);
+  }
 
   & + :is(p, blockquote) {
     margin-block-end: var(--margin-block-2);
@@ -58,8 +64,12 @@ main h2 {
 }
 
 main h3 {
-  margin-block-start: var(--margin-block-3);
+  margin-block-start: var(--margin-block-2);
   margin-block-end: var(--margin-block-2);
+
+  @media (--md-n-above) {
+    margin-block-start: var(--margin-block-3);
+  }
 }
 
 main h4 {
@@ -77,6 +87,12 @@ main :is(p, aside, blockquote) + details {
 
 main .expressive-code {
   margin-block-start: var(--margin-block-1);
+
+  @media (--breakpoint-sm-only) {
+    & + h3 {
+      margin-block-start: var(--margin-block-3);
+    }
+  }
 }
 
 main :is(p, blockquote):has(+ details, + aside) {
@@ -117,6 +133,21 @@ main aside {
     background-color: var(--color-on-neutral-2);
     margin-block: auto;
   }
+
+  @media (--breakpoint-sm-only) {
+    display: block;
+
+    &::before {
+      display: block;
+      position: absolute;
+      margin-block-start: -0.35em;
+      margin-inline-start: -0.5em;
+    }
+
+    & > p {
+      text-indent: 2.15em;
+    }
+  }
 }
 
 /* custom details */
@@ -148,7 +179,9 @@ main details {
 }
 
 main ul li {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: var(--column-gap-2);
   color: var(--color-on-surface-1);
   transition: scale ease-out var(--transition-duration-3),
     border-radius linear var(--transition-duration-2);
@@ -163,6 +196,17 @@ main ul li {
   & span {
     color: var(--color-on-surface-2);
     margin-inline-start: auto;
+    max-inline-size: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @media (--breakpoint-sm-only) {
+      /* show the end of the text on mobile */
+      direction: rtl;
+      margin-inline-end: auto;
+      margin-inline-start: initial;
+    }
   }
 
   &:hover {
