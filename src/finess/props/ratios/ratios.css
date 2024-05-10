@@ -4,10 +4,4 @@
   --aspect-ratio-portrait: 3/4;
   --aspect-ratio-wide: 18/5;
   --aspect-ratio-golden: 1.618/1;
-
-  --ratio-square: var(--aspect-ratio-square);
-  --ratio-landscape: var(--aspect-ratio-landscape);
-  --ratio-portrait: var(--aspect-ratio-portrait);
-  --ratio-wide: var(--aspect-ratio-wide);
-  --ratio-golden: var(--aspect-ratio-golden);
 }

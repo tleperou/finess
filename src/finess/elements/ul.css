@@ -1,0 +1,9 @@
+:where(ul[role='list']) {
+  list-style: none;
+  padding-inline-start: 0;
+}
+
+:where(ul[aria-orientation='horizontal']) {
+  display: flex;
+  column-gap: var(--column-gap-1);
+}

@@ -1,9 +1,13 @@
 :where(html) {
-  --border-width-1: thin;
-  --border-width-2: medium;
-  --border-width-3: thick;
+  --border-width-1: 0.0625em;
+  --border-width-2: 0.1875em;
+  --border-width-3: 0.3125em;
 
-  --border-1: thin;
-  --border-2: medium;
-  --border-3: thick;
+  --border-inline-width-1: var(--border-width-1);
+  --border-inline-width-2: var(--border-width-2);
+  --border-inline-width-3: var(--border-width-3);
+
+  --border-block-width-1: var(--border-width-1);
+  --border-block-width-2: var(--border-width-2);
+  --border-block-width-3: var(--border-width-3);
 }

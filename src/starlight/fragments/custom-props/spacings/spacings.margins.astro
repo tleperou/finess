@@ -1,0 +1,55 @@
+<details>
+  <summary>--margin-block-{`{1-5}`}</summary>
+  <slot name="block" />
+  <ul role="list">
+    <li>
+      --margin-block-1 <span>0.35 ~ {(0.35 * 1.65).toFixed(2)} ex</span>
+    </li>
+    <li>
+      --margin-block-2<span>0.85 ~ {(0.85 * 1.65).toFixed(2)} ex</span>
+    </li>
+    <li>
+      --margin-block-3<span>1.65 ~ {(1.65 * 1.65).toFixed(2)} ex</span>
+    </li>
+    <li>
+      --margin-block-5<span>3.15 ~ {(3.15 * 1.65).toFixed(2)} ex</span>
+    </li>
+    <li>
+      --margin-block-6<span>5.65 ~ {(5 ^ (5 * 1.65)).toFixed(2)} ex</span>
+    </li>
+  </ul>
+</details>
+
+<details>
+  <summary>--margin-inline-{`{1-5}`}</summary>
+  <slot name="inline" />
+  <ul role="list">
+    <li>
+      --margin-block-1 <span>0.35 ~ {(0.35 * 1.65).toFixed(2)} ch</span>
+    </li>
+    <li>
+      --margin-block-2<span>0.85 ~ {(0.85 * 1.65).toFixed(2)} ch</span>
+    </li>
+    <li>
+      --margin-block-3<span>1.65 ~ {(1.65 * 1.65).toFixed(2)} ch</span>
+    </li>
+    <li>
+      --margin-block-5<span>3.15 ~ {(3.15 * 1.65).toFixed(2)} ch</span>
+    </li>
+    <li>
+      --margin-block-6<span>5.65 ~ {(5 ^ (5 * 1.65)).toFixed(2)} ch</span>
+    </li>
+  </ul>
+</details>
+
+<details>
+  <summary>--margin-{`{1-5}`}</summary>
+  <slot name="shorthand" />
+  <ul role="list">
+    <li>--margin-1</li>
+    <li>--margin-2</li>
+    <li>--margin-3</li>
+    <li>--margin-4</li>
+    <li>--margin-5</li>
+  </ul>
+</details>

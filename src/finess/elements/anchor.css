@@ -9,7 +9,7 @@
   text-decoration-thickness: 0.1em;
   text-underline-offset: 0.165em;
 
-  transition: all ease-out var(--transition-timing-1);
+  transition: all ease-out var(--transition-duration-1);
 
   &:where(:hover),
   &:where(:focus) {

@@ -1,35 +1,13 @@
 :where(html) {
-  /* layer background */
+  --z-index-1: 1;
+  --z-index-2: 2;
+  --z-index-3: 3;
+  --z-index-4: 4;
+  --z-index-max: 2147483647;
 
-  --layer-background-1: -1;
-  --layer-background-2: -2;
-  --layer-background-3: -3;
-  --layer-background-important: -2147483647;
-
-  --z-index-01: var(--layer-background-1);
-  --z-index-02: var(--layer-background-2);
-  --z-index-03: var(--layer-background-3);
-  --z-index-min: var(--layer-background-important);
-
-  --z-01: var(--layer-background-1);
-  --z-02: var(--layer-background-2);
-  --z-03: var(--layer-background-3);
-  --z-min: var(--layer-background-important);
-
-  /* layer foreground */
-
-  --layer-foreground-1: 1;
-  --layer-foreground-2: 2;
-  --layer-foreground-3: 3;
-  --layer-foreground-important: 2147483647;
-
-  --z-index-1: var(--layer-foreground-1);
-  --z-index-2: var(--layer-foreground-2);
-  --z-index-3: var(--layer-foreground-3);
-  --z-index-important: var(--layer-foreground-important);
-
-  --z-1: var(--layer-foreground-1);
-  --z-2: var(--layer-foreground-2);
-  --z-3: var(--layer-foreground-3);
-  --z-max: var(--layer-foreground-important);
+  --z-index--1: -1;
+  --z-index--2: -2;
+  --z-index--3: -3;
+  --z-index--4: -4;
+  --z-index--min: -2147483647;
 }

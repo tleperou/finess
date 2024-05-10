@@ -6,9 +6,9 @@
 
   height: var(--line-height-3);
 
-  transition: scale ease-out var(--transition-timing-2),
-    border-color ease-out var(--transition-timing-1),
-    outline ease-out var(--transition-timing-1);
+  transition: scale ease-out var(--transition-duration-2),
+    border-color ease-out var(--transition-duration-1),
+    outline ease-out var(--transition-duration-1);
 
   &:hover,
   &:focus {

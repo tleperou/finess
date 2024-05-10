@@ -179,7 +179,9 @@ const { labels, toc } = Astro.props
 
       private getRootMargin(): `-${number}px 0% ${number}px` {
         // magic number to estimate the offets of the elements
-        return `-200px 0% -500px`
+        const top = -100
+        const height = top + 50 - document.documentElement.clientHeight
+        return `${top}px 0% ${height}px`
       }
     }
   )
@@ -190,7 +192,7 @@ const { labels, toc } = Astro.props
     display: contents;
 
     & > details {
-      background-color: Canvas;
+      background-color: var(--color-surface-1);
       position: sticky;
       top: 0;
     }
@@ -216,7 +218,7 @@ const { labels, toc } = Astro.props
         width: max-content;
         font-size: 1rem;
         font-weight: var(--font-weight-1);
-        transition: scale ease-out var(--transition-timing-2);
+        transition: scale ease-out var(--transition-duration-2);
 
         &:hover,
         &:focus {
