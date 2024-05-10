@@ -1,4 +1,191 @@
 body {
-  background-color: Canvas;
-  color: CanvasText;
+  --finess-sidebar-inline-size: clamp(
+    var(--inline-size-1),
+    35vw,
+    var(--inline-size-2)
+  );
+  --finess-toc-inline-size: var(--inline-size-2);
+}
+
+/* overrides of starlight styles */
+
+h1,
+h2,
+h3 {
+  color: var(--color-on-surface-1);
+  padding-block: var(--padding-block-1);
+}
+
+html,
+body {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-space-1);
+  font-weight: var(--font-weight-1);
+  font-size: var(--font-size-1);
+  line-height: var(--line-height-1);
+  color: var(--color-on-surface-1);
+  background-color: var(--color-surface-1);
+}
+
+/* finess */
+
+main {
+  --sidebars-inline-size: calc(
+    var(--finess-sidebar-inline-size) + var(--finess-sidebar-inline-size)
+  );
+
+  @media (--breakpoint-sm-only) {
+    max-inline-size: calc(100vw - var(--finess-sidebar-inline-size));
+  }
+
+  @media (--breakpoint-lg-only) {
+    max-inline-size: calc(100vw - var(--sidebars-inline-size));
+  }
+}
+
+main h1 {
+  margin-block-end: var(--margin-block-2);
+}
+
+main h2 {
+  margin-block-start: var(--margin-block-4);
+
+  & + :is(p, blockquote) {
+    margin-block-end: var(--margin-block-2);
+    margin-block-start: var(--margin-block-3);
+    color: var(--color-on-surface-2);
+  }
+}
+
+main h3 {
+  margin-block-start: var(--margin-block-3);
+  margin-block-end: var(--margin-block-2);
+}
+
+main h4 {
+  margin-block-start: var(--margin-block-2);
+  margin-block-end: var(--margin-block-2);
+}
+
+main :is(p, aside, blockquote) + details {
+  margin-block-start: var(--margin-block-3);
+
+  & + h4 {
+    margin-block-start: var(--margin-block-3);
+  }
+}
+
+main .expressive-code {
+  margin-block-start: var(--margin-block-1);
+}
+
+main :is(p, blockquote):has(+ details, + aside) {
+  color: var(--color-on-surface-2);
+}
+
+main code {
+  --space-multiplier: 0.5;
+
+  font-family: var(--font-family-mono);
+  background-color: var(--color-surface-2);
+  padding-inline: var(--padding-inline-1);
+  padding-block: var(--padding-block-1);
+  border-radius: var(--border-radius-1);
+  mix-blend-mode: screen;
+
+  @media (--light) {
+    mix-blend-mode: darken;
+  }
+}
+
+main aside {
+  display: flex;
+  column-gap: var(--column-gap-2);
+  margin-block-start: var(--margin-block-3);
+  padding: var(--padding-2);
+  background-color: var(--color-neutral-1);
+  border-inline-start: var(--border-width-3) solid var(--color-neutral-3);
+  border-radius: var(--border-radius-1);
+  color: var(--color-on-neutral-1);
+  line-height: var(--line-height-1);
+
+  &::before {
+    content: '';
+    height: 32px;
+    aspect-ratio: var(--aspect-ratio-square);
+    mask: var(--icon-dstar-32-filled);
+    background-color: var(--color-on-neutral-2);
+    margin-block: auto;
+  }
+}
+
+/* custom details */
+
+main details {
+  transition: scale ease-out var(--transition-duration-2);
+
+  &[open] > * {
+    transition-timing-function: var(--transition-duration-3);
+    scale: 1.015;
+  }
+
+  &:has(:where(summary.sr-only)) {
+    border-block-start-color: var(--color-surface-2);
+    border-block-end: var(--border-width-1) solid var(--color-surface-2);
+  }
+
+  &:has(+ details) {
+    border-block-end-color: var(--color-surface-3);
+  }
+
+  &:not([open]):hover > * {
+    scale: 1.01;
+  }
+
+  & + details {
+    border-block-start-color: transparent;
+  }
+}
+
+main ul li {
+  display: flex;
+  color: var(--color-on-surface-1);
+  transition: scale ease-out var(--transition-duration-3),
+    border-radius linear var(--transition-duration-2);
+  position: relative;
+  border-radius: var(--border-radius-4);
+
+  &:hover {
+    background-color: var(--color-surface-2);
+    border-radius: var(--border-radius-2);
+  }
+
+  & span {
+    color: var(--color-on-surface-2);
+    margin-inline-start: auto;
+  }
+
+  &:hover {
+    scale: 1.01;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    block-size: 1px;
+    width: 100%;
+    top: 0;
+    background-color: var(--color-surface-2);
+  }
+}
+
+main details :where(summary, li) {
+  padding-inline: var(--padding-inline-1);
+  padding-block: var(--padding-block-1);
+  line-height: var(--line-height-1);
+}
+
+main details :is(p, blockquote) {
+  padding: var(--padding-block-2) var(--padding-inline-1);
+  color: var(--color-on-surface-2);
 }

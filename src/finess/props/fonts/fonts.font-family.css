@@ -6,12 +6,4 @@
   --font-family-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono',
     'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace',
     'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
-
-  --font-sans: var(--font-family-sans);
-  --font-serif: var(--font-family-serif);
-  --font-mono: var(--font-family-mono);
-
-  --sans: var(--font-family-sans);
-  --serif: var(--font-family-serif);
-  --mono: var(--font-family-mono);
 }

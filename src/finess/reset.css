@@ -1,3 +1,4 @@
+@import './props/fonts/fonts.css';
 /*
   Josh's Custom CSS Reset
   https://www.joshwcomeau.com/css/custom-css-reset/
@@ -11,7 +12,7 @@
   margin: 0;
 }
 :where(body) {
-  line-height: 1.5;
+  line-height: var(--line-height-1);
   -webkit-font-smoothing: antialiased;
 }
 :where(img),

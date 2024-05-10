@@ -17,15 +17,20 @@ import type { Props } from '@astrojs/starlight/props'
 
 <style>
   .scroller {
+    grid-area: main;
     inline-size: 100%;
     scroll-padding: var(--block-size-1);
 
     &:global(main) {
-      width: 100%;
-      padding-inline: var(--padding-inline-1);
+      inline-size: 100%;
+      padding-inline: var(--padding-inline-2);
 
       @media (--breakpoint-md-n-above) {
         order: -1;
+      }
+
+      @media (--breakpoint-sm-only) {
+        max-inline-size: 100vw;
       }
     }
   }
@@ -36,7 +41,7 @@ import type { Props } from '@astrojs/starlight/props'
     min-block-size: 100%;
     margin-inline: auto;
     display: grid;
-    grid-template-columns: 1fr var(--inline-size-2);
+    grid-template-columns: 1fr var(--finess-toc-inline-size);
 
     @media (--breakpoint-md-only) {
       grid-template-columns: 1fr;

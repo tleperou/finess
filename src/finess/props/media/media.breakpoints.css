@@ -1,49 +1,15 @@
-/* see sizes.viewport */
-
-/* sm 501px */
-
-@custom-media --breakpoint-sm-only (0px <= width <= 501px);
+@custom-media --breakpoint-sm-only (0px <= width <= 500px);
 @custom-media --breakpoint-sm-n-above (width >= 501px);
-@custom-media --breakpoint-sm-n-below (width < 501px);
-@custom-media --breakpoint-sm-phone (--xxs-only) and (--portrait);
+@custom-media --breakpoint-sm-n-below (width < 500px);
 
-@custom-media --sm-only (0px <= width <= 501px);
-@custom-media --sm-n-above (width >= 501px);
-@custom-media --sm-n-below (width < 501px);
-@custom-media --sm-phone (--xxs-only) and (--portrait);
-
-/* md 1201px */
-
-@custom-media --breakpoint-md-only (0px <= width <= 1201px);
+@custom-media --breakpoint-md-only (501px <= width <= 1200px);
 @custom-media --breakpoint-md-n-above (width >= 1201px);
 @custom-media --breakpoint-md-n-below (width < 1201px);
-@custom-media --breakpoint-md-phone (--xxs-only) and (--portrait);
 
-@custom-media --md-only (0px <= width <= 1201px);
-@custom-media --md-n-above (width >= 1201px);
-@custom-media --md-n-below (width < 1201px);
-@custom-media --md-phone (--xxs-only) and (--portrait);
-
-/* lg 1401px */
-
-@custom-media --breakpoint-lg-only (0px <= width <= 1401px);
+@custom-media --breakpoint-lg-only (1201px <= width <= 1400px);
 @custom-media --breakpoint-lg-n-above (width >= 1401px);
-@custom-media --breakpoint-lg-n-below (width < 1401px);
-@custom-media --breakpoint-lg-phone (--xxs-only) and (--portrait);
+@custom-media --breakpoint-lg-n-above (width < 1400px);
 
-@custom-media --lg-only (0px <= width <= 1401px);
-@custom-media --lg-n-above (width >= 1401px);
-@custom-media --lg-n-below (width < 1401px);
-@custom-media --lg-phone (--xxs-only) and (--portrait);
-
-/* xl 1921px */
-
-@custom-media --breakpoint-xl-only (0px <= width <= 1921px);
+@custom-media --breakpoint-xl-only (1401px <= width <= 1920px);
 @custom-media --breakpoint-xl-n-above (width >= 1921px);
-@custom-media --breakpoint-xl-n-below (width < 1921px);
-@custom-media --breakpoint-xl-phone (--xxs-only) and (--portrait);
-
-@custom-media --xl-only (0px <= width <= 1921px);
-@custom-media --xl-n-above (width >= 1921px);
-@custom-media --xl-n-below (width < 1921px);
-@custom-media --xl-phone (--xxs-only) and (--portrait);
+@custom-media --breakpoint-xl-n-below (width < 1920px);

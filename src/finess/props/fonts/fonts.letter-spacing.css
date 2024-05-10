@@ -24,7 +24,7 @@
   --_ls-0: -0.05em;
   --_ls-1: 0.025em;
   --_ls-2: 0.075em;
-  --_ls-3: 0.75em;
+  --_ls-3: 0.35em;
   /* << */
 
   --font-letter-spacing-0: calc(
@@ -32,7 +32,7 @@
       clamp(
         var(--_ls-0),
         calc(2vw * var(--font-letter-spacing-ratio)),
-        calc(var(--_ls-0) * 1.5)
+        calc(var(--_ls-0) + var(--_ls-0) * -1.15)
       )
   );
 

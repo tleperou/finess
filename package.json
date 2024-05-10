@@ -10,9 +10,12 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/alpinejs": "^0.4.0",
     "@astrojs/check": "^0.5.10",
     "@astrojs/starlight": "^0.21.5",
     "@pagefind/default-ui": "^1.1.0",
+    "@types/alpinejs": "^3.13.10",
+    "alpinejs": "^3.13.10",
     "astro": "^4.6.3",
     "postcss-html": "^1.6.0",
     "sharp": "^0.32.6",

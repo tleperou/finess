@@ -1,0 +1,55 @@
+<details>
+  <summary>--row-gap-{`{1-5}`}</summary>
+  <slot name="row" />
+  <ul role="list">
+    <li style="--gap: var(--row-gap-1)">
+      --row-gap-1 <span>0.35 ~ {(0.35 * 1.65).toFixed(2)} ex</span>
+    </li>
+    <li style="--gap: var(--row-gap-2)">
+      --row-gap-2<span>0.35 ~ {(0.35 * 1.65).toFixed(2)} ex</span>
+    </li>
+    <li style="--gap: var(--row-gap-3)">
+      --row-gap-3<span>0.35 ~ {(0.35 * 1.65).toFixed(2)} ex</span>
+    </li>
+    <li style="--gap: var(--row-gap-4)">
+      --row-gap-5<span>0.35 ~ {(0.35 * 1.65).toFixed(2)} ex</span>
+    </li>
+    <li style="--gap: var(--row-gap-5)">
+      --row-gap-6<span>0.35 ~ {(0.35 * 1.65).toFixed(2)} ex</span>
+    </li>
+  </ul>
+</details>
+
+<details>
+  <summary>--column-gap-{`{1-5}`}</summary>
+  <slot name="column" />
+  <ul role="list">
+    <li style="--gap: var(--column-gap-1)">
+      --column-gap-1 <span>0.35 ~ {(0.35 * 1.65).toFixed(2)} ch</span>
+    </li>
+    <li style="--gap: var(--column-gap-2)">
+      --column-gap-2 <span>0.85 ~ {(0.85 * 1.65).toFixed(2)} ch</span>
+    </li>
+    <li style="--gap: var(--column-gap-3)">
+      --column-gap-3 <span>1.65 ~ {(1.65 * 1.65).toFixed(2)} ch</span>
+    </li>
+    <li style="--gap: var(--column-gap-4)">
+      --column-gap-4 <span>3.15 ~ {(3.15 * 1.65).toFixed(2)} ch</span>
+    </li>
+    <li style="--gap: var(--column-gap-5)">
+      --column-gap-5 <span>5.65 ~ {(5.65 * 1.65).toFixed(2)} ch</span>
+    </li>
+  </ul>
+</details>
+
+<details>
+  <summary>--gap-{`{1-5}`}</summary>
+  <slot name="shorthand" />
+  <ul role="list">
+    <li>--gap-1</li>
+    <li>--gap-2</li>
+    <li>--gap-3</li>
+    <li>--gap-4</li>
+    <li>--gap-5</li>
+  </ul>
+</details>

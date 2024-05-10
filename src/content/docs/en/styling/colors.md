@@ -140,14 +140,14 @@ title: Colors
   & p::before {
     content: '';
     height: var(--line-height-1);
-    aspect-ratio: var(--ratio-square);
+    aspect-ratio: var(--aspect-ratio-square);
     background-color: var(--color);
     border-radius: var(--border-radius-2);
-    border: var(--border-1) solid var(--color-border);
+    border: var(--border-width-1) solid var(--color-border);
   }
 
   & details > p:not(:last-child) {
-    border-block-end: var(--border-1) solid var(--color-surface-2);
+    border-block-end: var(--border-width-1) solid var(--color-surface-2);
   }
 
   & h2 {
@@ -177,10 +177,10 @@ title: Colors
         background-color: var(--color);
 
         height: var(--line-height-1);
-        aspect-ratio: var(--ratio-square);
+        aspect-ratio: var(--aspect-ratio-square);
         background-color: var(--color);
         border-radius: var(--border-radius-2);
-        border: var(--border-1) solid var(--color-border);
+        border: var(--border-width-1) solid var(--color-border);
         font-size: medium;
         font-weight: normal;
       }

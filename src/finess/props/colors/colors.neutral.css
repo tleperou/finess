@@ -117,3 +117,19 @@
     calc(100 * var(--color-neutral-contrast-calc)) var(--color-neutral-end)
   );
 }
+
+/* color on */
+
+:where(html) {
+  --color-on-neutral-1: color-mix(
+    var(--color-neutral-mode),
+    var(--color-neutral-end),
+    15% var(--color-neutral-default)
+  );
+
+  --color-on-neutral-2: color-mix(
+    var(--color-neutral-mode),
+    var(--color-on-neutral-1),
+    35% transparent
+  );
+}

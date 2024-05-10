@@ -1,0 +1,506 @@
+---
+title: Custom props
+description: A guide in my new Starlight docs site.
+editUrl: https://github.com/tleperou/finess/blob/main/src/content/docs/en/styling/custom-props.md
+tableOfContents:
+  minHeadingLevel: 2
+  maxHeadingLevel: 2
+---
+
+Finess provides [`custom properties`](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) to build consistent components with any framework. They map many of the css properties and leverage CSS features while taking into account both accessiblity and user's preferences.
+
+## Animations
+
+import AnimationDuration from './../../../../starlight/fragments/custom-props/animations/animations.animation-duration.astro'
+
+### `animation-duration`
+
+<AnimationDuration />
+
+#### Usage
+
+```css "var(--animation-duration-1)"
+input {
+  border: var(--border-width-1) solid var(--color-surface-3);
+  transition: border-color linear var(--animation-duration-1);
+
+  &[aria-invalid="true"] {
+    border-color: var(--color-negative-1);
+  }
+
+  &[aria-invalid="false"] {
+    border-color: var(--color-positive-1);
+  }
+}
+```
+
+<aside>
+  `transition-duration` is an alias of `animation-duration`, they both are the same. 
+</aside>
+
+## Borders
+
+import BorderWidth from './../../../../starlight/fragments/custom-props/borders/borders.widths.astro'
+import BorderRadius from './../../../../starlight/fragments/custom-props/borders/borders.radius.astro'
+
+### `border-width`
+
+> The `border-width` [shorthand](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties) CSS property sets the width of an element's border. <cite>[MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/border-width)</cite>
+
+<BorderWidth />
+
+#### Usage
+
+```css "var(--border-width-1)" "var(--border-inline-width-3)"
+blockquote {
+  font-color: var(--color-on-neutral-1);
+  background-color: var(--color-neutral-2);
+  border: var(--border-width-1) solid var(--color-neutral-5);
+  border-radius: var(--border-radius-round);
+  padding: var(--padding-1);
+}
+
+/* with logical properties */
+blockquote {
+  /* ... */
+  border-inline-start-style: solid;
+  border-inline-start-color: var(--color-neutral-5);
+  border-inline-width: var(--border-inline-width-3);
+}
+
+blockquote {
+  /* ... */
+  border-inline-start-width: var(--border-inline-width-3);
+}
+```
+
+### `border-radius`
+
+> The `border-radius` CSS property rounds the corners of an element's outer border edge. <cite>[MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius)</cite>
+
+<BorderRadius />
+
+<aside>
+  `border-radius` sets all flow-relative values, use the logical properties in place of single units (eg. `border-start-start-radius`). [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values)
+</aside>
+
+#### Usage
+
+```css "var(--border-radius-1)" "var(--border-start-end-radius-1)"
+code {
+  color: var(--color-on-surface-1);
+  background-color: var(--color-surface-2);
+  border: var(--border-width-1) solid var(--color-surface-4);
+  border-radius: var(--border-radius-1);
+}
+
+/* with logical properties */
+code {
+  /* ... */
+  border-start-start-radius: var(--border-start-end-radius-1);
+}
+```
+
+## Fonts
+
+import FontFamilies from './../../../../starlight/fragments/custom-props/fonts/fonts.font-family.astro'
+import FontSizes from './../../../../starlight/fragments/custom-props/fonts/fonts.font-size.astro'
+import FontWeight from './../../../../starlight/fragments/custom-props/fonts/fonts.font-weight.astro'
+import LetterSpacing from './../../../../starlight/fragments/custom-props/fonts/fonts.letter-spacing.astro'
+import LineHeight from './../../../../starlight/fragments/custom-props/fonts/fonts.line-height.astro'
+
+### `font-family`
+
+> The `font-family` CSS property specifies a prioritized list of one or more font family names and/or generic family names for the selected element <cite>[MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family)</cite>
+
+<FontFamilies />
+
+#### Usage
+
+```css "var(--font-family-mono)"
+code {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-1);
+  letter-spacing: var(--letter-spacing-1);
+  line-height: var(--line-height-1);
+}
+```
+
+### `font-size`
+
+> The `font-size` CSS property sets the size of the font relatively to the dimensions of the viewport. <cite>[MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/font-size)</cite>
+
+<FontSizes />
+
+<aside>
+  The typography is fluid, that means the `font-size` varies with the viewport's size – in the respect of the [WCAG SC 1.4.4](https://www.w3.org/WAI/WCAG21/Understanding/resize-text.html).
+</aside>
+
+#### Usage
+
+```css "var(--font-size-1)"
+code {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-1);
+  letter-spacing: var(--letter-spacing-1);
+  line-height: var(--line-height-1);
+}
+```
+
+### `font-weight`
+
+> The `font-weight` CSS property sets the weight (or boldness) of the font. The weights available depend on the [`font-family`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family) that is currently set. <cite>[MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight)</cite>
+
+<FontWeight />
+
+#### Usage
+
+```css "var(--font-weight-1)"
+code {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-1);
+  letter-spacing: var(--letter-spacing-1);
+  line-height: var(--line-height-1);
+}
+```
+
+### `letter-spacing`
+
+The `letter-spacing` CSS property sets the horizontal spacing behavior between text characters.
+
+<LetterSpacing />
+
+#### Usage
+
+```css "var(--letter-spacing-1)"
+code {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-1);
+  letter-spacing: var(--letter-spacing-1);
+  line-height: var(--line-height-1);
+}
+```
+
+
+### `line-height`
+
+> The `line-height` CSS property sets the height of a line box. It's commonly used to set the distance between lines of text. On block-level elements, it specifies the minimum height of line boxes within the element. <cite>[MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/line-height)</cite>
+
+<LineHeight />
+
+#### Usage
+
+```css "var(--line-height-1)"
+code {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-1);
+  letter-spacing: var(--letter-spacing-1);
+  line-height: var(--line-height-1);
+}
+```
+
+## Layers
+
+import Layers from './../../../../starlight/fragments/custom-props/layers/layer.z-index.astro'
+
+### `z-index`
+
+The `z-index` CSS property sets the z-order of a [positioned](https://developer.mozilla.org/en-US/docs/Web/CSS/position) element and its descendants or flex and grid items
+
+<Layers />
+
+<aside>
+  Interested in using `z-index-max`? Consider using [`top-layer`](https://developer.mozilla.org/en-US/docs/Glossary/Top_layer) when possible.
+</aside>
+
+#### Usage
+
+```css "var(--z-index-1)" "var(--z-index-max)" "var(--z-index--1)"
+.hero {
+  display: grid;
+  place-content: center;
+
+  & > * {
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  & h2 {
+    z-index: var(--z-index-1);
+    margin: auto;
+  }
+
+  & picture {
+    z-index: var(--z-index--1);
+  }
+}
+
+.my-modal {
+  z-index: var(--z-index-max);
+}
+```
+
+## Media queries
+
+import MediaQueryDevice from './../../../../starlight/fragments/custom-props/media/media.device.astro'
+import MediaQueryPrefers from './../../../../starlight/fragments/custom-props/media/media.prefers.astro'
+import MediaQueryBreakpoint from './../../../../starlight/fragments/custom-props/media/media.breakpoints.astro'
+
+> 
+  <p>Media queries allow you to apply CSS styles depending on a device's media type, features and user preferences. Many custom props already leverage the media queries <cite>[MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries)</cite></p>
+
+
+<aside>
+  Using media queries requires `custom-media` syntax, available with this [PostCSS plugin](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-custom-media).
+</aside>
+
+### Device
+
+<MediaQueryDevice />
+
+#### Usage
+
+```css "@media (--hdr)"
+:root {
+  --my-color: #21307a;
+
+  @media (--hdr) {
+    --my-color: color(display-p3 0.1417 0.1865 0.461)
+  }
+}
+```
+
+### User preferences
+
+<MediaQueryPrefers />
+
+#### Usage
+
+```css "@media (--motion-reduced)"
+:root {
+  --transition-duration-1: 200ms;
+
+  @media (--motion-reduced) {
+    --transition-duration-1: 60ms;
+  }
+}
+```
+
+### Breakpoints
+
+<MediaQueryBreakpoint />
+
+#### Usage
+
+```css "@media (--breakpoint-md-n-above)"
+.my-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @media (--breakpoint-md-n-above) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+```
+
+## Ratios
+
+### `aspect-ratio`
+
+import Ratios from './../../../../starlight/fragments/custom-props/ratios/ratios.aspect-ratio.astro'
+
+> The `aspect-ratio` CSS property allows you to define the desired width-to-height ratio of an element's box. <cite>[MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio)</cite>
+
+<Ratios />
+
+<aside>
+  At least one of the box's sizes needs to be `auto` in order for `aspect-ratio` to have any effect.
+</aside>
+
+#### Usage
+
+```css "var(--aspect-ratio-square)"
+.avatar {
+  inline-size: var(--inline-size-2);
+  aspect-ratio: var(--aspect-ratio-square);
+  border-radius: var(--border-radius-round);
+  margin: var(--margin-2);
+}
+```
+
+## Sizes
+
+import Sizes from './../../../../starlight/fragments/custom-props/sizes/sizes.astro'
+
+<Sizes />
+
+#### Usage
+
+```css "var(--inline-size-5)" "var(--inline-size-3)" "var(--block-size-3)"
+.layout {
+  display: grid;
+  grid-template-columns:
+    [main-nav] var(--inline-size-5)
+    [content] 1fr
+    [table-of-content] var(--inline-size-3);
+  grid-template-rows:
+    [header] var(--block-size-3)
+    [content] 1fr
+    [footer] auto;
+}
+```
+
+## Spacings
+
+import Gaps from './../../../../starlight/fragments/custom-props/spacings/spacings.gaps.astro'
+import Margins from './../../../../starlight/fragments/custom-props/spacings/spacings.margins.astro'
+import Paddings from './../../../../starlight/fragments/custom-props/spacings/spacings.paddings.astro'
+
+Spacings are relative to the element's [`font-size`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-size) and [`line-height`](https://developer.mozilla.org/en-US/docs/Web/CSS/line-height) based upon the average glyph's dimensions. It also vary with the height, width and orientation of the viewport.
+
+### `gap`
+
+<Gaps>
+  <p slot="row">The [`row-gap`](https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap) CSS property sets the size of the gap between an element's rows.</p>
+  <p slot="column">The [`column-gap`](https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap) CSS property sets the size of the gap between an element's columns.</p>
+  <p slot="shorthand">The <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap"><code>row-gap</code></a> CSS property sets the size of the gap between an element's rows.</p>
+</Gaps>
+
+#### Usage
+
+```css "var(--gap-1)" "var(--column-gap-1)" "var(--row-gap-1)" "var(--column-gap-3)"
+/* as a shorthand */
+.card {
+  display: grid;
+  aspect-ratio: var(--aspect-ratio-portrait);
+  inline-size: auto;
+  gap: var(--gap-1);
+}
+
+/* equivalent of */
+.card {
+  /* ... */
+  gap: var(--column-gap-1) var(--row-gap-1);
+}
+
+/* as a single value */
+.card {
+  display: grid;
+  row-gap: var(--row-gap-1);
+  column-gap: var(--column-gap-3);
+}
+```
+
+<aside>
+  `gap` sets all flow-relative values, use the corresponding custom properties of `row-gap` and `column-gap` when needed.
+</aside>
+
+```css del={3} ins={6}
+.card {
+  /* 🚫 don't */
+  row-gap: var(--gap-1);
+
+  /* ✅ do */
+  row-gap: var(--row-gap-1);
+}
+```
+
+### `margin`
+
+<aside>
+  `margin` sets all flow-relative values, so specify the logical property (eg. `margin-inline`) when used as a single unit. [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values)
+</aside>
+
+<Margins />
+
+#### Usage
+
+```css "var(--margin-2)" "var(--margin-block-2)" "var(--margin-inline-2)" "var(--margin-inline-1)"
+/* as a shorthand */
+.avatar {
+  inline-size: var(--inline-size-2);
+  aspect-ratio: var(--aspect-ratio-square);
+  border-radius: var(--border-radius-round);
+  margin: var(--margin-2);
+}
+
+/* equivalent of */
+.avatar {
+  /* ... */
+  margin: var(--margin-block-2) var(--margin-inline-2);
+}
+
+/* and its logical property */
+.avatar {
+  margin-inline: var(--margin-inline-1);
+  /* or */
+  margin-inline-start: var(--margin-inline-1);
+}
+```
+
+### `padding`
+
+<aside>
+  `padding` sets all flow-relative values, so specify the logical property (eg. `padding-inline`) when used as a single unit. [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values)
+</aside>
+
+<Paddings />
+
+#### Usage
+
+```css "var(--padding-1)" "var(--padding-block-1)" "var(--padding-inline-1)"
+blockquote {
+  font-color: var(--color-on-neutral-1);
+  background-color: var(--color-neutral-2);
+  border: var(--border-width-1) solid var(--color-neutral-4);
+  border-radius: var(--border-radius-round);
+  padding: var(--padding-1);
+}
+
+/* equivalent to */
+blockquote {
+  /* ... */
+  padding: var(--padding-block-1) var(--padding-inline-1);
+}
+
+/* as a single value */
+blockquote {
+  padding-inline: var(--padding-inline-1);
+  /* or */
+  padding-inline-start: var(--padding-inline-1);
+}
+```
+
+## Transitions
+
+import TransitionDuration from './../../../../starlight/fragments/custom-props/animations/animations.animation-duration.astro'
+
+### `transition-duration`
+
+<TransitionDuration />
+
+<aside>
+  `transition-duration` is an alias of `animation-duration`, they both are the same. 
+</aside>
+
+#### Usage
+
+```css "var(--transition-duration-1)"
+input {
+  border: var(--border-width-1) solid var(--color-surface-3);
+  transition: border-color linear var(--transition-duration-1);
+
+  &[aria-invalid="true"] {
+    border-color: var(--color-negative-1);
+  }
+
+  &[aria-invalid="false"] {
+    border-color: var(--color-positive-1);
+  }
+}
+```

@@ -139,6 +139,6 @@
   --color-on-surface-2: color-mix(
     var(--color-surface-mode),
     var(--color-on-surface-1),
-    25% transparent
+    35% transparent
   );
 }
