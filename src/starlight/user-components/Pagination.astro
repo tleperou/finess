@@ -56,9 +56,14 @@ const { prev, next } = pagination
     padding: var(--padding-block-3) var(--padding-inline-2);
     border: var(--border-width-1) solid var(--color-surface-3);
     border-radius: var(--border-radius-1);
-    line-height: var(--line-height-1);
+    line-height: var(--line-height-0);
     text-decoration: none;
     color: var(--color-on-surface-1);
+
+    @media (--breakpoint-sm-only) {
+      line-height: var(--line-height-1);
+      padding: var(--padding-block-2) var(--padding-inline-1);
+    }
 
     &:hover,
     &:focus {

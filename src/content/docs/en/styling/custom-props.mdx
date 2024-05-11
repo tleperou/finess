@@ -397,18 +397,21 @@ Spacings are relative to the element's [`font-size`](https://developer.mozilla.o
 ```
 
 <aside>
-  `gap` sets all flow-relative values, use the corresponding custom properties of `row-gap` and `column-gap` when needed.
+  <div>
+    `gap` sets all flow-relative values, use the corresponding custom properties of `row-gap` and `column-gap` when needed.
+
+
+    ```css del={3} ins={6}
+    .card {
+      /* 🚫 don't */
+      row-gap: var(--gap-1);
+
+      /* ✅ do */
+      row-gap: var(--row-gap-1);
+    }
+    ```
+  </div>
 </aside>
-
-```css del={3} ins={6}
-.card {
-  /* 🚫 don't */
-  row-gap: var(--gap-1);
-
-  /* ✅ do */
-  row-gap: var(--row-gap-1);
-}
-```
 
 ### `margin`
 
