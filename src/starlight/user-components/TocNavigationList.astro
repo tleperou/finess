@@ -42,6 +42,7 @@ const { toc, isMobile = false, depth = 0 } = Astro.props
     column-gap: var(--column-gap-1);
     color: var(--color-surface-on-2);
     line-height: var(--line-height-1);
+    max-inline-size: max-content;
 
     &,
     &[aria-current],
@@ -60,16 +61,6 @@ const { toc, isMobile = false, depth = 0 } = Astro.props
     &:hover,
     &:focus {
       color: var(--color-on-surface-1);
-    }
-
-    &::before {
-      display: block;
-      content: '';
-      width: 0.65ch;
-      height: var(--line-height-1);
-      background-color: transparent;
-      border-radius: var(--border-radius-2);
-      margin-inline-start: var(--margin-inline-1);
     }
 
     &[aria-current] {
