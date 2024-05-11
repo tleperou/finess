@@ -7,6 +7,13 @@ body {
   --finess-toc-inline-size: var(--inline-size-2);
 }
 
+*:focus-visible {
+  transition: scale ease-out var(--transition-duration-2);
+  transition-timing-function: var(--transition-duration-3);
+  outline: var(--border-width-2) solid var(--color-accent-5);
+  scale: 1.01;
+}
+
 /* overrides of starlight styles */
 
 h1,
@@ -28,6 +35,29 @@ body {
   color: var(--color-on-surface-1);
   background-color: var(--color-surface-1);
 }
+
+/* 
+ * @TODO expressive coode break the inline layout
+ * causion horisontal scroll. dev environement might
+ * partially in cause since the max-inline-size is already
+ * set ontp the main parent container.
+ * shall be removed safely once published and tested */
+/* .expressive-code {
+  @media (--breakpoint-md-only) {
+    font-size: var(--font-size-1);
+    --max-inline-size: calc(
+      100dvw -
+        (var(--finess-sidebar-inline-size) + 2 * var(--padding-inline-2) + 6px)
+    );
+  }
+
+  @media (--breakpoint-md-n-above) {
+    --max-inline-size: calc(
+      100dvw - var(--finess-sidebar-inline-size) - var(--finess-toc-inline-size)
+    );
+    max-inline-size: var(--max-inline-size);
+  }
+} */
 
 /* finess */
 

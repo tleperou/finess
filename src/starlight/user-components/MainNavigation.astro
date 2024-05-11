@@ -98,14 +98,24 @@ import IconNavigation from './icons/icon-navigation.astro'
 
   main-navigation {
     display: contents;
+
+    @media (--breakpoint-sm-n-above) {
+      display: initial;
+      block-size: 100%;
+      border-inline-end: var(--border-width-1) solid var(--color-surface-3);
+    }
   }
 
   details {
-    overflow: auto;
     z-index: var(--z-index-2);
-    max-block-size: max-content;
     border-color: transparent;
-    border-inline-end: var(--border-width-1) solid var(--color-surface-3);
+
+    @media (--breakpoint-sm-n-above) {
+      block-size: 100dvh;
+      overflow: auto;
+      position: sticky;
+      top: 0;
+    }
 
     @media (--breakpoint-sm-n-above) {
       padding-block: var(--padding-block-1);
@@ -113,11 +123,11 @@ import IconNavigation from './icons/icon-navigation.astro'
     }
 
     @media (--breakpoint-sm-only) {
-      /* grid-template-rows:
-        calc((var(--line-height-1) + var(--padding-block-2) * 2) - 1px)
-        1fr; */
       grid-area: heading;
+      block-size: max-content;
+      margin-block: auto;
       margin-inline-start: auto;
+      border-width: 0;
 
       & .close {
         display: none;
@@ -125,9 +135,12 @@ import IconNavigation from './icons/icon-navigation.astro'
 
       &[open] {
         display: grid;
+        grid-template-rows: var(--block-size-1) 1fr;
         position: fixed;
         inset: 0;
-        max-block-size: initial;
+        margin-block: 0;
+        margin-inline: 0;
+        block-size: 100dvh;
         z-index: var(--z-index-2);
         background-color: var(--color-surface-1);
         padding-block-end: calc(
@@ -148,11 +161,10 @@ import IconNavigation from './icons/icon-navigation.astro'
           top: 0;
           margin-inline-end: var(--margin-inline-1);
           margin-inline-start: auto;
+          margin-block: auto;
         }
 
         & nav {
-          /* align perfectly .. */
-          margin-block-start: calc(var(--padding-block-1) + 0.5px);
           padding-block-start: var(--padding-block-1);
           border-block-start: var(--border-width-1) solid var(--color-surface-3);
           padding-inline: calc(3 * var(--padding-inline-1));
@@ -174,15 +186,14 @@ import IconNavigation from './icons/icon-navigation.astro'
         padding: 0;
         place-content: center;
         margin-inline-end: var(--margin-inline-1);
-        margin-block-start: var(--margin-block-1);
 
-        background-color: var(--color-surface-5);
+        background-color: var(--color-accent-1);
         border-radius: var(--border-radius-round);
-        border: var(--border-width-1) solid var(--color-surface-3);
+        border: var(--border-width-1) solid var(--color-accent-3);
 
-        font-size: var(--font-size-2);
-        inline-size: var(--line-height-2);
+        font-size: var(--font-size-1);
         block-size: var(--line-height-2);
+        aspect-ratio: var(--aspect-ratio-square);
 
         &::after {
           content: none;
