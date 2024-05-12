@@ -1,0 +1,124 @@
+---
+import ColorPicker from './../colors/colors.picker.astro'
+import ContrastPicker from './../colors/contrast.picker.astro'
+---
+
+<slot />
+
+<details open>
+  <summary class="sr-only">Customise surface</summary>
+  <ul role="list">
+    <li>
+      --color-surface
+      <span
+        dir="auto"
+        data-color="--color-surface"
+        data-color-space="p3"
+      ></span>
+    </li>
+    <li>
+      --color-surface-hex
+      <span dir="auto">
+        <ColorPicker color="--color-surface" />
+        <span data-color="--color-surface"></span>
+      </span>
+    </li>
+    <li>
+      --color-surface-contrast
+      <span dir="auto">
+        <ContrastPicker contrast="--color-surface-contrast" />
+        <span data-contrast="--color-surface-contrast"></span>
+      </span>
+    </li>
+  </ul>
+</details>
+
+<h4>Palette</h4>
+
+<details
+  open
+  class="color"
+>
+  <summary class="sr-only">--color-surface</summary>
+  <ul role="list">
+    <li class="surface-1">
+      <span></span>
+      --color-surface-1
+    </li>
+    <li class="surface-2">
+      <span></span>
+      --color-surface-2
+    </li>
+    <li class="surface-3">
+      <span></span>
+      --color-surface-3
+    </li>
+    <li class="surface-4">
+      <span></span>
+      --color-surface-4
+    </li>
+    <li class="surface-5">
+      <span></span>
+      --color-surface-5
+    </li>
+    <li class="surface-1">
+      <span class="surface-on-1"><small>Aa</small></span>
+      <div>--color-on-surface-1</div>
+    </li>
+    <li class="surface-1">
+      <span class="surface-on-2"><small>Aa</small></span>
+      --color-on-surface-2
+    </li>
+  </ul>
+</details>
+
+<style>
+  span:has(input[type='text']) {
+    overflow: visible;
+  }
+
+  input[type='text'] {
+    font-size: var(--font-size-0);
+    line-height: var(--line-height-0);
+  }
+
+  .surface-on-1 {
+    --text: var(--color-on-surface-1);
+  }
+
+  .surface-on-2 {
+    --text: var(--color-on-surface-2);
+  }
+
+  .surface-0 {
+    --color: var(--color-surface);
+  }
+
+  .surface-1 {
+    --color: var(--color-surface-1);
+  }
+
+  .surface-2 {
+    --color: var(--color-surface-2);
+  }
+
+  .surface-3 {
+    --color: var(--color-surface-3);
+  }
+
+  .surface-4 {
+    --color: var(--color-surface-4);
+  }
+
+  .surface-5 {
+    --color: var(--color-surface-5);
+  }
+
+  .surface-on-5 {
+    --text: var(--color-on-surface-1);
+  }
+
+  .surface-on-5 {
+    --text: var(--color-on-surface-2);
+  }
+</style>

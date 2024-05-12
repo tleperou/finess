@@ -1,0 +1,75 @@
+---
+interface Props {
+  color: string
+}
+
+const props = Astro.props
+---
+
+<color-picker color={props.color}>
+  <label><slot /><input type="color" /></label>
+</color-picker>
+
+<script>
+  customElements.define(
+    'color-picker',
+    class ColorPicker extends HTMLElement {
+      #picker = this.querySelector<HTMLInputElement>('[type="color"]')!
+      #attr = this.getAttribute('color') || ''
+
+      get #elements() {
+        return [...document.querySelectorAll(`[data-color="${this.#attr}"]`)]
+      }
+      get #current() {
+        const styles = window.getComputedStyle(document.body)
+        return styles.getPropertyValue(this.#attr)
+      }
+
+      constructor() {
+        super()
+
+        this.#picker?.addEventListener('input', (e: Event) => {
+          const input = e.target as HTMLInputElement
+          this.#updateCustomProps(input.value)
+          this.#emitChange(input.value)
+        })
+
+        this.#emitChange(this.#current)
+      }
+
+      #updateCustomProps(value: string) {
+        document.documentElement.style.setProperty(this.#attr, value)
+      }
+
+      #emitChange(value: string) {
+        this.#elements.forEach(el => {
+          if (!this.#isHex(value)) {
+            return ''
+          }
+
+          if (el.getAttribute('data-color-space') === 'p3') {
+            el.textContent = this.#calcP3(value)
+            return ''
+          }
+
+          el.textContent = value
+        })
+      }
+
+      #calcP3(value: string) {
+        const parts = value.split('#')
+        const hex = parts.pop() || ''
+        const p3 = [
+          (parseInt(hex.substring(0, 2), 16) / 255).toFixed(2),
+          (parseInt(hex.substring(2, 4), 16) / 255).toFixed(2),
+          (parseInt(hex.substring(4, 6), 16) / 255).toFixed(2),
+        ]
+        return `color(display-p3 ${p3.join(' ')})`
+      }
+
+      #isHex(value: string) {
+        return value.includes('#')
+      }
+    }
+  )
+</script>

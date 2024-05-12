@@ -3,10 +3,10 @@
 
 /* public */
 
-:where(html) {
+/* :where(html) {
   --color-surface: Canvas;
   --color-surface-hex: Canvas;
-}
+} */
 
 /* default */
 
@@ -134,11 +134,15 @@
 /* color on */
 
 :where(html) {
-  --color-on-surface-1: var(--color-surface-end);
+  --color-on-surface-1: color-mix(
+    var(--color-surface-mode),
+    calc(var(--color-surface-contrast) * 1% + 70%) var(--color-surface-end),
+    transparent
+  );
 
   --color-on-surface-2: color-mix(
     var(--color-surface-mode),
-    var(--color-on-surface-1),
-    35% transparent
+    calc(var(--color-surface-contrast) * 1% + 40%) var(--color-on-surface-1),
+    transparent
   );
 }
