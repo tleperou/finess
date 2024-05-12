@@ -5,6 +5,8 @@ title: Colors
 import Colors from './../../../../starlight/fragments/colors/colors.astro'
 import ColorSurface from './../../../../starlight/fragments/colors/colors.surface.astro'
 import ColorAccent from './../../../../starlight/fragments/colors/colors.accent.astro'
+import ColorNegative from './../../../../starlight/fragments/colors/colors.negative.astro'
+
 import ColorDevice from './../../../../starlight/fragments/colors/colors.device.astro'
 import ColorPicker from './../../../../starlight/fragments/colors/colors.picker.astro'
 import ContrastPicker from './../../../../starlight/fragments/colors/contrast.picker.astro'
@@ -43,6 +45,12 @@ hgroup {
   The accent color uses the [`AccentColor`](https://developer.mozilla.org/en-US/docs/Web/CSS/system-color#mark) when supported, or predefined values from a `p3` or `RGB` color space.
 
   <ColorAccent />
+
+  ## Negative
+
+  The negative color use predefined values from a `p3` or `RGB` color space.
+
+  <ColorNegative />
 
 </Colors>
 
