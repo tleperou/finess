@@ -253,6 +253,11 @@ main ul li {
     top: 0;
     background-color: var(--color-surface-2);
   }
+
+  &:hover::after,
+  &:hover + li::after {
+    content: none;
+  }
 }
 
 main details :where(summary, li) {

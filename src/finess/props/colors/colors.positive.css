@@ -123,11 +123,15 @@
 /* color on */
 
 :where(html) {
-  --color-on-positive-1: var(--color-positive-start);
+  --color-on-positive-1: color-mix(
+    var(--color-positive-mode),
+    calc(var(--color-positive-contrast) * 1% + 70%) var(--color-positive-end),
+    transparent
+  );
 
   --color-on-positive-2: color-mix(
     var(--color-positive-mode),
-    var(--color-on-positive-1),
-    25% transparent
+    calc(var(--color-positive-contrast) * 1% + 40%) var(--color-on-positive-1),
+    transparent
   );
 }
