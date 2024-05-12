@@ -1,0 +1,55 @@
+---
+interface Props {
+  contrast: string
+}
+
+const props = Astro.props
+---
+
+<contrast-picker contrast={props.contrast}>
+  <label><slot /><input type="range" min="0" max="100" /></label>
+</contrast-picker>
+
+<script>
+  customElements.define(
+    'contrast-picker',
+    class ColorPicker extends HTMLElement {
+      #picker = this.querySelector<HTMLInputElement>('[type="range"]')
+      #attr = this.getAttribute('contrast') || ''
+
+      get #elements() {
+        return [...document.querySelectorAll(`[data-contrast="${this.#attr}"]`)]
+      }
+      get #current() {
+        const styles = window.getComputedStyle(document.body)
+        return styles.getPropertyValue(this.#attr)
+      }
+
+      constructor() {
+        super()
+
+        this.#picker?.addEventListener('input', (e: Event) => {
+          const input = e.target as HTMLInputElement
+          this.#updateCustomProps(input.value)
+          this.#emitChange(input.value)
+        })
+
+        this.#emitChange(this.#current)
+      }
+
+      #updateCustomProps(value: string) {
+        document.documentElement.style.setProperty(this.#attr, value)
+      }
+
+      #emitChange(value: string) {
+        this.#elements.forEach(el => (el.textContent = value))
+      }
+    }
+  )
+</script>
+
+<style>
+  constrast-picker {
+    display: block;
+  }
+</style>

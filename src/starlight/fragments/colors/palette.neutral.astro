@@ -1,0 +1,72 @@
+<slot />
+
+<details
+  open
+  class="color"
+>
+  <summary class="sr-only">--color-neutral</summary>
+  <ul role="list">
+    <li class="neutral-1">
+      <span></span>
+      --color-neutral-1
+    </li>
+    <li class="neutral-2">
+      <span></span>
+      --color-neutral-2
+    </li>
+    <li class="neutral-3">
+      <span></span>
+      --color-neutral-3
+    </li>
+    <li class="neutral-4">
+      <span></span>
+      --color-neutral-4
+    </li>
+    <li class="neutral-5">
+      <span></span>
+      --color-neutral-5
+    </li>
+    <li class="neutral-1">
+      <span class="neutral-on-1"><small>Aa</small></span>
+      <div>--color-on-neutral-1</div>
+    </li>
+    <li class="neutral-1">
+      <span class="neutral-on-2"><small>Aa</small></span>
+      --color-on-neutral-2
+    </li>
+  </ul>
+</details>
+
+<style>
+  .neutral-on-1 {
+    --text: var(--color-on-neutral-1);
+  }
+
+  .neutral-on-2 {
+    --text: var(--color-on-neutral-2);
+  }
+
+  .neutral-0 {
+    --color: var(--color-neutral);
+  }
+
+  .neutral-1 {
+    --color: var(--color-neutral-1);
+  }
+
+  .neutral-2 {
+    --color: var(--color-neutral-2);
+  }
+
+  .neutral-3 {
+    --color: var(--color-neutral-3);
+  }
+
+  .neutral-4 {
+    --color: var(--color-neutral-4);
+  }
+
+  .neutral-5 {
+    --color: var(--color-neutral-5);
+  }
+</style>

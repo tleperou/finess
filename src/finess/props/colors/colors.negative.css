@@ -119,3 +119,17 @@
     calc(100 * var(--color-negative-contrast-calc)) var(--color-negative-end)
   );
 }
+
+:where(html) {
+  --color-on-negative-1: color-mix(
+    var(--color-negative-mode),
+    calc(var(--color-negative-contrast) * 1% + 70%) var(--color-negative-end),
+    transparent
+  );
+
+  --color-on-negative-2: color-mix(
+    var(--color-negative-mode),
+    calc(var(--color-negative-contrast) * 1% + 40%) var(--color-on-negative-1),
+    transparent
+  );
+}

@@ -37,12 +37,14 @@ body {
 }
 
 /* 
- * @TODO expressive coode break the inline layout
- * causion horisontal scroll. dev environement might
- * partially in cause since the max-inline-size is already
- * set ontp the main parent container.
- * shall be removed safely once published and tested */
-/* .expressive-code {
+ * @TODO expressive code breaks the inline layout
+ * structure causing horisontal scroll despite
+ * having a max-inline-size already set onto the 
+ * main parent container. 
+ */
+.expressive-code {
+  max-inline-size: var(--max-inline-size, auto);
+
   @media (--breakpoint-md-only) {
     font-size: var(--font-size-1);
     --max-inline-size: calc(
@@ -55,9 +57,8 @@ body {
     --max-inline-size: calc(
       100dvw - var(--finess-sidebar-inline-size) - var(--finess-toc-inline-size)
     );
-    max-inline-size: var(--max-inline-size);
   }
-} */
+}
 
 /* finess */
 
@@ -191,7 +192,7 @@ main details {
   }
 
   &:has(:where(summary.sr-only)) {
-    border-block-start-color: var(--color-surface-2);
+    border-block-start-color: transparent;
     border-block-end: var(--border-width-1) solid var(--color-surface-2);
   }
 
@@ -210,6 +211,7 @@ main details {
 
 main ul li {
   display: grid;
+  align-items: center;
   grid-template-columns: auto 1fr;
   column-gap: var(--column-gap-2);
   color: var(--color-on-surface-1);
@@ -223,7 +225,7 @@ main ul li {
     border-radius: var(--border-radius-2);
   }
 
-  & span {
+  & span:where(:last-of-type) {
     color: var(--color-on-surface-2);
     margin-inline-start: auto;
     max-inline-size: 100%;
@@ -231,8 +233,8 @@ main ul li {
     overflow: hidden;
     text-overflow: ellipsis;
 
-    @media (--breakpoint-sm-only) {
-      /* show the end of the text on mobile */
+    &:not([dir]) {
+      /* shrink the begining of the line */
       direction: rtl;
       margin-inline-end: auto;
       margin-inline-start: initial;
@@ -250,6 +252,11 @@ main ul li {
     width: 100%;
     top: 0;
     background-color: var(--color-surface-2);
+  }
+
+  &:hover::after,
+  &:hover + li::after {
+    content: none;
   }
 }
 

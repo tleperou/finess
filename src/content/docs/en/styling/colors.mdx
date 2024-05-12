@@ -1,0 +1,99 @@
+---
+title: Colors
+tableOfContents:
+  minHeadingLevel: 1
+  maxHeadingLevel: 2
+---
+
+import Colors from './../../../../starlight/fragments/colors/colors.astro'
+
+import ColorSurface from './../../../../starlight/fragments/colors/colors.surface.astro'
+import ColorAccent from './../../../../starlight/fragments/colors/colors.accent.astro'
+import ColorNegative from './../../../../starlight/fragments/colors/colors.negative.astro'
+import ColorNeutral from './../../../../starlight/fragments/colors/colors.neutral.astro'
+import ColorPositive from './../../../../starlight/fragments/colors/colors.positive.astro'
+
+import PaletteSurface from './../../../../starlight/fragments/colors/palette.surface.astro'
+import PaletteAccent from './../../../../starlight/fragments/colors/palette.accent.astro'
+import PaletteNegative from './../../../../starlight/fragments/colors/palette.negative.astro'
+import PaletteNeutral from './../../../../starlight/fragments/colors/palette.neutral.astro'
+import PalettePositive from './../../../../starlight/fragments/colors/palette.positive.astro'
+
+import ColorDevice from './../../../../starlight/fragments/colors/colors.device.astro'
+import ColorPicker from './../../../../starlight/fragments/colors/colors.picker.astro'
+import ContrastPicker from './../../../../starlight/fragments/colors/contrast.picker.astro'
+
+Colors provide low and high contrast levels for users that turn them on. They also use the user's device preferences such as `Canvas` and `AccentColor` colors. They leverage high dynamic range color with the the p3 color space when supported.
+
+### Usage
+
+```css "var(--color-surface-1)" "var(--color-on-surface-1)" "var(--color-on-surface-2)"
+hgroup {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--row-gap-1);
+
+  & h1 {
+    color: var(--color-accent-1);
+  }
+
+  & small {
+    color: var(--color-on-accent-2);
+    background-color: var(--color-accent-1);
+  }
+}
+```
+
+<Colors>
+
+  ## Surface
+
+  The surface color uses the [`Canvas`](https://developer.mozilla.org/en-US/docs/Web/CSS/system-color#mark) when supported, or predefined values from a `p3` or `RGB` color space.
+
+  <ColorSurface />
+
+  ### Palette
+  
+  <PaletteSurface />
+
+  ## Accent
+
+  The accent color uses the [`AccentColor`](https://developer.mozilla.org/en-US/docs/Web/CSS/system-color#mark) when supported, or predefined values from a `p3` or `RGB` color space.
+
+  <ColorAccent />
+
+  ### Palette
+
+  <PaletteAccent />
+
+  ## Negative
+
+  The negative color use predefined values from a `p3` or `RGB` color space.
+
+  <ColorNegative />
+
+  ### Palette
+
+  <PaletteNegative />
+
+  ## Neutral
+
+  The neutral color use predefined values from a `p3` or `RGB` color space.
+
+  <ColorNeutral />
+
+  ### Palette
+
+  <PaletteNeutral />
+
+  ## Positive
+
+  The positive color use predefined values from a `p3` or `RGB` color space.
+
+  <ColorPositive />
+
+  ### Palette
+
+  <PalettePositive />
+
+</Colors>
