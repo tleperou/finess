@@ -126,11 +126,15 @@
 /* color on */
 
 :where(html) {
-  --color-on-accent-1: var(--color-accent);
+  --color-on-accent-1: color-mix(
+    var(--color-accent-mode),
+    calc(var(--color-accent-contrast) * 1% + 70%) var(--color-accent-end),
+    transparent
+  );
 
   --color-on-accent-2: color-mix(
     var(--color-accent-mode),
-    var(--color-on-accent-1),
-    25% transparent
+    calc(var(--color-accent-contrast) * 1% + 40%) var(--color-on-accent-1),
+    transparent
   );
 }
