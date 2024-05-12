@@ -1,0 +1,34 @@
+---
+import ColorPicker from './colors.picker.astro'
+import ContrastPicker from './contrast.picker.astro'
+---
+
+<slot />
+
+<details open>
+  <summary class="sr-only">Customise positive</summary>
+  <ul role="list">
+    <li>
+      --color-positive
+      <span
+        dir="auto"
+        data-color="--color-positive"
+        data-color-space="p3"
+      ></span>
+    </li>
+    <li>
+      --color-positive-hex
+      <span dir="auto">
+        <ColorPicker color="--color-positive" />
+        <span data-color="--color-positive"></span>
+      </span>
+    </li>
+    <li>
+      --color-positive-contrast
+      <span dir="auto">
+        <ContrastPicker contrast="--color-positive-contrast" />
+        <span data-contrast="--color-positive-contrast"></span>
+      </span>
+    </li>
+  </ul>
+</details>

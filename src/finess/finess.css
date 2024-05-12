@@ -19,4 +19,6 @@
 
   color: var(--color-on-surface-1);
   background-color: var(--color-surface-1);
+
+  accent-color: var(--color-accent);
 }

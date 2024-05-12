@@ -1,0 +1,91 @@
+---
+interface Props {
+  color: string
+}
+
+const props = Astro.props
+---
+
+<color-picker color={props.color}>
+  <label><slot /><input type="color" /></label>
+</color-picker>
+
+<script>
+  customElements.define(
+    'color-picker',
+    class ColorPicker extends HTMLElement {
+      #picker = this.querySelector<HTMLInputElement>('[type="color"]')!
+      #attr = this.getAttribute('color') || ''
+
+      get #elements() {
+        return [...document.querySelectorAll(`[data-color="${this.#attr}"]`)]
+      }
+      get #p3() {
+        const styles = window.getComputedStyle(document.body)
+        return styles.getPropertyValue(this.#attr)
+      }
+      get #hex() {
+        const styles = window.getComputedStyle(document.body)
+        return styles.getPropertyValue(`${this.#attr}-hex`)
+      }
+
+      constructor() {
+        super()
+
+        this.#picker?.addEventListener('input', (e: Event) => {
+          const input = e.target as HTMLInputElement
+          this.#updateCustomProps(input.value)
+          this.#emitChange(input.value)
+        })
+
+        this.#emitChange(this.#p3)
+        this.#emitChange(this.#hex)
+
+        if (this.#isHex(this.#hex)) {
+          this.#picker.value = this.#hex
+        }
+      }
+
+      #updateCustomProps(value: string) {
+        document.documentElement.style.setProperty(this.#attr, value)
+      }
+
+      #emitChange(value: string = '') {
+        this.#elements.forEach(el => {
+          if (el.getAttribute('data-color-space') === 'p3') {
+            if (this.#isHex(value)) {
+              el.textContent = this.#calcP3(value)
+              return
+            }
+
+            el.textContent = value
+            return
+          }
+
+          if (this.#isHex(value)) {
+            el.textContent = value
+          }
+        })
+      }
+
+      #calcP3(value: string) {
+        const parts = value.split('#')
+        const hex = parts.pop() || ''
+        const p3 = [
+          (parseInt(hex.substring(0, 2), 16) / 255).toFixed(2),
+          (parseInt(hex.substring(2, 4), 16) / 255).toFixed(2),
+          (parseInt(hex.substring(4, 6), 16) / 255).toFixed(2),
+        ]
+        return `color(display-p3 ${p3.join(' ')})`
+      }
+
+      #isHex(value: string) {
+        return value.includes('#')
+      }
+
+      #isP3(value: string) {
+        return value.includes('p3')
+      }
+    }
+  )
+</script>

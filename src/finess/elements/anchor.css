@@ -1,9 +1,5 @@
 :where(a[href]) {
-  color: color-mix(
-    in oklab,
-    var(--color-on-accent-1),
-    35% var(--color-on-surface-1)
-  );
+  color: color-mix(in oklab, var(--color-accent), 35% var(--color-on-accent-1));
 
   text-decoration-color: currentColor;
   text-decoration-thickness: 0.1em;
@@ -13,10 +9,11 @@
 
   &:where(:hover),
   &:where(:focus) {
+    border-radius: var(--border-radius-1);
     color: color-mix(
       in oklab,
-      var(--color-on-accent-1),
-      85% var(--color-on-surface-1)
+      var(--color-accent),
+      65% var(--color-on-accent-1)
     );
   }
 
