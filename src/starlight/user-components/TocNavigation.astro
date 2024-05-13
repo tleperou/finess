@@ -205,7 +205,8 @@ const { labels, toc } = Astro.props
   toc-navigation > details summary {
     display: flex;
     column-gap: var(--column-gap-2);
-    padding: var(--padding-1);
+    block-size: calc(var(--block-size-1) - var(--padding-block-1) * 2);
+    padding-inline: var(--padding-inline-1);
     border-color: transparent;
 
     &:focus-visible {
