@@ -107,6 +107,8 @@ import IconNavigation from './icons/icon-navigation.astro'
   }
 
   details {
+    --footer-offset: calc(var(--line-height-2) + var(--space-block-1) * 2);
+
     z-index: var(--z-index-2);
     border-color: transparent;
 
@@ -143,9 +145,7 @@ import IconNavigation from './icons/icon-navigation.astro'
         block-size: 100dvh;
         z-index: var(--z-index-2);
         background-color: var(--color-surface-1);
-        padding-block-end: calc(
-          var(--line-height-2) + var(--space-block-1) * 2
-        );
+        padding-block-end: var(--footer-offset);
 
         & .close {
           display: block;
@@ -157,17 +157,21 @@ import IconNavigation from './icons/icon-navigation.astro'
 
         & summary {
           z-index: var(--z-index-1);
-          position: sticky;
-          top: 0;
           margin-inline-end: var(--margin-inline-1);
           margin-inline-start: auto;
-          margin-block: auto;
+          margin-block: calc((var(--block-size-1) - var(--line-height-1)) / 3);
         }
 
         & nav {
-          padding-block-start: var(--padding-block-1);
-          border-block-start: var(--border-width-1) solid var(--color-surface-3);
+          --toc: calc(var(--block-size-1) - var(--padding-block-1) * 2);
+          --menu: var(--block-size-1);
+          --head: var(--block-size-1);
+          --offset: calc(var(--toc) + var(--head) + var(--menu));
+          block-size: calc(100dvh - var(--offset));
+          padding-block-start: var(--padding-block-2);
           padding-inline: calc(3 * var(--padding-inline-1));
+          margin-block-start: var(--toc);
+          border-block-start: var(--border-width-1) solid var(--color-surface-3);
 
           @media (--breakpoint-sm-only) {
             overflow: auto;
