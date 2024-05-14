@@ -4,8 +4,8 @@
 /* public */
 
 :where(html) {
-  --color-accent: color(display-p3 0.1417 0.1865 0.461);
-  --color-accent-hex: #21307a;
+  --color-accent: ;
+  --color-accent-hex: ;
 }
 
 /* default */
@@ -21,33 +21,22 @@
     --color-accent: AccentColor;
     --color-accent-hex: AccentColor;
   }
+
+  @supports not (color: AccentColor) {
+    --color-accent: color(display-p3 0.05 0.18 0.83);
+    --color-accent-hex: #0c2ed3;
+  }
 }
 
 /* base colors */
 
 :where(html) {
-  --color-accent-dark: color-mix(
-    in oklab,
-    var(--color-accent-hex, var(--color-accent-default-hex)),
-    35% black
-  );
-  --color-accent-light: color-mix(
-    in oklab,
-    10% var(--color-accent-hex, var(--color-accent-default-hex)),
-    white
-  );
+  --color-accent-dark: color-mix(in oklab, var(--color-accent-hex), 35% black);
+  --color-accent-light: color-mix(in oklab, 10% var(--color-accent-hex), white);
 
   @media (--hdr) {
-    --color-accent-dark: color-mix(
-      in oklab,
-      var(--color-accent, var(--color-accent-default-hex)),
-      35% black
-    );
-    --color-accent-light: color-mix(
-      in oklab,
-      10% var(--color-accent, var(--color-accent-default-hex)),
-      white
-    );
+    --color-accent-dark: color-mix(in oklab, var(--color-accent), 35% black);
+    --color-accent-light: color-mix(in oklab, 10% var(--color-accent), white);
   }
 }
 
@@ -59,11 +48,7 @@
 
   @media (--contrast) {
     --color-accent-contrast: 40;
-    --color-accent-start: color-mix(
-      in oklab,
-      var(--color-accent, var(--color-accent-default)),
-      50% black
-    );
+    --color-accent-start: color-mix(in oklab, var(--color-accent), 50% black);
   }
 
   @media (--contrast-reduced) {

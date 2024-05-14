@@ -12,6 +12,7 @@ const config: Pick<StarlightUserConfig, 'components'> = {
     Search: './src/starlight/components/Search.astro',
     Sidebar: './src/starlight/components/Sidebar.astro',
     TwoColumnContent: './src/starlight/components/TwoColumnContent.astro',
+    PageTitle: './src/starlight/components/Title.astro',
   },
 }
 

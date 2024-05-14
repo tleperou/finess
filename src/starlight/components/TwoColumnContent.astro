@@ -49,6 +49,10 @@ import type { Props } from '@astrojs/starlight/props'
     }
   }
 
+  :global(body[data-mobile-main-navigation-on]) aside {
+    display: none;
+  }
+
   aside {
     z-index: var(--z-index-3);
     position: sticky;

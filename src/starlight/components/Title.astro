@@ -1,0 +1,45 @@
+---
+import type { Props } from '@astrojs/starlight/props'
+import { Breadcrumbs } from 'astro-breadcrumbs'
+
+const { title } = Astro.props.entry.data
+---
+
+<h1 id="_top">{title}</h1>
+
+<style>
+  h1 {
+    margin-block: var(--margin-block-2);
+    font-size: var(--font-size-3);
+    line-height: var(--line-height-1);
+  }
+
+  @counter-style slash {
+    system: cyclic;
+    symbols: '/';
+    suffix: ' ';
+  }
+
+  :global(astro-breadcrumbs) {
+    /* line-height: var(--line-height-2); */
+    /* padding-block: var(--padding-block-1); */
+  }
+
+  :global(astro-breadcrumbs nav ol) {
+    padding-block: var(--padding-block-1);
+    display: flex;
+    column-gap: var(--column-gap-1);
+    padding-inline-start: var(--padding-inline-1);
+    list-style: slash;
+    font-size: var(--font-size-0);
+    color: var(--color-on-surface-2);
+  }
+
+  :global(astro-breadcrumbs nav ol li) {
+    padding-inline-end: var(--padding-inline-1);
+  }
+
+  :global(astro-breadcrumbs nav ol li a) {
+    color: var(--color-on-surface-2);
+  }
+</style>

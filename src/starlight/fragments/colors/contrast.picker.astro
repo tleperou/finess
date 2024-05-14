@@ -7,7 +7,13 @@ const props = Astro.props
 ---
 
 <contrast-picker contrast={props.contrast}>
-  <label><slot /><input type="range" min="0" max="100" /></label>
+  <label
+    ><slot /><input
+      type="range"
+      min="0"
+      max="100"
+    /></label
+  >
 </contrast-picker>
 
 <script>
