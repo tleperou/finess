@@ -23,23 +23,25 @@ import ColorDevice from './../../../../starlight/fragments/colors/colors.device.
 import ColorPicker from './../../../../starlight/fragments/colors/colors.picker.astro'
 import ContrastPicker from './../../../../starlight/fragments/colors/contrast.picker.astro'
 
-Colors provide low and high contrast levels for users that turn them on. They also use the user's device preferences such as `Canvas` and `AccentColor` colors. They leverage high dynamic range color with the the p3 color space when supported.
+Finess defines colors upon the [`<system-color>`](https://developer.mozilla.org/en-US/docs/Web/CSS/system-color#mark) of the device with the users' contrast preferences, and within p3 color space over RGB by using [`color-mix`](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix).
+
+<aside>Personalise the colors and the contrast of each palette. Use a proper p3 color picker to empower the best of the colors.</aside>
 
 ### Usage
 
-```css "var(--color-surface-1)" "var(--color-on-surface-1)" "var(--color-on-surface-2)"
+```css "var(--color-on-surface-1)" "var(--color-on-surface-2)" "var(--color-surface-1)"
 hgroup {
   display: flex;
   flex-direction: column;
   row-gap: var(--row-gap-1);
+  background-color: var(--color-surface-1);
 
   & h1 {
-    color: var(--color-accent-1);
+    color: var(--color-on-surface-1);
   }
 
   & small {
-    color: var(--color-on-accent-2);
-    background-color: var(--color-accent-1);
+    color: var(--color-on-surface-2);
   }
 }
 ```
@@ -48,7 +50,7 @@ hgroup {
 
   ## Surface
 
-  The surface color uses the [`Canvas`](https://developer.mozilla.org/en-US/docs/Web/CSS/system-color#mark) when supported, or predefined values from a `p3` or `RGB` color space.
+  The surface color uses the [`Canvas`](https://developer.mozilla.org/en-US/docs/Web/CSS/system-color#mark) when supported, or predefined values from a `p3` or `RGB` color space that is generarly used as <strong>main background and text</strong> colors.
 
   <ColorSurface />
 
@@ -58,7 +60,9 @@ hgroup {
 
   ## Accent
 
-  The accent colors use the [`AccentColor`](https://developer.mozilla.org/en-US/docs/Web/CSS/system-color#mark) when supported, or predefined values from a `p3` or `RGB` color space.
+  The accent colors use the [`AccentColor`](https://developer.mozilla.org/en-US/docs/Web/CSS/system-color#mark) when supported, or predefined values from a `p3` or `RGB` color space that can be used for your <strong>branding color</strong> for example.
+
+  <aside>Change the accent color of your system to see the accent palette change accordingly.</aside>
 
   <ColorAccent />
 
@@ -68,7 +72,7 @@ hgroup {
 
   ## Negative
 
-  The negative colors use predefined values from a `p3` or `RGB` color space.
+  The negative colors use predefined values from a `p3` or `RGB` color space that can be used with <strong>displaying errors</strong> for instance.
 
   <ColorNegative />
 
@@ -78,7 +82,7 @@ hgroup {
 
   ## Neutral
 
-  The neutral colors use predefined values from a `p3` or `RGB` color space.
+  The neutral colors use predefined values from a `p3` or `RGB` color space that can be used with <strong>showing aside piece of information</strong> for instance.
 
   <ColorNeutral />
 
@@ -88,7 +92,7 @@ hgroup {
 
   ## Positive
 
-  The positive colors use predefined values from a `p3` or `RGB` color space.
+  The positive colors use predefined values from a `p3` or `RGB` color space that can be used with <strong>successful interaction</strong>'s output for instance.
 
   <ColorPositive />
 
