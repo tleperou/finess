@@ -1,7 +1,14 @@
-/*
-  Josh's Custom CSS Reset
-  https://www.joshwcomeau.com/css/custom-css-reset/
-*/
+---
+title: Reset
+description: Finess reset
+editUrl: https://urltoedit.com
+---
+
+Finess uses [Josh's](https://www.joshwcomeau.com/css/custom-css-reset/) minimalist custom CSS reset.
+
+### Custom CSS reset
+
+```css
 :where(*),
 :where(*::before),
 :where(*::after) {
@@ -37,17 +44,4 @@
 :where(h6) {
   overflow-wrap: break-word;
 }
-
-/* finess */
-:where(html, body) {
-  font-family: var(--font-family-sans);
-  font-size: var(--font-space-1);
-  font-weight: var(--font-weight-1);
-  font-size: var(--font-size-1);
-  line-height: var(--line-height-1);
-
-  color: var(--color-on-surface-1);
-  background-color: var(--color-surface-1);
-
-  accent-color: var(--color-accent);
-}
+```

@@ -16,9 +16,7 @@ body {
 
 /* overrides of starlight styles */
 
-h1,
-h2,
-h3 {
+:not(ul li):is(h1, h2, h3) {
   @media (--breakpoint-sm-b-avove) {
     color: var(--color-on-surface-1);
     padding-block: var(--padding-block-1);
@@ -60,6 +58,10 @@ body {
   }
 }
 
+.expressive-code .frame pre {
+  background-color: var(--color-surface-3);
+}
+
 /* finess */
 
 main {
@@ -76,7 +78,7 @@ main {
   }
 }
 
-main h2 {
+main .markdown-content > h2 {
   margin-block-start: var(--margin-block-3);
 
   @media (--md-n-above) {
@@ -90,7 +92,7 @@ main h2 {
   }
 }
 
-main h3 {
+main .markdown-content > h3 {
   margin-block-start: var(--margin-block-2);
   margin-block-end: var(--margin-block-2);
 
@@ -99,7 +101,7 @@ main h3 {
   }
 }
 
-main h4 {
+main .markdown-content > h4 {
   margin-block-start: var(--margin-block-2);
   margin-block-end: var(--margin-block-2);
 }
@@ -126,21 +128,6 @@ main :is(p, blockquote):has(+ details, + aside) {
   color: var(--color-on-surface-2);
 }
 
-main code {
-  --space-multiplier: 0.5;
-
-  font-family: var(--font-family-mono);
-  background-color: var(--color-surface-2);
-  padding-inline: var(--padding-inline-1);
-  padding-block: var(--padding-block-1);
-  border-radius: var(--border-radius-1);
-  mix-blend-mode: screen;
-
-  @media (--light) {
-    mix-blend-mode: darken;
-  }
-}
-
 main aside {
   display: flex;
   column-gap: var(--column-gap-2);
@@ -158,7 +145,7 @@ main aside {
     inline-size: auto;
     aspect-ratio: var(--aspect-ratio-square);
     mask: var(--icon-dstar-32-filled);
-    background-color: var(--color-on-neutral-2);
+    background-color: var(--color-neutral-5);
     margin-block: auto;
   }
 
