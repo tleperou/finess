@@ -1,0 +1,80 @@
+---
+title: Typography
+description: write content of typygrpahy
+---
+
+Finess has a low footptint by following default browsers styles and user's preferences. It applies colors and fluid styles.
+
+## Headings
+
+import Typography from '../../../../starlight/fragments/typography/headings.astro'
+
+<Typography />
+
+## Paragraph
+
+<details open>
+  <summary class="sr-only">Paragraph</summary>
+  <ul role="list">
+    <li>
+      <span>{`<p>`}</span>
+      <p style="color: var(--color-on-surface-1)">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non semper sem. Nunc quis lobortis nisl, quis porttitor velit. Fusce malesuada augue a lacinia maximus. Donec ut enim dapibus, eleifend lectus ut, euismod erat.</p>
+    </li>
+  </ul>
+</details>
+
+## Inline level elements
+
+<details open>
+  <summary class="sr-only">Inline level elements</summary>
+  <ul role="list">
+    <li>
+      <span>{`<abbr>`}</span>
+      <abbr title="Looks Good To Me">LGTM</abbr>
+    </li>
+    <li>
+      <span>{`<code>`}</span>
+      <code style="inline-size: max-content">class</code>
+    </li>
+    <li>
+      <span>{`<em>`}</span>
+      <em style="color: var(--color-on-surface-1)">Emphasis</em>
+    </li>
+    <li>
+      <span>{`<cite>`}</span>
+      <cite>To be, or not to be</cite>
+    </li>
+    <li>
+      <span>{`<del>`}</span>
+      <p style="padding: unset; color: var(--color-on-surface-1)">This was <del>deleted</del></p>
+    </li>
+    <li>
+      <span>{`<ins>`}</span>
+      <p style="padding: unset; color: var(--color-on-surface-1)">Just <ins>inserted</ins></p>
+    </li>
+    <li>
+      <span>{`<kbd>`}</span>
+      <p style="padding: unset; color: var(--color-on-surface-1)">Click <kbd>⌘⌥ + s</kbd></p>
+    </li>
+    <li>
+      <span>{`<mark>`}</span>
+      <p style="padding: unset; color: var(--color-on-surface-1)">searched <mark>keyword</mark></p>
+    </li>
+    <li>
+      <span>{`<small>`}</span>
+      <small style="color: var(--color-on-surface-1)">less important</small>
+    </li>
+    <li>
+      <span>{`<strong>`}</span>
+      <strong style="color: var(--color-on-surface-1)">important</strong>
+    </li>
+    <li>
+      <span>{`<sub>`}</span>
+      <p style="padding: unset;color: var(--color-on-surface-1)">H<sub>2</sub>O</p>
+    </li>
+    <li>
+      <span>{`<sup>`}</span>
+      <p style="padding: unset;color: var(--color-on-surface-1)">E = mc<sup>2</sup></p>
+    </li>
+  </ul>
+</details>

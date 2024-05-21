@@ -1,8 +1,3 @@
-<!-- <label>High resolution</label>
-<input
-  type="checkbox"
-  role="switch"
-/> -->
 <div class="wrapper-colors">
   <slot />
 </div>
@@ -12,7 +7,9 @@
     --color-border: color-mix(in oklab, var(--color), 15% CanvasText);
 
     content: '';
-    height: calc(var(--line-height-1) - var(--border-width-2));
+    block-size: calc(var(--line-height-1) - var(--border-width-2));
+    /* safari ..even with aspectio */
+    inline-size: calc(var(--line-height-1) - var(--border-width-2));
     aspect-ratio: var(--aspect-ratio-square);
     background-color: var(--color);
     border-radius: var(--border-radius-2);

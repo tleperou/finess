@@ -10,7 +10,7 @@
 
 /* default */
 
-:where(html) {
+:root {
   --color-surface-mode: in oklch shorter hue;
   --color-surface-default: color(display-p3 0.0706 0.0706 0.0635);
   --color-surface-default-hex: #121210;
@@ -25,7 +25,7 @@
 
 /* base colors */
 
-:where(html) {
+:root {
   --color-surface-dark: color-mix(
     in oklab,
     var(--color-surface-hex, var(--color-surface-default-hex)),
@@ -66,7 +66,7 @@
 
 /* dark (default) */
 
-:where(html) {
+:root {
   --color-surface-start: var(--color-surface-dark);
   --color-surface-end: var(--color-surface-light);
 
@@ -81,7 +81,7 @@
 
 /* light */
 
-:where(html) {
+:root {
   @media (--light) {
     --color-surface-contrast: 55;
     --color-surface-start: var(--color-surface-light);
@@ -99,7 +99,7 @@
 
 /* colors */
 
-:where(html) {
+:root {
   --color-surface-1: color-mix(
     var(--color-surface-mode),
     var(--color-surface-start),
@@ -133,7 +133,7 @@
 
 /* color on */
 
-:where(html) {
+:root {
   --color-on-surface-1: color-mix(
     var(--color-surface-mode),
     calc(var(--color-surface-contrast) * 1% + 70%) var(--color-surface-end),

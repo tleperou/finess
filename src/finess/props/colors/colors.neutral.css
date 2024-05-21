@@ -3,14 +3,14 @@
 
 /* public */
 
-:where(html) {
+:root {
   --color-neutral: color(display-p3 0.0757 0.1848 0.215);
   --color-neutral-hex: #053038;
 }
 
 /* default */
 
-:where(html) {
+:root {
   --color-neutral-mode: in oklch shorter hue;
   --color-neutral-default: color(display-p3 0.0757 0.1848 0.215);
   --color-neutral-default-hex: #053038;
@@ -20,15 +20,16 @@
 
 /* base colors */
 
-:where(html) {
+:root {
+  --mix-degree: 1%;
   --color-neutral-dark: color-mix(
     in oklab,
     var(--color-neutral-hex, var(--color-neutral-default-hex)),
-    1% black
+    var(--mix-degree) black
   );
   --color-neutral-light: color-mix(
     in oklab,
-    1% var(--color-neutral-hex, var(--color-neutral-default-hex)),
+    var(--mix-degree) var(--color-neutral-hex, var(--color-neutral-default-hex)),
     white
   );
 
@@ -36,11 +37,11 @@
     --color-neutral-dark: color-mix(
       in oklab,
       var(--color-neutral, var(--color-neutral-default)),
-      1% black
+      var(--mix-degree) black
     );
     --color-neutral-light: color-mix(
       in oklab,
-      1% var(--color-neutral, var(--color-neutral-default)),
+      var(--mix-degree) var(--color-neutral, var(--color-neutral-default)),
       white
     );
   }
@@ -48,7 +49,7 @@
 
 /* dark (default) */
 
-:where(html) {
+:root {
   --color-neutral-start: var(--color-neutral-dark);
   --color-neutral-end: var(--color-neutral-light);
 
@@ -68,8 +69,9 @@
 
 /* light */
 
-:where(html) {
+:root {
   @media (--light) {
+    --mix-degree: 8%;
     --color-neutral-contrast: 55;
     --color-neutral-start: var(--color-neutral-light);
     --color-neutral-end: var(--color-neutral-dark);
@@ -86,7 +88,7 @@
 
 /* colors */
 
-:where(html) {
+:root {
   --color-neutral-1: color-mix(
     var(--color-neutral-mode),
     var(--color-neutral-start),
@@ -118,7 +120,7 @@
   );
 }
 
-:where(html) {
+:root {
   --color-on-neutral-1: color-mix(
     var(--color-neutral-mode),
     calc(var(--color-neutral-contrast) * 1% + 70%) var(--color-neutral-end),
