@@ -89,6 +89,8 @@
 /* colors */
 
 :root {
+  --color-neutral-0: var(--color-neutral-start);
+
   --color-neutral-1: color-mix(
     var(--color-neutral-mode),
     var(--color-neutral-start),

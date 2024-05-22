@@ -89,6 +89,8 @@
 /* colors */
 
 :where(html) {
+  --color-positive-0: var(--color-positive-start);
+
   --color-positive-1: color-mix(
     var(--color-positive-mode),
     var(--color-positive-start),
