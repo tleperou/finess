@@ -89,6 +89,8 @@
 /* colors */
 
 :where(html) {
+  --color-negative-0: var(--color-negative-start);
+
   --color-negative-1: color-mix(
     var(--color-negative-mode),
     var(--color-negative-start),

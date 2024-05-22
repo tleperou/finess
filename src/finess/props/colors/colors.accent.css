@@ -77,6 +77,8 @@
 /* colors */
 
 :where(html) {
+  --color-accent-0: var(--color-accent-start);
+
   --color-accent-1: color-mix(
     var(--color-accent-mode),
     var(--color-accent-start),
