@@ -1,3 +1,7 @@
+:root {
+  color-scheme: light only;
+}
+
 body {
   --finess-sidebar-inline-size: clamp(
     var(--inline-size-1),
