@@ -1,74 +1,42 @@
 @import './../media/media.prefers.css';
 @import './utils.css';
 
-/* public */
-
-/* :where(html) {
-  --color-surface: Canvas;
-  --color-surface-hex: Canvas;
-} */
-
-/* default */
-
 :root {
+  /* public property */
+  --color-surface: #121210;
+  --color-surface-mix: white;
+
+  /* default dark */
   --color-surface-mode: in oklch shorter hue;
-  --color-surface-default: color(display-p3 0.0706 0.0706 0.0635);
-  --color-surface-default-hex: #121210;
   --color-surface-contrast: 30;
   --color-surface-contrast-calc: calc(var(--color-surface-contrast) / 100 * 1%);
 
   @supports (color: Canvas) {
     --color-surface: Canvas;
-    --color-surface-hex: Canvas;
-  }
-}
-
-/* base colors */
-
-:root {
-  --color-surface-dark: color-mix(
-    in oklab,
-    var(--color-surface-hex, var(--color-surface-default-hex)),
-    1% black
-  );
-  --color-surface-light: color-mix(
-    in oklab,
-    10% var(--color-surface-hex, var(--color-surface-default-hex)),
-    white
-  );
-
-  @media (--hdr) {
-    --color-surface-dark: color-mix(
-      in oklab,
-      var(--color-surface, var(--color-surface-default)),
-      1% black
-    );
-    --color-surface-light: color-mix(
-      in oklab,
-      10% var(--color-surface, var(--color-surface-default)),
-      white
-    );
   }
 
+  @supports (color: CanvasText) {
+    --color-surface-mix: CanvasText;
+  }
+
+  /* light */
   @media (--light) {
-    --color-surface-dark: color-mix(
-      in oklab,
-      var(--color-surface-hex, var(--color-surface-default-hex)),
-      65% black
-    );
-    --color-surface-light: color-mix(
-      in oklab,
-      var(--color-surface-hex, var(--color-surface-default-hex)),
-      1% black
-    );
+    --color-surface: #f4f4f4;
+    --color-surface-mix: #121210;
   }
 }
 
-/* dark (default) */
-
 :root {
-  --color-surface-start: var(--color-surface-dark);
-  --color-surface-end: var(--color-surface-light);
+  --color-surface-start: color-mix(
+    in oklab,
+    var(--color-surface),
+    1% var(--color-surface-mix)
+  );
+  --color-surface-end: color-mix(
+    in oklab,
+    10% var(--color-surface),
+    var(--color-surface-mix)
+  );
 
   @media (--contrast) {
     --color-surface-contrast: 40;
@@ -76,24 +44,6 @@
 
   @media (--contrast-reduced) {
     --color-surface-contrast: 7;
-  }
-}
-
-/* light */
-
-:root {
-  @media (--light) {
-    --color-surface-contrast: 55;
-    --color-surface-start: var(--color-surface-light);
-    --color-surface-end: var(--color-surface-dark);
-  }
-
-  @media (--light-contrast) {
-    --color-surface-contrast: 64;
-  }
-
-  @media (--light-contrast-reduced) {
-    --color-surface-contrast: 15;
   }
 }
 
@@ -144,7 +94,7 @@
 
   --color-on-surface-2: color-mix(
     var(--color-surface-mode),
-    calc(var(--color-surface-contrast) * 1% + 40%) var(--color-on-surface-1),
+    calc(var(--color-surface-contrast) * 1% + 30%) var(--color-on-surface-1),
     transparent
   );
 }
