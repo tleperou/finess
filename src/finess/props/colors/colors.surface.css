@@ -2,99 +2,95 @@
 @import './utils.css';
 
 :root {
-  /* public property */
   --color-surface: #121210;
-  --color-surface-mix: white;
-
-  /* default dark */
-  --color-surface-mode: in oklch shorter hue;
+  --color-surface-mix: #f4f4f4;
   --color-surface-contrast: 30;
-  --color-surface-contrast-calc: calc(var(--color-surface-contrast) / 100 * 1%);
 
-  @supports (color: Canvas) {
-    --color-surface: Canvas;
-  }
-
-  @supports (color: CanvasText) {
-    --color-surface-mix: CanvasText;
-  }
-
-  /* light */
   @media (--light) {
     --color-surface: #f4f4f4;
     --color-surface-mix: #121210;
   }
-}
 
-:root {
-  --color-surface-start: color-mix(
+  /* system colors */
+  @supports (color: Canvas) and (color: CanvasText) {
+    --color-surface: Canvas;
+    --color-surface-mix: CanvasText;
+  }
+
+  /* mix mode and contrast */
+  --kolor-surface-mode: in oklch shorter hue;
+  --kolor-surface-contrast: calc(var(--color-surface-contrast) / 100 * 1%);
+
+  /* lightest and darkest colors */
+  --kolor-surface-start: color-mix(
     in oklab,
     var(--color-surface),
     1% var(--color-surface-mix)
   );
-  --color-surface-end: color-mix(
+  --kolor-surface-end: color-mix(
     in oklab,
     10% var(--color-surface),
     var(--color-surface-mix)
   );
 
+  /* system contrasts */
   @media (--contrast) {
-    --color-surface-contrast: 40;
+    --kolor-surface-contrast: calc(
+      var(--color-surface-contrast) / 100 * 1% * 3.5
+    );
   }
 
   @media (--contrast-reduced) {
-    --color-surface-contrast: 7;
+    --kolor-surface-contrast: calc(
+      var(--color-surface-contrast) / 100 * 1% * 0.35
+    );
   }
-}
 
-/* colors */
+  /* color surface */
 
-:root {
-  --color-surface-0: var(--color-surface-start);
+  --color-surface-0: var(--kolor-surface-start);
 
   --color-surface-1: color-mix(
-    var(--color-surface-mode),
-    var(--color-surface-start),
-    calc(var(--color-surface-contrast-calc)) var(--color-surface-end)
+    var(--kolor-surface-mode),
+    var(--kolor-surface-start),
+    var(--kolor-surface-contrast) var(--kolor-surface-end)
   );
 
   --color-surface-2: color-mix(
-    var(--color-surface-mode),
+    var(--kolor-surface-mode),
     var(--color-surface-1),
-    calc(20 * var(--color-surface-contrast-calc)) var(--color-surface-end)
+    calc(20 * var(--kolor-surface-contrast)) var(--kolor-surface-end)
   );
 
   --color-surface-3: color-mix(
-    var(--color-surface-mode),
+    var(--kolor-surface-mode),
     var(--color-surface-1),
-    calc(40 * var(--color-surface-contrast-calc)) var(--color-surface-end)
+    calc(40 * var(--kolor-surface-contrast)) var(--kolor-surface-end)
   );
 
   --color-surface-4: color-mix(
-    var(--color-surface-mode),
+    var(--kolor-surface-mode),
     var(--color-surface-1),
-    calc(60 * var(--color-surface-contrast-calc)) var(--color-surface-end)
+    calc(60 * var(--kolor-surface-contrast)) var(--kolor-surface-end)
   );
 
   --color-surface-5: color-mix(
-    var(--color-surface-mode),
+    var(--kolor-surface-mode),
     var(--color-surface-1),
-    calc(100 * var(--color-surface-contrast-calc)) var(--color-surface-end)
+    calc(100 * var(--kolor-surface-contrast)) var(--kolor-surface-end)
   );
-}
 
-/* color on */
+  /* color on surface */
 
-:root {
   --color-on-surface-1: color-mix(
-    var(--color-surface-mode),
-    calc(var(--color-surface-contrast) * 1% + 70%) var(--color-surface-end),
-    transparent
+    var(--kolor-surface-mode),
+    var(--kolor-surface-start),
+    calc(var(--kolor-surface-contrast) * 500) var(--kolor-surface-end)
   );
 
   --color-on-surface-2: color-mix(
-    var(--color-surface-mode),
-    calc(var(--color-surface-contrast) * 1% + 30%) var(--color-on-surface-1),
-    transparent
+    var(--kolor-surface-mode),
+    var(--kolor-surface-start),
+    calc(var(--kolor-surface-contrast) * 280) var(--kolor-surface-end)
   );
 }
