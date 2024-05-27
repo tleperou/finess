@@ -23,9 +23,9 @@ import ColorDevice from './../../../../starlight/fragments/colors/colors.device.
 import ColorPicker from './../../../../starlight/fragments/colors/colors.picker.astro'
 import ContrastPicker from './../../../../starlight/fragments/colors/contrast.picker.astro'
 
-Finess defines colors upon the [`<system-color>`](https://developer.mozilla.org/en-US/docs/Web/CSS/system-color#mark) of the device with the users' contrast preferences, and within p3 color space over RGB by using [`color-mix`](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix).
+Finess defines colors upon the [`<system-color>`](https://developer.mozilla.org/en-US/docs/Web/CSS/system-color#mark) of the device with the users' contrast preferences using [`color-mix`](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix) as possible.
 
-<aside>Personalise the color palettes using the dark color schema. Use a proper p3 color picker to empower the best of the colors.</aside>
+<aside>Personalise the palettes using the color and constrast pickers.</aside>
 
 ### Usage
 
@@ -50,7 +50,7 @@ hgroup {
 
   ## Surface
 
-  The surface color uses the [`Canvas`](https://developer.mozilla.org/en-US/docs/Web/CSS/system-color#mark) when supported, or predefined values from a `p3` or `RGB` color space that is generarly used as <strong>main background and text</strong> colors.
+  The surface color uses the [`Canvas`](https://developer.mozilla.org/en-US/docs/Web/CSS/system-color#mark) when supported that is generarly used as <strong>main background and text</strong> colors.
 
   <ColorSurface />
 
@@ -60,7 +60,7 @@ hgroup {
 
   ## Accent
 
-  The accent colors use the [`AccentColor`](https://developer.mozilla.org/en-US/docs/Web/CSS/system-color#mark) when supported, or predefined values from a `p3` or `RGB` color space that can be used for your <strong>branding color</strong> for example.
+  The accent colors use the [`AccentColor`](https://developer.mozilla.org/en-US/docs/Web/CSS/system-color#mark) when supported that can be used for your <strong>branding color</strong> for example.
 
   <aside>Change the accent color of your system to see the accent palette change accordingly.</aside>
 
@@ -72,7 +72,7 @@ hgroup {
 
   ## Negative
 
-  The negative colors use predefined values from a `p3` or `RGB` color space that can be used with <strong>displaying errors</strong> for instance.
+  The negative colors use predefined values that can be used with <strong>displaying errors</strong> for instance.
 
   <ColorNegative />
 
@@ -82,7 +82,7 @@ hgroup {
 
   ## Neutral
 
-  The neutral colors use predefined values from a `p3` or `RGB` color space that can be used with <strong>showing aside piece of information</strong> for instance.
+  The neutral colors use predefined values that can be used with <strong>showing aside piece of information</strong> for instance.
 
   <ColorNeutral />
 
@@ -92,7 +92,7 @@ hgroup {
 
   ## Positive
 
-  The positive colors use predefined values from a `p3` or `RGB` color space that can be used with <strong>successful interaction</strong>'s output for instance.
+  The positive colors use predefined values that can be used with <strong>successful interaction</strong>'s output for instance.
 
   <ColorPositive />
 

@@ -1,137 +1,103 @@
 @import './../media/media.prefers.css';
 @import './utils.css';
 
-/* public */
+:root {
+  --color-negative: darkred;
+  --color-negative-mix: var(--color-on-surface-1);
+  --color-negative-contrast: 50;
 
-:where(html) {
-  --color-negative: color(display-p3 0.4498 0.1371 0.1212);
-  --color-negative-hex: #7d1a1a;
-}
-
-/* default */
-
-:where(html) {
-  --color-negative-mode: in oklch shorter hue;
-  --color-negative-default: color(display-p3 0.4498 0.1371 0.1212);
-  --color-negative-default-hex: #7d1a1a;
-  --color-negative-contrast: 30;
-  --color-negative-contrast-calc: calc(
-    var(--color-negative-contrast) / 100 * 1%
-  );
-}
-
-/* base colors */
-
-:where(html) {
-  --color-negative-dark: color-mix(
-    in oklab,
-    var(--color-negative-hex, var(--color-negative-default-hex)),
-    1% black
-  );
-  --color-negative-light: color-mix(
-    in oklab,
-    1% var(--color-negative-hex, var(--color-negative-default-hex)),
-    white
-  );
-
-  @media (--hdr) {
-    --color-negative-dark: color-mix(
-      in oklab,
-      var(--color-negative, var(--color-negative-default)),
-      1% black
-    );
-    --color-negative-light: color-mix(
-      in oklab,
-      1% var(--color-negative, var(--color-negative-default)),
-      white
-    );
+  @media (--light) {
+    --color-negative: lightcoral;
+    --color-negative-contrast: 50;
   }
-}
 
-/* dark (default) */
+  /* system colors */
+  @supports (color: negativeColor) and (color: negativeColorText) {
+    --color-negative: negativeColor;
+    --color-negative-mix: negativeColorText;
+  }
 
-:where(html) {
-  --color-negative-start: var(--color-negative-dark);
-  --color-negative-end: var(--color-negative-light);
+  /* mix mode and contrast */
+  --kolor-negative-mode: in oklch shorter hue;
+  --kolor-negative-contrast: calc(var(--color-negative-contrast) / 100 * 1%);
+  --kolor-on-negative-contrast: calc(var(--color-negative-contrast) / 100 * 1%);
 
+  /* lightest and darkest colors */
+  --kolor-negative-start: color-mix(
+    in oklab,
+    var(--color-negative),
+    1% var(--color-negative-mix)
+  );
+  --kolor-negative-end: color-mix(
+    in oklab,
+    10% var(--color-negative),
+    var(--color-negative-mix)
+  );
+
+  /* system contrasts */
   @media (--contrast) {
-    --color-negative-contrast: 40;
-    --color-negative-start: color-mix(
-      in oklab,
-      var(--color-negative, var(--color-negative-default)),
-      25% black
+    --kolor-negative-contrast: calc(
+      var(--color-negative-contrast) / 100 * 1% * 1.85
+    );
+    --kolor-on-negative-contrast: calc(
+      var(--color-negative-contrast) / 100 * 1% * 1.85
     );
   }
 
   @media (--contrast-reduced) {
-    --color-negative-contrast: 7;
-  }
-}
-
-/* light */
-
-:where(html) {
-  @media (--light) {
-    --color-negative-contrast: 55;
-    --color-negative-start: var(--color-negative-light);
-    --color-negative-end: var(--color-negative-dark);
+    --kolor-negative-contrast: calc(
+      var(--color-negative-contrast) / 100 * 1% * 0.35
+    );
+    --kolor-on-negative-contrast: calc(
+      var(--color-negative-contrast) / 100 * 1% * 0.35
+    );
   }
 
-  @media (--light-contrast) {
-    --color-negative-contrast: 64;
-  }
+  /* color negative */
 
-  @media (--light-contrast-reduced) {
-    --color-negative-contrast: 15;
-  }
-}
-
-/* colors */
-
-:where(html) {
-  --color-negative-0: var(--color-negative-start);
+  --color-negative-0: var(--kolor-negative-start);
 
   --color-negative-1: color-mix(
-    var(--color-negative-mode),
-    var(--color-negative-start),
-    calc(var(--color-negative-contrast-calc)) var(--color-negative-end)
+    var(--kolor-negative-mode),
+    var(--kolor-negative-start),
+    var(--kolor-negative-contrast) var(--kolor-negative-end)
   );
 
   --color-negative-2: color-mix(
-    var(--color-negative-mode),
+    var(--kolor-negative-mode),
     var(--color-negative-1),
-    calc(20 * var(--color-negative-contrast-calc)) var(--color-negative-end)
+    calc(20 * var(--kolor-negative-contrast)) var(--kolor-negative-end)
   );
 
   --color-negative-3: color-mix(
-    var(--color-negative-mode),
+    var(--kolor-negative-mode),
     var(--color-negative-1),
-    calc(40 * var(--color-negative-contrast-calc)) var(--color-negative-end)
+    calc(40 * var(--kolor-negative-contrast)) var(--kolor-negative-end)
   );
 
   --color-negative-4: color-mix(
-    var(--color-negative-mode),
+    var(--kolor-negative-mode),
     var(--color-negative-1),
-    calc(60 * var(--color-negative-contrast-calc)) var(--color-negative-end)
+    calc(60 * var(--kolor-negative-contrast)) var(--kolor-negative-end)
   );
 
   --color-negative-5: color-mix(
-    var(--color-negative-mode),
+    var(--kolor-negative-mode),
     var(--color-negative-1),
-    calc(100 * var(--color-negative-contrast-calc)) var(--color-negative-end)
+    calc(100 * var(--kolor-negative-contrast)) var(--kolor-negative-end)
   );
-}
 
-:where(html) {
+  /* color on negative */
+
   --color-on-negative-1: color-mix(
-    var(--color-negative-mode),
-    calc(var(--color-negative-contrast) * 1% + 70%) var(--color-negative-end),
-    transparent
+    var(--kolor-negative-mode),
+    var(--kolor-negative-start),
+    calc(var(--kolor-on-negative-contrast) * 250) var(--kolor-negative-end)
   );
 
   --color-on-negative-2: color-mix(
-    var(--color-negative-mode),
-    calc(var(--color-negative-contrast) * 1% + 40%) var(--color-on-negative-1),
-    transparent
+    var(--kolor-negative-mode),
+    var(--kolor-negative-start),
+    calc(var(--kolor-on-negative-contrast) * 150) var(--kolor-negative-end)
   );
 }
