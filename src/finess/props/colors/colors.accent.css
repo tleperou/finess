@@ -3,8 +3,8 @@
 
 :root {
   --color-accent: #0c2ed3;
-  --color-accent-mix: #f4f4f4;
-  --color-accent-contrast: 65;
+  --color-accent-mix: var(--color-surface-1);
+  --color-accent-contrast: 55;
 
   @media (--light) {
     --color-accent: #6479e5;
@@ -21,6 +21,7 @@
   /* mix mode and contrast */
   --kolor-accent-mode: in oklch shorter hue;
   --kolor-accent-contrast: calc(var(--color-accent-contrast) / 100 * 1%);
+  --kolor-on-accent-contrast: calc(var(--color-accent-contrast) / 100 * 1%);
 
   /* lightest and darkest colors */
   --kolor-accent-start: color-mix(
@@ -39,11 +40,17 @@
     --kolor-accent-contrast: calc(
       var(--color-accent-contrast) / 100 * 1% * 1.85
     );
+    --kolor-on-accent-contrast: calc(
+      var(--color-accent-contrast) / 100 * 1% * 2
+    );
   }
 
   @media (--contrast-reduced) {
     --kolor-accent-contrast: calc(
-      var(--color-accent-contrast) / 100 * 1% * 0.35
+      var(--color-accent-contrast) / 100 * 1% * 0.5
+    );
+    --kolor-on-accent-contrast: calc(
+      var(--color-accent-contrast) / 100 * 1% * 0.65
     );
   }
 
@@ -86,20 +93,12 @@
   --color-on-accent-1: color-mix(
     var(--kolor-accent-mode),
     var(--kolor-accent-start),
-    calc(var(--kolor-accent-contrast) * 250) var(--kolor-accent-end)
+    calc(var(--kolor-on-accent-contrast) * 250) var(--kolor-accent-end)
   );
 
   --color-on-accent-2: color-mix(
     var(--kolor-accent-mode),
     var(--kolor-accent-start),
-    calc(var(--kolor-accent-contrast) * 110) var(--kolor-accent-end)
+    calc(var(--kolor-on-accent-contrast) * 135) var(--kolor-accent-end)
   );
-
-  @media (--light) {
-    --color-on-accent-2: color-mix(
-      var(--kolor-accent-mode),
-      var(--kolor-accent-start),
-      calc(var(--kolor-accent-contrast) * 200) var(--kolor-accent-end)
-    );
-  }
 }

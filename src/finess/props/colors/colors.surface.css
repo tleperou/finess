@@ -20,6 +20,7 @@
   /* mix mode and contrast */
   --kolor-surface-mode: in oklch shorter hue;
   --kolor-surface-contrast: calc(var(--color-surface-contrast) / 100 * 1%);
+  --kolor-on-surface-contrast: calc(var(--color-surface-contrast) / 100 * 1%);
 
   /* lightest and darkest colors */
   --kolor-surface-start: color-mix(
@@ -38,11 +39,18 @@
     --kolor-surface-contrast: calc(
       var(--color-surface-contrast) / 100 * 1% * 3.5
     );
+    --kolor-on-surface-contrast: calc(
+      var(--color-accent-contrast) / 100 * 1% * 3.65
+    );
   }
 
   @media (--contrast-reduced) {
     --kolor-surface-contrast: calc(
       var(--color-surface-contrast) / 100 * 1% * 0.35
+    );
+
+    --kolor-on-surface-contrast: calc(
+      var(--color-accent-contrast) / 100 * 1% * 0.35
     );
   }
 
@@ -85,12 +93,12 @@
   --color-on-surface-1: color-mix(
     var(--kolor-surface-mode),
     var(--kolor-surface-start),
-    calc(var(--kolor-surface-contrast) * 500) var(--kolor-surface-end)
+    calc(var(--kolor-on-surface-contrast) * 350) var(--kolor-surface-end)
   );
 
   --color-on-surface-2: color-mix(
     var(--kolor-surface-mode),
     var(--kolor-surface-start),
-    calc(var(--kolor-surface-contrast) * 280) var(--kolor-surface-end)
+    calc(var(--kolor-on-surface-contrast) * 215) var(--kolor-surface-end)
   );
 }
