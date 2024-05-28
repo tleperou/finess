@@ -12,8 +12,9 @@
   }
 
   /* system colors */
-  @supports (color: AccentColor) {
+  @supports (color: AccentColor) and (color: AccentColorText) {
     --color-accent: AccentColor;
+    --color-accent-mix: AccentColorText;
   }
 
   /* mix mode and contrast */

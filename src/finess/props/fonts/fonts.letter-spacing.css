@@ -3,7 +3,7 @@
 /* 
  * Mutate per elements.
  */
-:where(*) {
+:where(html) {
   --font-letter-spacing-coefficient: var(--global-font-multiplier);
 }
 
@@ -11,7 +11,7 @@
  * Preserve consistant letter spacing through different 
  * screen ratios. Prevent over spacing on portrait.
  */
-:where(*) {
+:where(html) {
   --font-letter-spacing-ratio: 1;
 
   @media (--landscape) {
@@ -19,7 +19,7 @@
   }
 }
 
-:where(*) {
+:where(html) {
   /* private props */
   --_ls-0: -0.05em;
   --_ls-1: 0.025em;

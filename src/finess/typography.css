@@ -44,21 +44,3 @@
   background-color: var(--color-positive-1);
   text-decoration: none;
 }
-
-:where(:is(kbd, code)) {
-  font-family: var(--font-family-mono);
-  background-color: var(--color-surface-2);
-  padding-inline: calc(var(--padding-inline-1) * 0.5);
-  padding-block: calc(var(--space-block-1) * 0.5);
-  border-radius: var(--border-radius-1);
-  mix-blend-mode: screen;
-  line-height: var(--line-height-0);
-
-  @media (--light) {
-    mix-blend-mode: darken;
-  }
-}
-
-:where(kbd) {
-  background-color: var(--color-surface-4);
-}

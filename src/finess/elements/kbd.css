@@ -1,8 +1,6 @@
-:where(code) {
+:where(kbd) {
   font-family: var(--font-family-mono);
-
-  font-family: var(--font-family-mono);
-  background-color: var(--color-surface-2);
+  background-color: var(--color-surface-4);
   padding-inline: calc(var(--padding-inline-1) * 0.5);
   padding-block: calc(var(--space-block-1) * 0.5);
   border-radius: var(--border-radius-1);

@@ -1,139 +1,107 @@
 @import './../media/media.prefers.css';
 @import './utils.css';
 
-/* public */
-
-:where(html) {
-  --color-positive: color(display-p3 0.01 0.25 0.01);
-  --color-positive-hex: #004100;
+html[data-theme='dark'] {
+  --color-positive: darkgreen;
+  --color-positive-contrast: 65;
 }
 
-/* default */
-
-:where(html) {
-  --color-positive-mode: in oklch shorter hue;
-  --color-positive-default: color(display-p3 0.01 0.25 0.01);
-  --color-positive-default-hex: #004100;
-  --color-positive-contrast: 30;
-  --color-positive-contrast-calc: calc(
-    var(--color-positive-contrast) / 100 * 1%
-  );
+html[data-theme='light'] {
+  --color-positive: darkseagreen;
+  --color-positive-contrast: 50;
 }
 
-/* base colors */
+:root {
+  --color-positive: darkgreen;
+  --color-positive-mix: var(--color-on-surface-1);
+  --color-positive-contrast: 65;
 
-:where(html) {
-  --color-positive-dark: color-mix(
-    in oklab,
-    var(--color-positive-hex, var(--color-positive-default-hex)),
-    1% black
-  );
-  --color-positive-light: color-mix(
-    in oklab,
-    1% var(--color-positive-hex, var(--color-positive-default-hex)),
-    white
-  );
-
-  @media (--hdr) {
-    --color-positive-dark: color-mix(
-      in oklab,
-      var(--color-positive, var(--color-positive-default)),
-      1% black
-    );
-    --color-positive-light: color-mix(
-      in oklab,
-      1% var(--color-positive, var(--color-positive-default)),
-      white
-    );
+  @media (--light) {
+    --color-positive: darkseagreen;
+    --color-positive-contrast: 50;
   }
-}
 
-/* dark (default) */
+  /* mix mode and contrast */
+  --kolor-positive-mode: in oklch shorter hue;
+  --kolor-positive-contrast: calc(var(--color-positive-contrast) / 100 * 1%);
+  --kolor-on-positive-contrast: calc(var(--color-positive-contrast) / 100 * 1%);
 
-:where(html) {
-  --color-positive-start: var(--color-positive-dark);
-  --color-positive-end: var(--color-positive-light);
+  /* lightest and darkest colors */
+  --kolor-positive-start: color-mix(
+    in oklab,
+    var(--color-positive),
+    1% var(--color-positive-mix)
+  );
+  --kolor-positive-end: color-mix(
+    in oklab,
+    10% var(--color-positive),
+    var(--color-positive-mix)
+  );
 
+  /* system contrasts */
   @media (--contrast) {
-    --color-positive-contrast: 40;
-    --color-positive-start: color-mix(
-      in oklab,
-      var(--color-positive, var(--color-positive-default)),
-      25% black
+    --kolor-positive-contrast: calc(
+      var(--color-positive-contrast) / 100 * 1% * 1.85
+    );
+    --kolor-on-positive-contrast: calc(
+      var(--color-positive-contrast) / 100 * 1% * 1.85
     );
   }
 
   @media (--contrast-reduced) {
-    --color-positive-contrast: 7;
-  }
-}
-
-/* light */
-
-:where(html) {
-  @media (--light) {
-    --color-positive-contrast: 55;
-    --color-positive-start: var(--color-positive-light);
-    --color-positive-end: var(--color-positive-dark);
+    --kolor-positive-contrast: calc(
+      var(--color-positive-contrast) / 100 * 1% * 0.35
+    );
+    --kolor-on-positive-contrast: calc(
+      var(--color-positive-contrast) / 100 * 1% * 0.35
+    );
   }
 
-  @media (--light-contrast) {
-    --color-positive-contrast: 64;
-  }
+  /* color positive */
 
-  @media (--light-contrast-reduced) {
-    --color-positive-contrast: 15;
-  }
-}
-
-/* colors */
-
-:where(html) {
-  --color-positive-0: var(--color-positive-start);
+  --color-positive-0: var(--kolor-positive-start);
 
   --color-positive-1: color-mix(
-    var(--color-positive-mode),
-    var(--color-positive-start),
-    calc(var(--color-positive-contrast-calc)) var(--color-positive-end)
+    var(--kolor-positive-mode),
+    var(--kolor-positive-start),
+    var(--kolor-positive-contrast) var(--kolor-positive-end)
   );
 
   --color-positive-2: color-mix(
-    var(--color-positive-mode),
+    var(--kolor-positive-mode),
     var(--color-positive-1),
-    calc(20 * var(--color-positive-contrast-calc)) var(--color-positive-end)
+    calc(20 * var(--kolor-positive-contrast)) var(--kolor-positive-end)
   );
 
   --color-positive-3: color-mix(
-    var(--color-positive-mode),
+    var(--kolor-positive-mode),
     var(--color-positive-1),
-    calc(40 * var(--color-positive-contrast-calc)) var(--color-positive-end)
+    calc(40 * var(--kolor-positive-contrast)) var(--kolor-positive-end)
   );
 
   --color-positive-4: color-mix(
-    var(--color-positive-mode),
+    var(--kolor-positive-mode),
     var(--color-positive-1),
-    calc(60 * var(--color-positive-contrast-calc)) var(--color-positive-end)
+    calc(60 * var(--kolor-positive-contrast)) var(--kolor-positive-end)
   );
 
   --color-positive-5: color-mix(
-    var(--color-positive-mode),
+    var(--kolor-positive-mode),
     var(--color-positive-1),
-    calc(100 * var(--color-positive-contrast-calc)) var(--color-positive-end)
+    calc(100 * var(--kolor-positive-contrast)) var(--kolor-positive-end)
   );
-}
 
-/* color on */
+  /* color on positive */
 
-:where(html) {
   --color-on-positive-1: color-mix(
-    var(--color-positive-mode),
-    calc(var(--color-positive-contrast) * 1% + 70%) var(--color-positive-end),
-    transparent
+    var(--kolor-positive-mode),
+    var(--kolor-positive-start),
+    calc(var(--kolor-on-positive-contrast) * 250) var(--kolor-positive-end)
   );
 
   --color-on-positive-2: color-mix(
-    var(--color-positive-mode),
-    calc(var(--color-positive-contrast) * 1% + 40%) var(--color-on-positive-1),
-    transparent
+    var(--kolor-positive-mode),
+    var(--kolor-positive-start),
+    calc(var(--kolor-on-positive-contrast) * 135) var(--kolor-positive-end)
   );
 }
