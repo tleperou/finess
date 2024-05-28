@@ -1,5 +1,9 @@
-:root {
+html[data-theme='light'] {
   color-scheme: light only;
+}
+
+html[data-theme='dark'] {
+  color-scheme: dark only;
 }
 
 body {
@@ -25,6 +29,10 @@ body {
     color: var(--color-on-surface-1);
     padding-block: var(--padding-block-1);
   }
+}
+
+code {
+  font-family: var(--font-family-mono);
 }
 
 html,

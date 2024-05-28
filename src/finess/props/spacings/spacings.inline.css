@@ -3,7 +3,7 @@
 /* 
  * Mutate per elements.
  */
-:where(*) {
+:where(html) {
   --space-inline-multiplier: var(--space-multiplier);
 }
 
@@ -11,7 +11,7 @@
  * Preserve consistant spacings through different 
  * screen ratios. Prevent over spacing on landscape.
  */
-:where(*) {
+:where(html) {
   --space-inline-ratio: 1;
 
   @media (--landscape) {
@@ -19,7 +19,7 @@
   }
 }
 
-:where(*) {
+:where(html) {
   --space-inline-1: calc(
     var(--space-inline-multiplier) *
       clamp(

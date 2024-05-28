@@ -1,137 +1,107 @@
 @import './../media/media.prefers.css';
 @import './utils.css';
 
-/* public */
-
-:root {
-  --color-neutral: color(display-p3 0.0757 0.1848 0.215);
-  --color-neutral-hex: #053038;
+html[data-theme='dark'] {
+  --color-neutral: darkslateblue;
+  --color-neutral-contrast: 50;
 }
 
-/* default */
-
-:root {
-  --color-neutral-mode: in oklch shorter hue;
-  --color-neutral-default: color(display-p3 0.0757 0.1848 0.215);
-  --color-neutral-default-hex: #053038;
-  --color-neutral-contrast: 30;
-  --color-neutral-contrast-calc: calc(var(--color-neutral-contrast) / 100 * 1%);
+html[data-theme='light'] {
+  --color-neutral: lightsteelblue;
+  --color-neutral-contrast: 50;
 }
 
-/* base colors */
-
 :root {
-  --mix-degree: 1%;
-  --color-neutral-dark: color-mix(
-    in oklab,
-    var(--color-neutral-hex, var(--color-neutral-default-hex)),
-    var(--mix-degree) black
-  );
-  --color-neutral-light: color-mix(
-    in oklab,
-    var(--mix-degree) var(--color-neutral-hex, var(--color-neutral-default-hex)),
-    white
-  );
+  --color-neutral: darkslateblue;
+  --color-neutral-mix: var(--color-on-surface-1);
+  --color-neutral-contrast: 50;
 
-  @media (--hdr) {
-    --color-neutral-dark: color-mix(
-      in oklab,
-      var(--color-neutral, var(--color-neutral-default)),
-      var(--mix-degree) black
-    );
-    --color-neutral-light: color-mix(
-      in oklab,
-      var(--mix-degree) var(--color-neutral, var(--color-neutral-default)),
-      white
-    );
+  @media (--light) {
+    --color-neutral: lightsteelblue;
+    --color-neutral-contrast: 50;
   }
-}
 
-/* dark (default) */
+  /* mix mode and contrast */
+  --kolor-neutral-mode: in oklch shorter hue;
+  --kolor-neutral-contrast: calc(var(--color-neutral-contrast) / 100 * 1%);
+  --kolor-on-neutral-contrast: calc(var(--color-neutral-contrast) / 100 * 1%);
 
-:root {
-  --color-neutral-start: var(--color-neutral-dark);
-  --color-neutral-end: var(--color-neutral-light);
+  /* lightest and darkest colors */
+  --kolor-neutral-start: color-mix(
+    in oklab,
+    var(--color-neutral),
+    1% var(--color-neutral-mix)
+  );
+  --kolor-neutral-end: color-mix(
+    in oklab,
+    10% var(--color-neutral),
+    var(--color-neutral-mix)
+  );
 
+  /* system contrasts */
   @media (--contrast) {
-    --color-neutral-contrast: 40;
-    --color-neutral-start: color-mix(
-      in oklab,
-      var(--color-neutral, var(--color-neutral-default)),
-      25% black
+    --kolor-neutral-contrast: calc(
+      var(--color-neutral-contrast) / 100 * 1% * 1.85
+    );
+    --kolor-on-neutral-contrast: calc(
+      var(--color-neutral-contrast) / 100 * 1% * 1.85
     );
   }
 
   @media (--contrast-reduced) {
-    --color-neutral-contrast: 7;
-  }
-}
-
-/* light */
-
-:root {
-  @media (--light) {
-    --mix-degree: 8%;
-    --color-neutral-contrast: 55;
-    --color-neutral-start: var(--color-neutral-light);
-    --color-neutral-end: var(--color-neutral-dark);
+    --kolor-neutral-contrast: calc(
+      var(--color-neutral-contrast) / 100 * 1% * 0.35
+    );
+    --kolor-on-neutral-contrast: calc(
+      var(--color-neutral-contrast) / 100 * 1% * 0.35
+    );
   }
 
-  @media (--light-contrast) {
-    --color-neutral-contrast: 64;
-  }
+  /* color neutral */
 
-  @media (--light-contrast-reduced) {
-    --color-neutral-contrast: 15;
-  }
-}
-
-/* colors */
-
-:root {
-  --color-neutral-0: var(--color-neutral-start);
+  --color-neutral-0: var(--kolor-neutral-start);
 
   --color-neutral-1: color-mix(
-    var(--color-neutral-mode),
-    var(--color-neutral-start),
-    calc(var(--color-neutral-contrast-calc)) var(--color-neutral-end)
+    var(--kolor-neutral-mode),
+    var(--kolor-neutral-start),
+    var(--kolor-neutral-contrast) var(--kolor-neutral-end)
   );
 
   --color-neutral-2: color-mix(
-    var(--color-neutral-mode),
+    var(--kolor-neutral-mode),
     var(--color-neutral-1),
-    calc(20 * var(--color-neutral-contrast-calc)) var(--color-neutral-end)
+    calc(20 * var(--kolor-neutral-contrast)) var(--kolor-neutral-end)
   );
 
   --color-neutral-3: color-mix(
-    var(--color-neutral-mode),
+    var(--kolor-neutral-mode),
     var(--color-neutral-1),
-    calc(40 * var(--color-neutral-contrast-calc)) var(--color-neutral-end)
+    calc(40 * var(--kolor-neutral-contrast)) var(--kolor-neutral-end)
   );
 
   --color-neutral-4: color-mix(
-    var(--color-neutral-mode),
+    var(--kolor-neutral-mode),
     var(--color-neutral-1),
-    calc(60 * var(--color-neutral-contrast-calc)) var(--color-neutral-end)
+    calc(60 * var(--kolor-neutral-contrast)) var(--kolor-neutral-end)
   );
 
   --color-neutral-5: color-mix(
-    var(--color-neutral-mode),
+    var(--kolor-neutral-mode),
     var(--color-neutral-1),
-    calc(100 * var(--color-neutral-contrast-calc)) var(--color-neutral-end)
+    calc(100 * var(--kolor-neutral-contrast)) var(--kolor-neutral-end)
   );
-}
 
-:root {
+  /* color on neutral */
+
   --color-on-neutral-1: color-mix(
-    var(--color-neutral-mode),
-    calc(var(--color-neutral-contrast) * 1% + 70%) var(--color-neutral-end),
-    transparent
+    var(--kolor-neutral-mode),
+    var(--kolor-neutral-start),
+    calc(var(--kolor-on-neutral-contrast) * 250) var(--kolor-neutral-end)
   );
 
   --color-on-neutral-2: color-mix(
-    var(--color-neutral-mode),
-    calc(var(--color-neutral-contrast) * 1% + 40%) var(--color-on-neutral-1),
-    transparent
+    var(--kolor-neutral-mode),
+    var(--kolor-neutral-start),
+    calc(var(--kolor-on-neutral-contrast) * 150) var(--kolor-neutral-end)
   );
 }

@@ -1,5 +1,5 @@
 :where(a[href]) {
-  color: color-mix(in oklab, var(--color-accent), 35% var(--color-on-accent-1));
+  color: color-mix(in oklab, var(--color-accent), 5% currentColor);
 
   text-decoration-color: currentColor;
   text-decoration-thickness: 0.1em;
@@ -10,15 +10,11 @@
   &:where(:hover),
   &:where(:focus) {
     border-radius: var(--border-radius-1);
-    color: color-mix(
-      in oklab,
-      var(--color-accent),
-      65% var(--color-on-accent-1)
-    );
+    color: color-mix(in oklab, var(--color-accent), 50% currentColor);
   }
 
   &:where(:focus-visible) {
-    outline-offset: var(--border-width-2);
+    outline-offset: var(--border-width-2) var(--border-width-3);
     outline-radius: 0px;
     outline-color: var(--color-accent-5);
   }
