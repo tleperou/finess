@@ -1,4 +1,4 @@
-:where(html) {
+:root {
   --border-width-1: 0.0625em;
   --border-width-2: 0.1875em;
   --border-width-3: 0.3125em;

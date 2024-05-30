@@ -3,7 +3,7 @@
 /* 
  * Mutate per elements.
  */
-:where(html) {
+:root {
   --space-block-multiplier: var(--space-multiplier);
 }
 
@@ -11,7 +11,7 @@
  * Preserve consistant spacings through different 
  * screen ratios. Prevent over spacing on landscape.
  */
-:where(html) {
+:root {
   --space-block-ratio: 1;
   --space-block-ratio-max: 1 * var(--space-block-ratio);
 
@@ -28,7 +28,7 @@
   }
 }
 
-:where(html) {
+:root {
   --space-block-1: clamp(
     var(--space-base-block-1),
     calc(2vh * var(--space-block-ratio)),

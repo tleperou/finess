@@ -8,11 +8,11 @@
   --global-font-multiplier: 1;
 }
 
-:where(html) {
+:root {
   --font-multiplier: var(--global-font-multiplier);
 }
 
-:where(html) {
+:root {
   /* private props */
   --_lh-0: calc(0.85em * var(--font-multiplier));
   --_lh-1: calc(1.35em * var(--font-multiplier));

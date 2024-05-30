@@ -10,7 +10,7 @@
 /*
  * Mutate globally.
  */
-:where(html) {
+:root {
   --font-size-coefficient: var(--global-font-size-coefficient);
 }
 
@@ -18,7 +18,7 @@
  * Preserve consistant font size through different 
  * screen ratios. Prevent over size on landscape.
  */
-:where(html) {
+:root {
   --font-size-ratio: 1;
 
   @media (--landscape) {
@@ -26,7 +26,7 @@
   }
 }
 
-:where(html) {
+:root {
   /* private props */
   --_fs-0: 0.85rem;
   --_fs-1: 0.95rem;

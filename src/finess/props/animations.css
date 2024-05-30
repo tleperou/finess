@@ -1,4 +1,4 @@
-:where(html) {
+:root {
   --animation-duration-1: 20ms;
   --animation-duration-2: 60ms;
   --animation-duration-3: 120ms;
