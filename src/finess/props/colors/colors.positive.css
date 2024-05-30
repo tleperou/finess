@@ -1,12 +1,12 @@
 @import './../media/media.prefers.css';
 @import './utils.css';
 
-html[data-theme='dark'] {
+html[data-prefers-color-scheme='dark'] {
   --color-positive: darkgreen;
   --color-positive-contrast: 65;
 }
 
-html[data-theme='light'] {
+html[data-prefers-color-scheme='light'] {
   --color-positive: darkseagreen;
   --color-positive-contrast: 50;
 }

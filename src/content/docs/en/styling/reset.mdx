@@ -1,47 +1,7 @@
 ---
 title: Reset
 description: Finess reset
-editUrl: https://urltoedit.com
+editUrl: https://github.com/tleperou/finess/blob/main/src/content/docs/en/styling/reset.mdx
 ---
 
 Finess uses [Josh's](https://www.joshwcomeau.com/css/custom-css-reset/) minimalist custom CSS reset.
-
-### Custom CSS reset
-
-```css
-:where(*),
-:where(*::before),
-:where(*::after) {
-  box-sizing: border-box;
-}
-:where(*) {
-  margin: 0;
-}
-:where(body) {
-  line-height: var(--line-height-1);
-  -webkit-font-smoothing: antialiased;
-}
-:where(img),
-:where(picture),
-:where(video),
-:where(canvas),
-:where(svg) {
-  display: block;
-  max-inline-size: 100%;
-}
-:where(input),
-:where(button),
-:where(textarea),
-:where(select) {
-  font: inherit;
-}
-:where(p),
-:where(h1),
-:where(h2),
-:where(h3),
-:where(h4),
-:where(h5),
-:where(h6) {
-  overflow-wrap: break-word;
-}
-```

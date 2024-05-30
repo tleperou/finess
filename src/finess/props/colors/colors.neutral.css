@@ -1,12 +1,12 @@
 @import './../media/media.prefers.css';
 @import './utils.css';
 
-html[data-theme='dark'] {
+html[data-prefers-color-scheme='dark'] {
   --color-neutral: darkslateblue;
   --color-neutral-contrast: 50;
 }
 
-html[data-theme='light'] {
+html[data-prefers-color-scheme='light'] {
   --color-neutral: lightsteelblue;
   --color-neutral-contrast: 50;
 }

@@ -36,7 +36,7 @@ const options = [
   type Theme = 'auto' | 'dark' | 'light'
 
   /** Key in `localStorage` to store color theme preference at. */
-  const storageKey = 'starlight-theme'
+  const storageKey = 'data-prefers-color-scheme'
 
   /** Get a typesafe theme string from any JS value (unknown values are coerced to `'auto'`). */
   const parseTheme = (theme: unknown): Theme =>
@@ -68,6 +68,14 @@ const options = [
     StarlightThemeProvider.updatePickers(theme)
     document.documentElement.dataset.theme =
       theme === 'auto' ? getPreferredColorScheme() : theme
+
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute(storageKey)
+      delete document.documentElement.dataset.theme
+    } else {
+      document.documentElement.setAttribute(storageKey, theme)
+    }
+
     storeTheme(theme)
   }
 
