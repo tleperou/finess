@@ -4,10 +4,11 @@
 @import './typography.css';
 @import './icons.css';
 
+@layer reset, theme, utils;
+
 :root {
   color-scheme: light dark;
 
-  --global-space-multiplier: 1;
   --global-font-multiplier: 1;
 }
 

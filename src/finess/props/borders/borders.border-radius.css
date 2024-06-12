@@ -1,4 +1,4 @@
-:where(html) {
+:root {
   --border-radius-1: 0.165em;
   --border-radius-2: 0.35em;
   --border-radius-3: 0.85em;

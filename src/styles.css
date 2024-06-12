@@ -1,8 +1,8 @@
-html[data-theme='light'] {
+html[data-prefers-color-scheme='light'] {
   color-scheme: light only;
 }
 
-html[data-theme='dark'] {
+html[data-prefers-color-scheme='dark'] {
   color-scheme: dark only;
 }
 
@@ -97,7 +97,8 @@ main .markdown-content > h2 {
     margin-block-start: var(--margin-block-4);
   }
 
-  & + :is(p, blockquote) {
+  & + :is(p, blockquote),
+  & + p + p {
     margin-block-end: var(--margin-block-2);
     margin-block-start: var(--margin-block-3);
     color: var(--color-on-surface-2);
@@ -107,6 +108,10 @@ main .markdown-content > h2 {
 main .markdown-content > h3 {
   margin-block-start: var(--margin-block-2);
   margin-block-end: var(--margin-block-2);
+
+  & + p {
+    color: var(--color-on-surface-2);
+  }
 
   @media (--md-n-above) {
     margin-block-start: var(--margin-block-3);

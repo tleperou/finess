@@ -101,3 +101,74 @@ hgroup {
   <PalettePositive />
 
 </Colors>
+
+## Color scheme
+
+Finess color palettes come with dark and light color schemes in combinaison with `less` and `more` user's preference contrast levels.
+
+In the event you want to override the default user's color scheme preference, use `data-prefers-color-scheme` onto the `html` tag – even though overriding users preferences shall be avoided.
+
+<aside>
+  <p>Color scheme can also be locally overidden, read more about [`color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme).</p>
+</aside>
+
+### Overriding with HTML
+
+When using the overriden color scheme preference:
+
+```css
+html[data-prefers-color-scheme='dark'] .my-component {
+  --color: indianred;
+}
+
+html[data-prefers-color-scheme='light'] .my-component {
+  --color: darkred;
+}
+```
+
+### Overriding with CSS
+
+```css
+html[data-prefers-color-scheme='dark']  {
+  color-scheme: dark only;
+}
+
+html[data-prefers-color-scheme='light'] {
+  color-scheme: light only;
+}
+```
+
+### Targeting color scheme
+
+When using the [User Agent](https://developer.mozilla.org/en-US/docs/Glossary/User_agent) color scheme preference:
+
+```css
+/* dark by default */
+.my-component {
+  --color: indianred;
+
+  @media (--light) {
+      --color: darkred;
+  }
+}
+
+/* light by default */
+.my-component {
+  --color: darkred;
+
+  @media (--dark) {
+      --color: indianred;
+  }
+}
+
+/* or no defaults */
+.my-component {
+  @media (--light) {
+      --color: darkred;
+  }
+
+  @media (--dark) {
+      --color: indianred;
+  }
+}
+```

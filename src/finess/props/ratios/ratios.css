@@ -1,4 +1,4 @@
-:where(html) {
+:root {
   --aspect-ratio-square: 1;
   --aspect-ratio-landscape: 16/9;
   --aspect-ratio-portrait: 3/4;
