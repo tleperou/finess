@@ -1,6 +1,14 @@
 @import './../media/media.prefers.css';
 @import './utils.css';
 
+html[data-prefers-color-scheme='dark'] {
+  color-scheme: dark only;
+}
+
+html[data-prefers-color-scheme='light'] {
+  color-scheme: light only;
+}
+
 :root {
   --color-surface: #121210;
   --color-surface-mix: #f4f4f4;
