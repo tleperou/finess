@@ -1,6 +1,14 @@
 @import './../media/media.prefers.css';
 @import './utils.css';
 
+html[data-prefers-color-scheme='dark'] {
+  color-scheme: dark only;
+}
+
+html[data-prefers-color-scheme='light'] {
+  color-scheme: light only;
+}
+
 :root {
   --color-accent: #0c2ed3;
   --color-accent-mix: var(--color-on-surface-1);
