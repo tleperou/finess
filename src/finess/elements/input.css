@@ -32,3 +32,12 @@
     display: none;
   }
 }
+
+:where(input[type='date']) {
+  appearance: unset;
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+}
