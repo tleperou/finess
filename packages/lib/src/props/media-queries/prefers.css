@@ -1,0 +1,12 @@
+@custom-media --contrast (prefers-contrast: more);
+@custom-media --contrast-reduced (prefers-contrast: less);
+@custom-media --contrast-forced (forced-colors: active);
+
+@custom-media --motion (prefers-reduced-motion: no-preference);
+@custom-media --motion-reduced (prefers-reduced-motion: reduce);
+
+@custom-media --opacity (prefers-reduced-transparency: no-preference);
+@custom-media --opacity-reduced (prefers-reduced-transparency: reduce);
+
+@custom-media --data (prefers-reduced-data: no-preference);
+@custom-media --data-reduced (prefers-reduced-data: reduce);

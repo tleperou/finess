@@ -1,0 +1,6 @@
+@custom-media --touch (hover: none) and (pointer: coarse);
+@custom-media --stylus (hover: none) and (pointer: fine);
+@custom-media --pointer (hover) and (pointer: coarse);
+@custom-media --mouse (hover) and (pointer: fine);
+
+@custom-media --hdr (dynamic-range: high) or (color-gamut: p3);

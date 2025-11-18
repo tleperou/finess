@@ -1,0 +1,19 @@
+@layer reset, theme, elements, utils;
+
+/* reset */
+
+@import './src/reset.css' layer(reset);
+
+/* theme */
+
+@import './src/props/media-queries/breakpoints.css' layer(theme);
+@import './src/props/media-queries/color-scheme.css' layer(theme);
+@import './src/props/media-queries/device.css' layer(theme);
+@import './src/props/media-queries/orientation.css' layer(theme);
+@import './src/props/media-queries/prefers.css' layer(theme);
+@import './src/props/ratios.css' layer(theme);
+@import './src/props/shadows.css' layer(theme);
+
+/* utils */
+
+@import './src/utils/sr-only.css' layer(utils);
