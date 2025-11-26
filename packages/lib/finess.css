@@ -4,15 +4,19 @@
 
 @import './src/reset.css' layer(reset);
 
-/* theme */
+/* props/media queryies */
+@import './src/props/media-queries/breakpoints.css';
+@import './src/props/media-queries/color-scheme.css';
+@import './src/props/media-queries/device.css';
+@import './src/props/media-queries/orientation.css';
+@import './src/props/media-queries/prefers.css';
 
-@import './src/props/media-queries/breakpoints.css' layer(theme);
-@import './src/props/media-queries/color-scheme.css' layer(theme);
-@import './src/props/media-queries/device.css' layer(theme);
-@import './src/props/media-queries/orientation.css' layer(theme);
-@import './src/props/media-queries/prefers.css' layer(theme);
-@import './src/props/ratios.css' layer(theme);
-@import './src/props/shadows.css' layer(theme);
+/* props/ratios */
+
+@import './src/props/ratios.css';
+
+/* props/shadows */
+@import './src/props/shadows.css';
 
 /* utils */
 

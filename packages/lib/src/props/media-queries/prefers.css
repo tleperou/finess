@@ -1,3 +1,6 @@
+@custom-media --dark (prefers-color-scheme: dark);
+@custom-media --light (prefers-color-scheme: light);
+
 @custom-media --contrast (prefers-contrast: more);
 @custom-media --contrast-reduced (prefers-contrast: less);
 @custom-media --contrast-forced (forced-colors: active);
