@@ -4,19 +4,34 @@
 
 @import './src/reset.css' layer(reset);
 
-/* props/media queryies */
-@import './src/props/media-queries/breakpoints.css';
-@import './src/props/media-queries/color-scheme.css';
-@import './src/props/media-queries/device.css';
-@import './src/props/media-queries/orientation.css';
-@import './src/props/media-queries/prefers.css';
+/* elements */
+@import './src/elements/dialog.css' layer(elements);
 
-/* props/ratios */
+/* props/color-palette */
+@import './src/props/color-palette/open-colors.css' layer(theme);
+@import './src/props/color-palette/radis-colors.css' layer(theme);
+@import './src/props/color-palette/reasonable-colors.css' layer(theme);
+@import './src/props/color-palette/tailwind-colors.css' layer(theme);
 
-@import './src/props/ratios.css';
+/* props/color*/
+@import './src/props/color/color-accent.css' layer(theme);
+@import './src/props/color/color-negative.css' layer(theme);
+@import './src/props/color/color-neutral.css' layer(theme);
+@import './src/props/color/color-positive.css' layer(theme);
+@import './src/props/color/color-surface.css' layer(theme);
 
-/* props/shadows */
-@import './src/props/shadows.css';
+/* props/media-query */
+@import './src/props/media-query/breakpoints.css' layer(theme);
+@import './src/props/media-query/color-scheme.css' layer(theme);
+@import './src/props/media-query/device.css' layer(theme);
+@import './src/props/media-query/orientation.css' layer(theme);
+@import './src/props/media-query/prefers.css' layer(theme);
+
+/* props/ratio */
+@import './src/props/ratio.css' layer(theme);
+
+/* props/shadow */
+@import './src/props/shadow.css' layer(theme);
 
 /* utils */
 

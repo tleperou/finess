@@ -1,0 +1,39 @@
+html {
+    --fns-color-surface-dark: black;
+    --fns-color-on-surface-dark: white;
+
+    --fns-color-surface-light: white;
+    --fns-color-on-surface-light: black;
+
+    --fns-color-surface: light-dark(
+        var(--fns-color-surface-light),
+        var(--fns-color-surface-dark),
+    );
+    --fns-color-on-surface: light-dark(
+        var(--fns-color-surface-light),
+        var(--fns-color-surface-dark),
+    );
+
+    --color-surface-1: var(--fns-color-surface);
+    --color-on-surface-1: var(--fns-color-surface);
+
+    --color-surface-2: oklch(
+        from var(--fns-color-surface)
+        /* dark */
+        l * 1.15
+        /* light */
+        /* l*.85 */
+        c
+        h
+    );
+    --color-on-surface-2: var(--fns-color-surface);
+}
+
+
+/*@media (prefers-color-scheme: dark) {
+    --fns-color-surface-light: 0.1;
+}
+
+@media (prefers-color-scheme: light) {
+    --fns-color-surface-light: 0.1;
+}*/

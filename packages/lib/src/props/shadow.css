@@ -1,0 +1,14 @@
+html {
+    /*--fns-shadow-color-light: */
+    /*--fns-shadow-color-dark: */
+    /*--fns-shadow-color: light-dark() */
+
+    /*--shadow-1: ;*/
+    /*--inner-shadow-0: ;}*/
+
+    @media (--OSdark) {
+        :where(html) {
+            /*handle color scheme*/
+        }
+    }
+}

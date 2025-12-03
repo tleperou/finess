@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>finess</title>
+
+        <link rel="stylesheet" href="/lib/finess.css" />
+    </head>
+    <body>
+        <header>
+            <hgroup>
+                <small>element/dialog</small>
+                <h1>Dialog</h1>
+            </hgroup>
+        </header>
+        <main>
+            <p>Example of a dialog element.</p>
+
+            <section>
+                <button popovertarget="dialog">Delete project</button>
+
+                <dialog id="dialog" popover>
+                    <header>
+                        <h1>Delete project</h1>
+                        <p>The project will me deleted for ever.</p>
+                    </header>
+                    <form>
+                        <label>Piece of ino</label>
+                    </form>
+                </dialog>
+            </section>
+        </main>
+        <style>
+            :root {
+                --color: var(--color-surface-1);
+            }
+
+            section {
+                background-color: var(--color);
+                padding: 2cap;
+            }
+        </style>
+    </body>
+</html>
