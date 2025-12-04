@@ -9,7 +9,7 @@
 
 /* props/color-palette */
 @import './src/props/color-palette/open-colors.css' layer(theme);
-@import './src/props/color-palette/radis-colors.css' layer(theme);
+@import './src/props/color-palette/radix-colors.css' layer(theme);
 @import './src/props/color-palette/reasonable-colors.css' layer(theme);
 @import './src/props/color-palette/tailwind-colors.css' layer(theme);
 

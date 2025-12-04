@@ -13,7 +13,9 @@ html {
         var(--fns-color-surface-light),
         var(--fns-color-surface-dark),
     );
+}
 
+html {
     --color-surface-1: var(--fns-color-surface);
     --color-on-surface-1: var(--fns-color-surface);
 
