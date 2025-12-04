@@ -1,0 +1,8 @@
+html {
+    line-height: 1.4;
+
+    --fns-line-height-0: 0.95;
+    --fns-line-height-1: 1.375;
+    --fns-line-height-2: 1.5;
+    --fns-line-height-3: 2;
+}

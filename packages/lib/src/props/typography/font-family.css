@@ -1,0 +1,40 @@
+/* https://github.com/system-fonts/modern-font-stacks */
+
+html {
+    --fns-font-family-emoji:
+        'Apple Color Emoji',
+        'Segoe UI Emoji',
+        'Segoe UI Symbol',
+        'Noto Color Emoji';
+
+    --fns-font-family-sans:
+        system-ui,
+        sans-serif,
+        var(--fns-font-family-emoji);
+
+    --fns-font-family-serif:
+        Charter,
+        'Bitstream Charter',
+        'Sitka Text',
+        Cambria,
+        serif,
+        var(--fns-font-family-emoji);
+
+    --fns-font-family-handy:
+        'Segoe Print',
+        'Bradley Hand',
+        Chilanka,
+        TSCu_Comic,
+        casual,
+        cursive,
+        var(--fns-font-family-emoji);
+
+    --fns-font-family-mono:
+        ui-monospace,
+        'Cascadia Code',
+        'Source Code Pro',
+        Menlo, Consolas,
+        'DejaVu Sans Mono',
+        monospace,
+        var(--fns-font-family-emoji);
+}

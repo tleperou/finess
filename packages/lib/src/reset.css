@@ -12,14 +12,14 @@ https://css-tricks.com/notes-on-josh-comeaus-custom-css-reset/
 }
 
 html, body {
-    min-block-size: 100%;
+    min-block-size: 100dvh;
 }
 
 html {
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: none;
     text-size-adjust: none;
-    line-height: 1.4;
     font-variant-ligatures: none;
     hanging-punctuation: first allow-end last;
 

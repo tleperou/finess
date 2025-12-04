@@ -1,0 +1,17 @@
+@import './props/typography/font-family.css';
+@import './props/typography/font-size.css';
+@import './props/typography/font-weight.css';
+@import './props/typography/letter-spacing.css';
+@import './props/typography/line-height.css';
+
+html {
+    font-family: var(--fns-font-family-sans);
+    font-size: var(--fns-font-size-1);
+    font-weight: var(--fns-font-weight-1);
+    line-height: var(--fns-line-height-1);
+}
+
+h1,
+h2 {
+    letter-spacing: var(--fns-letter-spacing-0);
+}

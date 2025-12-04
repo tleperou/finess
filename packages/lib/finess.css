@@ -1,11 +1,8 @@
-@layer reset, theme, elements, utils;
-
-/* reset */
-
-@import './src/reset.css' layer(reset);
+@layer reset, theme, element, utils;
 
 /* elements */
-@import './src/elements/dialog.css' layer(elements);
+@import './src/elements/dialog.css' layer(element);
+@import './src/elements/p.css' layer(element);
 
 /* props/color-palette */
 @import './src/props/color-palette/open-colors.css' layer(theme);
@@ -33,6 +30,18 @@
 /* props/shadow */
 @import './src/props/shadow.css' layer(theme);
 
-/* utils */
+/* props/typography */
+@import './src/props/font-family.css' layer(theme);
+@import './src/props/font-size.css' layer(theme);
+@import './src/props/font-weight.css' layer(theme);
+@import './src/props/letter-spacing.css' layer(theme);
+@import './src/props/line-height.css' layer(theme);
 
+/* utils */
 @import './src/utils/sr-only.css' layer(utils);
+
+/* reset */
+@import './src/reset.css' layer(reset);
+
+/* theme */
+@import './src/theme.css' layer(theme);
