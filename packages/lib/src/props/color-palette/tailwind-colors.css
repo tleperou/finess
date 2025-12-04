@@ -30,287 +30,1492 @@ html {
         c
         h
     );
-    --tw-slate-100: light-dark(#f1f5f9, #0f172a);
-    --tw-slate-200: light-dark(#e2e8f0, #1e293b);
-    --tw-slate-300: light-dark(#cbd5e1, #334155);
-    --tw-slate-400: light-dark(#94a3b8, #475569);
-    --tw-slate-500: light-dark(#64748b, #64748b);
-    --tw-slate-600: light-dark(#475569, #94a3b8);
-    --tw-slate-700: light-dark(#334155, #cbd5e1);
-    --tw-slate-800: light-dark(#1e293b, #e2e8f0);
-    --tw-slate-900: light-dark(#0f172a, #f1f5f9);
-    --tw-slate-950: light-dark(#020617, #f8fafc);
+    --tw-slate-100: oklch(
+        from light-dark(#f1f5f9, #0f172a)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-slate-200: oklch(
+        from light-dark(#e2e8f0, #1e293b)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-slate-300: oklch(
+        from light-dark(#cbd5e1, #334155)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-slate-400: oklch(
+        from light-dark(#94a3b8, #475569)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-slate-500: oklch(
+        from light-dark(#64748b, #64748b)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-slate-600: oklch(
+        from light-dark(#475569, #94a3b8)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-slate-700: oklch(
+        from light-dark(#334155, #cbd5e1)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-slate-800: oklch(
+        from light-dark(#1e293b, #e2e8f0)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-slate-900: oklch(
+        from light-dark(#0f172a, #f1f5f9)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-slate-950: oklch(
+        from light-dark(#020617, #f8fafc)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
 
     /* Gray */
-    --tw-gray-50: light-dark(#f9fafb, #030712);
-    --tw-gray-100: light-dark(#f3f4f6, #111827);
-    --tw-gray-200: light-dark(#e5e7eb, #1f2937);
-    --tw-gray-300: light-dark(#d1d5db, #374151);
-    --tw-gray-400: light-dark(#9ca3af, #4b5563);
-    --tw-gray-500: light-dark(#6b7280, #6b7280);
-    --tw-gray-600: light-dark(#4b5563, #9ca3af);
-    --tw-gray-700: light-dark(#374151, #d1d5db);
-    --tw-gray-800: light-dark(#1f2937, #e5e7eb);
-    --tw-gray-900: light-dark(#111827, #f3f4f6);
-    --tw-gray-950: light-dark(#030712, #f9fafb);
+    --tw-gray-50: oklch(
+        from light-dark(#f9fafb, #030712)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-gray-100: oklch(
+        from light-dark(#f3f4f6, #111827)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-gray-200: oklch(
+        from light-dark(#e5e7eb, #1f2937)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-gray-300: oklch(
+        from light-dark(#d1d5db, #374151)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-gray-400: oklch(
+        from light-dark(#9ca3af, #4b5563)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-gray-500: oklch(
+        from light-dark(#6b7280, #6b7280)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-gray-600: oklch(
+        from light-dark(#4b5563, #9ca3af)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-gray-700: oklch(
+        from light-dark(#374151, #d1d5db)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-gray-800: oklch(
+        from light-dark(#1f2937, #e5e7eb)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-gray-900: oklch(
+        from light-dark(#111827, #f3f4f6)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-gray-950: oklch(
+        from light-dark(#030712, #f9fafb)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
 
     /* Zinc */
-    --tw-zinc-50: light-dark(#fafafa, #09090b);
-    --tw-zinc-100: light-dark(#f4f4f5, #18181b);
-    --tw-zinc-200: light-dark(#e4e4e7, #27272a);
-    --tw-zinc-300: light-dark(#d4d4d8, #3f3f46);
-    --tw-zinc-400: light-dark(#a1a1aa, #52525b);
-    --tw-zinc-500: light-dark(#71717a, #71717a);
-    --tw-zinc-600: light-dark(#52525b, #a1a1aa);
-    --tw-zinc-700: light-dark(#3f3f46, #d4d4d8);
-    --tw-zinc-800: light-dark(#27272a, #e4e4e7);
-    --tw-zinc-900: light-dark(#18181b, #f4f4f5);
-    --tw-zinc-950: light-dark(#09090b, #fafafa);
+    --tw-zinc-50: oklch(
+        from light-dark(#fafafa, #09090b)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-zinc-100: oklch(
+        from light-dark(#f4f4f5, #18181b)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-zinc-200: oklch(
+        from light-dark(#e4e4e7, #27272a)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-zinc-300: oklch(
+        from light-dark(#d4d4d8, #3f3f46)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-zinc-400: oklch(
+        from light-dark(#a1a1aa, #52525b)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-zinc-500: oklch(
+        from light-dark(#71717a, #71717a)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-zinc-600: oklch(
+        from light-dark(#52525b, #a1a1aa)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-zinc-700: oklch(
+        from light-dark(#3f3f46, #d4d4d8)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-zinc-800: oklch(
+        from light-dark(#27272a, #e4e4e7)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-zinc-900: oklch(
+        from light-dark(#18181b, #f4f4f5)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-zinc-950: oklch(
+        from light-dark(#09090b, #fafafa)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
 
     /* Neutral */
-    --tw-neutral-50: light-dark(#fafafa, #0a0a0a);
-    --tw-neutral-100: light-dark(#f5f5f5, #171717);
-    --tw-neutral-200: light-dark(#e5e5e5, #262626);
-    --tw-neutral-300: light-dark(#d4d4d4, #404040);
-    --tw-neutral-400: light-dark(#a3a3a3, #525252);
-    --tw-neutral-500: light-dark(#737373, #737373);
-    --tw-neutral-600: light-dark(#525252, #a3a3a3);
-    --tw-neutral-700: light-dark(#404040, #d4d4d4);
-    --tw-neutral-800: light-dark(#262626, #e5e5e5);
-    --tw-neutral-900: light-dark(#171717, #f5f5f5);
-    --tw-neutral-950: light-dark(#0a0a0a, #fafafa);
+    --tw-neutral-50: oklch(
+        from light-dark(#fafafa, #0a0a0a)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-neutral-100: oklch(
+        from light-dark(#f5f5f5, #171717)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-neutral-200: oklch(
+        from light-dark(#e5e5e5, #262626)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-neutral-300: oklch(
+        from light-dark(#d4d4d4, #404040)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-neutral-400: oklch(
+        from light-dark(#a3a3a3, #525252)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-neutral-500: oklch(
+        from light-dark(#737373, #737373)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-neutral-600: oklch(
+        from light-dark(#525252, #a3a3a3)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-neutral-700: oklch(
+        from light-dark(#404040, #d4d4d4)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-neutral-800: oklch(
+        from light-dark(#262626, #e5e5e5)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-neutral-900: oklch(
+        from light-dark(#171717, #f5f5f5)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-neutral-950: oklch(
+        from light-dark(#0a0a0a, #fafafa)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
 
     /* Stone */
-    --tw-stone-50: light-dark(#fafaf9, #0c0a09);
-    --tw-stone-100: light-dark(#f5f5f4, #1c1917);
-    --tw-stone-200: light-dark(#e7e5e4, #292524);
-    --tw-stone-300: light-dark(#d6d3d1, #44403c);
-    --tw-stone-400: light-dark(#a8a29e, #57534e);
-    --tw-stone-500: light-dark(#78716c, #78716c);
-    --tw-stone-600: light-dark(#57534e, #a8a29e);
-    --tw-stone-700: light-dark(#44403c, #d6d3d1);
-    --tw-stone-800: light-dark(#292524, #e7e5e4);
-    --tw-stone-900: light-dark(#1c1917, #f5f5f4);
-    --tw-stone-950: light-dark(#0c0a09, #fafaf9);
+    --tw-stone-50: oklch(
+        from light-dark(#fafaf9, #0c0a09)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-stone-100: oklch(
+        from light-dark(#f5f5f4, #1c1917)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-stone-200: oklch(
+        from light-dark(#e7e5e4, #292524)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-stone-300: oklch(
+        from light-dark(#d6d3d1, #44403c)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-stone-400: oklch(
+        from light-dark(#a8a29e, #57534e)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-stone-500: oklch(
+        from light-dark(#78716c, #78716c)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-stone-600: oklch(
+        from light-dark(#57534e, #a8a29e)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-stone-700: oklch(
+        from light-dark(#44403c, #d6d3d1)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-stone-800: oklch(
+        from light-dark(#292524, #e7e5e4)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-stone-900: oklch(
+        from light-dark(#1c1917, #f5f5f4)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-stone-950: oklch(
+        from light-dark(#0c0a09, #fafaf9)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
 
     /* Red */
-    --tw-red-50: light-dark(#fef2f2, #450a0a);
-    --tw-red-100: light-dark(#fee2e2, #7f1d1d);
-    --tw-red-200: light-dark(#fecaca, #991b1b);
-    --tw-red-300: light-dark(#fca5a5, #b91c1c);
-    --tw-red-400: light-dark(#f87171, #dc2626);
-    --tw-red-500: light-dark(#ef4444, #ef4444);
-    --tw-red-600: light-dark(#dc2626, #f87171);
-    --tw-red-700: light-dark(#b91c1c, #fca5a5);
-    --tw-red-800: light-dark(#991b1b, #fecaca);
-    --tw-red-900: light-dark(#7f1d1d, #fee2e2);
-    --tw-red-950: light-dark(#450a0a, #fef2f2);
+    --tw-red-50: oklch(
+        from light-dark(#fef2f2, #450a0a)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-red-100: oklch(
+        from light-dark(#fee2e2, #7f1d1d)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-red-200: oklch(
+        from light-dark(#fecaca, #991b1b)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-red-300: oklch(
+        from light-dark(#fca5a5, #b91c1c)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-red-400: oklch(
+        from light-dark(#f87171, #dc2626)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-red-500: oklch(
+        from light-dark(#ef4444, #ef4444)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-red-600: oklch(
+        from light-dark(#dc2626, #f87171)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-red-700: oklch(
+        from light-dark(#b91c1c, #fca5a5)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-red-800: oklch(
+        from light-dark(#991b1b, #fecaca)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-red-900: oklch(
+        from light-dark(#7f1d1d, #fee2e2)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-red-950: oklch(
+        from light-dark(#450a0a, #fef2f2)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
 
     /* Orange */
-    --tw-orange-50: light-dark(#fff7ed, #431407);
-    --tw-orange-100: light-dark(#ffedd5, #7c2d12);
-    --tw-orange-200: light-dark(#fed7aa, #9a3412);
-    --tw-orange-300: light-dark(#fdba74, #c2410c);
-    --tw-orange-400: light-dark(#fb923c, #ea580c);
-    --tw-orange-500: light-dark(#f97316, #f97316);
-    --tw-orange-600: light-dark(#ea580c, #fb923c);
-    --tw-orange-700: light-dark(#c2410c, #fdba74);
-    --tw-orange-800: light-dark(#9a3412, #fed7aa);
-    --tw-orange-900: light-dark(#7c2d12, #ffedd5);
-    --tw-orange-950: light-dark(#431407, #fff7ed);
+    --tw-orange-50: oklch(
+        from light-dark(#fff7ed, #431407)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-orange-100: oklch(
+        from light-dark(#ffedd5, #7c2d12)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-orange-200: oklch(
+        from light-dark(#fed7aa, #9a3412)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-orange-300: oklch(
+        from light-dark(#fdba74, #c2410c)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-orange-400: oklch(
+        from light-dark(#fb923c, #ea580c)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-orange-500: oklch(
+        from light-dark(#f97316, #f97316)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-orange-600: oklch(
+        from light-dark(#ea580c, #fb923c)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-orange-700: oklch(
+        from light-dark(#c2410c, #fdba74)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-orange-800: oklch(
+        from light-dark(#9a3412, #fed7aa)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-orange-900: oklch(
+        from light-dark(#7c2d12, #ffedd5)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-orange-950: oklch(
+        from light-dark(#431407, #fff7ed)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
 
     /* Amber */
-    --tw-amber-50: light-dark(#fffbeb, #451a03);
-    --tw-amber-100: light-dark(#fef3c7, #78350f);
-    --tw-amber-200: light-dark(#fde68a, #92400e);
-    --tw-amber-300: light-dark(#fcd34d, #b45309);
-    --tw-amber-400: light-dark(#fbbf24, #d97706);
-    --tw-amber-500: light-dark(#f59e0b, #f59e0b);
-    --tw-amber-600: light-dark(#d97706, #fbbf24);
-    --tw-amber-700: light-dark(#b45309, #fcd34d);
-    --tw-amber-800: light-dark(#92400e, #fde68a);
-    --tw-amber-900: light-dark(#78350f, #fef3c7);
-    --tw-amber-950: light-dark(#451a03, #fffbeb);
+    --tw-amber-50: oklch(
+        from light-dark(#fffbeb, #451a03)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-amber-100: oklch(
+        from light-dark(#fef3c7, #78350f)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-amber-200: oklch(
+        from light-dark(#fde68a, #92400e)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-amber-300: oklch(
+        from light-dark(#fcd34d, #b45309)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-amber-400: oklch(
+        from light-dark(#fbbf24, #d97706)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-amber-500: oklch(
+        from light-dark(#f59e0b, #f59e0b)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-amber-600: oklch(
+        from light-dark(#d97706, #fbbf24)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-amber-700: oklch(
+        from light-dark(#b45309, #fcd34d)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-amber-800: oklch(
+        from light-dark(#92400e, #fde68a)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-amber-900: oklch(
+        from light-dark(#78350f, #fef3c7)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-amber-950: oklch(
+        from light-dark(#451a03, #fffbeb)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
 
     /* Yellow */
-    --tw-yellow-50: light-dark(#fefce8, #422006);
-    --tw-yellow-100: light-dark(#fef9c3, #713f12);
-    --tw-yellow-200: light-dark(#fef08a, #854d0e);
-    --tw-yellow-300: light-dark(#fde047, #a16207);
-    --tw-yellow-400: light-dark(#facc15, #ca8a04);
-    --tw-yellow-500: light-dark(#eab308, #eab308);
-    --tw-yellow-600: light-dark(#ca8a04, #facc15);
-    --tw-yellow-700: light-dark(#a16207, #fde047);
-    --tw-yellow-800: light-dark(#854d0e, #fef08a);
-    --tw-yellow-900: light-dark(#713f12, #fef9c3);
-    --tw-yellow-950: light-dark(#422006, #fefce8);
+    --tw-yellow-50: oklch(
+        from light-dark(#fefce8, #422006)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-yellow-100: oklch(
+        from light-dark(#fef9c3, #713f12)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-yellow-200: oklch(
+        from light-dark(#fef08a, #854d0e)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-yellow-300: oklch(
+        from light-dark(#fde047, #a16207)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-yellow-400: oklch(
+        from light-dark(#facc15, #ca8a04)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-yellow-500: oklch(
+        from light-dark(#eab308, #eab308)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-yellow-600: oklch(
+        from light-dark(#ca8a04, #facc15)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-yellow-700: oklch(
+        from light-dark(#a16207, #fde047)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-yellow-800: oklch(
+        from light-dark(#854d0e, #fef08a)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-yellow-900: oklch(
+        from light-dark(#713f12, #fef9c3)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-yellow-950: oklch(
+        from light-dark(#422006, #fefce8)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
 
     /* Lime */
-    --tw-lime-50: light-dark(#f7fee7, #1a2e05);
-    --tw-lime-100: light-dark(#ecfccb, #365314);
-    --tw-lime-200: light-dark(#d9f99d, #3f6212);
-    --tw-lime-300: light-dark(#bef264, #4d7c0f);
-    --tw-lime-400: light-dark(#a3e635, #65a30d);
-    --tw-lime-500: light-dark(#84cc16, #84cc16);
-    --tw-lime-600: light-dark(#65a30d, #a3e635);
-    --tw-lime-700: light-dark(#4d7c0f, #bef264);
-    --tw-lime-800: light-dark(#3f6212, #d9f99d);
-    --tw-lime-900: light-dark(#365314, #ecfccb);
-    --tw-lime-950: light-dark(#1a2e05, #f7fee7);
+    --tw-lime-50: oklch(
+        from light-dark(#f7fee7, #1a2e05)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-lime-100: oklch(
+        from light-dark(#ecfccb, #365314)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-lime-200: oklch(
+        from light-dark(#d9f99d, #3f6212)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-lime-300: oklch(
+        from light-dark(#bef264, #4d7c0f)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-lime-400: oklch(
+        from light-dark(#a3e635, #65a30d)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-lime-500: oklch(
+        from light-dark(#84cc16, #84cc16)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-lime-600: oklch(
+        from light-dark(#65a30d, #a3e635)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-lime-700: oklch(
+        from light-dark(#4d7c0f, #bef264)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-lime-800: oklch(
+        from light-dark(#3f6212, #d9f99d)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-lime-900: oklch(
+        from light-dark(#365314, #ecfccb)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-lime-950: oklch(
+        from light-dark(#1a2e05, #f7fee7)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
 
     /* Green */
-    --tw-green-50: light-dark(#f0fdf4, #052e16);
-    --tw-green-100: light-dark(#dcfce7, #14532d);
-    --tw-green-200: light-dark(#bbf7d0, #166534);
-    --tw-green-300: light-dark(#86efac, #15803d);
-    --tw-green-400: light-dark(#4ade80, #16a34a);
-    --tw-green-500: light-dark(#22c55e, #22c55e);
-    --tw-green-600: light-dark(#16a34a, #4ade80);
-    --tw-green-700: light-dark(#15803d, #86efac);
-    --tw-green-800: light-dark(#166534, #bbf7d0);
-    --tw-green-900: light-dark(#14532d, #dcfce7);
-    --tw-green-950: light-dark(#052e16, #f0fdf4);
+    --tw-green-50: oklch(
+        from light-dark(#f0fdf4, #052e16)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-green-100: oklch(
+        from light-dark(#dcfce7, #14532d)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-green-200: oklch(
+        from light-dark(#bbf7d0, #166534)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-green-300: oklch(
+        from light-dark(#86efac, #15803d)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-green-400: oklch(
+        from light-dark(#4ade80, #16a34a)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-green-500: oklch(
+        from light-dark(#22c55e, #22c55e)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-green-600: oklch(
+        from light-dark(#16a34a, #4ade80)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-green-700: oklch(
+        from light-dark(#15803d, #86efac)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-green-800: oklch(
+        from light-dark(#166534, #bbf7d0)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-green-900: oklch(
+        from light-dark(#14532d, #dcfce7)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-green-950: oklch(
+        from light-dark(#052e16, #f0fdf4)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
 
     /* Emerald */
-    --tw-emerald-50: light-dark(#ecfdf5, #022c22);
-    --tw-emerald-100: light-dark(#d1fae5, #064e3b);
-    --tw-emerald-200: light-dark(#a7f3d0, #065f46);
-    --tw-emerald-300: light-dark(#6ee7b7, #047857);
-    --tw-emerald-400: light-dark(#34d399, #059669);
-    --tw-emerald-500: light-dark(#10b981, #10b981);
-    --tw-emerald-600: light-dark(#059669, #34d399);
-    --tw-emerald-700: light-dark(#047857, #6ee7b7);
-    --tw-emerald-800: light-dark(#065f46, #a7f3d0);
-    --tw-emerald-900: light-dark(#064e3b, #d1fae5);
-    --tw-emerald-950: light-dark(#022c22, #ecfdf5);
+    --tw-emerald-50: oklch(
+        from light-dark(#ecfdf5, #022c22)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-emerald-100: oklch(
+        from light-dark(#d1fae5, #064e3b)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-emerald-200: oklch(
+        from light-dark(#a7f3d0, #065f46)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-emerald-300: oklch(
+        from light-dark(#6ee7b7, #047857)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-emerald-400: oklch(
+        from light-dark(#34d399, #059669)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-emerald-500: oklch(
+        from light-dark(#10b981, #10b981)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-emerald-600: oklch(
+        from light-dark(#059669, #34d399)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-emerald-700: oklch(
+        from light-dark(#047857, #6ee7b7)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-emerald-800: oklch(
+        from light-dark(#065f46, #a7f3d0)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-emerald-900: oklch(
+        from light-dark(#064e3b, #d1fae5)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-emerald-950: oklch(
+        from light-dark(#022c22, #ecfdf5)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
 
     /* Teal */
-    --tw-teal-50: light-dark(#f0fdfa, #042f2e);
-    --tw-teal-100: light-dark(#ccfbf1, #134e4a);
-    --tw-teal-200: light-dark(#99f6e4, #115e59);
-    --tw-teal-300: light-dark(#5eead4, #0f766e);
-    --tw-teal-400: light-dark(#2dd4bf, #0d9488);
-    --tw-teal-500: light-dark(#14b8a6, #14b8a6);
-    --tw-teal-600: light-dark(#0d9488, #2dd4bf);
-    --tw-teal-700: light-dark(#0f766e, #5eead4);
-    --tw-teal-800: light-dark(#115e59, #99f6e4);
-    --tw-teal-900: light-dark(#134e4a, #ccfbf1);
-    --tw-teal-950: light-dark(#042f2e, #f0fdfa);
+    --tw-teal-50: oklch(
+        from light-dark(#f0fdfa, #042f2e)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-teal-100: oklch(
+        from light-dark(#ccfbf1, #134e4a)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-teal-200: oklch(
+        from light-dark(#99f6e4, #115e59)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-teal-300: oklch(
+        from light-dark(#5eead4, #0f766e)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-teal-400: oklch(
+        from light-dark(#2dd4bf, #0d9488)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-teal-500: oklch(
+        from light-dark(#14b8a6, #14b8a6)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-teal-600: oklch(
+        from light-dark(#0d9488, #2dd4bf)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-teal-700: oklch(
+        from light-dark(#0f766e, #5eead4)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-teal-800: oklch(
+        from light-dark(#115e59, #99f6e4)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-teal-900: oklch(
+        from light-dark(#134e4a, #ccfbf1)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-teal-950: oklch(
+        from light-dark(#042f2e, #f0fdfa)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
 
     /* Cyan */
-    --tw-cyan-50: light-dark(#ecfeff, #083344);
-    --tw-cyan-100: light-dark(#cffafe, #164e63);
-    --tw-cyan-200: light-dark(#a5f3fc, #155e75);
-    --tw-cyan-300: light-dark(#67e8f9, #0e7490);
-    --tw-cyan-400: light-dark(#22d3ee, #0891b2);
-    --tw-cyan-500: light-dark(#06b6d4, #06b6d4);
-    --tw-cyan-600: light-dark(#0891b2, #22d3ee);
-    --tw-cyan-700: light-dark(#0e7490, #67e8f9);
-    --tw-cyan-800: light-dark(#155e75, #a5f3fc);
-    --tw-cyan-900: light-dark(#164e63, #cffafe);
-    --tw-cyan-950: light-dark(#083344, #ecfeff);
+    --tw-cyan-50: oklch(
+        from light-dark(#ecfeff, #083344)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-cyan-100: oklch(
+        from light-dark(#cffafe, #164e63)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-cyan-200: oklch(
+        from light-dark(#a5f3fc, #155e75)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-cyan-300: oklch(
+        from light-dark(#67e8f9, #0e7490)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-cyan-400: oklch(
+        from light-dark(#22d3ee, #0891b2)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-cyan-500: oklch(
+        from light-dark(#06b6d4, #06b6d4)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-cyan-600: oklch(
+        from light-dark(#0891b2, #22d3ee)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-cyan-700: oklch(
+        from light-dark(#0e7490, #67e8f9)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-cyan-800: oklch(
+        from light-dark(#155e75, #a5f3fc)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-cyan-900: oklch(
+        from light-dark(#164e63, #cffafe)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-cyan-950: oklch(
+        from light-dark(#083344, #ecfeff)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
 
     /* Sky */
-    --tw-sky-50: light-dark(#f0f9ff, #082f49);
-    --tw-sky-100: light-dark(#e0f2fe, #0c4a6e);
-    --tw-sky-200: light-dark(#bae6fd, #075985);
-    --tw-sky-300: light-dark(#7dd3fc, #0369a1);
-    --tw-sky-400: light-dark(#38bdf8, #0284c7);
-    --tw-sky-500: light-dark(#0ea5e9, #0ea5e9);
-    --tw-sky-600: light-dark(#0284c7, #38bdf8);
-    --tw-sky-700: light-dark(#0369a1, #7dd3fc);
-    --tw-sky-800: light-dark(#075985, #bae6fd);
-    --tw-sky-900: light-dark(#0c4a6e, #e0f2fe);
-    --tw-sky-950: light-dark(#082f49, #f0f9ff);
+    --tw-sky-50: oklch(
+        from light-dark(#f0f9ff, #082f49)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-sky-100: oklch(
+        from light-dark(#e0f2fe, #0c4a6e)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-sky-200: oklch(
+        from light-dark(#bae6fd, #075985)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-sky-300: oklch(
+        from light-dark(#7dd3fc, #0369a1)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-sky-400: oklch(
+        from light-dark(#38bdf8, #0284c7)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-sky-500: oklch(
+        from light-dark(#0ea5e9, #0ea5e9)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-sky-600: oklch(
+        from light-dark(#0284c7, #38bdf8)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-sky-700: oklch(
+        from light-dark(#0369a1, #7dd3fc)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-sky-800: oklch(
+        from light-dark(#075985, #bae6fd)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-sky-900: oklch(
+        from light-dark(#0c4a6e, #e0f2fe)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-sky-950: oklch(
+        from light-dark(#082f49, #f0f9ff)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
 
     /* Blue */
-    --tw-blue-50: light-dark(#eff6ff, #172554);
-    --tw-blue-100: light-dark(#dbeafe, #1e3a8a);
-    --tw-blue-200: light-dark(#bfdbfe, #1e40af);
-    --tw-blue-300: light-dark(#93c5fd, #1d4ed8);
-    --tw-blue-400: light-dark(#60a5fa, #2563eb);
-    --tw-blue-500: light-dark(#3b82f6, #3b82f6);
-    --tw-blue-600: light-dark(#2563eb, #60a5fa);
-    --tw-blue-700: light-dark(#1d4ed8, #93c5fd);
-    --tw-blue-800: light-dark(#1e40af, #bfdbfe);
-    --tw-blue-900: light-dark(#1e3a8a, #dbeafe);
-    --tw-blue-950: light-dark(#172554, #eff6ff);
+    --tw-blue-50: oklch(
+        from light-dark(#eff6ff, #172554)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-blue-100: oklch(
+        from light-dark(#dbeafe, #1e3a8a)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-blue-200: oklch(
+        from light-dark(#bfdbfe, #1e40af)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-blue-300: oklch(
+        from light-dark(#93c5fd, #1d4ed8)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-blue-400: oklch(
+        from light-dark(#60a5fa, #2563eb)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-blue-500: oklch(
+        from light-dark(#3b82f6, #3b82f6)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-blue-600: oklch(
+        from light-dark(#2563eb, #60a5fa)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-blue-700: oklch(
+        from light-dark(#1d4ed8, #93c5fd)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-blue-800: oklch(
+        from light-dark(#1e40af, #bfdbfe)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-blue-900: oklch(
+        from light-dark(#1e3a8a, #dbeafe)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-blue-950: oklch(
+        from light-dark(#172554, #eff6ff)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
 
     /* Indigo */
-    --tw-indigo-50: light-dark(#eef2ff, #1e1b4b);
-    --tw-indigo-100: light-dark(#e0e7ff, #312e81);
-    --tw-indigo-200: light-dark(#c7d2fe, #3730a3);
-    --tw-indigo-300: light-dark(#a5b4fc, #4338ca);
-    --tw-indigo-400: light-dark(#818cf8, #4f46e5);
-    --tw-indigo-500: light-dark(#6366f1, #6366f1);
-    --tw-indigo-600: light-dark(#4f46e5, #818cf8);
-    --tw-indigo-700: light-dark(#4338ca, #a5b4fc);
-    --tw-indigo-800: light-dark(#3730a3, #c7d2fe);
-    --tw-indigo-900: light-dark(#312e81, #e0e7ff);
-    --tw-indigo-950: light-dark(#1e1b4b, #eef2ff);
+    --tw-indigo-50: oklch(
+        from light-dark(#eef2ff, #1e1b4b)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-indigo-100: oklch(
+        from light-dark(#e0e7ff, #312e81)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-indigo-200: oklch(
+        from light-dark(#c7d2fe, #3730a3)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-indigo-300: oklch(
+        from light-dark(#a5b4fc, #4338ca)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-indigo-400: oklch(
+        from light-dark(#818cf8, #4f46e5)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-indigo-500: oklch(
+        from light-dark(#6366f1, #6366f1)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-indigo-600: oklch(
+        from light-dark(#4f46e5, #818cf8)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-indigo-700: oklch(
+        from light-dark(#4338ca, #a5b4fc)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-indigo-800: oklch(
+        from light-dark(#3730a3, #c7d2fe)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-indigo-900: oklch(
+        from light-dark(#312e81, #e0e7ff)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-indigo-950: oklch(
+        from light-dark(#1e1b4b, #eef2ff)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
 
     /* Violet */
-    --tw-violet-50: light-dark(#f5f3ff, #2e1065);
-    --tw-violet-100: light-dark(#ede9fe, #4c1d95);
-    --tw-violet-200: light-dark(#ddd6fe, #5b21b6);
-    --tw-violet-300: light-dark(#c4b5fd, #6d28d9);
-    --tw-violet-400: light-dark(#a78bfa, #7c3aed);
-    --tw-violet-500: light-dark(#8b5cf6, #8b5cf6);
-    --tw-violet-600: light-dark(#7c3aed, #a78bfa);
-    --tw-violet-700: light-dark(#6d28d9, #c4b5fd);
-    --tw-violet-800: light-dark(#5b21b6, #ddd6fe);
-    --tw-violet-900: light-dark(#4c1d95, #ede9fe);
-    --tw-violet-950: light-dark(#2e1065, #f5f3ff);
+    --tw-violet-50: oklch(
+        from light-dark(#f5f3ff, #2e1065)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-violet-100: oklch(
+        from light-dark(#ede9fe, #4c1d95)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-violet-200: oklch(
+        from light-dark(#ddd6fe, #5b21b6)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-violet-300: oklch(
+        from light-dark(#c4b5fd, #6d28d9)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-violet-400: oklch(
+        from light-dark(#a78bfa, #7c3aed)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-violet-500: oklch(
+        from light-dark(#8b5cf6, #8b5cf6)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-violet-600: oklch(
+        from light-dark(#7c3aed, #a78bfa)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-violet-700: oklch(
+        from light-dark(#6d28d9, #c4b5fd)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-violet-800: oklch(
+        from light-dark(#5b21b6, #ddd6fe)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-violet-900: oklch(
+        from light-dark(#4c1d95, #ede9fe)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-violet-950: oklch(
+        from light-dark(#2e1065, #f5f3ff)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
 
     /* Purple */
-    --tw-purple-50: light-dark(#faf5ff, #3b0764);
-    --tw-purple-100: light-dark(#f3e8ff, #581c87);
-    --tw-purple-200: light-dark(#e9d5ff, #6b21a8);
-    --tw-purple-300: light-dark(#d8b4fe, #7e22ce);
-    --tw-purple-400: light-dark(#c084fc, #9333ea);
-    --tw-purple-500: light-dark(#a855f7, #a855f7);
-    --tw-purple-600: light-dark(#9333ea, #c084fc);
-    --tw-purple-700: light-dark(#7e22ce, #d8b4fe);
-    --tw-purple-800: light-dark(#6b21a8, #e9d5ff);
-    --tw-purple-900: light-dark(#581c87, #f3e8ff);
-    --tw-purple-950: light-dark(#3b0764, #faf5ff);
+    --tw-purple-50: oklch(
+        from light-dark(#faf5ff, #3b0764)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-purple-100: oklch(
+        from light-dark(#f3e8ff, #581c87)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-purple-200: oklch(
+        from light-dark(#e9d5ff, #6b21a8)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-purple-300: oklch(
+        from light-dark(#d8b4fe, #7e22ce)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-purple-400: oklch(
+        from light-dark(#c084fc, #9333ea)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-purple-500: oklch(
+        from light-dark(#a855f7, #a855f7)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-purple-600: oklch(
+        from light-dark(#9333ea, #c084fc)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-purple-700: oklch(
+        from light-dark(#7e22ce, #d8b4fe)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-purple-800: oklch(
+        from light-dark(#6b21a8, #e9d5ff)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-purple-900: oklch(
+        from light-dark(#581c87, #f3e8ff)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-purple-950: oklch(
+        from light-dark(#3b0764, #faf5ff)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
 
     /* Fuchsia */
-    --tw-fuchsia-50: light-dark(#fdf4ff, #4a044e);
-    --tw-fuchsia-100: light-dark(#fae8ff, #701a75);
-    --tw-fuchsia-200: light-dark(#f5d0fe, #86198f);
-    --tw-fuchsia-300: light-dark(#f0abfc, #a21caf);
-    --tw-fuchsia-400: light-dark(#e879f9, #c026d3);
-    --tw-fuchsia-500: light-dark(#d946ef, #d946ef);
-    --tw-fuchsia-600: light-dark(#c026d3, #e879f9);
-    --tw-fuchsia-700: light-dark(#a21caf, #f0abfc);
-    --tw-fuchsia-800: light-dark(#86198f, #f5d0fe);
-    --tw-fuchsia-900: light-dark(#701a75, #fae8ff);
-    --tw-fuchsia-950: light-dark(#4a044e, #fdf4ff);
+    --tw-fuchsia-50: oklch(
+        from light-dark(#fdf4ff, #4a044e)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-fuchsia-100: oklch(
+        from light-dark(#fae8ff, #701a75)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-fuchsia-200: oklch(
+        from light-dark(#f5d0fe, #86198f)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-fuchsia-300: oklch(
+        from light-dark(#f0abfc, #a21caf)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-fuchsia-400: oklch(
+        from light-dark(#e879f9, #c026d3)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-fuchsia-500: oklch(
+        from light-dark(#d946ef, #d946ef)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-fuchsia-600: oklch(
+        from light-dark(#c026d3, #e879f9)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-fuchsia-700: oklch(
+        from light-dark(#a21caf, #f0abfc)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-fuchsia-800: oklch(
+        from light-dark(#86198f, #f5d0fe)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-fuchsia-900: oklch(
+        from light-dark(#701a75, #fae8ff)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-fuchsia-950: oklch(
+        from light-dark(#4a044e, #fdf4ff)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
 
     /* Pink */
-    --tw-pink-50: light-dark(#fdf2f8, #500724);
-    --tw-pink-100: light-dark(#fce7f3, #831843);
-    --tw-pink-200: light-dark(#fbcfe8, #9d174d);
-    --tw-pink-300: light-dark(#f9a8d4, #be185d);
-    --tw-pink-400: light-dark(#f472b6, #db2777);
-    --tw-pink-500: light-dark(#ec4899, #ec4899);
-    --tw-pink-600: light-dark(#db2777, #f472b6);
-    --tw-pink-700: light-dark(#be185d, #f9a8d4);
-    --tw-pink-800: light-dark(#9d174d, #fbcfe8);
-    --tw-pink-900: light-dark(#831843, #fce7f3);
-    --tw-pink-950: light-dark(#500724, #fdf2f8);
+    --tw-pink-50: oklch(
+        from light-dark(#fdf2f8, #500724)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-pink-100: oklch(
+        from light-dark(#fce7f3, #831843)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-pink-200: oklch(
+        from light-dark(#fbcfe8, #9d174d)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-pink-300: oklch(
+        from light-dark(#f9a8d4, #be185d)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-pink-400: oklch(
+        from light-dark(#f472b6, #db2777)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-pink-500: oklch(
+        from light-dark(#ec4899, #ec4899)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-pink-600: oklch(
+        from light-dark(#db2777, #f472b6)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-pink-700: oklch(
+        from light-dark(#be185d, #f9a8d4)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-pink-800: oklch(
+        from light-dark(#9d174d, #fbcfe8)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-pink-900: oklch(
+        from light-dark(#831843, #fce7f3)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-pink-950: oklch(
+        from light-dark(#500724, #fdf2f8)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
 
     /* Rose */
-    --tw-rose-50: light-dark(#fff1f2, #4c0519);
-    --tw-rose-100: light-dark(#ffe4e6, #881337);
-    --tw-rose-200: light-dark(#fecdd3, #9f1239);
-    --tw-rose-300: light-dark(#fda4af, #be123c);
-    --tw-rose-400: light-dark(#fb7185, #e11d48);
-    --tw-rose-500: light-dark(#f43f5e, #f43f5e);
-    --tw-rose-600: light-dark(#e11d48, #fb7185);
-    --tw-rose-700: light-dark(#be123c, #fda4af);
-    --tw-rose-800: light-dark(#9f1239, #fecdd3);
-    --tw-rose-900: light-dark(#881337, #ffe4e6);
-    --tw-rose-950: light-dark(#4c0519, #fff1f2);
+    --tw-rose-50: oklch(
+        from light-dark(#fff1f2, #4c0519)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-rose-100: oklch(
+        from light-dark(#ffe4e6, #881337)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-rose-200: oklch(
+        from light-dark(#fecdd3, #9f1239)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-rose-300: oklch(
+        from light-dark(#fda4af, #be123c)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-rose-400: oklch(
+        from light-dark(#fb7185, #e11d48)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-rose-500: oklch(
+        from light-dark(#f43f5e, #f43f5e)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-rose-600: oklch(
+        from light-dark(#e11d48, #fb7185)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-rose-700: oklch(
+        from light-dark(#be123c, #fda4af)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-rose-800: oklch(
+        from light-dark(#9f1239, #fecdd3)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-rose-900: oklch(
+        from light-dark(#881337, #ffe4e6)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
+    --tw-rose-950: oklch(
+        from light-dark(#4c0519, #fff1f2)
+        calc(l * var(--fns-color-tw-contrast-mod))
+        c
+        h
+    );
 }
